@@ -62,19 +62,21 @@ enum UpdateGeometryType
 };
 
 /// Rendering frame update parameters.
+//渲染帧更新参数
 struct FrameInfo
 {
-    /// Frame number.
+    /// Frame number.  第几帧
     unsigned frameNumber_;
-    /// Time elapsed since last frame.
+    /// Time elapsed since last frame. 从上一帧到当前的时间
     float timeStep_;
-    /// Viewport size.
+    /// Viewport size.  视口大小
     IntVector2 viewSize_;
-    /// Camera being used.
+    /// Camera being used. 正在使用的摄像机
     Camera* camera_;
 };
 
 /// Source data for a 3D geometry draw call.
+//每一次draw call 所需要的源数据
 struct URHO3D_API SourceBatch
 {
     /// Construct with defaults.
@@ -87,15 +89,15 @@ struct URHO3D_API SourceBatch
     /// Assignment operator.
     SourceBatch& operator =(const SourceBatch& rhs);
 
-    /// Distance from camera.
+    /// Distance from camera. 到摄像机的距离
     float distance_;
-    /// Geometry.
+    /// Geometry. 几何数据
     Geometry* geometry_;
     /// Material.
     SharedPtr<Material> material_;
-    /// World transform(s). For a skinned model, these are the bone transforms.
+    /// World transform(s). For a skinned model, these are the bone transforms. 世界矩阵，用于有骷髅转换的蒙皮模型
     const Matrix3x4* worldTransform_;
-    /// Number of world transforms.
+    /// Number of world transforms. 世界矩阵的个数
     unsigned numWorldTransforms_;
     /// Per-instance data. If not null, must contain enough data to fill instancing buffer.
     void* instancingData_;
@@ -104,6 +106,7 @@ struct URHO3D_API SourceBatch
 };
 
 /// Base class for visible components.
+// 所有可见物体的基类
 class URHO3D_API Drawable : public Component
 {
     URHO3D_OBJECT(Drawable, Component);
