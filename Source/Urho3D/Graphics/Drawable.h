@@ -95,7 +95,7 @@ struct URHO3D_API SourceBatch
     Geometry* geometry_;
     /// Material.
     SharedPtr<Material> material_;
-    /// World transform(s). For a skinned model, these are the bone transforms. 世界矩阵，用于有骷髅转换的蒙皮模型
+    /// World transform(s). For a skinned model, these are the bone transforms. 世界矩阵，用于有骨骼转换的蒙皮模型
     const Matrix3x4* worldTransform_;
     /// Number of world transforms. 世界矩阵的个数
     unsigned numWorldTransforms_;

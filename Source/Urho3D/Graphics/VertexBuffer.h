@@ -29,7 +29,7 @@
 
 namespace Urho3D
 {
-
+//硬件顶点buff  ogre中的 HardwareVertexBuffer
 /// Hardware vertex buffer.
 class URHO3D_API VertexBuffer : public Object, public GPUObject
 {

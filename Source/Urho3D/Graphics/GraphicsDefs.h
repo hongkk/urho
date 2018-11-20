@@ -147,7 +147,7 @@ enum LegacyVertexElement
     ELEMENT_OBJECTINDEX,
     MAX_LEGACY_VERTEX_ELEMENTS
 };
-
+//顶数数据的类型
 /// Arbitrary vertex declaration element datatypes.
 enum VertexElementType
 {
@@ -160,7 +160,7 @@ enum VertexElementType
     TYPE_UBYTE4_NORM,
     MAX_VERTEX_ELEMENT_TYPES
 };
-
+//顶点数据的语义
 /// Arbitrary vertex declaration element semantics.
 enum VertexElementSemantic
 {
@@ -176,6 +176,11 @@ enum VertexElementSemantic
     MAX_VERTEX_ELEMENT_SEMANTICS
 };
 
+//对vertextbuff数据块中的数据进行描述  具体的描述内容放在PODVector<VertexElement> elements_ 这个属性
+//比如这个数据块的最开始是3个float数据type = TYPE_VECTOR3，表示顶点位置semantic_ = SEM_POSITION，这时index = 0,offset = 0。这个VertexElement 放在elements_[0]
+//数据块接下去的数据是表示法线，所以elements_[1] 这个 VertexElement的数据是type = TYPE_VECTOR3，semantic_ = SEM_BINORMAL，这时index = 1,offset = 9
+//接下去的数据是表示uv坐标，所以elements_[2] 这个 VertexElement的数据是type = TYPE_VECTOR2，semantic_ = SEM_TEXCOORD，这时index = 2,offset = 15
+//也就是说，PODVector<VertexElement> elements_  这个属性决定了这个数据块数据存储的方式，以后读写这个vertextbuff都按这个属性描述的内容来循环存取
 /// Vertex element description for arbitrary vertex declarations.
 struct URHO3D_API VertexElement
 {
