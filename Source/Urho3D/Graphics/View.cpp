@@ -997,6 +997,7 @@ void View::GetBatches()
     GetBaseBatches();
 }
 
+//光源相关处理
 void View::ProcessLights()
 {
     // Process lit geometries and shadow casters for each light
@@ -2371,10 +2372,11 @@ void View::ProcessLight(LightQueryResult& query, unsigned threadIndex)
         return;
     }
 
-	//确实阴影摄像机的数量以及他们的初始位置
+	//确实阴影摄像机的数量以及他们的初始位置 处理的结果是生成多个CameraNode放在 query.shadowCameras_中，最后记录 query.numSplits_
     // Determine number of shadow cameras and setup their initial positions
     SetupShadowCameras(query);
 
+	//先清空query.shadowCasters_
     // Process each split for shadow casters
     query.shadowCasters_.Clear();
     for (unsigned i = 0; i < query.numSplits_; ++i)
@@ -2643,6 +2645,7 @@ void View::SetupShadowCameras(LightQueryResult& query)
     query.numSplits_ = (unsigned)splits;
 }
 
+//设置平行光的阴影摄像机，即把场景主摄像机视锥体分割出来的几个平头截体转换为光源空间下的几个平头截体
 void View::SetupDirLightShadowCamera(Camera* shadowCamera, Light* light, float nearSplit, float farSplit)
 {
     Node* shadowCameraNode = shadowCamera->GetNode();
@@ -2705,6 +2708,7 @@ void View::SetupDirLightShadowCamera(Camera* shadowCamera, Light* light, float n
     shadowCamera->SetNearClip(0.0f);
     shadowCamera->SetFarClip(shadowBox.max_.z_);
 
+	//把shadowCamera放到boundingbox的中央，由于还不知道 shadowmap的viewport，所以还不能生成纹理快照（也就是还不能生成阴影图）
     // Center shadow camera on the bounding box. Can not snap to texels yet as the shadow map viewport is unknown
     QuantizeDirLightShadowCamera(shadowCamera, light, IntRect(0, 0, 0, 0), shadowBox);
 }
