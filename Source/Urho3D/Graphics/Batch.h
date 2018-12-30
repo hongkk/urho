@@ -70,32 +70,43 @@ struct Batch
         geometryType_(rhs.geometryType_)
     {
     }
-
+	// 计算排序的键
     /// Calculate state sorting key, which consists of base pass flag, light, pass and geometry.
     void CalculateSortKey();
+	//准备渲染
     /// Prepare for rendering.
     void Prepare(View* view, Camera* camera, bool setModelTransform, bool allowDepthWrite) const;
+	//执行渲染
     /// Prepare and draw.
     void Draw(View* view, Camera* camera, bool allowDepthWrite) const;
-
+	//排序的键
     /// State sorting key.
     unsigned long long sortKey_;
     /// Distance from camera.
+	//到摄像机的距离
     float distance_;
+	//8位 渲染顺序
     /// 8-bit render order modifier from material.
     unsigned char renderOrder_;
+	// 8位 光源掩码 用于延迟渲染
     /// 8-bit light mask for stencil marking in deferred rendering.
     unsigned char lightMask_;
+	//基础批次标识 表示渲染的时候不需要做光源优化
     /// Base batch flag. This tells to draw the object fully without light optimizations.
     bool isBase_;
+	//顶点数据
     /// Geometry.
     Geometry* geometry_;
+	//本批次相关材质
     /// Material.
     Material* material_;
+	//世界矩阵，对于蒙皮模型来说是骨骼矩阵
     /// World transform(s). For a skinned model, these are the bone transforms.
     const Matrix3x4* worldTransform_;
+	//世界矩阵的个数
     /// Number of world transforms.
     unsigned numWorldTransforms_;
+	// 实例 不知道是什么意思
     /// Per-instance data. If not null, must contain enough data to fill instancing buffer.
     void* instancingData_;
     /// Zone.
@@ -112,6 +123,7 @@ struct Batch
     GeometryType geometryType_;
 };
 
+//用于存储 Batch 中的每一个worldTransform_
 /// Data for one geometry instance.
 struct InstanceData
 {
@@ -236,10 +248,13 @@ struct BatchGroupKey
 struct BatchQueue
 {
 public:
+	//开始使用之前清理原来的数据
     /// Clear for new frame by clearing all groups and batches.
     void Clear(int maxSortedInstances);
+	// 对 非实例化 draw call 从后往前排序
     /// Sort non-instanced draw calls back to front.
     void SortBackToFront();
+	// 对 实例化和非实例化 draw call 从前往后排序
     /// Sort instanced and non-instanced draw calls front to back.
     void SortFrontToBack();
     /// Sort batches front to back while also maintaining state sorting.

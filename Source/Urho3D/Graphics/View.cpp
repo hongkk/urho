@@ -816,6 +816,7 @@ void View::GetDrawables()
     WorkQueue* queue = GetSubsystem<WorkQueue>();
     PODVector<Drawable*>& tempDrawables = tempDrawables_[0];
 
+	//查找Zone 和 设置了occluders标识的 Geometry
     // Get zones and occluders first
     {
         ZoneOccluderOctreeQuery
@@ -827,7 +828,7 @@ void View::GetDrawables()
     int bestPriority = M_MIN_INT;
     Node* cameraNode = cullCamera_->GetNode();
     Vector3 cameraPos = cameraNode->GetWorldPosition();
-
+	//将上一步查找的结果存到 zones_ 和 occluders_ 列表中
     for (PODVector<Drawable*>::ConstIterator i = tempDrawables.Begin(); i != tempDrawables.End(); ++i)
     {
         Drawable* drawable = *i;
@@ -849,7 +850,7 @@ void View::GetDrawables()
         else
             occluders_.Push(drawable);
     }
-
+	//根据上一步找出的zone，决定 farClipZone_ 和bestPriority
     // Determine the zone at far clip distance. If not found, or camera zone has override mode, use camera zone
     cameraZoneOverride_ = cameraZone_->GetOverride();
     if (!cameraZoneOverride_)
@@ -870,6 +871,7 @@ void View::GetDrawables()
     if (farClipZone_ == renderer_->GetDefaultZone())
         farClipZone_ = cameraZone_;
 
+	//如果有occlusion 先渲染occluders_中的东西
     // If occlusion in use, get & render the occluders
     occlusionBuffer_ = 0;
     if (maxOccluderTriangles_ > 0)
@@ -886,6 +888,7 @@ void View::GetDrawables()
     else
         occluders_.Clear();
 
+	//查找光源
     // Get lights and geometries. Coarse occlusion for octants is used at this point
     if (occlusionBuffer_)
     {
@@ -899,8 +902,9 @@ void View::GetDrawables()
         octree_->GetDrawables(query);
     }
 
+	
     // Check drawable occlusion, find zones for moved drawables and collect geometries & lights in worker threads
-    {
+    {   // 清空 sceneResults_ 
         for (unsigned i = 0; i < sceneResults_.Size(); ++i)
         {
             PerThreadSceneResult& result = sceneResults_[i];
@@ -910,7 +914,8 @@ void View::GetDrawables()
             result.minZ_ = M_INFINITY;
             result.maxZ_ = 0.0f;
         }
-
+		// 分几个线程调用 CheckVisibilityWork 结果放到sceneResults_中
+		// CheckVisibilityWork 用于检查对象是否可见
         int numWorkItems = queue->GetNumThreads() + 1; // Worker threads + main thread
         int drawablesPerItem = tempDrawables.Size() / numWorkItems;
 
@@ -943,6 +948,7 @@ void View::GetDrawables()
     minZ_ = M_INFINITY;
     maxZ_ = 0.0f;
 
+	//将 sceneResults_ 中的所有东西分别放入 geometries_ 和 lights_列表中
     if (sceneResults_.Size() > 1)
     {
         for (unsigned i = 0; i < sceneResults_.Size(); ++i)
@@ -974,7 +980,7 @@ void View::GetDrawables()
         light->SetIntensitySortValue(cullCamera_->GetDistance(light->GetNode()->GetWorldPosition()));
         light->SetLightQueue(0);
     }
-
+	// 对光源进行排序
     Sort(lights_.Begin(), lights_.End(), CompareLights);
 }
 
@@ -999,6 +1005,10 @@ void View::ProcessLights()
     WorkQueue* queue = GetSubsystem<WorkQueue>();
     lightQueryResults_.Resize(lights_.Size());
 
+	//分成 lights_.Size() 个队列调用 ProcessLightWork
+	//每个队列处理对应的 light
+	// lightQueryResults_ 是一个中间变量 用来存放处理过程的结果
+	//最终会交给本类中的 ProcessLight处理
     for (unsigned i = 0; i < lightQueryResults_.Size(); ++i)
     {
         SharedPtr<WorkItem> item = queue->GetFreeItem();
@@ -2299,6 +2309,7 @@ void View::ProcessLight(LightQueryResult& query, unsigned threadIndex)
     unsigned lightMask = light->GetLightMask();
     const Frustum& frustum = cullCamera_->GetFrustum();
 
+	// 检查这个光是否要对其他物体产生阴影
     // Check if light should be shadowed
     bool isShadowed = drawShadows_ && light->GetCastShadows() && !light->GetPerVertex() && light->GetShadowIntensity() < 1.0f;
     // If shadow distance non-zero, check it
@@ -2313,6 +2324,8 @@ void View::ProcessLight(LightQueryResult& query, unsigned threadIndex)
     PODVector<Drawable*>& tempDrawables = tempDrawables_[threadIndex];
     query.litGeometries_.Clear();
 
+	//根据light.type，检查不同类型下的光源对 geometries_ 中所有物体的影响
+	//常见的check条件是检查lightmask是否相同，以及物体是否在光源影响范围之内
     switch (type)
     {
     case LIGHT_DIRECTIONAL:
@@ -2349,7 +2362,8 @@ void View::ProcessLight(LightQueryResult& query, unsigned threadIndex)
         }
         break;
     }
-
+	
+	//如果没有物体受到当前光源的影响，或者当前光源不产生阴影，则不做下一步处理
     // If no lit geometries or not shadowed, no need to process shadow cameras
     if (query.litGeometries_.Empty() || !isShadowed)
     {
@@ -2357,6 +2371,7 @@ void View::ProcessLight(LightQueryResult& query, unsigned threadIndex)
         return;
     }
 
+	//确实阴影摄像机的数量以及他们的初始位置
     // Determine number of shadow cameras and setup their initial positions
     SetupShadowCameras(query);
 
@@ -2537,6 +2552,7 @@ IntRect View::GetShadowMapViewport(Light* light, unsigned splitIndex, Texture2D*
     return IntRect();
 }
 
+//确定视锥分割下各个阴影摄像的参数，并把它们保存到 query.shadowCameras_等变量中
 void View::SetupShadowCameras(LightQueryResult& query)
 {
     Light* light = query.light_;
@@ -2547,6 +2563,7 @@ void View::SetupShadowCameras(LightQueryResult& query)
     {
     case LIGHT_DIRECTIONAL:
         {
+			//视锥分割的参数
             const CascadeParameters& cascade = light->GetShadowCascade();
 
             float nearSplit = cullCamera_->GetNearClip();
@@ -2563,11 +2580,17 @@ void View::SetupShadowCameras(LightQueryResult& query)
                 if (farSplit <= nearSplit)
                     break;
 
+				//根据4个分割参数，把几个视锥体的近截面和远截面都记录下来
+				//GetShadowCamera 会new出几个节点，再在节点上创建出Camera返回，这些节点保存在 当前类的shadowCameraNodes_中
                 // Setup the shadow camera for the split
                 Camera* shadowCamera = renderer_->GetShadowCamera();
                 query.shadowCameras_[splits] = shadowCamera;
                 query.shadowNearSplits_[splits] = nearSplit;
                 query.shadowFarSplits_[splits] = farSplit;
+
+				//填充shadowCamera的内部数据
+				//主要是把主摄像机分割的几个平头截体数据复制一份通过位移和旋转 转到光源空间下
+				//根据nearSplit, farSplit 调整平头截体的远近平面
                 SetupDirLightShadowCamera(shadowCamera, light, nearSplit, farSplit);
 
                 nearSplit = farSplit;
@@ -2583,6 +2606,7 @@ void View::SetupShadowCameras(LightQueryResult& query)
             Node* cameraNode = shadowCamera->GetNode();
             Node* lightNode = light->GetNode();
 
+			//聚光灯类型光源对shadowCamera的内部数据的填充
             cameraNode->SetTransform(lightNode->GetWorldPosition(), lightNode->GetWorldRotation());
             shadowCamera->SetNearClip(light->GetShadowNearFarRatio() * light->GetRange());
             shadowCamera->SetFarClip(light->GetRange());
@@ -2601,6 +2625,7 @@ void View::SetupShadowCameras(LightQueryResult& query)
                 query.shadowCameras_[i] = shadowCamera;
                 Node* cameraNode = shadowCamera->GetNode();
 
+				//点光源类型光源对shadowCamera的内部数据的填充
                 // When making a shadowed point light, align the splits along X, Y and Z axes regardless of light rotation
                 cameraNode->SetPosition(light->GetNode()->GetWorldPosition());
                 cameraNode->SetDirection(*directions[i]);
