@@ -151,6 +151,8 @@ void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryRe
     }
 }
 
+//更新批次
+//更新批次中的distance_ 、worldTransform_
 void Drawable::UpdateBatches(const FrameInfo& frame)
 {
     const BoundingBox& worldBoundingBox = GetWorldBoundingBox();

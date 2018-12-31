@@ -282,6 +282,7 @@ public:
     /// Return light intensity in shadow.
     float GetShadowIntensity() const { return shadowIntensity_; }
 
+	//·Ö±æÂÊ
     /// Return shadow resolution.
     float GetShadowResolution() const { return shadowResolution_; }
 

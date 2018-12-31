@@ -851,11 +851,15 @@ Geometry* Renderer::GetQuadGeometry()
     return dirLightGeometry_;
 }
 
+//生成一张ShadowMap，即 new Texture2D
+//camera 是主摄像机
 Texture2D* Renderer::GetShadowMap(Light* light, Camera* camera, unsigned viewWidth, unsigned viewHeight)
 {
     LightType type = light->GetLightType();
     const FocusParameters& parameters = light->GetShadowFocus();
     float size = (float)shadowMapSize_ * light->GetShadowResolution();
+
+	//当不是平行光并且远离的时候，自动减小阴影图的尺寸
     // Automatically reduce shadow map size when far away
     if (parameters.autoSize_ && type != LIGHT_DIRECTIONAL)
     {
@@ -864,14 +868,14 @@ Texture2D* Renderer::GetShadowMap(Light* light, Camera* camera, unsigned viewWid
         BoundingBox lightBox;
         float lightPixels;
 
-        if (type == LIGHT_POINT)
+        if (type == LIGHT_POINT) //点光源
         {
             // Calculate point light pixel size from the projection of its diagonal
             Vector3 center = view * light->GetNode()->GetWorldPosition();
             float extent = 0.58f * light->GetRange();
             lightBox.Define(center + Vector3(extent, extent, extent), center - Vector3(extent, extent, extent));
         }
-        else
+        else //聚光灯
         {
             // Calculate spot light pixel size from the projection of its frustum far vertices
             Frustum lightFrustum = light->GetViewSpaceFrustum(view);
@@ -892,6 +896,7 @@ Texture2D* Renderer::GetShadowMap(Light* light, Camera* camera, unsigned viewWid
     int width = NextPowerOfTwo((unsigned)size);
     int height = width;
 
+	//调整大小
     // Adjust the size for directional or point light shadow map atlases
     if (type == LIGHT_DIRECTIONAL)
     {
@@ -932,6 +937,7 @@ Texture2D* Renderer::GetShadowMap(Light* light, Camera* camera, unsigned viewWid
     TextureUsage shadowMapUsage = TEXTURE_DEPTHSTENCIL;
     int multiSample = 1;
 
+	//确定shadowmap的格式和用途
     switch (shadowQuality_)
     {
     case SHADOWQUALITY_SIMPLE_16BIT:
@@ -959,6 +965,7 @@ Texture2D* Renderer::GetShadowMap(Light* light, Camera* camera, unsigned viewWid
     int retries = 3;
     unsigned dummyColorFormat = graphics_->GetDummyColorFormat();
 
+	//ShadowMap 不开启mipmaps
     // Disable mipmaps from the shadow map
     newShadowMap->SetNumLevels(1);
 

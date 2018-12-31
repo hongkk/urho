@@ -167,6 +167,9 @@ public:
     OcclusionBuffer* buffer_;
 };
 
+//检查drawable是否可见
+//如果可见，UpdateBatches，MarkInView
+//根据类型放入result.geometries_、result.lights_
 void CheckVisibilityWork(const WorkItem* item, unsigned threadIndex)
 {
     View* view = reinterpret_cast<View*>(item->aux_);
@@ -1028,6 +1031,7 @@ void View::ProcessLights()
     queue->Complete(M_MAX_UNSIGNED);
 }
 
+//获取光源相关的渲染批次
 void View::GetLightBatches()
 {
     BatchQueue* alphaQueue = batchQueues_.Contains(alphaPassIndex_) ? &batchQueues_[alphaPassIndex_] : (BatchQueue*)0;
@@ -1037,10 +1041,11 @@ void View::GetLightBatches()
         URHO3D_PROFILE(GetLightBatches);
 
         // Preallocate light queues: per-pixel lights which have lit geometries
-        unsigned numLightQueues = 0;
+        unsigned numLightQueues = 0; //真正起作用的光源数量，如果某个光源没有作用到任何物体，则不计算到这里
         unsigned usedLightQueues = 0;
         for (Vector<LightQueryResult>::ConstIterator i = lightQueryResults_.Begin(); i != lightQueryResults_.End(); ++i)
         {
+			//PerVertex 逐顶点光源
             if (!i->light_->GetPerVertex() && i->litGeometries_.Size())
                 ++numLightQueues;
         }
@@ -1064,6 +1069,7 @@ void View::GetLightBatches()
             {
                 unsigned shadowSplits = query.numSplits_;
 
+				//初始化一个LightBatchQueue 并存储在Light.lightQueue_中
                 // Initialize light queue and store it to the light so that it can be found later
                 LightBatchQueue& lightQueue = lightQueues_[usedLightQueues++];
                 light->SetLightQueue(&lightQueue);
@@ -1072,8 +1078,10 @@ void View::GetLightBatches()
                 lightQueue.shadowMap_ = 0;
                 lightQueue.litBaseBatches_.Clear(maxSortedInstances);
                 lightQueue.litBatches_.Clear(maxSortedInstances);
+				//如果当前的renderpath中有 “forwardlights” command,那forwardLightsCommand_就不为空
                 if (forwardLightsCommand_)
                 {
+					//处理当前 command中的 "vsdefines" 和 "psdefines"
                     SetQueueShaderDefines(lightQueue.litBaseBatches_, *forwardLightsCommand_);
                     SetQueueShaderDefines(lightQueue.litBatches_, *forwardLightsCommand_);
                 }
@@ -1084,6 +1092,7 @@ void View::GetLightBatches()
                 }
                 lightQueue.volumeBatches_.Clear();
 
+				// 为阴影图申请内存
                 // Allocate shadow map now
                 if (shadowSplits > 0)
                 {
@@ -1093,6 +1102,7 @@ void View::GetLightBatches()
                         shadowSplits = 0;
                 }
 
+				// 建立阴影批次队列，即填充数据到 lightQueue.shadowSplits_中
                 // Setup shadow batch queues
                 lightQueue.shadowSplits_.Resize(shadowSplits);
                 for (unsigned j = 0; j < shadowSplits; ++j)
@@ -2412,6 +2422,8 @@ void View::ProcessLight(LightQueryResult& query, unsigned threadIndex)
         query.numSplits_ = 0;
 }
 
+//处理在当前shadowCamera中哪些受光物体将产生阴影 
+//最终的结果是把在当前shadowCamera中的所有受影响的drawables放入到 query.shadowCasters中
 void View::ProcessShadowCasters(LightQueryResult& query, const PODVector<Drawable*>& drawables, unsigned splitIndex)
 {
     Light* light = query.light_;
@@ -2437,6 +2449,7 @@ void View::ProcessShadowCasters(LightQueryResult& query, const PODVector<Drawabl
 
     BoundingBox lightViewFrustumBox(lightViewFrustum);
 
+	// near == far 时没必要计算
     // Check for degenerate split frustum: in that case there is no need to get shadow casters
     if (lightViewFrustum.vertices_[0] == lightViewFrustum.vertices_[4])
         return;
@@ -2444,20 +2457,28 @@ void View::ProcessShadowCasters(LightQueryResult& query, const PODVector<Drawabl
     BoundingBox lightViewBox;
     BoundingBox lightProjBox;
 
+	//这里的drawables是每个光源中某个shadowCameras_的Frustum范围内影响的所有物体，不是整个场景的drawables
     for (PODVector<Drawable*>::ConstIterator i = drawables.Begin(); i != drawables.End(); ++i)
     {
         Drawable* drawable = *i;
         // In case this is a point or spot light query result reused for optimization, we may have non-shadowcasters included.
+
+		//是否有设置castShadows_属性
         // Check for that first
         if (!drawable->GetCastShadows())
             continue;
+
+		//是否有光源有相同的 lightMask
         // Check shadow mask
         if (!(GetShadowMask(drawable) & lightMask))
             continue;
+
+		//如果是点光源，是否在影响半径内
         // For point light, check that this drawable is inside the split shadow camera frustum
         if (type == LIGHT_POINT && shadowCameraFrustum.IsInsideFast(drawable->GetWorldBoundingBox()) == OUTSIDE)
             continue;
 
+		//检查物体到摄像机的距离是否超过了产生阴影的最大距离
         // Check shadow distance
         // Note: as lights are processed threaded, it is possible a drawable's UpdateBatches() function is called several
         // times. However, this should not cause problems as no scene modification happens at this point.
@@ -2470,6 +2491,7 @@ void View::ProcessShadowCasters(LightQueryResult& query, const PODVector<Drawabl
         if (maxShadowDistance > 0.0f && drawable->GetDistance() > maxShadowDistance)
             continue;
 
+		//drawable 的BoundingBox转换到光源空间下
         // Project shadow caster bounding box to light view space for visibility check
         lightViewBox = drawable->GetWorldBoundingBox().Transformed(lightView);
 
@@ -2488,6 +2510,9 @@ void View::ProcessShadowCasters(LightQueryResult& query, const PODVector<Drawabl
     query.shadowCasterEnd_[splitIndex] = query.shadowCasters_.Size();
 }
 
+//lightViewBox 是否包含在 lightViewFrustum中，将两个包围盒都转到光源空间下做测试
+//lightViewBox 表示drawable在光源空间下的BoundingBox
+//lightViewFrustum 表示shadowCamera在光源空间下的Frustum
 bool View::IsShadowCasterVisible(Drawable* drawable, BoundingBox lightViewBox, Camera* shadowCamera, const Matrix3x4& lightView,
     const Frustum& lightViewFrustum, const BoundingBox& lightViewFrustumBox)
 {
