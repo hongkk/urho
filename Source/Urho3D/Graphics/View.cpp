@@ -1107,6 +1107,7 @@ void View::GetLightBatches()
                 lightQueue.shadowSplits_.Resize(shadowSplits);
                 for (unsigned j = 0; j < shadowSplits; ++j)
                 {
+					//从之前的处理结果LightQueryResult中把数据复制到ShadowBatchQueue中
                     ShadowBatchQueue& shadowQueue = lightQueue.shadowSplits_[j];
                     Camera* shadowCamera = query.shadowCameras_[j];
                     shadowQueue.shadowCamera_ = shadowCamera;
@@ -1114,10 +1115,13 @@ void View::GetLightBatches()
                     shadowQueue.farSplit_ = query.shadowFarSplits_[j];
                     shadowQueue.shadowBatches_.Clear(maxSortedInstances);
 
+					//确定渲染阴影图的视口参数和最终的阴影摄像机参数，视口大小一般和阴影图纹理大小一样
                     // Setup the shadow split viewport and finalize shadow camera parameters
                     shadowQueue.shadowViewport_ = GetShadowMapViewport(light, j, lightQueue.shadowMap_);
+					//最后再确定一次shadowCamera的参数
                     FinalizeShadowCamera(shadowCamera, light, shadowQueue.shadowViewport_, query.shadowCasterBox_[j]);
 
+					//遍历 query.shadowCasters_中的每个Drawable，获取 Drawable中的SourceBatch
                     // Loop through shadow casters
                     for (PODVector<Drawable*>::ConstIterator k = query.shadowCasters_.Begin() + query.shadowCasterBegin_[j];
                          k < query.shadowCasters_.Begin() + query.shadowCasterEnd_[j]; ++k)
@@ -2549,6 +2553,8 @@ bool View::IsShadowCasterVisible(Drawable* drawable, BoundingBox lightViewBox, C
     }
 }
 
+//获取渲染对应阴影图时的视口参数
+//一般情况下都是创建阴影图纹理的时候所用的大小，如果是win平台下，则是2048*2048对应的四张1024*1024的纹理
 IntRect View::GetShadowMapViewport(Light* light, unsigned splitIndex, Texture2D* shadowMap)
 {
     unsigned width = (unsigned)shadowMap->GetWidth();
@@ -2789,6 +2795,8 @@ void View::FinalizeShadowCamera(Camera* shadowCamera, Light* light, const IntRec
     }
 }
 
+//量化方向光的阴影摄像机
+//应该是对shadowCamera做进一步的优化，未深入看
 void View::QuantizeDirLightShadowCamera(Camera* shadowCamera, Light* light, const IntRect& shadowViewport,
     const BoundingBox& viewBox)
 {
@@ -2957,6 +2965,7 @@ void View::SetQueueShaderDefines(BatchQueue& queue, const RenderPathCommand& com
         queue.hasExtraDefines_ = false;
 }
 
+//把批次加入到BatchQueue中updat
 void View::AddBatchToQueue(BatchQueue& queue, Batch& batch, Technique* tech, bool allowInstancing, bool allowShadows)
 {
     if (!batch.material_)
