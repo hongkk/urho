@@ -148,6 +148,7 @@ struct InstanceData
     float distance_;
 };
 
+// 实例化3d顶点数据的 drawcall (怎么理解呢）
 /// Instanced 3D geometry draw call.
 struct BatchGroup : public Batch
 {

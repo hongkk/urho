@@ -1183,6 +1183,7 @@ View* Renderer::GetActualView(View* view)
         return view;
 }
 
+//计算并设置这个batch所要使用的shader
 void Renderer::SetBatchShaders(Batch& batch, Technique* tech, bool allowShadows, const BatchQueue& queue)
 {
     Pass* pass = batch.pass_;
@@ -1191,9 +1192,11 @@ void Renderer::SetBatchShaders(Batch& batch, Technique* tech, bool allowShadows,
     if (pass->GetShadersLoadedFrameNumber() != shadersChangedFrameNumber_)
         pass->ReleaseShaders();
 
+	//获取当前batch中的pass相关的 顶点和片断shader
     Vector<SharedPtr<ShaderVariation> >& vertexShaders = queue.hasExtraDefines_ ? pass->GetVertexShaders(queue.vsExtraDefinesHash_) : pass->GetVertexShaders();
     Vector<SharedPtr<ShaderVariation> >& pixelShaders = queue.hasExtraDefines_ ? pass->GetPixelShaders(queue.psExtraDefinesHash_) : pass->GetPixelShaders();
     
+	//如果有必要，加载shaders
     // Load shaders now if necessary
     if (!vertexShaders.Size() || !pixelShaders.Size())
         LoadPassShaders(pass, vertexShaders, pixelShaders, queue);
@@ -1203,6 +1206,7 @@ void Renderer::SetBatchShaders(Batch& batch, Technique* tech, bool allowShadows,
     {
         bool heightFog = batch.zone_ && batch.zone_->GetHeightFog();
 
+		//如果GEOM_INSTANCED不支持，则变回 GEOM_STATIC类型
         // If instancing is not supported, but was requested, choose static geometry vertex shader instead
         if (batch.geometryType_ == GEOM_INSTANCED && !GetDynamicInstancing())
             batch.geometryType_ = GEOM_STATIC;
@@ -1210,9 +1214,10 @@ void Renderer::SetBatchShaders(Batch& batch, Technique* tech, bool allowShadows,
         if (batch.geometryType_ == GEOM_STATIC_NOINSTANCING)
             batch.geometryType_ = GEOM_STATIC;
 
+		//计算对应的shadow编号
         //  Check whether is a pixel lit forward pass. If not, there is only one pixel shader
         if (pass->GetLightingMode() == LIGHTING_PERPIXEL)
-        {
+        {//如果是逐像素光照
             LightBatchQueue* lightQueue = batch.lightQueue_;
             if (!lightQueue)
             {
@@ -1261,12 +1266,13 @@ void Renderer::SetBatchShaders(Batch& batch, Technique* tech, bool allowShadows,
 
             if (heightFog)
                 psi += MAX_LIGHT_PS_VARIATIONS;
-
+			//找出对应的shader
             batch.vertexShader_ = vertexShaders[vsi];
             batch.pixelShader_ = pixelShaders[psi];
         }
         else
         {
+			//逐顶点光照
             // Check if pass has vertex lighting support
             if (pass->GetLightingMode() == LIGHTING_PERVERTEX)
             {

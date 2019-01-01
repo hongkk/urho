@@ -1128,6 +1128,8 @@ void View::GetLightBatches()
                     {
                         Drawable* drawable = *k;
                         // If drawable is not in actual view frustum, mark it in view here and check its geometry update type
+						//viewFrameNumber_ 是否和当前 Fram相关，是否在主摄像机
+						//如果没有，将根据类型被放到nonThreadedGeometries_ 和 threadedGeometries_队列中
                         if (!drawable->IsInView(frame_, true))
                         {
                             drawable->MarkInView(frame_.frameNumber_);
@@ -1143,7 +1145,7 @@ void View::GetLightBatches()
                         for (unsigned l = 0; l < batches.Size(); ++l)
                         {
                             const SourceBatch& srcBatch = batches[l];
-
+							//获取相关batch的Technique
                             Technique* tech = GetTechnique(drawable, srcBatch.material_);
                             if (!srcBatch.geometry_ || !srcBatch.numWorldTransforms_ || !tech)
                                 continue;
@@ -1153,6 +1155,7 @@ void View::GetLightBatches()
                             if (!pass)
                                 continue;
 
+							//拷贝SourceBatch的数据到 Batch，并把 Batch放入到shadowQueue.shadowBatches_中
                             Batch destBatch(srcBatch);
                             destBatch.pass_ = pass;
                             destBatch.zone_ = 0;
@@ -1162,19 +1165,23 @@ void View::GetLightBatches()
                     }
                 }
 
+				//处理受光物体
                 // Process lit geometries
                 for (PODVector<Drawable*>::ConstIterator j = query.litGeometries_.Begin(); j != query.litGeometries_.End(); ++j)
                 {
+					//将当前光源加入到 drawable中的 lights_列表
                     Drawable* drawable = *j;
                     drawable->AddLight(light);
 
                     // If drawable limits maximum lights, only record the light, and check maximum count / build batches later
+					//如果drawable的maxLights_为0
                     if (!drawable->GetMaxLights())
-                        GetLitBatches(drawable, lightQueue, alphaQueue);
+                        GetLitBatches(drawable, lightQueue, alphaQueue);//把drawable的srcBatch放入 lightQueue.litBaseBatches_ 或 lightQueue.litBatches_
                     else
-                        maxLightsDrawables_.Insert(drawable);
+                        maxLightsDrawables_.Insert(drawable);//如果drawable的maxLights_不为0，把drawable放入maxLightsDrawables_
                 }
 
+				//延迟渲染模式下，创建一个新的Batch，放入 lightQueue.volumeBatches中
                 // In deferred modes, store the light volume batch now. Since light mask 8 lowest bits are output to the stencil,
                 // lights that have all zeroes in the low 8 bits can be skipped; they would not affect geometry anyway
                 if (deferred_ && (light->GetLightMask() & 0xff) != 0)
@@ -1198,6 +1205,7 @@ void View::GetLightBatches()
             // Per-vertex light
             else
             {
+				//如果是逐顶点光照，这里先不做处理，只是把光源设置到drawable的 vertexLights_ 中,后面处理base pass的时候再处理
                 // Add the vertex light to lit drawables. It will be processed later during base pass batch generation
                 for (PODVector<Drawable*>::ConstIterator j = query.litGeometries_.Begin(); j != query.litGeometries_.End(); ++j)
                 {
@@ -1208,6 +1216,7 @@ void View::GetLightBatches()
         }
     }
 
+	//如果maxLightsDrawables_中有Drawable
     // Process drawables with limited per-pixel light count
     if (maxLightsDrawables_.Size())
     {
@@ -1223,6 +1232,8 @@ void View::GetLightBatches()
             {
                 Light* light = lights[i];
                 // Find the correct light queue again
+				//再次查找正确的 light queue（有点绕，这两个ligth queue有什么联系，又有什么区别）
+				//这个ligthqueue来自 LightBatchQueue& lightQueue = lightQueues_[usedLightQueues++];
                 LightBatchQueue* queue = light->GetLightQueue();
                 if (queue)
                     GetLitBatches(drawable, *queue, alphaQueue);
@@ -1231,6 +1242,7 @@ void View::GetLightBatches()
     }
 }
 
+//遍历geometries_中的每个 Drawable，然后分别放入不同的ScenePassInfo中的batchQueue_
 void View::GetBaseBatches()
 {
     URHO3D_PROFILE(GetBaseBatches);
@@ -2881,6 +2893,7 @@ void View::FindZone(Drawable* drawable)
     drawable->SetZone(newZone, temporary);
 }
 
+//根据Material 获取 Drawable的Technique
 Technique* View::GetTechnique(Drawable* drawable, Material* material)
 {
     if (!material)
@@ -2975,22 +2988,28 @@ void View::AddBatchToQueue(BatchQueue& queue, Batch& batch, Technique* tech, boo
     if (allowInstancing && batch.geometryType_ == GEOM_STATIC && batch.geometry_->GetIndexBuffer())
         batch.geometryType_ = GEOM_INSTANCED;
 
+	//处理 geometryType_ 为GEOM_INSTANCED的情况
+	//batch 转换为 BatchGroupKey 最终放入 queue.batchGroups中
     if (batch.geometryType_ == GEOM_INSTANCED)
     {
         BatchGroupKey key(batch);
 
+		//先在 queue.batchGroups_中查找
         HashMap<BatchGroupKey, BatchGroup>::Iterator i = queue.batchGroups_.Find(key);
         if (i == queue.batchGroups_.End())
         {
+			//如果queue.batchGroups_中没有，则以当前传进来的Batch创建一个新的BatchGroup，然后加入到queue.batchGroups_中
             // Create a new group based on the batch
             // In case the group remains below the instancing limit, do not enable instancing shaders yet
             BatchGroup newGroup(batch);
             newGroup.geometryType_ = GEOM_STATIC;
+			//设置newGroup使用的shader
             renderer_->SetBatchShaders(newGroup, tech, allowShadows, queue);
             newGroup.CalculateSortKey();
             i = queue.batchGroups_.Insert(MakePair(key, newGroup));
         }
 
+		//i->second_ 为 BatchGroup
         int oldSize = i->second_.instances_.Size();
         i->second_.AddTransforms(batch);
         // Convert to using instancing shaders when the instancing limit is reached
@@ -3001,8 +3020,8 @@ void View::AddBatchToQueue(BatchQueue& queue, Batch& batch, Technique* tech, boo
             i->second_.CalculateSortKey();
         }
     }
-    else
-    {
+    else//geometryType_ 不为GEOM_INSTANCED的情况
+    {	//batch 最终放入 queue.batches_中
         renderer_->SetBatchShaders(batch, tech, allowShadows, queue);
         batch.CalculateSortKey();
 

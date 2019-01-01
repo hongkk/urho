@@ -56,6 +56,7 @@ struct BatchQueue;
 static const int SHADOW_MIN_PIXELS = 64;
 static const int INSTANCING_BUFFER_DEFAULT_SIZE = 1024;
 
+//光源顶点shadow相关的变量
 /// Light vertex shader variations.
 enum LightVSVariation
 {

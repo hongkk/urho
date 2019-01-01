@@ -409,8 +409,11 @@ private:
     HashMap<StringHash, Texture*> renderTargets_;
     /// Intermediate light processing results.
     Vector<LightQueryResult> lightQueryResults_;
+	//renderpath里面每一个 "scenepass" 相关的信息
+	//会搜集每个pass影响到的drawable
     /// Info for scene render passes defined by the renderpath.
     PODVector<ScenePassInfo> scenePasses_;
+	//逐像素光源批次队列，每个LightBatchQueue和一个光源相对应
     /// Per-pixel light queues.
     Vector<LightBatchQueue> lightQueues_;
     /// Per-vertex light queues.
