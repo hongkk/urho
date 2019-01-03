@@ -1518,6 +1518,7 @@ void Renderer::UpdateQueuedViewport(unsigned index)
     WeakPtr<RenderSurface>& renderTarget = queuedViewports_[index].first_;
     WeakPtr<Viewport>& viewport = queuedViewports_[index].second_;
 
+	//空指针意味着 双缓冲区的后备缓冲区 或者是 已经释放的rendersurface
     // Null pointer means backbuffer view. Differentiate between that and an expired rendersurface
     if ((renderTarget.NotNull() && renderTarget.Expired()) || viewport.Expired())
         return;

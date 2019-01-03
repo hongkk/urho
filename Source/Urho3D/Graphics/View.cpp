@@ -1263,9 +1263,11 @@ void View::GetBaseBatches()
         {
             const SourceBatch& srcBatch = batches[j];
 
+			//检查是否这个material指向一个和某个摄像机绑定的rendertarget texture
             // Check here if the material refers to a rendertarget texture with camera(s) attached
+			//rgenderTarget_为空表明当前是在为后缓冲区的绘制采集批次（双缓冲下）
             // Only check this for backbuffer views (null rendertarget)
-            if (srcBatch.material_ && srcBatch.material_->GetAuxViewFrameNumber() != frame_.frameNumber_ && !renderTarget_)
+            if (srcBatch.material_ && srcBatch.material_->GetAuxViewFrameNumber() != frame_.frameNumber_ && !rgenderTarget_)
                 CheckMaterialForAuxView(srcBatch.material_);
 
             Technique* tech = GetTechnique(drawable, srcBatch.material_);
