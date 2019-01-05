@@ -1513,6 +1513,8 @@ const Rect& Renderer::GetLightScissor(Light* light, Camera* camera)
     }
 }
 
+//更新 mQueuedViewports中序号为index的Viewport
+//一般情况下mQueuedViewports中只有一个元素,这时RenderSurface == null，Viewport为主屏幕
 void Renderer::UpdateQueuedViewport(unsigned index)
 {
     WeakPtr<RenderSurface>& renderTarget = queuedViewports_[index].first_;
@@ -1523,16 +1525,20 @@ void Renderer::UpdateQueuedViewport(unsigned index)
     if ((renderTarget.NotNull() && renderTarget.Expired()) || viewport.Expired())
         return;
 
+	//如果viewport还没有关联的view,则创建一个
     // (Re)allocate the view structure if necessary
     if (!viewport->GetView() || resetViews_)
         viewport->AllocateView();
 
     View* view = viewport->GetView();
     assert(view);
+	//************************************************************************************//
+	//收集渲染所需要的一些数据,检查是否有正确的scene,camera,octree,scnen pass
     // Check if view can be defined successfully (has either valid scene, camera and octree, or no scene passes)
     if (!view->Define(renderTarget, viewport))
         return;
 
+	//将Viewport相关的view放mViews中，mViews在每一帧开始update的时候都会 clear()一次
     views_.Push(WeakPtr<View>(view));
 
     const IntRect& viewRect = viewport->GetRect();
@@ -1542,6 +1548,8 @@ void Renderer::UpdateQueuedViewport(unsigned index)
 
     Octree* octree = scene->GetComponent<Octree>();
 
+	// 更新octree,对于某些drawables会提交执行update,并重新加入被移除的drawables
+	// 如果同样的scene被多个摄像机可见，那也只会更新octree一次
     // Update octree (perform early update for drawables which need that, and reinsert moved drawables.)
     // However, if the same scene is viewed from multiple cameras, update the octree only once
     if (!updatedOctrees_.Contains(octree))
@@ -1550,6 +1558,8 @@ void Renderer::UpdateQueuedViewport(unsigned index)
         frame_.viewSize_ = viewRect.Size();
         if (frame_.viewSize_ == IntVector2::ZERO)
             frame_.viewSize_ = IntVector2(graphics_->GetWidth(), graphics_->GetHeight());
+		//************************************************************************************//
+		//octree更新，让octree中的每一个drawable执行update
         octree->Update(frame_);
         updatedOctrees_.Insert(octree);
 

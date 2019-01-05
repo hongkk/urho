@@ -372,6 +372,7 @@ void Octree::SetSize(const BoundingBox& box, unsigned numLevels)
     numLevels_ = Max(numLevels, 1U);
 }
 
+//让octree中的每一个drawable执行update
 void Octree::Update(const FrameInfo& frame)
 {
     if (!Thread::IsMainThread())
@@ -385,10 +386,14 @@ void Octree::Update(const FrameInfo& frame)
     {
         URHO3D_PROFILE(UpdateDrawables);
 
+		// 分几个 WorkItem 调用 UpdateDrawablesWork，每个WorkItem传入一定数量的 drawableUpdates_中的元素
+		// 在工作线程中执行 update
         // Perform updates in worker threads. Notify the scene that a threaded update is going on and components
         // (for example physics objects) should not perform non-threadsafe work when marked dirty
         Scene* scene = GetScene();
         WorkQueue* queue = GetSubsystem<WorkQueue>();
+
+		//在scene中设置标志，提醒它正在多个线程中使用，所以它包含的components，就不能做非线程安全的操作
         scene->BeginThreadedUpdate();
 
         int numWorkItems = queue->GetNumThreads() + 1; // Worker threads + main thread
@@ -400,7 +405,7 @@ void Octree::Update(const FrameInfo& frame)
         {
             SharedPtr<WorkItem> item = queue->GetFreeItem();
             item->priority_ = M_MAX_UNSIGNED;
-            item->workFunction_ = UpdateDrawablesWork;
+            item->workFunction_ = UpdateDrawablesWork; //在这个函数中，每个Drawable分别调用update()   //drawable->Update(frame);
             item->aux_ = const_cast<FrameInfo*>(&frame);
 
             PODVector<Drawable*>::Iterator end = drawableUpdates_.End();
@@ -418,6 +423,7 @@ void Octree::Update(const FrameInfo& frame)
         scene->EndThreadedUpdate();
     }
 
+	// 如果在UpdateDrawablesWork 执行的过程中有任何drawables被insert进来，那么就从主线程来更新他们
     // If any drawables were inserted during threaded update, update them now from the main thread
     if (!threadedDrawableUpdates_.Empty())
     {
@@ -436,6 +442,7 @@ void Octree::Update(const FrameInfo& frame)
         threadedDrawableUpdates_.Clear();
     }
 
+	//发送事件通知 Drawable 更新完成
     // Notify drawable update being finished. Custom animation (eg. IK) can be done at this point
     Scene* scene = GetScene();
     if (scene)
@@ -448,6 +455,7 @@ void Octree::Update(const FrameInfo& frame)
         scene->SendEvent(E_SCENEDRAWABLEUPDATEFINISHED, eventData);
     }
 
+	// 把那些已经被移动和重定义大小的drawable,或者是新加进入但还没有正确的 octanta的drawable加入到octree
     // Reinsert drawables that have been moved or resized, or that have been newly added to the octree and do not sit inside
     // the proper octant yet
     if (!drawableUpdates_.Empty())

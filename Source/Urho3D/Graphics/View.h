@@ -372,12 +372,14 @@ private:
     bool drawShadows_;
     /// Deferred flag. Inferred from the existence of a light volume command in the renderpath.
     bool deferred_;
+	// 这个标志意味着目标rendertarget会被同时写入为 漫发射贴图\法线贴图\深度贴图,并且在opengl上，格式必须是RGBA
     /// Deferred ambient pass flag. This means that the destination rendertarget is being written to at the same time as albedo/normal/depth buffers, and needs to be RGBA on OpenGL.
     bool deferredAmbient_;
     /// Forward light base pass optimization flag. If in use, combine the base pass and first light for all opaque objects.
     bool useLitBase_;
     /// Has scene passes flag. If no scene passes, view can be defined without a valid scene or camera to only perform quad rendering.
     bool hasScenePasses_;
+	//是否使用自定义的可读取深度纹理而不使用模板通道
     /// Whether is using a custom readable depth texture without a stencil channel.
     bool noStencil_;
     /// Draw debug geometry flag. Copied from the viewport.
@@ -418,6 +420,7 @@ private:
     Vector<LightBatchQueue> lightQueues_;
     /// Per-vertex light queues.
     HashMap<unsigned long long, LightBatchQueue> vertexLightQueues_;
+	//根据passindex来记录BatchQueue.渲染前所有批次都会被放到这里
     /// Batch queues by pass index.
     HashMap<unsigned, BatchQueue> batchQueues_;
     /// Index of the GBuffer pass.

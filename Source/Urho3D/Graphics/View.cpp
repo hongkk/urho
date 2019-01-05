@@ -318,6 +318,12 @@ View::~View()
 {
 }
 
+//收集渲染所需要的一些数据
+//包括：
+//计算 mViewRect、mViewSize
+//获取 mScene、mCullCamera、mCamera
+//填充 scenePasses_
+//确定其他参数
 bool View::Define(RenderSurface* renderTarget, Viewport* viewport)
 {
     sourceView_ = 0;
@@ -328,6 +334,7 @@ bool View::Define(RenderSurface* renderTarget, Viewport* viewport)
     renderTarget_ = renderTarget;
     drawDebug_ = viewport->GetDrawDebug();
 
+	//计算 mViewRect、mViewSize
     // Validate the rect and calculate size. If zero rect, use whole rendertarget size
     int rtWidth = renderTarget ? renderTarget->GetWidth() : graphics_->GetWidth();
     int rtHeight = renderTarget ? renderTarget->GetHeight() : graphics_->GetHeight();
@@ -346,6 +353,7 @@ bool View::Define(RenderSurface* renderTarget, Viewport* viewport)
     viewSize_ = viewRect_.Size();
     rtSize_ = IntVector2(rtWidth, rtHeight);
 
+	//在opengl里，如果是渲染到纹理的情况，则要把上下翻转，这和Directx是相反的
     // On OpenGL flip the viewport if rendering to a texture for consistent UV addressing with Direct3D9
 #ifdef URHO3D_OPENGL
     if (renderTarget_)
@@ -354,7 +362,7 @@ bool View::Define(RenderSurface* renderTarget, Viewport* viewport)
         viewRect_.top_ = viewRect_.bottom_ - viewSize_.y_;
     }
 #endif
-
+	//获取 mScene、mCullCamera、mCamera
     scene_ = viewport->GetScene();
     cullCamera_ = viewport->GetCullCamera();
     camera_ = viewport->GetCamera();
@@ -362,10 +370,13 @@ bool View::Define(RenderSurface* renderTarget, Viewport* viewport)
         cullCamera_ = camera_;
     else
     {
+		//如果 view里面指定了一个 culling camera，那里检查一下它是否已经准备好了
+		//mCullCamera 暂时不知道有什么用处，没看到应用的地方
         // If view specifies a culling camera (view preparation sharing), check if already prepared
         sourceView_ = renderer_->GetPreparedView(cullCamera_);
         if (sourceView_ && sourceView_->scene_ == scene_ && sourceView_->renderPath_ == renderPath_)
         {
+			//从sourceView_中拷贝一些参数，为后面渲染的时候使用
             // Copy properties needed later in rendering
             deferred_ = sourceView_->deferred_;
             deferredAmbient_ = sourceView_->deferredAmbient_;
@@ -383,14 +394,15 @@ bool View::Define(RenderSurface* renderTarget, Viewport* viewport)
             sourceView_ = 0;
         }
     }
-
+	
+	//设置默认的paaIndex
     // Set default passes
     gBufferPassIndex_ = M_MAX_UNSIGNED;
-    basePassIndex_ = Technique::GetPassIndex("base");
-    alphaPassIndex_ = Technique::GetPassIndex("alpha");
-    lightPassIndex_ = Technique::GetPassIndex("light");
-    litBasePassIndex_ = Technique::GetPassIndex("litbase");
-    litAlphaPassIndex_ = Technique::GetPassIndex("litalpha");
+    basePassIndex_ = Technique::GetPassIndex("base");             //0
+    alphaPassIndex_ = Technique::GetPassIndex("alpha");           //1
+    lightPassIndex_ = Technique::GetPassIndex("light");           //4
+    litBasePassIndex_ = Technique::GetPassIndex("litbase");       //5
+    litAlphaPassIndex_ = Technique::GetPassIndex("litalpha");     //6
 
     deferred_ = false;
     deferredAmbient_ = false;
@@ -405,10 +417,12 @@ bool View::Define(RenderSurface* renderTarget, Viewport* viewport)
 
 #ifdef URHO3D_OPENGL
 #ifdef GL_ES_VERSION_2_0
+	// 在 OpenGL ES 上我们假设模板测试是无用的，或者性能表现不好，所以我们一律关闭模板测试
     // On OpenGL ES we assume a stencil is not available or would not give a good performance, and disable light stencil
     // optimizations in any case
     noStencil_ = true;
 #else
+	// 在非 GL_ES 2.0 版本的情况下，检查 renderpath的所有command,如果某个command里面的depthStencilName_有值，那也关闭模板测试
     for (unsigned i = 0; i < renderPath_->commands_.Size(); ++i)
     {
         const RenderPathCommand& command = renderPath_->commands_[i];
@@ -416,6 +430,7 @@ bool View::Define(RenderSurface* renderTarget, Viewport* viewport)
             continue;
         if (command.depthStencilName_.Length())
         {
+			//在opengl上，使用可读的深度纹理会把光源模板测试关闭，由于很多复杂的原因，我们使用不带模板通道的深度格式
             // Using a readable depth texture will disable light stencil optimizations on OpenGL, as for compatibility reasons
             // we are using a depth format without stencil channel
             noStencil_ = true;
@@ -424,7 +439,7 @@ bool View::Define(RenderSurface* renderTarget, Viewport* viewport)
     }
 #endif
 #endif
-
+	//确定所有必要的批次队列存在
     // Make sure that all necessary batch queues exist
     for (unsigned i = 0; i < renderPath_->commands_.Size(); ++i)
     {
@@ -438,8 +453,8 @@ bool View::Define(RenderSurface* renderTarget, Viewport* viewport)
 
             ScenePassInfo info;
             info.passIndex_ = command.passIndex_ = Technique::GetPassIndex(command.pass_);
-            info.allowInstancing_ = command.sortMode_ != SORT_BACKTOFRONT;
-            info.markToStencil_ = !noStencil_ && command.markToStencil_;
+            info.allowInstancing_ = command.sortMode_ != SORT_BACKTOFRONT; //allowInstancing_ 和 command.sortMode_有关  
+            info.markToStencil_ = !noStencil_ && command.markToStencil_;  //必须要 noStencil_ = false而且 markToStencil_ = true才会开启模板测试
             info.vertexLights_ = command.vertexLights_;
 
             // Check scenepass metadata for defining custom passes which interact with lighting
@@ -447,26 +462,30 @@ bool View::Define(RenderSurface* renderTarget, Viewport* viewport)
             {
                 if (command.metadata_ == "gbuffer")
                     gBufferPassIndex_ = command.passIndex_;
-                else if (command.metadata_ == "base" && command.pass_ != "base")
+                else if (command.metadata_ == "base" && command.pass_ != "base")//在引擎提供的原始renderpath中，都不会出现这种情况
                 {
                     basePassIndex_ = command.passIndex_;
                     litBasePassIndex_ = Technique::GetPassIndex("lit" + command.pass_);
                 }
-                else if (command.metadata_ == "alpha" && command.pass_ != "alpha")
+                else if (command.metadata_ == "alpha" && command.pass_ != "alpha") //在引擎提供的原始renderpath中，都不会出现这种情况
                 {
                     alphaPassIndex_ = command.passIndex_;
                     litAlphaPassIndex_ = Technique::GetPassIndex("lit" + command.pass_);
                 }
             }
 
+			//查找 batchQueues_ 中是否有相关index的BatchQueue，如果没有，增加一个
             HashMap<unsigned, BatchQueue>::Iterator j = batchQueues_.Find(info.passIndex_);
             if (j == batchQueues_.End())
                 j = batchQueues_.Insert(Pair<unsigned, BatchQueue>(info.passIndex_, BatchQueue()));
             info.batchQueue_ = &j->second_;
+			//把 command指定的psdefines和vsdefines赋值到 info.batchQueue_中
             SetQueueShaderDefines(*info.batchQueue_, command);
 
+			//info存到 scenePasses_中
             scenePasses_.Push(info);
         }
+		//如果一个 command的类型是 "forwardlights" 并且它的pass不为空，那么重新指定lightPassIndex_
         // Allow a custom forward light pass
         else if (command.type_ == CMD_FORWARDLIGHTS && !command.pass_.Empty())
             lightPassIndex_ = command.passIndex_ = Technique::GetPassIndex(command.pass_);
@@ -476,6 +495,7 @@ bool View::Define(RenderSurface* renderTarget, Viewport* viewport)
     // Get default zone first in case we do not have zones defined
     cameraZone_ = farClipZone_ = renderer_->GetDefaultZone();
 
+	//做一些空值的判断
     if (hasScenePasses_)
     {
         if (!scene_ || !cullCamera_ || !cullCamera_->IsEnabledEffective())
@@ -489,12 +509,15 @@ bool View::Define(RenderSurface* renderTarget, Viewport* viewport)
         if (!octree_)
             return false;
 
+		// 如果摄像机的投影是非法的，也不能继续渲染
+		//如有使用遮挡并且不能正确裁剪，那它有可能会crash
         // Do not accept view if camera projection is illegal
         // (there is a possibility of crash if occlusion is used and it can not clip properly)
         if (!cullCamera_->IsProjectionValid())
             return false;
     }
 
+	// 遍历commands检查延迟渲染和其他标志
     // Go through commands to check for deferred rendering and other flags
     for (unsigned i = 0; i < renderPath_->commands_.Size(); ++i)
     {
@@ -502,17 +525,20 @@ bool View::Define(RenderSurface* renderTarget, Viewport* viewport)
         if (!command.enabled_)
             continue;
 
+		// 检查是否环境pass和G-buffer会被同时渲染
         // Check if ambient pass and G-buffer rendering happens at the same time
         if (command.type_ == CMD_SCENEPASS && command.outputs_.Size() > 1)
         {
             if (CheckViewportWrite(command))
                 deferredAmbient_ = true;
         }
+		//如果command类型是 "lightvolumes" ，记录这个command并设置标志 deferred_ = true
         else if (command.type_ == CMD_LIGHTVOLUMES)
         {
             lightVolumeCommand_ = &command;
             deferred_ = true;
         }
+		//如果command类型是 "forwardlights" ，记录这个command并设置标志 useLitBase_ 
         else if (command.type_ == CMD_FORWARDLIGHTS)
         {
             forwardLightsCommand_ = &command;
@@ -520,11 +546,18 @@ bool View::Define(RenderSurface* renderTarget, Viewport* viewport)
         }
     }
 
+	//是否渲染阴影
     drawShadows_ = renderer_->GetDrawShadows();
+	//材质品质
     materialQuality_ = renderer_->GetMaterialQuality();
+	//最大遮挡三角形数量
     maxOccluderTriangles_ = renderer_->GetMaxOccluderTriangles();
+	//最小实例数量（这里的实例是批渲染的时候是按顶点渲染还是按实例渲染）
     minInstances_ = renderer_->GetMinInstances();
 
+	//从摄像机重新获取品质，重写materialQuality_
+	//需要注意的是这里使用的是 culling camera
+	//而render camera 只会在最终的 view和projection矩阵中使用
     // Set possible quality overrides from the camera
     // Note that the culling camera is used here (its settings are authoritative) while the render camera
     // will be just used for the final view & projection matrices
@@ -536,6 +569,7 @@ bool View::Define(RenderSurface* renderTarget, Viewport* viewport)
     if (viewOverrideFlags & VO_DISABLE_OCCLUSION)
         maxOccluderTriangles_ = 0;
 
+	//Occlusion buffer 使用是的常量的宽度，如果由于比例问题导致高度太大，将关闭遮挡
     // Occlusion buffer has constant width. If resulting height would be too large due to aspect ratio, disable occlusion
     if (viewSize_.y_ > viewSize_.x_ * 4)
         maxOccluderTriangles_ = 0;
@@ -809,6 +843,7 @@ void View::SetGBufferShaderParameters(const IntVector2& texSize, const IntRect& 
     graphics_->SetShaderParameter(PSP_GBUFFERINVSIZE, Vector2(invSizeX, invSizeY));
 }
 
+//遍历场景物体，将他们放入 geometries_ 和 lights_
 void View::GetDrawables()
 {
     if (!octree_ || !cullCamera_)
@@ -2964,6 +2999,7 @@ void View::CheckMaterialForAuxView(Material* material)
     material->MarkForAuxView(frame_.frameNumber_);
 }
 
+//把 RenderPath中的Command指定的psdefines和vsdefines赋值到 BatchQueue中
 void View::SetQueueShaderDefines(BatchQueue& queue, const RenderPathCommand& command)
 {
     String vsDefines = command.vertexShaderDefines_.Trimmed();
@@ -2980,7 +3016,7 @@ void View::SetQueueShaderDefines(BatchQueue& queue, const RenderPathCommand& com
         queue.hasExtraDefines_ = false;
 }
 
-//把批次加入到BatchQueue中updat
+//把批次加入到BatchQueue中的batches_
 void View::AddBatchToQueue(BatchQueue& queue, Batch& batch, Technique* tech, bool allowInstancing, bool allowShadows)
 {
     if (!batch.material_)
