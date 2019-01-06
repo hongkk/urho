@@ -577,6 +577,8 @@ bool View::Define(RenderSurface* renderTarget, Viewport* viewport)
     return true;
 }
 
+// 收集几何何和光源
+// 收集渲染批次
 void View::Update(const FrameInfo& frame)
 {
     // No need to update if using another prepared view
@@ -615,7 +617,9 @@ void View::Update(const FrameInfo& frame)
     if (cullCamera_ && cullCamera_->GetAutoAspectRatio())
         cullCamera_->SetAspectRatioInternal((float)frame_.viewSize_.x_ / (float)frame_.viewSize_.y_);
 
+	// 收集几何何和光源
     GetDrawables();
+	// 收集渲染批次
     GetBatches();
     renderer_->StorePreparedView(this, cullCamera_);
 
@@ -1022,6 +1026,7 @@ void View::GetDrawables()
     Sort(lights_.Begin(), lights_.End(), CompareLights);
 }
 
+// 获取渲染批次
 void View::GetBatches()
 {
     if (!octree_ || !cullCamera_)
@@ -1030,6 +1035,7 @@ void View::GetBatches()
     nonThreadedGeometries_.Clear();
     threadedGeometries_.Clear();
 
+	//处理光源
     ProcessLights();
     GetLightBatches();
     GetBaseBatches();
@@ -1066,7 +1072,10 @@ void View::ProcessLights()
     queue->Complete(M_MAX_UNSIGNED);
 }
 
-//获取光源相关的渲染批次
+//获取光源相关的渲染批次，最终结果放在 lightQueues_中
+//为LightBatchQueue.shadowMap_申请内存,把query.shadowCasters_中的Drawable批次填充到 LightBatchQueue.shadowSplits_.shadowBatches_
+//把 query.litGeometries_中的Drawable批次填充到 LightBatchQueue.litBaseBatches_ 或 LightBatchQueue.litBatches_ 
+//
 void View::GetLightBatches()
 {
     BatchQueue* alphaQueue = batchQueues_.Contains(alphaPassIndex_) ? &batchQueues_[alphaPassIndex_] : (BatchQueue*)0;
@@ -1176,7 +1185,7 @@ void View::GetLightBatches()
                         }
 
                         const Vector<SourceBatch>& batches = drawable->GetBatches();
-
+						
                         for (unsigned l = 0; l < batches.Size(); ++l)
                         {
                             const SourceBatch& srcBatch = batches[l];
@@ -1209,7 +1218,7 @@ void View::GetLightBatches()
                     drawable->AddLight(light);
 
                     // If drawable limits maximum lights, only record the light, and check maximum count / build batches later
-					//如果drawable的maxLights_为0
+					//如果drawable的maxLights_为0  ---默认值为0
                     if (!drawable->GetMaxLights())
                         GetLitBatches(drawable, lightQueue, alphaQueue);//把drawable的srcBatch放入 lightQueue.litBaseBatches_ 或 lightQueue.litBatches_
                     else
@@ -1251,23 +1260,26 @@ void View::GetLightBatches()
         }
     }
 
-	//如果maxLightsDrawables_中有Drawable
+	// maxLightsDrawables_中存的是 Drawable.maxLights_ > 0 的Drawable
+	// 这里的意思也就是说 Drawable.maxLights_ > 0的Drawable会在最后才放入 LightBatchQueue中
     // Process drawables with limited per-pixel light count
-    if (maxLightsDrawables_.Size())
+    if (maxLightsDrawables_.Size())//如果maxLightsDrawables_中有Drawable
     {
         URHO3D_PROFILE(GetMaxLightsBatches);
 
         for (HashSet<Drawable*>::Iterator i = maxLightsDrawables_.Begin(); i != maxLightsDrawables_.End(); ++i)
         {
             Drawable* drawable = *i;
+			// LimitLights之前 Drawable.lights数量会回到 maxlights大小，其它光源会放入Drawable.vertexLights_中
             drawable->LimitLights();
+			// 当drawable受到多个光源影响时 drawable.lights才会有多个元素，但 drawable.maxlights不一定会大于0
             const PODVector<Light*>& lights = drawable->GetLights();
 
             for (unsigned i = 0; i < lights.Size(); ++i)
             {
                 Light* light = lights[i];
                 // Find the correct light queue again
-				//再次查找正确的 light queue（有点绕，这两个ligth queue有什么联系，又有什么区别）
+				//再次查找对应 lightqueue，
 				//这个ligthqueue来自 LightBatchQueue& lightQueue = lightQueues_[usedLightQueues++];
                 LightBatchQueue* queue = light->GetLightQueue();
                 if (queue)
@@ -1301,6 +1313,7 @@ void View::GetBaseBatches()
 			//检查是否这个material指向一个和某个摄像机绑定的rendertarget texture
             // Check here if the material refers to a rendertarget texture with camera(s) attached
 			//rgenderTarget_为空表明当前是在为后缓冲区的绘制采集批次（双缓冲下）
+			// Aux 辅助的
             // Only check this for backbuffer views (null rendertarget)
             if (srcBatch.material_ && srcBatch.material_->GetAuxViewFrameNumber() != frame_.frameNumber_ && !rgenderTarget_)
                 CheckMaterialForAuxView(srcBatch.material_);
@@ -1467,6 +1480,7 @@ void View::UpdateGeometries()
     geometriesUpdated_ = true;
 }
 
+// 把drawable的渲染批次放到 lightQueue.litBaseBatches_或 lightQueue.litBatches_ 或 alphaQueue
 void View::GetLitBatches(Drawable* drawable, LightBatchQueue& lightQueue, BatchQueue* alphaQueue)
 {
     Light* light = lightQueue.light_;
@@ -1492,6 +1506,8 @@ void View::GetLitBatches(Drawable* drawable, LightBatchQueue& lightQueue, BatchQ
         Batch destBatch(srcBatch);
         bool isLitAlpha = false;
 
+		// 检查是否有 LitBase pass,因为它使用了代替的混合模式，必须确保它为第一个光
+		// 此外，逐顶点光源和 环境梯度要求非LitBase pass，因为要跳过这些情况
         // Check for lit base pass. Because it uses the replace blend mode, it must be ensured to be the first light
         // Also vertex lighting or ambient gradient require the non-lit base pass, so skip in those cases
         if (i < 32 && allowLitBase)
@@ -1514,7 +1530,7 @@ void View::GetLitBatches(Drawable* drawable, LightBatchQueue& lightQueue, BatchQ
             destBatch.pass_ = tech->GetSupportedPass(litAlphaPassIndex_);
             isLitAlpha = true;
         }
-
+		// 如果 tech中litbase,light,litalpha都没有，说明这个几何体根本不受环境光影响，则不到在这里收集这个drawable的批次
         // Skip if material does not receive light at all
         if (!destBatch.pass_)
             continue;
@@ -1522,13 +1538,16 @@ void View::GetLitBatches(Drawable* drawable, LightBatchQueue& lightQueue, BatchQ
         destBatch.lightQueue_ = &lightQueue;
         destBatch.zone_ = zone;
 
+		//没有litalpha pass的情况下
         if (!isLitAlpha)
         {
+			//有litbase pass的情况下
             if (destBatch.isBase_)
                 AddBatchToQueue(lightQueue.litBaseBatches_, destBatch, tech);
             else
-                AddBatchToQueue(lightQueue.litBatches_, destBatch, tech);
+                AddBatchToQueue(lightQueue.litBatches_, destBatch, tech);//只有base pass的情况下
         }
+		// 有litalpha pass的情况下
         else if (alphaQueue)
         {
             // Transparent batches can not be instanced, and shadows on transparencies can only be rendered if shadow maps are
@@ -2366,6 +2385,7 @@ void View::DrawOccluders(OcclusionBuffer* buffer, const PODVector<Drawable*>& oc
     buffer->BuildDepthHierarchy();
 }
 
+//处理光源 填充 query.shadowCameras_，query.shadowCasters_
 void View::ProcessLight(LightQueryResult& query, unsigned threadIndex)
 {
     Light* light = query.light_;
@@ -2965,6 +2985,10 @@ Technique* View::GetTechnique(Drawable* drawable, Material* material)
     }
 }
 
+
+//Material -> Texture -> RenderSurface
+//更新 RenderSurface.updateQueued_ = true
+//更新 Material.auxViewFrameNumber_ = frame
 void View::CheckMaterialForAuxView(Material* material)
 {
     const HashMap<TextureUnit, SharedPtr<Texture> >& textures = material->GetTextures();
@@ -3017,6 +3041,8 @@ void View::SetQueueShaderDefines(BatchQueue& queue, const RenderPathCommand& com
 }
 
 //把批次加入到BatchQueue中的batches_
+//如果是逐实例渲染批次，则放到 queue.batchGroups_
+//如果是逐顶点渲染批次，则放到 queue.batches_
 void View::AddBatchToQueue(BatchQueue& queue, Batch& batch, Technique* tech, bool allowInstancing, bool allowShadows)
 {
     if (!batch.material_)
@@ -3026,7 +3052,7 @@ void View::AddBatchToQueue(BatchQueue& queue, Batch& batch, Technique* tech, boo
     if (allowInstancing && batch.geometryType_ == GEOM_STATIC && batch.geometry_->GetIndexBuffer())
         batch.geometryType_ = GEOM_INSTANCED;
 
-	//处理 geometryType_ 为GEOM_INSTANCED的情况
+	//处理 geometryType_ 为GEOM_INSTANCED的情况即 实例化drawcall glDrawxxxInstanced
 	//batch 转换为 BatchGroupKey 最终放入 queue.batchGroups中
     if (batch.geometryType_ == GEOM_INSTANCED)
     {

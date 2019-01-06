@@ -674,6 +674,7 @@ void Renderer::Update(float timeStep)
     if (!graphics_ || !graphics_->IsInitialized() || graphics_->IsDeviceLost())
         return;
 
+	// 对frameinfo初始化
     // Set up the frameinfo structure for this frame
     frame_.frameNumber_ = GetSubsystem<Time>()->GetFrameNumber();
     frame_.timeStep_ = timeStep;
@@ -682,23 +683,33 @@ void Renderer::Update(float timeStep)
     numOcclusionBuffers_ = 0;
     updatedOctrees_.Clear();
 
+	// 如果有需要，重新加载shaders
     // Reload shaders now if needed
     if (shadersDirty_)
         LoadShaders();
 
+	// 把viewports_中的Viewport反向加入到 queuedViewports_中，正如渲染顺序也是反向先渲染辅助视图，再渲染其依赖的主视图
+	// viewports_一般只有一个元素，就是主视口
     // Queue update of the main viewports. Use reverse order, as rendering order is also reverse
     // to render auxiliary views before dependent main views
     for (unsigned i = viewports_.Size() - 1; i < viewports_.Size(); --i)
         QueueViewport(0, viewports_[i]);
 
+	//**********************************************//
+	//更新queuedViewports_中的各个视口
+	// view->Define()
+	// octree->update()
+	// view->update()
     // Update main viewports. This may queue further views
     unsigned numMainViewports = queuedViewports_.Size();
     for (unsigned i = 0; i < numMainViewports; ++i)
         UpdateQueuedViewport(i);
 
+	// 搜集 排序过并且自动更新的 render surfaces
     // Gather queued & autoupdated render surfaces
     SendEvent(E_RENDERSURFACEUPDATE);
 
+	// 再次更新queuedViewports_，一般都只有一个视口，这里不会再进入
     // Update viewports that were added as result of the event above
     for (unsigned i = numMainViewports; i < queuedViewports_.Size(); ++i)
         UpdateQueuedViewport(i);
@@ -1514,6 +1525,9 @@ const Rect& Renderer::GetLightScissor(Light* light, Camera* camera)
 }
 
 //更新 mQueuedViewports中序号为index的Viewport
+// view->Define()
+// octree->update()
+// view->update()
 //一般情况下mQueuedViewports中只有一个元素,这时RenderSurface == null，Viewport为主屏幕
 void Renderer::UpdateQueuedViewport(unsigned index)
 {
@@ -1534,6 +1548,7 @@ void Renderer::UpdateQueuedViewport(unsigned index)
     assert(view);
 	//************************************************************************************//
 	//收集渲染所需要的一些数据,检查是否有正确的scene,camera,octree,scnen pass
+	//这时 SceneInfo.batchQueue_ 还没有填充批次数据
     // Check if view can be defined successfully (has either valid scene, camera and octree, or no scene passes)
     if (!view->Define(renderTarget, viewport))
         return;
@@ -1572,6 +1587,7 @@ void Renderer::UpdateQueuedViewport(unsigned index)
 
     // Update view. This may queue further views. View will send update begin/end events once its state is set
     ResetShadowMapAllocations(); // Each view can reuse the same shadow maps
+	//************************************************************************************//
     view->Update(frame_);
 }
 
@@ -1666,14 +1682,18 @@ void Renderer::Initialize()
     URHO3D_LOGINFO("Initialized renderer");
 }
 
+//先释放原有shaders，重新构建 deferredLightPSVariations_（延迟光渲染shader使用到的宏），这里并没有加载Shaders
 void Renderer::LoadShaders()
 {
     URHO3D_LOGDEBUG("Reloading shaders");
 
+	// 释放 ResourceCache中Material包含的Shader
+	// Material ->  Technique -> Pass -> vertexShaders_.Clear();pixelShaders_.Clear();
     // Release old material shaders, mark them for reload
     ReleaseMaterialShaders();
     shadersChangedFrameNumber_ = GetSubsystem<Time>()->GetFrameNumber();
 
+	// 基于渲染选项，为延迟光渲染构建新的名字
     // Construct new names for deferred light volume pixel shaders based on rendering options
     deferredLightPSVariations_.Resize(MAX_DEFERRED_LIGHT_PS_VARIATIONS);
     

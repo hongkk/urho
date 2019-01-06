@@ -279,10 +279,13 @@ public:
     /// Geometry remapping table for 2-pass state and distance sort.
     HashMap<unsigned short, unsigned short> geometryRemapping_;
 
+	// 没排序的非实例化drawcall
     /// Unsorted non-instanced draw calls.
     PODVector<Batch> batches_;
+	// 排序的非实例化drawcall
     /// Sorted non-instanced draw calls.
     PODVector<Batch*> sortedBatches_;
+	// 没排序的实例化drawcall
     /// Sorted instanced draw calls.
     PODVector<BatchGroup*> sortedBatchGroups_;
     /// Maximum sorted instances.

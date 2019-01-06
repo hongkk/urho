@@ -341,6 +341,7 @@ void Drawable::MarkInView(unsigned frameNumber)
     }
 }
 
+//对Drawable中的光源进行排序，如果光源的数量超出maxLights_，则把多余的光源放到vertexLights_中
 void Drawable::LimitLights()
 {
     // Maximum lights value 0 means unlimited

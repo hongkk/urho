@@ -115,6 +115,7 @@ enum DeferredLightVSVariation
     MAX_DEFERRED_LIGHT_VS_VARIATIONS
 };
 
+// 延迟的光像素着色器变量
 /// Deferred light volume pixels shader variations.
 enum DeferredLightPSVariation
 {

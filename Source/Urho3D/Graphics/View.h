@@ -409,12 +409,14 @@ private:
     HashSet<Drawable*> maxLightsDrawables_;
     /// Rendertargets defined by the renderpath.
     HashMap<StringHash, Texture*> renderTargets_;
+	//光源处理结果的中间变量
     /// Intermediate light processing results.
     Vector<LightQueryResult> lightQueryResults_;
 	//renderpath里面每一个 "scenepass" 相关的信息
 	//会搜集每个pass影响到的drawable
     /// Info for scene render passes defined by the renderpath.
     PODVector<ScenePassInfo> scenePasses_;
+	//GetLightBatches 的处理结果，光源的渲染批次都会放在这里
 	//逐像素光源批次队列，每个LightBatchQueue和一个光源相对应
     /// Per-pixel light queues.
     Vector<LightBatchQueue> lightQueues_;
