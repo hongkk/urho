@@ -1173,7 +1173,7 @@ void View::GetLightBatches()
                     {
                         Drawable* drawable = *k;
                         // If drawable is not in actual view frustum, mark it in view here and check its geometry update type
-						//viewFrameNumber_ 是否和当前 Fram相关，是否在主摄像机
+						//viewFrameNumber_ 是否和当前 Fram相关（是否在之前的CheckVisibilityWork或GetLightBatches中已经处理过），是否在主摄像机
 						//如果没有，将根据类型被放到nonThreadedGeometries_ 和 threadedGeometries_队列中
                         if (!drawable->IsInView(frame_, true))
                         {
@@ -1436,6 +1436,7 @@ void View::UpdateGeometries()
         }
     }
 
+	// 更新 threadedGeometries_ 和 nonThreadedGeometries_中的东西，一般都不会进来
     // Update geometries. Split into threaded and non-threaded updates.
     {
         if (threadedGeometries_.Size())
@@ -3110,6 +3111,7 @@ void View::AddBatchToQueue(BatchQueue& queue, Batch& batch, Technique* tech, boo
     }
 }
 
+// 准备实例化渲染的buffer
 void View::PrepareInstancingBuffer()
 {
     // Prepare instancing buffer from the source view
