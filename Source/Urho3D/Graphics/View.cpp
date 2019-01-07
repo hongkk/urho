@@ -262,13 +262,14 @@ void UpdateDrawableGeometriesWork(const WorkItem* item, unsigned threadIndex)
     }
 }
 
+// 将批次从前到后排序
 void SortBatchQueueFrontToBackWork(const WorkItem* item, unsigned threadIndex)
 {
     BatchQueue* queue = reinterpret_cast<BatchQueue*>(item->start_);
 
     queue->SortFrontToBack();
 }
-
+// 将批次从后到前排序
 void SortBatchQueueBackToFrontWork(const WorkItem* item, unsigned threadIndex)
 {
     BatchQueue* queue = reinterpret_cast<BatchQueue*>(item->start_);
@@ -1394,6 +1395,7 @@ void View::UpdateGeometries()
 
     WorkQueue* queue = GetSubsystem<WorkQueue>();
 
+	
     // Sort batches
     {
         for (unsigned i = 0; i < renderPath_->commands_.Size(); ++i)
@@ -1401,7 +1403,8 @@ void View::UpdateGeometries()
             const RenderPathCommand& command = renderPath_->commands_[i];
             if (!IsNecessary(command))
                 continue;
-
+			// 先对commands中所有"scenepass"调用 SortBatchQueueFrontToBackWork进行排序
+			// 对 batchQueues_ 排序
             if (command.type_ == CMD_SCENEPASS)
             {
                 SharedPtr<WorkItem> item = queue->GetFreeItem();
@@ -1412,7 +1415,7 @@ void View::UpdateGeometries()
                 queue->AddWorkItem(item);
             }
         }
-
+		// 对 shadowSplits_ 排序
         for (Vector<LightBatchQueue>::Iterator i = lightQueues_.Begin(); i != lightQueues_.End(); ++i)
         {
             SharedPtr<WorkItem> lightItem = queue->GetFreeItem();
@@ -1423,6 +1426,7 @@ void View::UpdateGeometries()
 
             if (i->shadowSplits_.Size())
             {
+				// 对 lightQueues_ 排序
                 SharedPtr<WorkItem> shadowItem = queue->GetFreeItem();
                 shadowItem->priority_ = M_MAX_UNSIGNED;
                 shadowItem->workFunction_ = SortShadowQueueWork;

@@ -743,10 +743,12 @@ void BatchQueue::SortBackToFront()
     Sort(sortedBatchGroups_.Begin(), sortedBatchGroups_.End(), CompareBatchGroupOrder);
 }
 
+// 从前到后进行排序
 void BatchQueue::SortFrontToBack()
 {
     sortedBatches_.Clear();
 
+	//放入sortedBatches_队列中再用它来排序
     for (unsigned i = 0; i < batches_.Size(); ++i)
         sortedBatches_.Push(&batches_[i]);
 
@@ -779,8 +781,11 @@ void BatchQueue::SortFrontToBack()
     SortFrontToBack2Pass(reinterpret_cast<PODVector<Batch*>& >(sortedBatchGroups_));
 }
 
+//根据 renderOrder_,sortKey_,distance_进行排序
 void BatchQueue::SortFrontToBack2Pass(PODVector<Batch*>& batches)
 {
+	//移动设备可能使用平铺的延迟方法，这种方法与前后排序无关
+	//这个 2-pass方法也是一个相当耗时的操作,所以在移动平台上,只会对有优先级的状态做排序
     // Mobile devices likely use a tiled deferred approach, with which front-to-back sorting is irrelevant. The 2-pass
     // method is also time consuming, so just sort with state having priority
 #ifdef GL_ES_VERSION_2_0
@@ -797,6 +802,7 @@ void BatchQueue::SortFrontToBack2Pass(PODVector<Batch*>& batches)
     {
         Batch* batch = *i;
 
+		//sortKey_的高32位
         unsigned shaderID = (unsigned)(batch->sortKey_ >> 32);
         HashMap<unsigned, unsigned>::ConstIterator j = shaderRemapping_.Find(shaderID);
         if (j != shaderRemapping_.End())
@@ -806,7 +812,7 @@ void BatchQueue::SortFrontToBack2Pass(PODVector<Batch*>& batches)
             shaderID = shaderRemapping_[shaderID] = freeShaderID | (shaderID & 0x80000000);
             ++freeShaderID;
         }
-
+		//sortKey_的低32位中的高16位
         unsigned short materialID = (unsigned short)(batch->sortKey_ & 0xffff0000);
         HashMap<unsigned short, unsigned short>::ConstIterator k = materialRemapping_.Find(materialID);
         if (k != materialRemapping_.End())
@@ -816,7 +822,7 @@ void BatchQueue::SortFrontToBack2Pass(PODVector<Batch*>& batches)
             materialID = materialRemapping_[materialID] = freeMaterialID;
             ++freeMaterialID;
         }
-
+		//sortKey_的低32位中的低16位
         unsigned short geometryID = (unsigned short)(batch->sortKey_ & 0xffff);
         HashMap<unsigned short, unsigned short>::ConstIterator l = geometryRemapping_.Find(geometryID);
         if (l != geometryRemapping_.End())
@@ -826,14 +832,14 @@ void BatchQueue::SortFrontToBack2Pass(PODVector<Batch*>& batches)
             geometryID = geometryRemapping_[geometryID] = freeGeometryID;
             ++freeGeometryID;
         }
-
+		//重新确定sortKey_
         batch->sortKey_ = (((unsigned long long)shaderID) << 32) | (((unsigned long long)materialID) << 16) | geometryID;
     }
 
     shaderRemapping_.Clear();
     materialRemapping_.Clear();
     geometryRemapping_.Clear();
-
+	//再次排序
     // Finally sort again with the rewritten ID's
     Sort(batches.Begin(), batches.End(), CompareBatchesState);
 #endif
