@@ -303,6 +303,7 @@ public:
     /// Return maximum number of shadow maps per resolution.
     int GetMaxShadowMaps() const { return maxShadowMaps_; }
 
+	// 是否应用动态实例化 默认值是true
     /// Return whether dynamic instancing is in use.
     bool GetDynamicInstancing() const { return dynamicInstancing_; }
 

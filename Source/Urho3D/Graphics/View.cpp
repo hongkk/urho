@@ -643,6 +643,7 @@ void View::Render()
     AllocateScreenBuffers();
     SendViewEvent(E_VIEWBUFFERSREADY);
 
+	// 清除 graphics->shaderParameterSources_中的内容
     // Forget parameter sources from the previous view
     graphics_->ClearParameterSources();
 
