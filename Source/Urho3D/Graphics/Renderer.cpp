@@ -410,11 +410,13 @@ void Renderer::SetShadowMapSize(int size)
     }
 }
 
+// 设置阴影画质
 void Renderer::SetShadowQuality(ShadowQuality quality)
 {
     if (!graphics_)
         return;
 
+	//如果没有 PCF硬件支持，不允许选择单样本品质
     // If no hardware PCF, do not allow to select one-sample quality
     if (!graphics_->GetHardwareShadowSupport())
     {
@@ -424,6 +426,7 @@ void Renderer::SetShadowQuality(ShadowQuality quality)
         if (quality == SHADOWQUALITY_SIMPLE_24BIT)
             quality = SHADOWQUALITY_PCF_24BIT;
     }
+	//是否可以使用高品质格式
     // if high resolution is not allowed
     if (!graphics_->GetHiresShadowMapFormat())
     {
@@ -1643,6 +1646,7 @@ void Renderer::ResetScreenBufferAllocations()
         i->second_ = 0;
 }
 
+// 初始化
 void Renderer::Initialize()
 {
     Graphics* graphics = GetSubsystem<Graphics>();
@@ -1657,17 +1661,24 @@ void Renderer::Initialize()
 
     if (!graphics_->GetShadowMapFormat())
         drawShadows_ = false;
+
+	//设置阴影品质
     // Validate the shadow quality level
     SetShadowQuality(shadowQuality_);
 
+	//默认资源 ramp spot
     defaultLightRamp_ = cache->GetResource<Texture2D>("Textures/Ramp.png");
     defaultLightSpot_ = cache->GetResource<Texture2D>("Textures/Spot.png");
     defaultMaterial_ = new Material(context_);
 
+	//默认renderpath forward
     defaultRenderPath_ = new RenderPath();
     defaultRenderPath_->Load(cache->GetResource<XMLFile>("RenderPaths/Forward.xml"));
 
+
+	// 生成方向光 点光 聚光灯的几何数据
     CreateGeometries();
+	// 初始化 instancingBuffer_
     CreateInstancingBuffer();
 
     viewports_.Resize(1);
@@ -1836,6 +1847,7 @@ void Renderer::ReloadTextures()
         cache->ReloadResource(textures[i]);
 }
 
+// 生成方向光 点光 聚光灯的几何数据
 void Renderer::CreateGeometries()
 {
     SharedPtr<VertexBuffer> dlvb(new VertexBuffer(context_));
@@ -1904,6 +1916,8 @@ void Renderer::CreateGeometries()
 #endif
 }
 
+//点光源阴影计算辅助贴图的数据初始化
+//TU_FACESELECT TU_INDIRECTION贴图
 void Renderer::SetIndirectionTextureData()
 {
     unsigned char data[256 * 256 * 4];

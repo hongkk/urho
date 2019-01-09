@@ -637,6 +637,7 @@ void View::Render()
         return;
     }
 
+	// 对 batchQueues_，lightQueues_，shadowSplits_中的batch进行排序
     UpdateGeometries();
 
     // Allocate screen buffers as necessary
@@ -1383,6 +1384,7 @@ void View::GetBaseBatches()
     }
 }
 
+// 对 batchQueues_，lightQueues_，shadowSplits_中的batch进行排序
 void View::UpdateGeometries()
 {
     // Update geometries in the source view if necessary (prepare order may differ from render order)
@@ -3127,6 +3129,7 @@ void View::PrepareInstancingBuffer()
 
     unsigned totalInstances = 0;
 
+	//统计 batchQueues_ lightQueues_ shadowSplits_中的instance数量
     for (HashMap<unsigned, BatchQueue>::Iterator i = batchQueues_.Begin(); i != batchQueues_.End(); ++i)
         totalInstances += i->second_.GetNumInstances();
 
