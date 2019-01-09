@@ -1317,7 +1317,7 @@ void View::GetBaseBatches()
 			//rgenderTarget_为空表明当前是在为后缓冲区的绘制采集批次（双缓冲下）
 			// Aux 辅助的
             // Only check this for backbuffer views (null rendertarget)
-            if (srcBatch.material_ && srcBatch.material_->GetAuxViewFrameNumber() != frame_.frameNumber_ && !rgenderTarget_)
+            if (srcBatch.material_ && srcBatch.material_->GetAuxViewFrameNumber() != frame_.frameNumber_ && !renderTarget_)
                 CheckMaterialForAuxView(srcBatch.material_);
 
             Technique* tech = GetTechnique(drawable, srcBatch.material_);
