@@ -732,9 +732,12 @@ void Renderer::Render()
     if (faceSelectCubeMap_ && faceSelectCubeMap_->IsDataLost())
         SetIndirectionTextureData();
 
+	//设置默认的纹理过滤方式
     graphics_->SetDefaultTextureFilterMode(textureFilterMode_);
+	//默认最大纹理各向异性 只有dx上有用  device_->SetSamplerState(index, D3DSAMP_MAXANISOTROPY, maxAnisotropy);
     graphics_->SetDefaultTextureAnisotropy((unsigned)textureAnisotropy_);
 
+	// 如果没有view 渲染到后缓冲区，那么清除屏幕内容
     // If no views that render to the backbuffer, clear the screen so that e.g. the UI is not rendered on top of previous frame
     bool hasBackbufferViews = false;
     for (unsigned i = 0; i < views_.Size(); ++i)
@@ -756,6 +759,7 @@ void Renderer::Render()
         graphics_->Clear(CLEAR_COLOR | CLEAR_DEPTH | CLEAR_STENCIL, defaultZone_->GetFogColor());
     }
 
+	// 从后往前渲染views
     // Render views from last to first. Each main (backbuffer) view is rendered after the auxiliary views it depends on
     for (unsigned i = views_.Size() - 1; i < views_.Size(); --i)
     {
@@ -767,10 +771,12 @@ void Renderer::Render()
         views_[i]->Render();
     }
 
+	// 拷贝批次和原型的数量数据用于统计
     // Copy the number of batches & primitives from Graphics so that we can account for 3D geometry only
     numPrimitives_ = graphics_->GetNumPrimitives();
     numBatches_ = graphics_->GetNumBatches();
 
+	// 移除没用的剔除缓冲区和渲染缓冲区
     // Remove unused occlusion buffers and renderbuffers
     RemoveUnusedBuffers();
 
