@@ -2014,12 +2014,18 @@ void View::RenderQuad(RenderPathCommand& command)
     DrawFullscreenQuad(false);
 }
 
+//command 有输出，即有 "output"属性
+//并且command不为"scenepass"或 为"scenepass"但相关的批次不为空
 bool View::IsNecessary(const RenderPathCommand& command)
 {
     return command.enabled_ && command.outputs_.Size() &&
            (command.type_ != CMD_SCENEPASS || !batchQueues_[command.passIndex_].IsEmpty());
 }
 
+//检查command中是否有 "texture"标签，"texture"标签的"name"是否为 "viewport" 
+//如果某个"texture"标签的"name"为"viewport"，则返回true
+//否则返回 false
+// Compare 相等返回 0
 bool View::CheckViewportRead(const RenderPathCommand& command)
 {
     for (unsigned i = 0; i < MAX_TEXTURE_UNITS; ++i)
@@ -2031,6 +2037,8 @@ bool View::CheckViewportRead(const RenderPathCommand& command)
     return false;
 }
 
+//检查command中的 "output"属性是否为 "viewport"
+//如果某个 "output"属性为 "viewport" 则返回true,反之false
 bool View::CheckViewportWrite(const RenderPathCommand& command)
 {
     for (unsigned i = 0; i < command.outputs_.Size(); ++i)
@@ -2042,22 +2050,30 @@ bool View::CheckViewportWrite(const RenderPathCommand& command)
     return false;
 }
 
-
+//index对应的command,如果类型不为CMD_QUAD 或 没有"texture"标签的"name"为"viewport" 或 "output"值不为 "viewport" 返回false
+//否则，检查接下去的command,如果 类型不为 CMD_QUAD 且 "output"值不为 "viewport"返回false
+//Ping pong is a technique to alternately use the output of a given rendering pass as input in the next one
+//ping pong是指一种（交替地将指定渲染pass的输出作为下一个渲染pas的输入）的技术。听起来有点像ogre的Compositor
+// 检查index对应的command,如果类型不为CMD_QUAD 或 对应的 
 bool View::CheckPingpong(unsigned index)
 {
     // Current command must be a viewport-reading & writing quad to begin the pingpong chain
     RenderPathCommand& current = renderPath_->commands_[index];
+	//CheckViewportRead =>Command某个"texture"标签的"name"为"viewport"
+	//CheckViewportWrite =>command中的"output"值为 "viewport"
     if (current.type_ != CMD_QUAD || !CheckViewportRead(current) || !CheckViewportWrite(current))
         return false;
-
+	// 如果renderpath中某些非"quad"的command，其rendertarget也是视口时
+	// 我们必须保持渲染到最终目标并且在必要时解析为视口纹理而不是直接传递纹理
+	// 因为场景传递不能保证填充整个视口
     // If there are commands other than quads that target the viewport, we must keep rendering to the final target and resolving
     // to a viewport texture when necessary instead of pingponging, as a scene pass is not guaranteed to fill the entire viewport
     for (unsigned i = index + 1; i < renderPath_->commands_.Size(); ++i)
     {
         RenderPathCommand& command = renderPath_->commands_[i];
-        if (!IsNecessary(command))
+        if (!IsNecessary(command))//command有"output"属性
             continue;
-        if (CheckViewportWrite(command))
+        if (CheckViewportWrite(command))//command中的"output"值为 "viewport"
         {
             if (command.type_ != CMD_QUAD)
                 return false;
@@ -2067,6 +2083,7 @@ bool View::CheckPingpong(unsigned index)
     return true;
 }
 
+// 申请屏幕缓冲区
 void View::AllocateScreenBuffers()
 {
     View* actualView = sourceView_ ? sourceView_ : this;
@@ -2080,6 +2097,7 @@ void View::AllocateScreenBuffers()
     depthOnlyDummyTexture_ = 0;
     lastCustomDepthSurface_ = 0;
 
+	// 检查：是否有自定义深度，渲染一个scenepass到目标视口以外，读取视口，或在视口纹理之间传递，这可能会引起 目标rendertarget的替代
     // Check for commands with special meaning: has custom depth, renders a scene pass to other than the destination viewport,
     // read the viewport, or pingpong between viewport textures. These may trigger the need to substitute the destination RT
     for (unsigned i = 0; i < renderPath_->commands_.Size(); ++i)
@@ -2087,7 +2105,7 @@ void View::AllocateScreenBuffers()
         const RenderPathCommand& command = renderPath_->commands_[i];
         if (!actualView->IsNecessary(command))
             continue;
-        if (!hasViewportRead && CheckViewportRead(command))
+        if (!hasViewportRead && CheckViewportRead(command))//CheckViewportRead如果command某个"texture"标签的"name"为"viewport"，则返回true
             hasViewportRead = true;
         if (!hasPingpong && CheckPingpong(i))
             hasPingpong = true;
