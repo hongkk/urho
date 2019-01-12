@@ -766,6 +766,7 @@ void Renderer::Render()
         if (!views_[i])
             continue;
 
+		// 屏幕缓冲区可以在各个view之间重用
         // Screen buffers can be reused between views, as each is rendered completely
         PrepareViewRender();
         views_[i]->Render();
