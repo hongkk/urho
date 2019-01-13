@@ -1039,6 +1039,7 @@ Texture2D* Renderer::GetShadowMap(Light* light, Camera* camera, unsigned viewWid
     return newShadowMap;
 }
 
+//获取屏幕缓冲区
 Texture* Renderer::GetScreenBuffer(int width, int height, unsigned format, int multiSample, bool autoResolve, bool cubemap, bool filtered, bool srgb,
     unsigned persistentKey)
 {
@@ -1055,7 +1056,7 @@ Texture* Renderer::GetScreenBuffer(int width, int height, unsigned format, int m
     multiSample = Clamp(multiSample, 1, 16);
     if (multiSample == 1)
         autoResolve = false;
-
+	// 构建屏幕缓冲区的Key
     long long searchKey = ((long long)format << 32) | (multiSample << 24) | (width << 12) | height;
     if (filtered)
         searchKey |= 0x8000000000000000LL;
@@ -1074,6 +1075,7 @@ Texture* Renderer::GetScreenBuffer(int width, int height, unsigned format, int m
     if (screenBuffers_.Find(searchKey) == screenBuffers_.End())
         screenBufferAllocations_[searchKey] = 0;
 
+	// 重用深度缓冲区
     // Reuse depth-stencil buffers whenever the size matches, instead of allocating new
     unsigned allocations = screenBufferAllocations_[searchKey];
     if (!depthStencil)

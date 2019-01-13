@@ -2125,19 +2125,28 @@ void View::AllocateScreenBuffers()
     }
 
 #ifdef URHO3D_OPENGL
+	// 由于 FBO 的限制，在opengl的延迟模式下，需要先渲染到纹理，然后blit到后缓冲区
+	// 还有，如果使用完全延迟的模式渲染到纹理，那么缓冲区中剩下的格式必须都是RGBA
+	// 除非你使用的是 opengl3
+	// Substitute 代替 替换
     // Due to FBO limitations, in OpenGL deferred modes need to render to texture first and then blit to the backbuffer
     // Also, if rendering to a texture with full deferred rendering, it must be RGBA to comply with the rest of the buffers,
     // unless using OpenGL 3
     if (((deferred_ || hasScenePassToRTs) && !renderTarget_) || (!Graphics::GetGL3Support() && deferredAmbient_ && renderTarget_
         && renderTarget_->GetParentTexture()->GetFormat() != Graphics::GetRGBAFormat()))
             needSubstitute = true;
+	// 如果是渲染到后缓冲区并且使用自定义的深度bufffer时  needSubstitute = true
     // Also need substitute if rendering to backbuffer using a custom (readable) depth buffer
     if (!renderTarget_ && hasCustomDepth)
         needSubstitute = true;
 #endif
+	// 如果是延迟模式的后缓冲区渲染，并且使用多重采样 needSubstitute = true;
     // If backbuffer is antialiased when using deferred rendering, need to reserve a buffer
     if (deferred_ && !renderTarget_ && graphics_->GetMultiSample() > 1)
         needSubstitute = true;
+
+	// 在延迟模式下如果视口比整张纹理还小，需要保留一个缓冲区，作为 G-buffer，这时 needSubstitute = true;
+	// 纹理会被缩放为视口大小
     // If viewport is smaller than whole texture/backbuffer in deferred rendering, need to reserve a buffer, as the G-buffer
     // textures will be sized equal to the viewport
     if (viewSize_.x_ < rtSize_.x_ || viewSize_.y_ < rtSize_.y_)
@@ -2146,9 +2155,11 @@ void View::AllocateScreenBuffers()
             needSubstitute = true;
     }
 
+	// 遵循目标渲染目标的格式,或者使用RGB匹配后缓冲区格式,(这句话怎么理解呢)
     // Follow final rendertarget format, or use RGB to match the backbuffer format
     unsigned format = renderTarget_ ? renderTarget_->GetParentTexture()->GetFormat() : Graphics::GetRGBFormat();
 
+	// 如果可以使用HDR渲染,那么使用RGBA16f格式  needSubstitute = true;
     // If HDR rendering is enabled use RGBA16f and reserve a buffer
     if (renderer_->GetHDRRendering())
     {
@@ -2157,6 +2168,7 @@ void View::AllocateScreenBuffers()
     }
 
 #ifdef URHO3D_OPENGL
+	// 在opengl2上,确保所以的 MRT缓冲区在延迟模式下是RGBA格式
     // On OpenGL 2 ensure that all MRT buffers are RGBA in deferred rendering
     if (deferred_ && !renderer_->GetHDRRendering() && !Graphics::GetGL3Support())
         format = Graphics::GetRGBAFormat();
@@ -2166,18 +2178,20 @@ void View::AllocateScreenBuffers()
     {
         ++numViewportTextures;
 
+		// 在 opengles上,使用substitute target来避免后缓冲区的解析,这可能会比较慢,但如果指定也多重采样,那也别无选择
         // If OpenGL ES, use substitute target to avoid resolve from the backbuffer, which may be slow. However if multisampling
         // is specified, there is no choice
 #ifdef GL_ES_VERSION_2_0
         if (!renderTarget_ && graphics_->GetMultiSample() < 2)
             needSubstitute = true;
 #endif
-
+		// 如果有 viewport read(即"texture"标签的"name"为"viewport")并且target是一个cubemap,则必须申请一个替代目标而不是使用 BlitFramebuffer
         // If we have viewport read and target is a cube map, must allocate a substitute target instead as BlitFramebuffer()
         // does not support reading a cube map
         if (renderTarget_ && renderTarget_->GetParentTexture()->GetType() == TextureCube::GetTypeStatic())
             needSubstitute = true;
 
+		// 如果是渲染到纹理,但是视口比整个纹理还小,则使用替代纹理以确保后处理着色器,不会采样到视口的外面
         // If rendering to a texture, but the viewport is less than the whole texture, use a substitute to ensure
         // postprocessing shaders will never read outside the viewport
         if (renderTarget_ && (viewSize_.x_ < renderTarget_->GetWidth() || viewSize_.y_ < renderTarget_->GetHeight()))
@@ -2187,11 +2201,14 @@ void View::AllocateScreenBuffers()
             ++numViewportTextures;
     }
 
+	// 申请屏幕缓冲区,开启滤波
+	// 遵循目标渲染目标的sRGB模式
     // Allocate screen buffers. Enable filtering in case the quad commands need that
     // Follow the sRGB mode of the destination render target
     bool sRGB = renderTarget_ ? renderTarget_->GetParentTexture()->GetSRGB() : graphics_->GetSRGB();
     int multiSample = renderTarget_ ? renderTarget_->GetMultiSample() : graphics_->GetMultiSample();
     bool autoResolve = renderTarget_ ? renderTarget_->GetAutoResolve() : true;
+	//根据上面得到的各个参数,生成 RenderTarget 和 Texture
     substituteRenderTarget_ = needSubstitute ? GetRenderSurfaceFromTexture(renderer_->GetScreenBuffer(viewSize_.x_, viewSize_.y_,
         format, multiSample, autoResolve, false, true, sRGB)) : (RenderSurface*)0;
     for (unsigned i = 0; i < MAX_VIEWPORT_TEXTURES; ++i)
@@ -2199,10 +2216,12 @@ void View::AllocateScreenBuffers()
         viewportTextures_[i] = i < numViewportTextures ? renderer_->GetScreenBuffer(viewSize_.x_, viewSize_.y_, format, multiSample,
             autoResolve, false, true, sRGB) : (Texture*)0;
     }
+	// 如果使用替代渲染目标和pingpong,替代目标可以像第二个视口纹理来使用
     // If using a substitute render target and pingponging, the substitute can act as the second viewport texture
     if (numViewportTextures == 1 && substituteRenderTarget_)
         viewportTextures_[1] = substituteRenderTarget_->GetParentTexture();
 
+	// 构建其他在renderpath中定义的渲染目标
     // Allocate extra render targets defined by the render path
     for (unsigned i = 0; i < renderPath_->renderTargets_.Size(); ++i)
     {
