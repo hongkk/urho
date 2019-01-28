@@ -1858,6 +1858,11 @@ void Graphics::SetDepthBias(float constantBias, float slopeScaledBias)
 #ifndef GL_ES_VERSION_2_0
         if (slopeScaledBias != 0.0f)
         {
+			//OpenGL常量深度偏置不可靠并且依赖于深度缓冲器bitdepth，
+			//OpenGL中深度偏移常量会应用于投影矩阵
+			//void APIENTRY glPolygonOffset (GLfloat factor, GLfloat units);
+			//设置后深度偏移量的计算公式是Offset=DZ*factor+r*units，DZ和r是当前系统跟深度测试相关的系数，
+			//其中r是两个深度缓冲区间的最小间隔，一般情况下，factor和units都设置为1.0（或-1.0）个单位，基本上是一个比较稳妥的设定
             // OpenGL constant bias is unreliable and dependent on depth buffer bitdepth, apply in the projection matrix instead
             glEnable(GL_POLYGON_OFFSET_FILL);
             glPolygonOffset(slopeScaledBias, 0.0f);
@@ -1865,7 +1870,7 @@ void Graphics::SetDepthBias(float constantBias, float slopeScaledBias)
         else
             glDisable(GL_POLYGON_OFFSET_FILL);
 #endif
-
+		//constantDepthBias_ 最后会应用到投影矩阵
         constantDepthBias_ = constantBias;
         slopeScaledDepthBias_ = slopeScaledBias;
         // Force update of the projection matrix shader parameter
@@ -2860,6 +2865,7 @@ void Graphics::CheckFeatureSupport()
     hardwareShadowSupport_ = shadowMapFormat_ != 0;
 }
 
+//准备渲染 处理fbo
 void Graphics::PrepareDraw()
 {
 #ifndef GL_ES_VERSION_2_0
@@ -2870,11 +2876,11 @@ void Graphics::PrepareDraw()
         impl_->dirtyConstantBuffers_.Clear();
     }
 #endif
-
+	// 检查fbo脏标志
     if (impl_->fboDirty_)
     {
         impl_->fboDirty_ = false;
-
+		// 如果不需要fbo，直接返回然后进行后缓冲渲染
         // First check if no framebuffer is needed. In that case simply return to backbuffer rendering
         bool noFbo = !depthStencil_;
         if (noFbo)
@@ -2891,6 +2897,8 @@ void Graphics::PrepareDraw()
 
         if (noFbo)
         {
+			// 当前绑定的帧缓冲区是不是后缓冲区
+			//systemFBO_ = 0
             if (impl_->boundFBO_ != impl_->systemFBO_)
             {
                 BindFramebuffer(impl_->systemFBO_);
@@ -2899,6 +2907,8 @@ void Graphics::PrepareDraw()
 
 #ifndef GL_ES_VERSION_2_0
             // Disable/enable sRGB write
+			//当启用GL_FRAMEBUFFER_SRGB，这意味着OpenGL的将假定为一个片段的颜色是线性色彩空间。
+			//因此，当它将它们写入sRGB格式的图像时，它会将它们从内部线性转换为sRGB
             if (sRGBWriteSupport_)
             {
                 bool sRGBWrite = sRGB_;
@@ -2916,6 +2926,7 @@ void Graphics::PrepareDraw()
             return;
         }
 
+		//根据rtSize，format在 frameBuffers_ 中查找FrameBufferObject
         // Search for a new framebuffer based on format & size, or create new
         IntVector2 rtSize = Graphics::GetRenderTargetDimensions();
         unsigned format = 0;
@@ -2933,7 +2944,7 @@ void Graphics::PrepareDraw()
             newFbo.fbo_ = CreateFramebuffer();
             i = impl_->frameBuffers_.Insert(MakePair(fboKey, newFbo));
         }
-
+		//绑定 fbo
         if (impl_->boundFBO_ != i->second_.fbo_)
         {
             BindFramebuffer(i->second_.fbo_);
@@ -2941,6 +2952,9 @@ void Graphics::PrepareDraw()
         }
 
 #ifndef GL_ES_VERSION_2_0
+		//void glReadBuffer(GLenum mode); 
+		//功能 : 选择接下来的函数调用glReadPixels(), glCopyPixels(), glCopyTexImage*(), glCopyTexSubImage*() 和 glCopyConvolutionFilter*()将读取的缓存.
+		//并启用以前被函数glReadBuffer()启用的缓存.
         // Setup readbuffers & drawbuffers if needed
         if (i->second_.readBuffers_ != GL_NONE)
         {
@@ -2959,6 +2973,9 @@ void Graphics::PrepareDraw()
         if (newDrawBuffers != i->second_.drawBuffers_)
         {
             // Check for no color rendertargets (depth rendering only)
+			// 检查是否没有颜色附加点(只渲染深度）
+			//void glDrawBuffer (GLenum mode);
+			//选择用于读取和写入的颜色缓冲区
             if (!newDrawBuffers)
                 glDrawBuffer(GL_NONE);
             else
@@ -2976,6 +2993,8 @@ void Graphics::PrepareDraw()
                             drawBufferIds[drawBufferCount++] = GL_COLOR_ATTACHMENT0 + j;
                     }
                 }
+				//void glDrawBuffers(GLsizei n, const GLenum *buffers);
+				///指定用于接收颜色值的多个缓冲区，buffers是缓冲区枚举型的数组
                 glDrawBuffers(drawBufferCount, (const GLenum*)drawBufferIds);
             }
 

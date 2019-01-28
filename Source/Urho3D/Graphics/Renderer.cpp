@@ -1126,6 +1126,8 @@ Texture* Renderer::GetScreenBuffer(int width, int height, unsigned format, int m
     }
 }
 
+// 获取深度模板
+// 如果和默认的深度模板参数相同,则返回默认的深度模板,否则创建一个新的纹理
 RenderSurface* Renderer::GetDepthStencil(int width, int height, int multiSample, bool autoResolve)
 {
     // Return the default depth-stencil surface if applicable
@@ -1897,6 +1899,7 @@ void Renderer::CreateGeometries()
     pointLightGeometry_->SetIndexBuffer(plib);
     pointLightGeometry_->SetDrawRange(TRIANGLE_LIST, 0, plib->GetIndexCount());
 
+	//点光源阴影计算辅助贴图
 #if !defined(URHO3D_OPENGL) || !defined(GL_ES_VERSION_2_0)
     if (graphics_->GetShadowMapFormat())
     {

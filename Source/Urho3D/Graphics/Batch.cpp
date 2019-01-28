@@ -851,6 +851,7 @@ void BatchQueue::SetInstancingData(void* lockedData, unsigned stride, unsigned& 
         i->second_.SetInstancingData(lockedData, stride, freeIndex);
 }
 
+// äÖÈ¾
 void BatchQueue::Draw(View* view, Camera* camera, bool markToStencil, bool usingLightOptimization, bool allowDepthWrite) const
 {
     Graphics* graphics = view->GetGraphics();

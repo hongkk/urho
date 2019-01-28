@@ -1,4 +1,4 @@
-//
+﻿//
 // Copyright (c) 2008-2017 the Urho3D project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -342,7 +342,7 @@ public:
     /// Return 24-bit shadow map depth texture format, or 0 if not supported.
     unsigned GetHiresShadowMapFormat() const { return hiresShadowMapFormat_; }
 
-	//�Ƿ�֧��Ӳ��ʵ����
+	//是否支持硬件实例化
     /// Return whether hardware instancing is supported.
     bool GetInstancingSupport() const { return instancingSupport_; }
 
@@ -732,6 +732,13 @@ private:
     /// Hardware culling mode.
     CullMode cullMode_;
     /// Depth constant bias.
+	//https://docs.microsoft.com/en-us/windows/desktop/direct3d9/depth-bias
+	/*通过给多边形增加一个z方向深度偏移(depth bias，z_bias), 使3D空间的共面多边形看起来好像并不共面，以便它们能够被正确渲染。
+	这种技术是很有用的，例如，我们要渲染投射在墙上的阴影，这时候墙和阴影共面，如果没有深度偏移，先渲染墙，再渲染阴影，由于depth test, 阴影可能不能正确显示。
+	我们给墙设置一个深度偏移，使它增大，例如z增加0.01，先渲染墙，再渲染阴影，则墙和阴影可以正确的显示。
+    Depth - bias操作在clipping之后进行实施，所以depth - bias对几何clipping没有影响。
+	另外需要注意的是：对一个给定体元(primitive), bias值是一个常量，在进行差值操作之前，它施加在每个顶点上。
+	偏移操作都是32位浮点运算，还有Bias不能施加在点以及线体元上（除了线框模式的线段)。*/
     float constantDepthBias_;
     /// Depth slope scaled bias.
     float slopeScaledDepthBias_;

@@ -651,11 +651,14 @@ void View::Render()
     if (renderer_->GetDynamicInstancing() && graphics_->GetInstancingSupport())
         PrepareInstancingBuffer();
 
+	// 尽管我们不建议这么做，但还是有可能同样的摄像机被用在不同的view之间。这里，需要设置automatic aspect ratio，确保正确的投影
     // It is possible, though not recommended, that the same camera is used for multiple main views. Set automatic aspect ratio
     // to ensure correct projection will be used
     if (camera_ && camera_->GetAutoAspectRatio())
         camera_->SetAspectRatioInternal((float)(viewSize_.x_) / (float)(viewSize_.y_));
 
+	// 绑定TU_FACESELECT和TU_INDIRECTION这两个纹理 ，这个只会在win32上用到
+	// 用于点光源阴影计算的辅助贴图
     // Bind the face selection and indirection cube maps for point light shadows
 #ifndef GL_ES_VERSION_2_0
     if (renderer_->GetDrawShadows())
@@ -665,6 +668,7 @@ void View::Render()
     }
 #endif
 
+	// 如果是opengl渲染,并且是RTT,那么Y坐标要倒转过来
     if (renderTarget_)
     {
         // On OpenGL, flip the projection if rendering to a texture so that the texture can be addressed in the same way
@@ -1565,15 +1569,17 @@ void View::GetLitBatches(Drawable* drawable, LightBatchQueue& lightQueue, BatchQ
     }
 }
 
+//开始执行renderpath命令
 void View::ExecuteRenderPathCommands()
 {
     View* actualView = sourceView_ ? sourceView_ : this;
 
+	// 如果不重用阴影图,那么把所有物体先渲染一遍到阴影图
     // If not reusing shadowmaps, render all of them first
     if (!renderer_->GetReuseShadowMaps() && renderer_->GetDrawShadows() && !actualView->lightQueues_.Empty())
     {
         URHO3D_PROFILE(RenderShadowMaps);
-
+		//渲染阴影,有几个光源就有几个lightQueues_
         for (Vector<LightBatchQueue>::Iterator i = actualView->lightQueues_.Begin(); i != actualView->lightQueues_.End(); ++i)
         {
             if (NeedRenderShadowMap(*i))
@@ -3258,6 +3264,7 @@ bool View::NeedRenderShadowMap(const LightBatchQueue& queue)
         !queue.volumeBatches_.Empty());
 }
 
+//渲染阴影图
 void View::RenderShadowMap(const LightBatchQueue& queue)
 {
     URHO3D_PROFILE(RenderShadowMap);
@@ -3272,6 +3279,7 @@ void View::RenderShadowMap(const LightBatchQueue& queue)
     // Set shadow depth bias
     BiasParameters parameters = queue.light_->GetShadowBias();
 
+	// 如果阴影图是一个深度模板纹理,以光源位置为摄像机位置,记录从光源到可见物体的最小深度
     // The shadow map is a depth stencil texture
     if (shadowMap->GetUsage() == TEXTURE_DEPTHSTENCIL)
     {
@@ -3281,10 +3289,11 @@ void View::RenderShadowMap(const LightBatchQueue& queue)
         // Disable other render targets
         for (unsigned i = 1; i < MAX_RENDERTARGETS; ++i)
             graphics_->SetRenderTarget(i, (RenderSurface*) 0);
+		//这里会PrepareDraw()，然后bindframebuffer
         graphics_->SetViewport(IntRect(0, 0, shadowMap->GetWidth(), shadowMap->GetHeight()));
         graphics_->Clear(CLEAR_DEPTH);
     }
-    else // if the shadow map is a color rendertarget
+    else // if the shadow map is a color rendertarget //如果阴影图是一个彩色纹理图
     {
         graphics_->SetColorWrite(true);
         graphics_->SetRenderTarget(0, shadowMap);
@@ -3293,18 +3302,21 @@ void View::RenderShadowMap(const LightBatchQueue& queue)
             graphics_->SetRenderTarget(i, (RenderSurface*) 0);
         graphics_->SetDepthStencil(renderer_->GetDepthStencil(shadowMap->GetWidth(), shadowMap->GetHeight(),
             shadowMap->GetMultiSample(), shadowMap->GetAutoResolve()));
+		//这里会PrepareDraw()，然后bindframebuffer
         graphics_->SetViewport(IntRect(0, 0, shadowMap->GetWidth(), shadowMap->GetHeight()));
         graphics_->Clear(CLEAR_DEPTH | CLEAR_COLOR, Color::WHITE);
 
         parameters = BiasParameters(0.0f, 0.0f);
     }
 
+	// 根据视锥体分割参数,渲染每一个阴影图
     // Render each of the splits
     for (unsigned i = 0; i < queue.shadowSplits_.Size(); ++i)
     {
         const ShadowBatchQueue& shadowQueue = queue.shadowSplits_[i];
 
         float multiplier = 1.0f;
+		// 对于有视锥体分割的平等光，根据分割的远截面调整深度偏移
         // For directional light cascade splits, adjust depth bias according to the far clip ratio of the splits
         if (i > 0 && queue.light_->GetLightType() == LIGHT_DIRECTIONAL)
         {
@@ -3315,26 +3327,30 @@ void View::RenderShadowMap(const LightBatchQueue& queue)
             multiplier = (int)(multiplier * 10.0f) / 10.0f;
         }
 
+		// 在OpenGL ES上进行深度偏差的进一步修改，因为阴影计算的精度有限
         // Perform further modification of depth bias on OpenGL ES, as shadow calculations' precision is limited
         float addition = 0.0f;
 #ifdef GL_ES_VERSION_2_0
         multiplier *= renderer_->GetMobileShadowBiasMul();
         addition = renderer_->GetMobileShadowBiasAdd();
 #endif
-
+		// 设置深度偏移
         graphics_->SetDepthBias(multiplier * parameters.constantBias_ + addition, multiplier * parameters.slopeScaledBias_);
 
         if (!shadowQueue.shadowBatches_.IsEmpty())
         {
             graphics_->SetViewport(shadowQueue.shadowViewport_);
+			//开始渲染阴影
             shadowQueue.shadowBatches_.Draw(this, shadowQueue.shadowCamera_, false, false, true);
         }
     }
 
+	// 缩放滤镜模糊量等于阴影贴图视口大小，以便不同的阴影贴图分辨率的行为不同
     // Scale filter blur amount to shadow map viewport size so that different shadow map resolutions don't behave differently
     float blurScale = queue.shadowSplits_[0].shadowViewport_.Width() / 1024.0f;
     renderer_->ApplyShadowMapFilter(this, shadowMap, blurScale);
 
+	// 重置 colorwrite 和 depthbia这两个参数
     // reset some parameters
     graphics_->SetColorWrite(true);
     graphics_->SetDepthBias(0.0f, 0.0f);
