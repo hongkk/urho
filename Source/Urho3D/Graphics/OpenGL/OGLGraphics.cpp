@@ -1614,13 +1614,17 @@ void Graphics::SetTexture(unsigned index, Texture* texture)
 
 void Graphics::SetTextureForUpdate(Texture* texture)
 {
+	//如果之前有调用过 SetTexture()，则activeTexture_ 不为 0
     if (impl_->activeTexture_ != 0)
     {
+		//启用0级纹理，也就是第一个纹理
         glActiveTexture(GL_TEXTURE0);
         impl_->activeTexture_ = 0;
     }
 
+	// glType = GL_TEXTURE_2D|GL_TEXTURE_2D_MULTISAMPLE|GL_TEXTURE_3D 等
     unsigned glType = texture->GetTarget();
+	// 解绑旧的纹理
     // Unbind old texture type if necessary
     if (impl_->textureTypes_[0] && impl_->textureTypes_[0] != glType)
         glBindTexture(impl_->textureTypes_[0], 0);
@@ -2962,6 +2966,7 @@ void Graphics::PrepareDraw()
             i->second_.readBuffers_ = GL_NONE;
         }
 
+		// 把所有rendertarget 按位拼為一個DrawBuffer，以此來確定DrawBuffer是否有变化
         // Calculate the bit combination of non-zero color rendertargets to first check if the combination changed
         unsigned newDrawBuffers = 0;
         for (unsigned j = 0; j < MAX_RENDERTARGETS; ++j)
@@ -3004,22 +3009,28 @@ void Graphics::PrepareDraw()
 
         for (unsigned j = 0; j < MAX_RENDERTARGETS; ++j)
         {
+			//renderTargets_ 在 SetRenderTargets（）中被赋值
             if (renderTargets_[j])
             {
                 Texture* texture = renderTargets_[j]->GetParentTexture();
 
+				// 绑定renderTarget对应的渲染缓冲区或纹理
                 // Bind either a renderbuffer or texture, depending on what is available
                 unsigned renderBufferID = renderTargets_[j]->GetRenderBuffer();
                 if (!renderBufferID)
                 {
+					// 检查纹理的脏标记，看看是否要更新参数
                     // If texture's parameters are dirty, update before attaching
                     if (texture->GetParametersDirty())
                     {
+						// 这里先绑定和启用0级纹理，为了下一句更新纹理
                         SetTextureForUpdate(texture);
+						// 启用后更新纹理参数
                         texture->UpdateParameters();
+						// 更新完解绑纹理
                         SetTexture(0, 0);
                     }
-
+					// 重新绑定颜色附加点
                     if (i->second_.colorAttachments_[j] != renderTargets_[j])
                     {
                         BindColorAttachment(j, renderTargets_[j]->GetTarget(), texture->GetGPUObjectName(), false);
@@ -3037,6 +3048,7 @@ void Graphics::PrepareDraw()
             }
             else
             {
+				//解绑颜色附加点
                 if (i->second_.colorAttachments_[j])
                 {
                     BindColorAttachment(j, GL_TEXTURE_2D, 0, false);
@@ -3044,19 +3056,24 @@ void Graphics::PrepareDraw()
                 }
             }
         }
-
+		// 深度模板
+		// 绑定一个渲染缓冲对象或是一个深度纹理
         if (depthStencil_)
         {
             // Bind either a renderbuffer or a depth texture, depending on what is available
+			// depthStencil_在SetDepthStencil()中赋值
             Texture* texture = depthStencil_->GetParentTexture();
 #ifndef GL_ES_VERSION_2_0
             bool hasStencil = texture->GetFormat() == GL_DEPTH24_STENCIL8_EXT;
 #else
             bool hasStencil = texture->GetFormat() == GL_DEPTH24_STENCIL8_OES;
 #endif
+			// 查看是否有渲染缓冲区对象
             unsigned renderBufferID = depthStencil_->GetRenderBuffer();
+			// 没有渲染缓冲区对象
             if (!renderBufferID)
             {
+				// 更新纹理参数，同上
                 // If texture's parameters are dirty, update before attaching
                 if (texture->GetParametersDirty())
                 {
@@ -3064,7 +3081,7 @@ void Graphics::PrepareDraw()
                     texture->UpdateParameters();
                     SetTexture(0, 0);
                 }
-
+				// 绑定这个纹理到深度和模板缓冲附加点
                 if (i->second_.depthAttachment_ != depthStencil_)
                 {
                     BindDepthAttachment(texture->GetGPUObjectName(), false);
@@ -3074,6 +3091,7 @@ void Graphics::PrepareDraw()
             }
             else
             {
+				// 有渲染缓冲区对象时，绑定这个对象到深度和模板缓冲附加点
                 if (i->second_.depthAttachment_ != depthStencil_)
                 {
                     BindDepthAttachment(renderBufferID, true);
@@ -3084,6 +3102,7 @@ void Graphics::PrepareDraw()
         }
         else
         {
+			//解绑定深度和模板缓冲附加点
             if (i->second_.depthAttachment_)
             {
                 BindDepthAttachment(0, false);
@@ -3094,6 +3113,7 @@ void Graphics::PrepareDraw()
 
 #ifndef GL_ES_VERSION_2_0
         // Disable/enable sRGB write
+		// 开启或关闭 sRGB 写入
         if (sRGBWriteSupport_)
         {
             bool sRGBWrite = renderTargets_[0] ? renderTargets_[0]->GetParentTexture()->GetSRGB() : sRGB_;
