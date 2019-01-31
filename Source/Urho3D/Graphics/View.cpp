@@ -1617,18 +1617,22 @@ void View::ExecuteRenderPathCommands()
             bool viewportWrite = actualView->CheckViewportWrite(command);
             bool beginPingpong = actualView->CheckPingpong(i);
 
+			// viewport 是否已经被前面的command修改过，并且当前command会把viewport作为texture输入
             // Has the viewport been modified and will be read as a texture by the current command?
             if (viewportRead && viewportModified)
             {
+				// 如果已经渲染到一个替代的rendertarget，则开始不使用位操作的pingpong
                 // Start pingponging without a blit if already rendering to the substitute render target
                 if (currentRenderTarget_ && currentRenderTarget_ == substituteRenderTarget_ && beginPingpong)
                     isPingponging = true;
 
+				// 如果不使用pingpong,那么只简单地拷贝第一个viewport的纹理
                 // If not using pingponging, simply resolve/copy to the first viewport texture
                 if (!isPingponging)
                 {
                     if (!currentRenderTarget_)
                     {
+						// 把帧缓冲区中的内容拷贝到viewportTextures_[0]纹理上
                         graphics_->ResolveToTexture(dynamic_cast<Texture2D*>(viewportTextures_[0]), viewRect_);
                         currentViewportTexture_ = viewportTextures_[0];
                         viewportModified = false;
@@ -1636,8 +1640,10 @@ void View::ExecuteRenderPathCommands()
                     }
                     else
                     {
+						// 如果输出目标是viewport
                         if (viewportWrite)
                         {
+							// 把currentRenderTarget_的纹理直接拷贝到帧缓冲区
                             BlitFramebuffer(currentRenderTarget_->GetParentTexture(),
                                 GetRenderSurfaceFromTexture(viewportTextures_[0]), false);
                             currentViewportTexture_ = viewportTextures_[0];
@@ -1645,6 +1651,10 @@ void View::ExecuteRenderPathCommands()
                         }
                         else
                         {
+							// 如果当前rendertarget本身就是一个纹理，而且还没有被写入过
+							// 这时我们可以直接读取纹理，而不需要使用blit位移操作。
+							// 但是因为后面的command还是有可能会读写这个纹理，那时我们需要使用 blit / resolve操作
+							// 所以我们还是保持 viewportModified = true
                             // If the current render target is already a texture, and we are not writing to it, can read that
                             // texture directly instead of blitting. However keep the viewport dirty flag in case a later command
                             // will do both read and write, and then we need to blit / resolve
@@ -1654,6 +1664,7 @@ void View::ExecuteRenderPathCommands()
                 }
                 else
                 {
+					// 交换pingpong前后缓冲
                     // Swap the pingpong double buffer sides. Texture 0 will be read next
                     viewportTextures_[1] = viewportTextures_[0];
                     viewportTextures_[0] = currentRenderTarget_->GetParentTexture();
@@ -1665,6 +1676,7 @@ void View::ExecuteRenderPathCommands()
             if (beginPingpong)
                 isPingponging = true;
 
+			// 决定viewport的输出目标
             // Determine viewport write target
             if (viewportWrite)
             {
@@ -1674,6 +1686,9 @@ void View::ExecuteRenderPathCommands()
                     // If the render path ends into a quad, it can be redirected to the final render target
                     // However, on OpenGL we can not reliably do this in case the final target is the backbuffer, and we want to
                     // render depth buffer sensitive debug geometry afterward (backbuffer and textures can not share depth)
+					// 如果 rendpath的最终后一个输出是一个quad，这里可以重定向这个最后的rendertarget
+					// 然后，在opengl上，我们并不确定能这么做，因为最终输出目标有可能是后缓冲，而我们后面可能想要渲染深度缓冲调试
+					// （后缓冲和纹理不能共享深度）
 #ifndef URHO3D_OPENGL
                     if (i == lastCommandIndex && command.type_ == CMD_QUAD)
 #else
@@ -1714,6 +1729,7 @@ void View::ExecuteRenderPathCommands()
 
                         if (command.shaderParameters_.Size())
                         {
+							// 如果pass定义了shader参数，那么重置当前shader的参数确定所有参数都会被设置
                             // If pass defines shader parameters, reset parameter sources now to ensure they all will be set
                             // (will be set after camera shader parameters)
                             graphics_->ClearParameterSources();
@@ -2260,6 +2276,7 @@ void View::AllocateScreenBuffers()
     }
 }
 
+// 执行 CopyFramebuffer shader，把source纹理的内容拷贝到destination对应的纹理
 void View::BlitFramebuffer(Texture* source, RenderSurface* destination, bool depthWrite)
 {
     if (!source)
@@ -2296,9 +2313,11 @@ void View::BlitFramebuffer(Texture* source, RenderSurface* destination, bool dep
     SetGBufferShaderParameters(srcSize, srcRect);
 
     graphics_->SetTexture(TU_DIFFUSE, source);
+	// 渲染一个屏幕大小的四边形
     DrawFullscreenQuad(true);
 }
 
+// 渲染一个屏幕大小的四边形
 void View::DrawFullscreenQuad(bool setIdentityProjection)
 {
     Geometry* geometry = renderer_->GetQuadGeometry();

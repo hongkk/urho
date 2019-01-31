@@ -270,6 +270,7 @@ public:
     /// Return whether the batch group is empty.
     bool IsEmpty() const { return batches_.Empty() && batchGroups_.Empty(); }
 
+	// 需要实例化渲染的批次
     /// Instanced draw calls.
     HashMap<BatchGroupKey, BatchGroup> batchGroups_;
     /// Shader remapping table for 2-pass state and distance sort.

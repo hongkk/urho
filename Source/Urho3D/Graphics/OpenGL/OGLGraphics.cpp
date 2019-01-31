@@ -758,10 +758,13 @@ bool Graphics::ResolveToTexture(Texture2D* destination, const IntRect& viewport)
     vpCopy.bottom_ = Clamp(vpCopy.bottom_, 0, height_);
 
     // Make sure the FBO is not in use
+	//重置renderTargets_，并设置viewport大小
     ResetRenderTargets();
 
     // Use Direct3D convention with the vertical coordinates ie. 0 is top
+	//绑定纹理
     SetTextureForUpdate(destination);
+	//拷贝纹理  从帧缓存区GL_READ_BUFFER读取一块像素矩形，并替换上面绑定纹理的内容的一部分或全部
     glCopyTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, vpCopy.left_, height_ - vpCopy.bottom_, vpCopy.Width(), vpCopy.Height());
     SetTexture(0, 0);
 
@@ -1017,6 +1020,7 @@ void Graphics::SetVertexBuffer(VertexBuffer* buffer)
     SetVertexBuffers(vertexBuffers);
 }
 
+// 设置顶点缓冲对象，保存引用到vertexBuffers_中，在PrepareDraw中才会用glBindBuffer glVertexAttribPointer实际绑定
 bool Graphics::SetVertexBuffers(const PODVector<VertexBuffer*>& buffers, unsigned instanceOffset)
 {
     if (buffers.Size() > MAX_VERTEX_STREAMS)
@@ -1540,6 +1544,7 @@ void Graphics::ClearTransformSources()
     }
 }
 
+// 激活并绑定index级纹理
 void Graphics::SetTexture(unsigned index, Texture* texture)
 {
     if (index >= MAX_TEXTURE_UNITS)
@@ -1612,6 +1617,7 @@ void Graphics::SetTexture(unsigned index, Texture* texture)
     }
 }
 
+//绑定这个纹理，并设置纹理到 textureTypes_ 和 textures_中
 void Graphics::SetTextureForUpdate(Texture* texture)
 {
 	//如果之前有调用过 SetTexture()，则activeTexture_ 不为 0
@@ -1665,6 +1671,7 @@ void Graphics::SetTextureParametersDirty()
     }
 }
 
+// 重置renderTargets_中的值，并设置视口大小
 void Graphics::ResetRenderTargets()
 {
     for (unsigned i = 0; i < MAX_RENDERTARGETS; ++i)
@@ -3131,10 +3138,12 @@ void Graphics::PrepareDraw()
 
     if (impl_->vertexBuffersDirty_)
     {
+		//
         // Go through currently bound vertex buffers and set the attribute pointers that are available & required
         // Use reverse order so that elements from higher index buffers will override lower index buffers
+		// 反序遍历当前绑定的顶点缓冲区，设置属性点
         unsigned assignedLocations = 0;
-
+		// vertexBuffers_在 SetVertexBuffers()中赋值
         for (unsigned i = MAX_VERTEX_STREAMS - 1; i < MAX_VERTEX_STREAMS; --i)
         {
             VertexBuffer* buffer = vertexBuffers_[i];
@@ -3159,6 +3168,7 @@ void Graphics::PrepareDraw()
                         continue; // Already assigned by higher index vertex buffer
                     assignedLocations |= locationMask;
 
+					// 开启顶点属性数组
                     // Enable attribute if not enabled yet
                     if (!(impl_->enabledVertexAttributes_ & locationMask))
                     {
@@ -3166,6 +3176,7 @@ void Graphics::PrepareDraw()
                         impl_->enabledVertexAttributes_ |= locationMask;
                     }
 
+					// 开启或关闭属性分割
                     // Enable/disable instancing divisor as necessary
                     unsigned dataStart = element.offset_;
                     if (element.perInstance_)
@@ -3185,7 +3196,7 @@ void Graphics::PrepareDraw()
                             impl_->instancingVertexAttributes_ &= ~locationMask;
                         }
                     }
-
+					// 绑定顶点缓冲区   ====疑问。。为什么这里不处理索引缓冲区？
                     SetVBO(buffer->GetGPUObjectName());
                     glVertexAttribPointer(location, glElementComponents[element.type_], glElementTypes[element.type_],
                         element.type_ == TYPE_UBYTE4_NORM ? GL_TRUE : GL_FALSE, (unsigned)buffer->GetVertexSize(),
@@ -3194,6 +3205,7 @@ void Graphics::PrepareDraw()
             }
         }
 
+		// 关闭不需要用到的顶点属性
         // Finally disable unnecessary vertex attributes
         unsigned disableVertexAttributes = impl_->enabledVertexAttributes_ & (~impl_->usedVertexAttributes_);
         unsigned location = 0;
@@ -3441,6 +3453,13 @@ bool Graphics::CheckFramebuffer()
         return glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE;
 }
 
+/*glVertexAttribDivisor()函数用于控制顶点属性更新的频率。
+index表示设置多实例特性的顶点属性的索引位置，它与传递给glVertexAttribPointer()和glEnableVertexAttribArray()的索引值是一致的。
+默认情况下，每个顶点都会分配到一个独立的属性值。如果divisor设置为0的话，那么顶点属性将遵循这一默认，非实例化的规则。
+如果divisor设置为一个非零的值，那么顶点属性将启用多实例的特性，此时OpenGL从属性数组中每隔divisor个实例都会读取一个新的数值（而不是之前的每个顶点）。
+此时在这个属性所对应的顶点属性数组中，数据索引值的计算将变成instance / divisor的形式，其中instance表示当前的实例数目，而divisor就是当前属性的更新频率值。
+对于每个多实例的顶点属性来说，在顶点着色器中，每个实例中的所有顶点都会共享同一个属性值。
+如果divisor设置为2的话，那么每两个实例会共享同一个属性值；如果值为3，那么就是每三个实例，以此类推*/
 void Graphics::SetVertexAttribDivisor(unsigned location, unsigned divisor)
 {
 #ifndef GL_ES_VERSION_2_0

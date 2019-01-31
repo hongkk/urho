@@ -57,6 +57,7 @@
 namespace Urho3D
 {
 
+//一个四边形顶点数据
 static const float dirLightVertexData[] =
 {
     -1, 1, 0,
