@@ -758,10 +758,13 @@ bool Graphics::ResolveToTexture(Texture2D* destination, const IntRect& viewport)
     vpCopy.bottom_ = Clamp(vpCopy.bottom_, 0, height_);
 
     // Make sure the FBO is not in use
+	//重置renderTargets_，并设置viewport大小
     ResetRenderTargets();
 
     // Use Direct3D convention with the vertical coordinates ie. 0 is top
+	//绑定纹理
     SetTextureForUpdate(destination);
+	//拷贝纹理  从帧缓存区GL_READ_BUFFER读取一块像素矩形，并替换上面绑定纹理的内容的一部分或全部
     glCopyTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, vpCopy.left_, height_ - vpCopy.bottom_, vpCopy.Width(), vpCopy.Height());
     SetTexture(0, 0);
 
@@ -1017,6 +1020,7 @@ void Graphics::SetVertexBuffer(VertexBuffer* buffer)
     SetVertexBuffers(vertexBuffers);
 }
 
+// 设置顶点缓冲对象，保存引用到vertexBuffers_中，在PrepareDraw中才会用glBindBuffer glVertexAttribPointer实际绑定
 bool Graphics::SetVertexBuffers(const PODVector<VertexBuffer*>& buffers, unsigned instanceOffset)
 {
     if (buffers.Size() > MAX_VERTEX_STREAMS)
@@ -1540,6 +1544,7 @@ void Graphics::ClearTransformSources()
     }
 }
 
+// 激活并绑定index级纹理
 void Graphics::SetTexture(unsigned index, Texture* texture)
 {
     if (index >= MAX_TEXTURE_UNITS)
@@ -1612,15 +1617,20 @@ void Graphics::SetTexture(unsigned index, Texture* texture)
     }
 }
 
+//绑定这个纹理，并设置纹理到 textureTypes_ 和 textures_中
 void Graphics::SetTextureForUpdate(Texture* texture)
 {
+	//如果之前有调用过 SetTexture()，则activeTexture_ 不为 0
     if (impl_->activeTexture_ != 0)
     {
+		//启用0级纹理，也就是第一个纹理
         glActiveTexture(GL_TEXTURE0);
         impl_->activeTexture_ = 0;
     }
 
+	// glType = GL_TEXTURE_2D|GL_TEXTURE_2D_MULTISAMPLE|GL_TEXTURE_3D 等
     unsigned glType = texture->GetTarget();
+	// 解绑旧的纹理
     // Unbind old texture type if necessary
     if (impl_->textureTypes_[0] && impl_->textureTypes_[0] != glType)
         glBindTexture(impl_->textureTypes_[0], 0);
@@ -1661,6 +1671,7 @@ void Graphics::SetTextureParametersDirty()
     }
 }
 
+// 重置renderTargets_中的值，并设置视口大小
 void Graphics::ResetRenderTargets()
 {
     for (unsigned i = 0; i < MAX_RENDERTARGETS; ++i)
@@ -1858,6 +1869,11 @@ void Graphics::SetDepthBias(float constantBias, float slopeScaledBias)
 #ifndef GL_ES_VERSION_2_0
         if (slopeScaledBias != 0.0f)
         {
+			//OpenGL常量深度偏置不可靠并且依赖于深度缓冲器bitdepth，
+			//OpenGL中深度偏移常量会应用于投影矩阵
+			//void APIENTRY glPolygonOffset (GLfloat factor, GLfloat units);
+			//设置后深度偏移量的计算公式是Offset=DZ*factor+r*units，DZ和r是当前系统跟深度测试相关的系数，
+			//其中r是两个深度缓冲区间的最小间隔，一般情况下，factor和units都设置为1.0（或-1.0）个单位，基本上是一个比较稳妥的设定
             // OpenGL constant bias is unreliable and dependent on depth buffer bitdepth, apply in the projection matrix instead
             glEnable(GL_POLYGON_OFFSET_FILL);
             glPolygonOffset(slopeScaledBias, 0.0f);
@@ -1865,7 +1881,7 @@ void Graphics::SetDepthBias(float constantBias, float slopeScaledBias)
         else
             glDisable(GL_POLYGON_OFFSET_FILL);
 #endif
-
+		//constantDepthBias_ 最后会应用到投影矩阵
         constantDepthBias_ = constantBias;
         slopeScaledDepthBias_ = slopeScaledBias;
         // Force update of the projection matrix shader parameter
@@ -2860,6 +2876,7 @@ void Graphics::CheckFeatureSupport()
     hardwareShadowSupport_ = shadowMapFormat_ != 0;
 }
 
+//准备渲染 处理fbo
 void Graphics::PrepareDraw()
 {
 #ifndef GL_ES_VERSION_2_0
@@ -2870,11 +2887,11 @@ void Graphics::PrepareDraw()
         impl_->dirtyConstantBuffers_.Clear();
     }
 #endif
-
+	// 检查fbo脏标志
     if (impl_->fboDirty_)
     {
         impl_->fboDirty_ = false;
-
+		// 如果不需要fbo，直接返回然后进行后缓冲渲染
         // First check if no framebuffer is needed. In that case simply return to backbuffer rendering
         bool noFbo = !depthStencil_;
         if (noFbo)
@@ -2891,6 +2908,8 @@ void Graphics::PrepareDraw()
 
         if (noFbo)
         {
+			// 当前绑定的帧缓冲区是不是后缓冲区
+			//systemFBO_ = 0
             if (impl_->boundFBO_ != impl_->systemFBO_)
             {
                 BindFramebuffer(impl_->systemFBO_);
@@ -2899,6 +2918,8 @@ void Graphics::PrepareDraw()
 
 #ifndef GL_ES_VERSION_2_0
             // Disable/enable sRGB write
+			//当启用GL_FRAMEBUFFER_SRGB，这意味着OpenGL的将假定为一个片段的颜色是线性色彩空间。
+			//因此，当它将它们写入sRGB格式的图像时，它会将它们从内部线性转换为sRGB
             if (sRGBWriteSupport_)
             {
                 bool sRGBWrite = sRGB_;
@@ -2916,6 +2937,7 @@ void Graphics::PrepareDraw()
             return;
         }
 
+		//根据rtSize，format在 frameBuffers_ 中查找FrameBufferObject
         // Search for a new framebuffer based on format & size, or create new
         IntVector2 rtSize = Graphics::GetRenderTargetDimensions();
         unsigned format = 0;
@@ -2933,7 +2955,7 @@ void Graphics::PrepareDraw()
             newFbo.fbo_ = CreateFramebuffer();
             i = impl_->frameBuffers_.Insert(MakePair(fboKey, newFbo));
         }
-
+		//绑定 fbo
         if (impl_->boundFBO_ != i->second_.fbo_)
         {
             BindFramebuffer(i->second_.fbo_);
@@ -2941,6 +2963,9 @@ void Graphics::PrepareDraw()
         }
 
 #ifndef GL_ES_VERSION_2_0
+		//void glReadBuffer(GLenum mode); 
+		//功能 : 选择接下来的函数调用glReadPixels(), glCopyPixels(), glCopyTexImage*(), glCopyTexSubImage*() 和 glCopyConvolutionFilter*()将读取的缓存.
+		//并启用以前被函数glReadBuffer()启用的缓存.
         // Setup readbuffers & drawbuffers if needed
         if (i->second_.readBuffers_ != GL_NONE)
         {
@@ -2948,6 +2973,7 @@ void Graphics::PrepareDraw()
             i->second_.readBuffers_ = GL_NONE;
         }
 
+		// 把所有rendertarget 按位拼為一個DrawBuffer，以此來確定DrawBuffer是否有变化
         // Calculate the bit combination of non-zero color rendertargets to first check if the combination changed
         unsigned newDrawBuffers = 0;
         for (unsigned j = 0; j < MAX_RENDERTARGETS; ++j)
@@ -2959,6 +2985,9 @@ void Graphics::PrepareDraw()
         if (newDrawBuffers != i->second_.drawBuffers_)
         {
             // Check for no color rendertargets (depth rendering only)
+			// 检查是否没有颜色附加点(只渲染深度）
+			//void glDrawBuffer (GLenum mode);
+			//选择用于读取和写入的颜色缓冲区
             if (!newDrawBuffers)
                 glDrawBuffer(GL_NONE);
             else
@@ -2976,6 +3005,8 @@ void Graphics::PrepareDraw()
                             drawBufferIds[drawBufferCount++] = GL_COLOR_ATTACHMENT0 + j;
                     }
                 }
+				//void glDrawBuffers(GLsizei n, const GLenum *buffers);
+				///指定用于接收颜色值的多个缓冲区，buffers是缓冲区枚举型的数组
                 glDrawBuffers(drawBufferCount, (const GLenum*)drawBufferIds);
             }
 
@@ -2985,22 +3016,28 @@ void Graphics::PrepareDraw()
 
         for (unsigned j = 0; j < MAX_RENDERTARGETS; ++j)
         {
+			//renderTargets_ 在 SetRenderTargets（）中被赋值
             if (renderTargets_[j])
             {
                 Texture* texture = renderTargets_[j]->GetParentTexture();
 
+				// 绑定renderTarget对应的渲染缓冲区或纹理
                 // Bind either a renderbuffer or texture, depending on what is available
                 unsigned renderBufferID = renderTargets_[j]->GetRenderBuffer();
                 if (!renderBufferID)
                 {
+					// 检查纹理的脏标记，看看是否要更新参数
                     // If texture's parameters are dirty, update before attaching
                     if (texture->GetParametersDirty())
                     {
+						// 这里先绑定和启用0级纹理，为了下一句更新纹理
                         SetTextureForUpdate(texture);
+						// 启用后更新纹理参数
                         texture->UpdateParameters();
+						// 更新完解绑纹理
                         SetTexture(0, 0);
                     }
-
+					// 重新绑定颜色附加点
                     if (i->second_.colorAttachments_[j] != renderTargets_[j])
                     {
                         BindColorAttachment(j, renderTargets_[j]->GetTarget(), texture->GetGPUObjectName(), false);
@@ -3018,6 +3055,7 @@ void Graphics::PrepareDraw()
             }
             else
             {
+				//解绑颜色附加点
                 if (i->second_.colorAttachments_[j])
                 {
                     BindColorAttachment(j, GL_TEXTURE_2D, 0, false);
@@ -3025,19 +3063,24 @@ void Graphics::PrepareDraw()
                 }
             }
         }
-
+		// 深度模板
+		// 绑定一个渲染缓冲对象或是一个深度纹理
         if (depthStencil_)
         {
             // Bind either a renderbuffer or a depth texture, depending on what is available
+			// depthStencil_在SetDepthStencil()中赋值
             Texture* texture = depthStencil_->GetParentTexture();
 #ifndef GL_ES_VERSION_2_0
             bool hasStencil = texture->GetFormat() == GL_DEPTH24_STENCIL8_EXT;
 #else
             bool hasStencil = texture->GetFormat() == GL_DEPTH24_STENCIL8_OES;
 #endif
+			// 查看是否有渲染缓冲区对象
             unsigned renderBufferID = depthStencil_->GetRenderBuffer();
+			// 没有渲染缓冲区对象
             if (!renderBufferID)
             {
+				// 更新纹理参数，同上
                 // If texture's parameters are dirty, update before attaching
                 if (texture->GetParametersDirty())
                 {
@@ -3045,7 +3088,7 @@ void Graphics::PrepareDraw()
                     texture->UpdateParameters();
                     SetTexture(0, 0);
                 }
-
+				// 绑定这个纹理到深度和模板缓冲附加点
                 if (i->second_.depthAttachment_ != depthStencil_)
                 {
                     BindDepthAttachment(texture->GetGPUObjectName(), false);
@@ -3055,6 +3098,7 @@ void Graphics::PrepareDraw()
             }
             else
             {
+				// 有渲染缓冲区对象时，绑定这个对象到深度和模板缓冲附加点
                 if (i->second_.depthAttachment_ != depthStencil_)
                 {
                     BindDepthAttachment(renderBufferID, true);
@@ -3065,6 +3109,7 @@ void Graphics::PrepareDraw()
         }
         else
         {
+			//解绑定深度和模板缓冲附加点
             if (i->second_.depthAttachment_)
             {
                 BindDepthAttachment(0, false);
@@ -3075,6 +3120,7 @@ void Graphics::PrepareDraw()
 
 #ifndef GL_ES_VERSION_2_0
         // Disable/enable sRGB write
+		// 开启或关闭 sRGB 写入
         if (sRGBWriteSupport_)
         {
             bool sRGBWrite = renderTargets_[0] ? renderTargets_[0]->GetParentTexture()->GetSRGB() : sRGB_;
@@ -3092,10 +3138,12 @@ void Graphics::PrepareDraw()
 
     if (impl_->vertexBuffersDirty_)
     {
+		//
         // Go through currently bound vertex buffers and set the attribute pointers that are available & required
         // Use reverse order so that elements from higher index buffers will override lower index buffers
+		// 反序遍历当前绑定的顶点缓冲区，设置属性点
         unsigned assignedLocations = 0;
-
+		// vertexBuffers_在 SetVertexBuffers()中赋值
         for (unsigned i = MAX_VERTEX_STREAMS - 1; i < MAX_VERTEX_STREAMS; --i)
         {
             VertexBuffer* buffer = vertexBuffers_[i];
@@ -3120,6 +3168,7 @@ void Graphics::PrepareDraw()
                         continue; // Already assigned by higher index vertex buffer
                     assignedLocations |= locationMask;
 
+					// 开启顶点属性数组
                     // Enable attribute if not enabled yet
                     if (!(impl_->enabledVertexAttributes_ & locationMask))
                     {
@@ -3127,6 +3176,7 @@ void Graphics::PrepareDraw()
                         impl_->enabledVertexAttributes_ |= locationMask;
                     }
 
+					// 开启或关闭属性分割
                     // Enable/disable instancing divisor as necessary
                     unsigned dataStart = element.offset_;
                     if (element.perInstance_)
@@ -3146,7 +3196,7 @@ void Graphics::PrepareDraw()
                             impl_->instancingVertexAttributes_ &= ~locationMask;
                         }
                     }
-
+					// 绑定顶点缓冲区   ====疑问。。为什么这里不处理索引缓冲区？
                     SetVBO(buffer->GetGPUObjectName());
                     glVertexAttribPointer(location, glElementComponents[element.type_], glElementTypes[element.type_],
                         element.type_ == TYPE_UBYTE4_NORM ? GL_TRUE : GL_FALSE, (unsigned)buffer->GetVertexSize(),
@@ -3155,6 +3205,7 @@ void Graphics::PrepareDraw()
             }
         }
 
+		// 关闭不需要用到的顶点属性
         // Finally disable unnecessary vertex attributes
         unsigned disableVertexAttributes = impl_->enabledVertexAttributes_ & (~impl_->usedVertexAttributes_);
         unsigned location = 0;
@@ -3402,6 +3453,13 @@ bool Graphics::CheckFramebuffer()
         return glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE;
 }
 
+/*glVertexAttribDivisor()函数用于控制顶点属性更新的频率。
+index表示设置多实例特性的顶点属性的索引位置，它与传递给glVertexAttribPointer()和glEnableVertexAttribArray()的索引值是一致的。
+默认情况下，每个顶点都会分配到一个独立的属性值。如果divisor设置为0的话，那么顶点属性将遵循这一默认，非实例化的规则。
+如果divisor设置为一个非零的值，那么顶点属性将启用多实例的特性，此时OpenGL从属性数组中每隔divisor个实例都会读取一个新的数值（而不是之前的每个顶点）。
+此时在这个属性所对应的顶点属性数组中，数据索引值的计算将变成instance / divisor的形式，其中instance表示当前的实例数目，而divisor就是当前属性的更新频率值。
+对于每个多实例的顶点属性来说，在顶点着色器中，每个实例中的所有顶点都会共享同一个属性值。
+如果divisor设置为2的话，那么每两个实例会共享同一个属性值；如果值为3，那么就是每三个实例，以此类推*/
 void Graphics::SetVertexAttribDivisor(unsigned location, unsigned divisor)
 {
 #ifndef GL_ES_VERSION_2_0

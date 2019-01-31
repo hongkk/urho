@@ -672,6 +672,7 @@ void BatchGroup::Draw(View* view, Camera* camera, bool allowDepthWrite) const
 
     if (instances_.Size() && !geometry_->IsEmpty())
     {
+		// 如果instanceBuffer中没有数据，还是按单个物体来渲染
         // Draw as individual objects if instancing not supported or could not fill the instancing buffer
         VertexBuffer* instanceBuffer = renderer->GetInstancingBuffer();
         if (!instanceBuffer || geometryType_ != GEOM_INSTANCED || startIndex_ == M_MAX_UNSIGNED)
@@ -690,7 +691,7 @@ void BatchGroup::Draw(View* view, Camera* camera, bool allowDepthWrite) const
                     geometry_->GetVertexStart(), geometry_->GetVertexCount());
             }
         }
-        else
+        else// 进行实例化渲染
         {
             Batch::Prepare(view, camera, false, allowDepthWrite);
 
@@ -851,11 +852,13 @@ void BatchQueue::SetInstancingData(void* lockedData, unsigned stride, unsigned& 
         i->second_.SetInstancingData(lockedData, stride, freeIndex);
 }
 
+// 渲染
 void BatchQueue::Draw(View* view, Camera* camera, bool markToStencil, bool usingLightOptimization, bool allowDepthWrite) const
 {
     Graphics* graphics = view->GetGraphics();
     Renderer* renderer = view->GetRenderer();
 
+	// 如果 view已经设置了自己的光源优化，那就不要开启模板测试
     // If View has set up its own light optimizations, do not disturb the stencil/scissor test settings
     if (!usingLightOptimization)
     {
@@ -866,6 +869,7 @@ void BatchQueue::Draw(View* view, Camera* camera, bool markToStencil, bool using
             graphics->SetStencilTest(false);
     }
 
+	// 实例化渲染
     // Instanced
     for (PODVector<BatchGroup*>::ConstIterator i = sortedBatchGroups_.Begin(); i != sortedBatchGroups_.End(); ++i)
     {
@@ -875,6 +879,7 @@ void BatchQueue::Draw(View* view, Camera* camera, bool markToStencil, bool using
 
         group->Draw(view, camera, allowDepthWrite);
     }
+	// 非实例化渲染
     // Non-instanced
     for (PODVector<Batch*>::ConstIterator i = sortedBatches_.Begin(); i != sortedBatches_.End(); ++i)
     {

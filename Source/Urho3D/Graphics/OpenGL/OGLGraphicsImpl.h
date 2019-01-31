@@ -127,9 +127,12 @@ private:
     /// Current mapping of vertex attribute locations by semantic. The map is owned by the shader program, so care must be taken to switch a null shader program when it's destroyed.
     const HashMap<Pair<unsigned char, unsigned char>, unsigned>* vertexAttributes_;
     /// Currently bound frame buffer object.
+	//当前绑定的帧缓冲对象
     unsigned boundFBO_;
+	//当前绑定的顶点缓冲对象
     /// Currently bound vertex buffer object.
     unsigned boundVBO_;
+	//当前绑定的uniform缓冲对象
     /// Currently bound uniform buffer object.
     unsigned boundUBO_;
     /// Read frame buffer for multisampled texture resolves.

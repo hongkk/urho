@@ -651,11 +651,14 @@ void View::Render()
     if (renderer_->GetDynamicInstancing() && graphics_->GetInstancingSupport())
         PrepareInstancingBuffer();
 
+	// 尽管我们不建议这么做，但还是有可能同样的摄像机被用在不同的view之间。这里，需要设置automatic aspect ratio，确保正确的投影
     // It is possible, though not recommended, that the same camera is used for multiple main views. Set automatic aspect ratio
     // to ensure correct projection will be used
     if (camera_ && camera_->GetAutoAspectRatio())
         camera_->SetAspectRatioInternal((float)(viewSize_.x_) / (float)(viewSize_.y_));
 
+	// 绑定TU_FACESELECT和TU_INDIRECTION这两个纹理 ，这个只会在win32上用到
+	// 用于点光源阴影计算的辅助贴图
     // Bind the face selection and indirection cube maps for point light shadows
 #ifndef GL_ES_VERSION_2_0
     if (renderer_->GetDrawShadows())
@@ -665,6 +668,7 @@ void View::Render()
     }
 #endif
 
+	// 如果是opengl渲染,并且是RTT,那么Y坐标要倒转过来
     if (renderTarget_)
     {
         // On OpenGL, flip the projection if rendering to a texture so that the texture can be addressed in the same way
@@ -1565,15 +1569,17 @@ void View::GetLitBatches(Drawable* drawable, LightBatchQueue& lightQueue, BatchQ
     }
 }
 
+//开始执行renderpath命令
 void View::ExecuteRenderPathCommands()
 {
     View* actualView = sourceView_ ? sourceView_ : this;
 
+	// 如果不重用阴影图,那么把所有物体先渲染一遍到阴影图
     // If not reusing shadowmaps, render all of them first
     if (!renderer_->GetReuseShadowMaps() && renderer_->GetDrawShadows() && !actualView->lightQueues_.Empty())
     {
         URHO3D_PROFILE(RenderShadowMaps);
-
+		//渲染阴影,有几个光源就有几个lightQueues_
         for (Vector<LightBatchQueue>::Iterator i = actualView->lightQueues_.Begin(); i != actualView->lightQueues_.End(); ++i)
         {
             if (NeedRenderShadowMap(*i))
@@ -1611,18 +1617,22 @@ void View::ExecuteRenderPathCommands()
             bool viewportWrite = actualView->CheckViewportWrite(command);
             bool beginPingpong = actualView->CheckPingpong(i);
 
+			// viewport 是否已经被前面的command修改过，并且当前command会把viewport作为texture输入
             // Has the viewport been modified and will be read as a texture by the current command?
             if (viewportRead && viewportModified)
             {
+				// 如果已经渲染到一个替代的rendertarget，则开始不使用位操作的pingpong
                 // Start pingponging without a blit if already rendering to the substitute render target
                 if (currentRenderTarget_ && currentRenderTarget_ == substituteRenderTarget_ && beginPingpong)
                     isPingponging = true;
 
+				// 如果不使用pingpong,那么只简单地拷贝第一个viewport的纹理
                 // If not using pingponging, simply resolve/copy to the first viewport texture
                 if (!isPingponging)
                 {
                     if (!currentRenderTarget_)
                     {
+						// 把帧缓冲区中的内容拷贝到viewportTextures_[0]纹理上
                         graphics_->ResolveToTexture(dynamic_cast<Texture2D*>(viewportTextures_[0]), viewRect_);
                         currentViewportTexture_ = viewportTextures_[0];
                         viewportModified = false;
@@ -1630,8 +1640,10 @@ void View::ExecuteRenderPathCommands()
                     }
                     else
                     {
+						// 如果输出目标是viewport
                         if (viewportWrite)
                         {
+							// 把currentRenderTarget_的纹理直接拷贝到帧缓冲区
                             BlitFramebuffer(currentRenderTarget_->GetParentTexture(),
                                 GetRenderSurfaceFromTexture(viewportTextures_[0]), false);
                             currentViewportTexture_ = viewportTextures_[0];
@@ -1639,6 +1651,10 @@ void View::ExecuteRenderPathCommands()
                         }
                         else
                         {
+							// 如果当前rendertarget本身就是一个纹理，而且还没有被写入过
+							// 这时我们可以直接读取纹理，而不需要使用blit位移操作。
+							// 但是因为后面的command还是有可能会读写这个纹理，那时我们需要使用 blit / resolve操作
+							// 所以我们还是保持 viewportModified = true
                             // If the current render target is already a texture, and we are not writing to it, can read that
                             // texture directly instead of blitting. However keep the viewport dirty flag in case a later command
                             // will do both read and write, and then we need to blit / resolve
@@ -1648,6 +1664,7 @@ void View::ExecuteRenderPathCommands()
                 }
                 else
                 {
+					// 交换pingpong前后缓冲
                     // Swap the pingpong double buffer sides. Texture 0 will be read next
                     viewportTextures_[1] = viewportTextures_[0];
                     viewportTextures_[0] = currentRenderTarget_->GetParentTexture();
@@ -1659,6 +1676,7 @@ void View::ExecuteRenderPathCommands()
             if (beginPingpong)
                 isPingponging = true;
 
+			// 决定viewport的输出目标
             // Determine viewport write target
             if (viewportWrite)
             {
@@ -1668,6 +1686,9 @@ void View::ExecuteRenderPathCommands()
                     // If the render path ends into a quad, it can be redirected to the final render target
                     // However, on OpenGL we can not reliably do this in case the final target is the backbuffer, and we want to
                     // render depth buffer sensitive debug geometry afterward (backbuffer and textures can not share depth)
+					// 如果 rendpath的最终后一个输出是一个quad，这里可以重定向这个最后的rendertarget
+					// 然后，在opengl上，我们并不确定能这么做，因为最终输出目标有可能是后缓冲，而我们后面可能想要渲染深度缓冲调试
+					// （后缓冲和纹理不能共享深度）
 #ifndef URHO3D_OPENGL
                     if (i == lastCommandIndex && command.type_ == CMD_QUAD)
 #else
@@ -1708,6 +1729,7 @@ void View::ExecuteRenderPathCommands()
 
                         if (command.shaderParameters_.Size())
                         {
+							// 如果pass定义了shader参数，那么重置当前shader的参数确定所有参数都会被设置
                             // If pass defines shader parameters, reset parameter sources now to ensure they all will be set
                             // (will be set after camera shader parameters)
                             graphics_->ClearParameterSources();
@@ -2254,6 +2276,7 @@ void View::AllocateScreenBuffers()
     }
 }
 
+// 执行 CopyFramebuffer shader，把source纹理的内容拷贝到destination对应的纹理
 void View::BlitFramebuffer(Texture* source, RenderSurface* destination, bool depthWrite)
 {
     if (!source)
@@ -2290,9 +2313,11 @@ void View::BlitFramebuffer(Texture* source, RenderSurface* destination, bool dep
     SetGBufferShaderParameters(srcSize, srcRect);
 
     graphics_->SetTexture(TU_DIFFUSE, source);
+	// 渲染一个屏幕大小的四边形
     DrawFullscreenQuad(true);
 }
 
+// 渲染一个屏幕大小的四边形
 void View::DrawFullscreenQuad(bool setIdentityProjection)
 {
     Geometry* geometry = renderer_->GetQuadGeometry();
@@ -3258,6 +3283,7 @@ bool View::NeedRenderShadowMap(const LightBatchQueue& queue)
         !queue.volumeBatches_.Empty());
 }
 
+//渲染阴影图
 void View::RenderShadowMap(const LightBatchQueue& queue)
 {
     URHO3D_PROFILE(RenderShadowMap);
@@ -3272,6 +3298,7 @@ void View::RenderShadowMap(const LightBatchQueue& queue)
     // Set shadow depth bias
     BiasParameters parameters = queue.light_->GetShadowBias();
 
+	// 如果阴影图是一个深度模板纹理,以光源位置为摄像机位置,记录从光源到可见物体的最小深度
     // The shadow map is a depth stencil texture
     if (shadowMap->GetUsage() == TEXTURE_DEPTHSTENCIL)
     {
@@ -3281,10 +3308,11 @@ void View::RenderShadowMap(const LightBatchQueue& queue)
         // Disable other render targets
         for (unsigned i = 1; i < MAX_RENDERTARGETS; ++i)
             graphics_->SetRenderTarget(i, (RenderSurface*) 0);
+		//这里会PrepareDraw()，然后bindframebuffer
         graphics_->SetViewport(IntRect(0, 0, shadowMap->GetWidth(), shadowMap->GetHeight()));
         graphics_->Clear(CLEAR_DEPTH);
     }
-    else // if the shadow map is a color rendertarget
+    else // if the shadow map is a color rendertarget //如果阴影图是一个彩色纹理图
     {
         graphics_->SetColorWrite(true);
         graphics_->SetRenderTarget(0, shadowMap);
@@ -3293,18 +3321,21 @@ void View::RenderShadowMap(const LightBatchQueue& queue)
             graphics_->SetRenderTarget(i, (RenderSurface*) 0);
         graphics_->SetDepthStencil(renderer_->GetDepthStencil(shadowMap->GetWidth(), shadowMap->GetHeight(),
             shadowMap->GetMultiSample(), shadowMap->GetAutoResolve()));
+		//这里会PrepareDraw()，然后bindframebuffer
         graphics_->SetViewport(IntRect(0, 0, shadowMap->GetWidth(), shadowMap->GetHeight()));
         graphics_->Clear(CLEAR_DEPTH | CLEAR_COLOR, Color::WHITE);
 
         parameters = BiasParameters(0.0f, 0.0f);
     }
 
+	// 根据视锥体分割参数,渲染每一个阴影图
     // Render each of the splits
     for (unsigned i = 0; i < queue.shadowSplits_.Size(); ++i)
     {
         const ShadowBatchQueue& shadowQueue = queue.shadowSplits_[i];
 
         float multiplier = 1.0f;
+		// 对于有视锥体分割的平等光，根据分割的远截面调整深度偏移
         // For directional light cascade splits, adjust depth bias according to the far clip ratio of the splits
         if (i > 0 && queue.light_->GetLightType() == LIGHT_DIRECTIONAL)
         {
@@ -3315,26 +3346,30 @@ void View::RenderShadowMap(const LightBatchQueue& queue)
             multiplier = (int)(multiplier * 10.0f) / 10.0f;
         }
 
+		// 在OpenGL ES上进行深度偏差的进一步修改，因为阴影计算的精度有限
         // Perform further modification of depth bias on OpenGL ES, as shadow calculations' precision is limited
         float addition = 0.0f;
 #ifdef GL_ES_VERSION_2_0
         multiplier *= renderer_->GetMobileShadowBiasMul();
         addition = renderer_->GetMobileShadowBiasAdd();
 #endif
-
+		// 设置深度偏移
         graphics_->SetDepthBias(multiplier * parameters.constantBias_ + addition, multiplier * parameters.slopeScaledBias_);
 
         if (!shadowQueue.shadowBatches_.IsEmpty())
         {
             graphics_->SetViewport(shadowQueue.shadowViewport_);
+			//开始渲染阴影
             shadowQueue.shadowBatches_.Draw(this, shadowQueue.shadowCamera_, false, false, true);
         }
     }
 
+	// 缩放滤镜模糊量等于阴影贴图视口大小，以便不同的阴影贴图分辨率的行为不同
     // Scale filter blur amount to shadow map viewport size so that different shadow map resolutions don't behave differently
     float blurScale = queue.shadowSplits_[0].shadowViewport_.Width() / 1024.0f;
     renderer_->ApplyShadowMapFilter(this, shadowMap, blurScale);
 
+	// 重置 colorwrite 和 depthbia这两个参数
     // reset some parameters
     graphics_->SetColorWrite(true);
     graphics_->SetDepthBias(0.0f, 0.0f);
