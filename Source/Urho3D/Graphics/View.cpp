@@ -832,6 +832,7 @@ void View::SetCommandShaderParameters(const RenderPathCommand& command)
         graphics_->SetShaderParameter(k->first_, k->second_);
 }
 
+// 设置g-buffer相关shader参数
 void View::SetGBufferShaderParameters(const IntVector2& texSize, const IntRect& viewRect)
 {
     float texWidth = (float)texSize.x_;

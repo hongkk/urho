@@ -194,6 +194,7 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
     {
         BlendMode blend = pass_->GetBlendMode();
         // Turn additive blending into subtract if the light is negative
+		// 如果光线为负，那么把加法混合换成减法
         if (light && light->IsNegative())
         {
             if (blend == BLEND_ADD)
@@ -210,23 +211,27 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
         if (effectiveCullMode == MAX_CULLMODES)
             effectiveCullMode = isShadowPass ? material_->GetShadowCullMode() : material_->GetCullMode();
 
+		// 关闭和开启背面剔除 GL_FRONT GL_BACK GL_CW
         renderer->SetCullMode(effectiveCullMode, camera);
+		// 设置深度偏移
         if (!isShadowPass)
         {
             const BiasParameters& depthBias = material_->GetDepthBias();
             graphics->SetDepthBias(depthBias.constantBias_, depthBias.slopeScaledBias_);
         }
-
+		// 设置填充模式 
         // Use the "least filled" fill mode combined from camera & material
         graphics->SetFillMode((FillMode)(Max(camera->GetFillMode(), material_->GetFillMode())));
         graphics->SetDepthTest(pass_->GetDepthTestMode());
         graphics->SetDepthWrite(pass_->GetDepthWrite() && allowDepthWrite);
     }
 
+	// 设置全局shader参数  "DeltaTime"  "ElapsedTime"
     // Set global (per-frame) shader parameters
     if (graphics->NeedParameterUpdate(SP_FRAME, (void*)0))
         view->SetGlobalShaderParameters();
 
+	// 设置摄像机和视口的shader参数
     // Set camera & viewport shader parameters
     unsigned cameraHash = (unsigned)(size_t)camera;
     IntRect viewport = graphics->GetViewport();

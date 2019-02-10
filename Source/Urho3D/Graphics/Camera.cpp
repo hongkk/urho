@@ -223,6 +223,7 @@ void Camera::SetUseReflection(bool enable)
     MarkNetworkUpdate();
 }
 
+//创建数学平面，最终会影响 视图矩阵 的计算
 void Camera::SetReflectionPlane(const Plane& plane)
 {
     reflectionPlane_ = plane;
@@ -239,6 +240,7 @@ void Camera::SetUseClipping(bool enable)
     MarkNetworkUpdate();
 }
 
+//创建裁剪平面 视景体施加进一步的限制，最多可达6个其他裁剪平面，在urho中只能使用一个
 void Camera::SetClipPlane(const Plane& plane)
 {
     clipPlane_ = plane;

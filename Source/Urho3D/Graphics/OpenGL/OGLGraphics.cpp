@@ -1820,7 +1820,8 @@ void Graphics::SetBlendMode(BlendMode mode, bool alphaToCoverage)
 
         blendMode_ = mode;
     }
-
+	// 多重采样缓冲区在默认情况下使用片段的RGB值，并不包括颜色的alpha成分.
+	// 启用GL_SAMPLE_ALPHA_TO_COVERAGE表示使用alpha值
     if (alphaToCoverage != alphaToCoverage_)
     {
         if (alphaToCoverage)
@@ -1918,6 +1919,7 @@ void Graphics::SetFillMode(FillMode mode)
 #endif
 }
 
+//开启和关闭曲线平滑
 void Graphics::SetLineAntiAlias(bool enable)
 {
 #ifndef GL_ES_VERSION_2_0
