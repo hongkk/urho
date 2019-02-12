@@ -244,6 +244,7 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
         view->SetGBufferShaderParameters(viewSize, IntRect(0, 0, viewSize.x_, viewSize.y_));
     }
 
+	// 设置模型矩阵
     // Set model or skinning transforms
     if (setModelTransform && graphics->NeedParameterUpdate(SP_OBJECT, worldTransform_))
     {
@@ -255,6 +256,7 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
         else
             graphics->SetShaderParameter(VSP_MODEL, *worldTransform_);
 
+		// 设置广告牌的旋转矩阵
         // Set the orientation for billboards, either from the object itself or from the camera
         if (geometryType_ == GEOM_BILLBOARD)
         {
@@ -264,9 +266,10 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
                 graphics->SetShaderParameter(VSP_BILLBOARDROT, cameraNode->GetWorldRotation().RotationMatrix());
         }
     }
-
+	// 设置zone相关的shader参数
     // Set zone-related shader parameters
     BlendMode blend = graphics->GetBlendMode();
+	// 如果这个pass的混合模式是 BLEND_ADD 或者 BLEND_ADDALPHA，重写雾颜色为黑色
     // If the pass is additive, override fog color to black so that shaders do not need a separate additive path
     bool overrideFogColorToBlack = blend == BLEND_ADD || blend == BLEND_ADDALPHA;
     unsigned zoneHash = (unsigned)(size_t)zone_;
@@ -284,6 +287,7 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
         adjust.SetScale(Vector3(1.0f / boxSize.x_, 1.0f / boxSize.y_, 1.0f / boxSize.z_));
         adjust.SetTranslation(Vector3(0.5f, 0.5f, 0.5f));
         Matrix3x4 zoneTransform = adjust * zone_->GetInverseWorldTransform();
+		// shader “zone" 参数
         graphics->SetShaderParameter(VSP_ZONE, zoneTransform);
 
         graphics->SetShaderParameter(PSP_AMBIENTCOLOR, zone_->GetAmbientColor());
@@ -306,10 +310,14 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
             fogParams.z_ = worldFogHeightVec.y_;
             fogParams.w_ = zone_->GetFogHeightScale() / Max(zoneNode->GetWorldScale().y_, M_EPSILON);
         }
-
+		// shader "FogParams" 参数
         graphics->SetShaderParameter(PSP_FOGPARAMS, fogParams);
     }
 
+	
+	// 设置 光相关的 shader参数
+	// 要把batch和light lightQueue的关系梳理一下
+	// batch中各个属性的由来都要记录梳理一下
     // Set light-related shader parameters
     if (lightQueue_)
     {
@@ -320,6 +328,7 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
             Vector3 lightDir(lightNode->GetWorldRotation() * Vector3::BACK);
             Vector4 lightPos(lightNode->GetWorldPosition(), atten);
 
+			//"LightDir"  "LightPos"
             graphics->SetShaderParameter(VSP_LIGHTDIR, lightDir);
             graphics->SetShaderParameter(VSP_LIGHTPOS, lightPos);
 
@@ -334,7 +343,7 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
 
                         for (unsigned i = 0; i < numSplits; ++i)
                             CalculateShadowMatrix(shadowMatrices[i], lightQueue_, i, renderer);
-
+						//"LightMatrices"
                         graphics->SetShaderParameter(VSP_LIGHTMATRICES, shadowMatrices[0].Data(), 16 * numSplits);
                     }
                     break;
@@ -347,7 +356,7 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
                         bool isShadowed = shadowMap && graphics->HasTextureUnit(TU_SHADOWMAP);
                         if (isShadowed)
                             CalculateShadowMatrix(shadowMatrices[1], lightQueue_, 0, renderer);
-
+						//"LightMatrices"
                         graphics->SetShaderParameter(VSP_LIGHTMATRICES, shadowMatrices[0].Data(), isShadowed ? 32 : 16);
                     }
                     break;
@@ -359,7 +368,7 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
                         // the next parameter
 #ifdef URHO3D_OPENGL
                         graphics->SetShaderParameter(VSP_LIGHTMATRICES, lightVecRot.Data(), 16);
-#else
+#else					//"LightMatrices"
                         graphics->SetShaderParameter(VSP_LIGHTMATRICES, lightVecRot.Data(), 12);
 #endif
                     }
@@ -375,6 +384,7 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
             if (light->GetLightType() != LIGHT_DIRECTIONAL && fadeEnd > 0.0f && fadeStart > 0.0f && fadeStart < fadeEnd)
                 fade = Min(1.0f - (light->GetDistance() - fadeStart) / (fadeEnd - fadeStart), 1.0f);
 
+			//shader "LightColor" "LightDirPS" "LightPosPS" "LightRad" "LightLength"参数
             // Negative lights will use subtract blending, so write absolute RGB values to the shader parameter
             graphics->SetShaderParameter(PSP_LIGHTCOLOR, Color(light->GetEffectiveColor().Abs(),
                 light->GetEffectiveSpecularIntensity()) * fade);
@@ -382,7 +392,7 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
             graphics->SetShaderParameter(PSP_LIGHTPOS, lightPos);
             graphics->SetShaderParameter(PSP_LIGHTRAD, light->GetRadius());
             graphics->SetShaderParameter(PSP_LIGHTLENGTH, light->GetLength());
-
+			// "LightMatricesPS"
             if (graphics->HasShaderParameter(PSP_LIGHTMATRICES))
             {
                 switch (light->GetLightType())
@@ -394,7 +404,7 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
 
                         for (unsigned i = 0; i < numSplits; ++i)
                             CalculateShadowMatrix(shadowMatrices[i], lightQueue_, i, renderer);
-
+						//"LightMatricesPS"
                         graphics->SetShaderParameter(PSP_LIGHTMATRICES, shadowMatrices[0].Data(), 16 * numSplits);
                     }
                     break;
@@ -407,7 +417,7 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
                         bool isShadowed = lightQueue_->shadowMap_ != 0;
                         if (isShadowed)
                             CalculateShadowMatrix(shadowMatrices[1], lightQueue_, 0, renderer);
-
+						//"LightMatricesPS"
                         graphics->SetShaderParameter(PSP_LIGHTMATRICES, shadowMatrices[0].Data(), isShadowed ? 32 : 16);
                     }
                     break;
@@ -419,7 +429,7 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
                         // the next parameter
 #ifdef URHO3D_OPENGL
                         graphics->SetShaderParameter(PSP_LIGHTMATRICES, lightVecRot.Data(), 16);
-#else
+#else					//"LightMatricesPS"
                         graphics->SetShaderParameter(PSP_LIGHTMATRICES, lightVecRot.Data(), 12);
 #endif
                     }
@@ -427,10 +437,12 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
                 }
             }
 
+			// 设置阴影图shader参数
             // Set shadow mapping shader parameters
             if (shadowMap)
             {
                 {
+					// 计算点光源阴影采样偏移（展开立方体图）
                     // Calculate point light shadow sampling offsets (unrolled cube map)
                     unsigned faceWidth = (unsigned)(shadowMap->GetWidth() / 2);
                     unsigned faceHeight = (unsigned)(shadowMap->GetHeight() / 3);
@@ -447,18 +459,21 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
                     float addX = 2.5f / width;
                     float addY = 2.5f / height;
 #endif
+					// 如果使用4个阴影图采样，斜线偏移半个像素位置
                     // If using 4 shadow samples, offset the position diagonally by half pixel
                     if (renderer->GetShadowQuality() == SHADOWQUALITY_PCF_16BIT || renderer->GetShadowQuality() == SHADOWQUALITY_PCF_24BIT)
                     {
                         addX -= 0.5f / width;
                         addY -= 0.5f / height;
                     }
+					//"ShadowCubeAdjust"
                     graphics->SetShaderParameter(PSP_SHADOWCUBEADJUST, Vector4(mulX, mulY, addX, addY));
                 }
 
                 {
                     // Calculate shadow camera depth parameters for point light shadows and shadow fade parameters for
                     //  directional light shadows, stored in the same uniform
+					// 为点光源阴影计算阴影摄像机深度参数和为方向光计算阴影渐变参数，保存到同一个uniform中
                     Camera* shadowCamera = lightQueue_->shadowSplits_[0].shadowCamera_;
                     float nearClip = shadowCamera->GetNearClip();
                     float farClip = shadowCamera->GetFarClip();
@@ -471,13 +486,13 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
                     float fadeStart = parameters.fadeStart_ * shadowRange / viewFarClip;
                     float fadeEnd = shadowRange / viewFarClip;
                     float fadeRange = fadeEnd - fadeStart;
-
+					// "ShadowDepthFade"
                     graphics->SetShaderParameter(PSP_SHADOWDEPTHFADE, Vector4(q, r, fadeStart, 1.0f / fadeRange));
                 }
 
                 {
-                    float intensity = light->GetShadowIntensity();
-                    float fadeStart = light->GetShadowFadeDistance();
+                    float intensity = light->GetShadowIntensity();// 阴影强度
+                    float fadeStart = light->GetShadowFadeDistance();// 阴影消退距离
                     float fadeEnd = light->GetShadowDistance();
                     if (fadeStart > 0.0f && fadeEnd > 0.0f && fadeEnd > fadeStart)
                         intensity =
@@ -486,11 +501,13 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
                     float samples = 1.0f;
                     if (renderer->GetShadowQuality() == SHADOWQUALITY_PCF_16BIT || renderer->GetShadowQuality() == SHADOWQUALITY_PCF_24BIT)
                         samples = 4.0f;
+					// "ShadowIntensity"
                     graphics->SetShaderParameter(PSP_SHADOWINTENSITY, Vector4(pcfValues / samples, intensity, 0.0f, 0.0f));
                 }
 
                 float sizeX = 1.0f / (float)shadowMap->GetWidth();
                 float sizeY = 1.0f / (float)shadowMap->GetHeight();
+				// "ShadowMapInvSize"
                 graphics->SetShaderParameter(PSP_SHADOWMAPINVSIZE, Vector2(sizeX, sizeY));
 
                 Vector4 lightSplits(M_LARGE_VALUE, M_LARGE_VALUE, M_LARGE_VALUE, M_LARGE_VALUE);
@@ -500,9 +517,11 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
                     lightSplits.y_ = lightQueue_->shadowSplits_[1].farSplit_ / camera->GetFarClip();
                 if (lightQueue_->shadowSplits_.Size() > 3)
                     lightSplits.z_ = lightQueue_->shadowSplits_[2].farSplit_ / camera->GetFarClip();
-
+				
+				// "ShadowSplits"
                 graphics->SetShaderParameter(PSP_SHADOWSPLITS, lightSplits);
 
+				// "VSMShadowParams"
                 if (graphics->HasShaderParameter(PSP_VSMSHADOWPARAMS))
                     graphics->SetShaderParameter(PSP_VSMSHADOWPARAMS, renderer->GetVSMShadowParameters());
 
@@ -527,15 +546,18 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
                             normalOffsetScale.w_ = lightQueue_->shadowSplits_[3].shadowCamera_->GetOrthoSize();
                     }
 
+					// 阴影法线偏移缩放
                     normalOffsetScale *= light->GetShadowBias().normalOffset_;
 #ifdef GL_ES_VERSION_2_0
                     normalOffsetScale *= renderer->GetMobileNormalOffsetMul();
 #endif
+					//"NormalOffsetScale"  "NormalOffsetScalePS"
                     graphics->SetShaderParameter(VSP_NORMALOFFSETSCALE, normalOffsetScale);
                     graphics->SetShaderParameter(PSP_NORMALOFFSETSCALE, normalOffsetScale);
                 }
             }
         }
+		// 逐顶点光照相关参数
         else if (lightQueue_->vertexLights_.Size() && graphics->HasShaderParameter(VSP_VERTEXLIGHTS) &&
                  graphics->NeedParameterUpdate(SP_LIGHT, lightQueue_))
         {
@@ -583,11 +605,12 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
                 // Position
                 vertexLights[i * 3 + 2] = Vector4(vertexLightNode->GetWorldPosition(), invCutoff);
             }
-
+			// "VertexLights"
             graphics->SetShaderParameter(VSP_VERTEXLIGHTS, vertexLights[0].Data(), lights.Size() * 3 * 4);
         }
     }
 
+	// 如果有需要，设置zone纹理
     // Set zone texture if necessary
 #ifndef GL_ES_VERSION_2_0
     if (zone_ && graphics->HasTextureUnit(TU_ZONE))
@@ -598,6 +621,7 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
         graphics->SetTexture(TU_ENVIRONMENT, zone_->GetZoneTexture());
 #endif
 
+	// 材质相关shader参数和纹理
     // Set material-specific shader parameters and textures
     if (material_)
     {
@@ -616,6 +640,7 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
         }
     }
 
+	// 设置光源相关的纹理 TU_SHADOWMAP  TU_LIGHTRAMP  TU_LIGHTSHAPE
     // Set light-related textures
     if (light)
     {
