@@ -1687,7 +1687,7 @@ void View::ExecuteRenderPathCommands()
                     // If the render path ends into a quad, it can be redirected to the final render target
                     // However, on OpenGL we can not reliably do this in case the final target is the backbuffer, and we want to
                     // render depth buffer sensitive debug geometry afterward (backbuffer and textures can not share depth)
-					// 如果 rendpath的最终后一个输出是一个quad，这里可以重定向这个最后的rendertarget
+					// 如果 rendpath的最后一个输出是一个quad，这里可以重定向这个最后的rendertarget
 					// 然后，在opengl上，我们并不确定能这么做，因为最终输出目标有可能是后缓冲，而我们后面可能想要渲染深度缓冲调试
 					// （后缓冲和纹理不能共享深度）
 #ifndef URHO3D_OPENGL
@@ -1867,6 +1867,9 @@ void View::ExecuteRenderPathCommands()
     }
 }
 
+// 设置渲染目标 根据当前 command 中的output来设置
+// 默认情况下渲染目录都是"viewport",即屏幕帧缓冲区
+// 如果output不为 "viewport" ,则一般是RTT模式，找到对应的那个纹理，设置为渲染目标
 void View::SetRenderTargets(RenderPathCommand& command)
 {
     unsigned index = 0;
@@ -1874,6 +1877,7 @@ void View::SetRenderTargets(RenderPathCommand& command)
     bool useCustomDepth = false;
     bool useViewportOutput = false;
 
+	// 遍历command 的 output
     while (index < command.outputs_.Size())
     {
         if (!command.outputs_[index].first_.Compare("viewport", false))

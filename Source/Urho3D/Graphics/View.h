@@ -422,7 +422,7 @@ private:
     Vector<LightBatchQueue> lightQueues_;
     /// Per-vertex light queues.
     HashMap<unsigned long long, LightBatchQueue> vertexLightQueues_;
-	//根据passindex来记录BatchQueue.渲染前所有批次都会被放到这里
+	//根据passindex来记录BatchQueue.渲染前所有scenepass批次都会被放到这里
     /// Batch queues by pass index.
     HashMap<unsigned, BatchQueue> batchQueues_;
     /// Index of the GBuffer pass.

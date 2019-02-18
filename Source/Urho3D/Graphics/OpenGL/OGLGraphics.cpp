@@ -1690,6 +1690,9 @@ void Graphics::ResetDepthStencil()
     SetDepthStencil((RenderSurface*)0);
 }
 
+
+// 设置渲染目标，这里只是记录索引
+//  renderTargets_ 最终会在PrepareDraw 中设置到当前帧缓冲区的颜色附加点和深度附加点
 void Graphics::SetRenderTarget(unsigned index, RenderSurface* renderTarget)
 {
     if (index >= MAX_RENDERTARGETS)

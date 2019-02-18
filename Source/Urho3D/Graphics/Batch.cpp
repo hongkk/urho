@@ -175,6 +175,18 @@ void Batch::CalculateSortKey()
                (((unsigned long long)materialID) << 16) | geometryID;
 }
 
+//准备渲染 主要是填充shader参数
+//包括以下内容：
+//设置vs ps脚本
+//设置混合模式 和 剔除模式
+//设置填充模式 
+//设置全局shader参数  "DeltaTime"  "ElapsedTime"
+//设置摄像机和视口的shader参数
+//设置模型矩阵
+//设置zone相关的shader参数
+//设置光相关的shader参数
+//设置阴影图shader参数
+//设置材质相关shader参数和纹理
 void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool allowDepthWrite) const
 {
     if (!vertexShader_ || !pixelShader_)
