@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="3MBjLgUlEUG2/5PHKFLjMQAA">
+<XPD:ATTR name="Title" type="string">render</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="r64MlZtLZkedhLnHuSzN1QAA">
+<XPD:ATTR name="Name" type="string">render</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">render</XPD:ATTR>
+<XPD:REF name="Namespace">3MBjLgUlEUG2/5PHKFLjMQAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="CS7FTBjoS0SSvqwPDQ8zOgAA">
+<XPD:ATTR name="Name" type="string">render</XPD:ATTR>
+<XPD:REF name="DiagramOwner">r64MlZtLZkedhLnHuSzN1QAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="eE7mTTubA0uBimka2n2B0QAA">
+<XPD:REF name="Diagram">CS7FTBjoS0SSvqwPDQ8zOgAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">52</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="1/bKgAGn70q9oBGMyfuTTAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">172</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1708</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">395</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">503</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void View::ExecuteRenderPathCommands()
+{
+    View* actualView = sourceView_ ? sourceView_ : this;
+
+    // 如果不重用阴影图,那么把所有受光影响的物体先渲染一遍到阴影图
+
+    {
+        for (unsigned i = 0; i &lt; renderPath_-&gt;commands_.Size(); ++i)
+        {
+            RenderPathCommand&amp; command = renderPath_-&gt;commands_[i];
+
+            switch (command.type_)
+            {
+            case CMD_CLEAR:
+              
+            case CMD_SCENEPASS:
+               
+            case CMD_QUAD:
+             
+            case CMD_FORWARDLIGHTS:
+
+            case CMD_LIGHTVOLUMES:
+               
+            case CMD_RENDERUI:
+             
+            case CMD_SENDEVENT:
+             
+            default:
+                break;
+            }
+        }
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="/UR+PTBpX0iBQqEYNzaGSgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">808</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1128</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">383</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">158</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 如果不重用阴影图,那么把所有受光影响的物体先渲染一遍到阴影图
+    // If not reusing shadowmaps, render all of them first
+    if (!renderer_-&gt;GetReuseShadowMaps())
+    {
+        //渲染阴影,有几个光源就有几个lightQueues_
+        for (r i = lightQueues_.Begin(); i !=lightQueues_.End(); ++i)
+        {
+            RenderShadowMap(*i);
+        }
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLNoteView" guid="m4nAvF2xgUmmjp0BCMjsGwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">828</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1440</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">331</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
+<XPD:ATTR name="Text" type="string"> case CMD_CLEAR:
+                {
+                    SetRenderTargets(command);
+                    glClear(color/depth/sentence) //清理帧缓冲区内容
+                }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLNoteView" guid="iAxnn4962kmyy7AOT37eVwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">824</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1932</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">460</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">case CMD_SCENEPASS:
+                {
+                    // 渲染 command 为 scenepass的对应 pass
+                    BatchQueue&amp; queue = actualView-&gt;batchQueues_[command.passIndex_];
+
+                    SetRenderTargets(command);
+            SetTextures(command);
+                    queue.Draw(this, camera_, command.markToStencil_, false, allowDepthWrite);
+                }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLNoteView" guid="koX0Ahau6kKVxzlO62hIygAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">824</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2180</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">233</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
+<XPD:ATTR name="Text" type="string"> case CMD_QUAD:
+                {
+                    // 渲染一个四方形块 RTT操作
+                    SetRenderTargets(command);
+                    SetTextures(command);
+                    RenderQuad(command);
+                }
+                break;
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="haZsCF8blkG0UMu0rEUPJQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">824</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2580</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">433</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">278</XPD:ATTR>
+<XPD:ATTR name="Text" type="string"> case CMD_FORWARDLIGHTS:
+                // 渲染阴影贴图+不透明对象的附加光照
+                if (!actualView-&gt;lightQueues_.Empty())
+                {
+                    SetRenderTargets(command);
+                    // 遍历 lightQueues_列表
+                    for ( i =lightQueues_.Begin(); i !=lightQueues_.End(); ++i)
+                    {
+                        // 先渲染阴影图
+                        RenderShadowMap(*i);
+                        SetRenderTargets(command);
+
+                        SetTextures(command);
+                        // 渲染对应LightBatchQueue中的 litBaseBatches_ 和 litBatches_
+                        i-&gt;litBaseBatches_.Draw(this, camera_, false, false, allowDepthWrite);
+                        i-&gt;litBatches_.Draw(this, camera_, false, true, allowDepthWrite);
+                    }
+                }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteView" guid="3PwE8MGRRE6TUeEGTvPmmAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">824</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3004</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">266</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
+<XPD:ATTR name="Text" type="string"> case CMD_RENDERUI:
+                {   
+                    // 渲染 UI　系统
+                    SetRenderTargets(command);
+                    GetSubsystem&lt;UI&gt;()-&gt;Render(false);
+                }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteLinkView" guid="eU4NqOnil0mhjx7wGW8brgAA">
+<XPD:ATTR name="LineColor" type="string">clRed</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">808,1204;692,1204;692,1992;566,1992</XPD:ATTR>
+<XPD:REF name="Head">1/bKgAGn70q9oBGMyfuTTAAA</XPD:REF>
+<XPD:REF name="Tail">/UR+PTBpX0iBQqEYNzaGSgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="3ZmlE/FAiUuXTVUg8ky6vwAA">
+<XPD:ATTR name="LineColor" type="string">clRed</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$0040FF00</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">12</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">828,1493;692,1493;692,1598</XPD:ATTR>
+<XPD:REF name="Head">eU4NqOnil0mhjx7wGW8brgAA</XPD:REF>
+<XPD:REF name="Tail">m4nAvF2xgUmmjp0BCMjsGwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLNoteLinkView" guid="7BPyUyWBMUWtrfY10JNhKAAA">
+<XPD:ATTR name="LineColor" type="string">$000010D5</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">824,1992;692,1992;692,1598</XPD:ATTR>
+<XPD:REF name="Head">eU4NqOnil0mhjx7wGW8brgAA</XPD:REF>
+<XPD:REF name="Tail">iAxnn4962kmyy7AOT37eVwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLNoteLinkView" guid="3TMo0Cf2102VED1eI9izgwAA">
+<XPD:ATTR name="LineColor" type="string">$000010D5</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">824,2239;692,2239;692,1598</XPD:ATTR>
+<XPD:REF name="Head">eU4NqOnil0mhjx7wGW8brgAA</XPD:REF>
+<XPD:REF name="Tail">koX0Ahau6kKVxzlO62hIygAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[11]" type="UMLNoteLinkView" guid="UM1F5PpchEitnf5C7d8QzAAA">
+<XPD:ATTR name="LineColor" type="string">clRed</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">824,2714;692,2714;692,1598</XPD:ATTR>
+<XPD:REF name="Head">eU4NqOnil0mhjx7wGW8brgAA</XPD:REF>
+<XPD:REF name="Tail">haZsCF8blkG0UMu0rEUPJQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="ZgF2Wag1ukeuPUBF0ctT5wAA">
+<XPD:ATTR name="LineColor" type="string">clRed</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">824,3056;692,3056;692,2156</XPD:ATTR>
+<XPD:REF name="Head">UM1F5PpchEitnf5C7d8QzAAA</XPD:REF>
+<XPD:REF name="Tail">3PwE8MGRRE6TUeEGTvPmmAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[13]" type="UMLNoteView" guid="XSkBBW5pjUOsScmNwQabEwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1380</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">872</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">543</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">458</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//渲染阴影图
+void View::RenderShadowMap(const LightBatchQueue&amp; queue)
+{
+    Texture2D* shadowMap = queue.shadowMap_;
+    graphics_-&gt;SetTexture(TU_SHADOWMAP, 0);
+
+    // 设置填充模式为 glPolygonMode 为 FILL_SOLID，glDisable(GL_CLIP_PLANE0)，关闭模板测试 
+
+    // 如果阴影图是一个深度模板纹理,以光源位置为摄像机位置,记录从光源到可见物体的最小深度
+    {
+        graphics_-&gt;SetColorWrite(false);
+        graphics_-&gt;SetDepthStencil(shadowMap);
+        graphics_-&gt;SetRenderTarget(0, shadowMap-&gt;GetRenderSurface()-&gt;GetLinkedRenderTarget());
+        //这里会PrepareDraw()，然后bindframebuffer
+        graphics_-&gt;SetViewport(IntRect(0, 0, shadowMap-&gt;GetWidth(), shadowMap-&gt;GetHeight()));
+        graphics_-&gt;Clear(CLEAR_DEPTH);
+    }
+    // 根据视锥体分割参数,渲染每一个阴影图
+    for (unsigned i = 0; i &lt; queue.shadowSplits_.Size(); ++i)
+    {
+        const ShadowBatchQueue&amp; shadowQueue = queue.shadowSplits_[i];
+
+        if (如果shadowQueue.shadowBatches_中有批次需要渲染)
+        {
+            graphics_-&gt;SetViewport(shadowQueue.shadowViewport_);
+            //开始渲染阴影
+            shadowQueue.shadowBatches_.Draw(this, shadowQueue.shadowCamera_, false, false, true);
+        }
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[14]" type="UMLNoteLinkView" guid="SDo/mWXva02YYTvSjDfc8wAA">
+<XPD:ATTR name="LineColor" type="string">$0080FF00</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1380,1200;1190,1200</XPD:ATTR>
+<XPD:REF name="Head">/UR+PTBpX0iBQqEYNzaGSgAA</XPD:REF>
+<XPD:REF name="Tail">XSkBBW5pjUOsScmNwQabEwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[15]" type="UMLNoteView" guid="cqhfc2dp1kKI9btNo1w4+gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2744</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1408</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">490</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 设置渲染目标，这里只是记录索引
+//  renderTargets_ 最终会在PrepareDraw 中设置到当前帧缓冲区的颜色附加点和深度附加点
+void Graphics::SetRenderTarget(unsigned index, RenderSurface* renderTarget)
+{
+    if (renderTarget != renderTargets_[index])
+    {
+            //记录 renderTarget，设置 fboDirty_脏标志
+        renderTargets_[index] = renderTarget;
+        impl_-&gt;fboDirty_ = true;
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[16]" type="UMLNoteLinkView" guid="9qjnU4TUMEqlb1ls4dvyBAAA">
+<XPD:ATTR name="LineColor" type="string">clBlue</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2744,1496;2596,1496;2596,1442</XPD:ATTR>
+<XPD:REF name="Head">RRNKuKIDwkyisoXTX2arpQAA</XPD:REF>
+<XPD:REF name="Tail">cqhfc2dp1kKI9btNo1w4+gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[17]" type="UMLNoteView" guid="oHHJznPhKUKobOiuG9/BIQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2744</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1612</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">497</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">158</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 设置视口  // 要先调用PrepareDraw
+void Graphics::SetViewport(const IntRect&amp; rect)
+{
+    PrepareDraw();
+
+    glViewport(rectCopy.left_, rtSize.y_ - rectCopy.bottom_, rectCopy.Width(), rectCopy.Height());
+    viewport_ = rectCopy;
+
+    SetScissorTest(false);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[18]" type="UMLNoteLinkView" guid="RRNKuKIDwkyisoXTX2arpQAA">
+<XPD:ATTR name="LineColor" type="string">clBlue</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2744,1688;2596,1688;2596,1196;1922,1196</XPD:ATTR>
+<XPD:REF name="Head">XSkBBW5pjUOsScmNwQabEwAA</XPD:REF>
+<XPD:REF name="Tail">oHHJznPhKUKobOiuG9/BIQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[19]" type="UMLNoteView" guid="TWGAotPMP0mB/Td3pVcE7QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2744</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1992</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">596</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">293</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 渲染
+void BatchQueue::Draw() const
+{
+    Graphics* graphics = view-&gt;GetGraphics();
+    Renderer* renderer = view-&gt;GetRenderer();
+
+        // 实例化渲染
+    for (PODVector&lt;BatchGroup*&gt;::ConstIterator i = sortedBatchGroups_.Begin(); i != sortedBatchGroups_.End(); ++i)
+    {
+        BatchGroup* group = *i;
+        group-&gt;Draw(view, camera, allowDepthWrite);
+    }
+        // 非实例化渲染
+    for (PODVector&lt;Batch*&gt;::ConstIterator i = sortedBatches_.Begin(); i != sortedBatches_.End(); ++i)
+    {
+        Batch* batch = *i;
+        batch-&gt;Draw(view, camera, allowDepthWrite);
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[20]" type="UMLNoteLinkView" guid="Nan/jsuGukOoWspHtqfxLwAA">
+<XPD:ATTR name="LineColor" type="string">clBlue</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2744,2024;2596,2024;2596,1442</XPD:ATTR>
+<XPD:REF name="Head">RRNKuKIDwkyisoXTX2arpQAA</XPD:REF>
+<XPD:REF name="Tail">TWGAotPMP0mB/Td3pVcE7QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[21]" type="UMLNoteView" guid="VDRusC3C80aPCxlDXQjQxwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1404</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1548</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">431</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">323</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Graphics::Clear(unsigned flags, const Color&amp; color, float depth, unsigned stencil)
+{
+    PrepareDraw();
+    unsigned glFlags = 0;
+    if (flags &amp; CLEAR_COLOR)
+    {
+        glFlags |= GL_COLOR_BUFFER_BIT;
+        glClearColor(color.r_, color.g_, color.b_, color.a_);
+    }
+    if (flags &amp; CLEAR_DEPTH)
+    {
+        glFlags |= GL_DEPTH_BUFFER_BIT;
+        glClearDepth(depth);
+    }
+    if (flags &amp; CLEAR_STENCIL)
+    {
+        glFlags |= GL_STENCIL_BUFFER_BIT;
+        glClearStencil(stencil);
+    }
+    glClear(glFlags);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[22]" type="UMLNoteLinkView" guid="tmvV/W9re0W3/dBHJugRDAAA">
+<XPD:ATTR name="LineColor" type="string">clBlue</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1580,1548;1580,1497;1158,1497</XPD:ATTR>
+<XPD:REF name="Head">m4nAvF2xgUmmjp0BCMjsGwAA</XPD:REF>
+<XPD:REF name="Tail">VDRusC3C80aPCxlDXQjQxwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[23]" type="UMLNoteView" guid="/MFuZmFMGkqoi+4ttw9v3AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4080</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2356</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">609</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">938</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//准备渲染 处理fbo
+void Graphics::PrepareDraw()
+{
+        // 检查fbo脏标志
+    if (impl_-&gt;fboDirty_)
+    {
+        impl_-&gt;fboDirty_ = false;
+
+        // 当前绑定的帧缓冲区是不是后缓冲区，如果是，直接返回
+        BindFramebuffer(impl_-&gt;systemFBO_);
+        impl_-&gt;boundFBO_ = impl_-&gt;systemFBO_;
+        return;
+        // 根据渲染区域大小和渲染数据的格式来确定一个 fboKey，
+        // 所以正常情况下，渲染时可能会有多个 RenderTarget,但是FrameBuffer可能只有两个，一个是屏幕后缓冲区
+        unsigned long long fboKey = (rtSize.x_ &lt;&lt; 16 | rtSize.y_) | (((unsigned long long)format) &lt;&lt; 32);
+        HashMap&lt;unsigned long long, FrameBufferObject&gt;::Iterator i = impl_-&gt;frameBuffers_.Find(fboKey);
+        if (i == impl_-&gt;frameBuffers_.End())
+        {
+            FrameBufferObject newFbo;
+            newFbo.fbo_ = CreateFramebuffer();
+            i = impl_-&gt;frameBuffers_.Insert(MakePair(fboKey, newFbo));
+        }
+                //绑定 fbo
+        if (impl_-&gt;boundFBO_ != i-&gt;second_.fbo_)
+            BindFramebuffer(i-&gt;second_.fbo_);
+        // 绑定 RenderTarget 到附加点
+        for (unsigned j = 0; j &lt; MAX_RENDERTARGETS; ++j)
+        {
+            if (renderTargets_[j])
+                   // 绑定renderTarget对应的纹理到颜色附加点
+            else
+                   //解绑颜色附加点
+        }
+        // 深度模板
+         // 绑定一个渲染缓冲对象或是一个深度纹理
+        if (depthStencil_)
+        {
+            unsigned renderBufferID = depthStencil_-&gt;GetRenderBuffer();
+             // 没有渲染缓冲区对象
+            if (!renderBufferID)
+                   // 绑定这个纹理到深度和模板缓冲附加点
+        }
+        else
+             //解绑定深度和模板缓冲附加点
+    }
+    // 绑定渲染要用到的顶点数据
+    if (impl_-&gt;vertexBuffersDirty_)
+    {
+        for (unsigned i = MAX_VERTEX_STREAMS - 1; i &lt; MAX_VERTEX_STREAMS; --i)
+        {
+            VertexBuffer* buffer = vertexBuffers_[i];
+            const PODVector&lt;VertexElement&gt;&amp; elements = buffer-&gt;GetElements();
+            for (PODVector&lt;VertexElement&gt;::ConstIterator j = elements.Begin(); j != elements.End(); ++j)
+            {
+                const VertexElement&amp; element = *j;
+                 // 绑定顶点缓冲区 
+                glBindBuffer(GL_ARRAY_BUFFER, buffer-&gt;GetGPUObjectName());
+                glVertexAttribPointer(location, glElementComponents[element.type_], glElementTypes[element.type_]);
+            }
+        }
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[24]" type="UMLNoteView" guid="rd8kBFfC00uhYskqkGY+oQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3468</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2108</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">477</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">158</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 一般一个批次的渲染是 会在 Draw之前把 indexbuffer和vertexbuffer的数据先传进来
+// 这里的SetVertexBuffers就是Graphics中的 vertexBuffers_
+void Batch::Draw(Graphics* graphics)
+{
+        Batch::PrepareDraw()
+        graphics-&gt;SetIndexBuffer(indexBuffer_);
+        graphics-&gt;SetVertexBuffers(vertexBuffers_);
+        graphics-&gt;Draw(primitiveType_, indexStart_, indexCount_, vertexStart_, vertexCount_);
+
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[25]" type="UMLNoteView" guid="5JeckfcuTEC8Od/unDhvygAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3488</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2356</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">446</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">203</XPD:ATTR>
+<XPD:ATTR name="Text" type="string"> // 绑定顶点缓冲区 
+ // Graphics::SetIndexBuffer()
+ glBindBuffer(GL_ARRAY_BUFFER, buffer-&gt;GetGPUObjectName());
+
+ // 绑定索引缓冲区 
+ // Graphics::SetVertexBuffers()
+glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffer ? buffer-&gt;GetGPUObjectName() : 0);
+
+//draw call
+// Graphics::Draw()
+Graphics::PrepareDraw()
+glDrawArrays()
+glDrawElements()
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[26]" type="UMLNoteLinkView" guid="tafzp+B/1kG5g9oygptmUwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3709,2356;3707,2265</XPD:ATTR>
+<XPD:REF name="Head">rd8kBFfC00uhYskqkGY+oQAA</XPD:REF>
+<XPD:REF name="Tail">5JeckfcuTEC8Od/unDhvygAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[27]" type="UMLNoteView" guid="B/3Afi43tE6HBpVzQWtCAQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2028</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1468</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">425</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">308</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 设置渲染目标  默认情况下渲染目录都是&quot;viewport&quot;,即屏幕帧缓冲区
+//  如果是RTT模式，找到对应的那个纹理，设置为渲染目标
+void View::SetRenderTargets(RenderPathCommand&amp; command)
+{
+        // 遍历command 的 output
+    while (index &lt; command.outputs_.Size())
+    {
+        graphics_-&gt;SetRenderTarget(index, GetRenderSurfaceFromTexture(texture));
+        ++index;
+    }
+
+    while (index &lt; MAX_RENDERTARGETS)
+    {
+        graphics_-&gt;SetRenderTarget(index, (RenderSurface*)0);
+        ++index;
+    }
+
+    graphics_-&gt;SetViewport(viewport);
+    graphics_-&gt;SetColorWrite(useColorWrite);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[28]" type="UMLNoteLinkView" guid="DyqFlGU6ZE+AzV1iuqZKxQAA">
+<XPD:ATTR name="LineColor" type="string">$000080FF</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2028,1624;1948,1624;1948,1464;1158,1464</XPD:ATTR>
+<XPD:REF name="Head">m4nAvF2xgUmmjp0BCMjsGwAA</XPD:REF>
+<XPD:REF name="Tail">B/3Afi43tE6HBpVzQWtCAQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[29]" type="UMLNoteLinkView" guid="SsOznhc/+0KzcmzJA/A8CwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3468,2179;3339,2179</XPD:ATTR>
+<XPD:REF name="Head">TWGAotPMP0mB/Td3pVcE7QAA</XPD:REF>
+<XPD:REF name="Tail">rd8kBFfC00uhYskqkGY+oQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[30]" type="UMLNoteLinkView" guid="6boBEpdMs0m8AOiWNKCvtQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2744,2052;1283,2052</XPD:ATTR>
+<XPD:REF name="Head">iAxnn4962kmyy7AOT37eVwAA</XPD:REF>
+<XPD:REF name="Tail">TWGAotPMP0mB/Td3pVcE7QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[31]" type="UMLNoteLinkView" guid="CO1tZajUIk2xFETWtO5rpwAA">
+<XPD:ATTR name="LineColor" type="string">$000080FF</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2028,1624;1948,1624;1948,1968;1283,1968</XPD:ATTR>
+<XPD:REF name="Head">iAxnn4962kmyy7AOT37eVwAA</XPD:REF>
+<XPD:REF name="Tail">B/3Afi43tE6HBpVzQWtCAQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[32]" type="UMLNoteLinkView" guid="eQLfyY3FAUCGCq3r+PMetQAA">
+<XPD:ATTR name="LineColor" type="string">$004080FF</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2028,1624;1948,1624;1948,2190;1056,2190</XPD:ATTR>
+<XPD:REF name="Head">koX0Ahau6kKVxzlO62hIygAA</XPD:REF>
+<XPD:REF name="Tail">B/3Afi43tE6HBpVzQWtCAQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[33]" type="UMLNoteLinkView" guid="SWUxpDc3d0GRWvivI++nVQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4080,2440;3933,2440</XPD:ATTR>
+<XPD:REF name="Head">5JeckfcuTEC8Od/unDhvygAA</XPD:REF>
+<XPD:REF name="Tail">/MFuZmFMGkqoi+4ttw9v3AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[34]" type="UMLNoteView" guid="Gc2Ig93YKUmhIvoG/EmDuwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1416</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2232</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">377</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">248</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//设置对应渲染纹理
+bool View::SetTextures(RenderPathCommand&amp; command)
+{
+    for (unsigned i = 0; i &lt; MAX_TEXTURE_UNITS; ++i)
+    {        // 如果 texture 是 &quot;viewport&quot;
+        if (!command.textureNames_[i].Compare(&quot;viewport&quot;, false))
+        {
+            graphics_-&gt;SetTexture(i, currentViewportTexture_);
+            continue;
+        }
+       // 找到对应名称的纹理 设置到对应编号
+        Texture* texture = FindNamedTexture(command.textureNames_[i]);
+        if (texture)
+            graphics_-&gt;SetTexture(i, texture);
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[35]" type="UMLNoteLinkView" guid="2VZ36ya7rk6ZEMDtYY7S5QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1416,2248;1056,2248</XPD:ATTR>
+<XPD:REF name="Head">koX0Ahau6kKVxzlO62hIygAA</XPD:REF>
+<XPD:REF name="Tail">Gc2Ig93YKUmhIvoG/EmDuwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[36]" type="UMLNoteView" guid="lQO2u9uj4E6qf/VSOWnlFwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2940</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2468</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">252</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Geometry::Draw(Graphics* graphics)
+{
+    graphics-&gt;SetIndexBuffer(indexBuffer_);
+    graphics-&gt;SetVertexBuffers(vertexBuffers_);
+    graphics-&gt;Draw();
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[37]" type="UMLNoteLinkView" guid="PKHrccj/AkGOweH0uMUh7wAA">
+<XPD:ATTR name="LineColor" type="string">clFuchsia</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2940,2524;956,2524;956,2307</XPD:ATTR>
+<XPD:REF name="Head">koX0Ahau6kKVxzlO62hIygAA</XPD:REF>
+<XPD:REF name="Tail">lQO2u9uj4E6qf/VSOWnlFwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[38]" type="UMLNoteLinkView" guid="tjdkscsjjkCS42hcYwcvjgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3488,2484;3191,2484</XPD:ATTR>
+<XPD:REF name="Head">lQO2u9uj4E6qf/VSOWnlFwAA</XPD:REF>
+<XPD:REF name="Tail">5JeckfcuTEC8Od/unDhvygAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[39]" type="UMLNoteLinkView" guid="/McZ3yXcCk2WyR+q7e5JDgAA">
+<XPD:ATTR name="LineColor" type="string">$0040FF00</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1256,2696;1336,2696;1336,1200;1380,1200</XPD:ATTR>
+<XPD:REF name="Head">XSkBBW5pjUOsScmNwQabEwAA</XPD:REF>
+<XPD:REF name="Tail">haZsCF8blkG0UMu0rEUPJQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[40]" type="UMLNoteLinkView" guid="anztcHo7hEqlulGkd9O05gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2744,2192;2604,2192;2604,2784;1256,2784</XPD:ATTR>
+<XPD:REF name="Head">haZsCF8blkG0UMu0rEUPJQAA</XPD:REF>
+<XPD:REF name="Tail">TWGAotPMP0mB/Td3pVcE7QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[41]" type="UMLNoteView" guid="R4b69MadVEW9woplzOkZAwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4080</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1900</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">495</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">368</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//准备渲染 主要是设置材质相关shader参数和纹理
+void Batch::Prepare() 
+{
+    graphics-&gt;SetShaders(vertexShader_, pixelShader_);
+
+    / 材质相关shader参数和纹理
+    if (material_)
+    {
+        const HashMap&lt;TextureUnit, SharedPtr&lt;Texture&gt; &gt;&amp; textures = material_-&gt;GetTextures();
+        for (i = textures.Begin(); i != textures.End(); ++i)
+        {
+            if (graphics-&gt;HasTextureUnit(i-&gt;first_))
+                graphics-&gt;SetTexture(i-&gt;first_, i-&gt;second_.Get());
+        }
+    }
+
+    // 设置光源相关的纹理 TU_SHADOWMAP  TU_LIGHTRAMP  TU_LIGHTSHAPE
+    if (light)
+    {
+        graphics-&gt;SetTexture(TU_SHADOWMAP, shadowMap);
+        graphics-&gt;SetTexture(TU_LIGHTRAMP, rampTexture);
+        graphics-&gt;SetTexture(TU_LIGHTSHAPE, shapeTexture);
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[42]" type="UMLNoteLinkView" guid="gexZln140UOQSa9RTwFqxwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4080,2184;3944,2184</XPD:ATTR>
+<XPD:REF name="Head">rd8kBFfC00uhYskqkGY+oQAA</XPD:REF>
+<XPD:REF name="Tail">R4b69MadVEW9woplzOkZAwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[43]" type="UMLNoteView" guid="2dFDNtam20W6CBRGFOtz4gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2052</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1856</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">377</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//设置纹理
+bool View::SetTextures(RenderPathCommand&amp; command)
+{
+    for (unsigned i = 0; i &lt; MAX_TEXTURE_UNITS; ++i)
+    {
+        Texture* texture = FindNamedTexture(command.textureNames_[i]);
+
+        graphics_-&gt;SetTexture(i, texture);
+
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[44]" type="UMLNoteLinkView" guid="ItqaSb7VG0OjIPfNRzvWiQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2052,2008;1283,2008</XPD:ATTR>
+<XPD:REF name="Head">iAxnn4962kmyy7AOT37eVwAA</XPD:REF>
+<XPD:REF name="Tail">2dFDNtam20W6CBRGFOtz4gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[45]" type="UMLNoteLinkView" guid="Gv0z3x0wl0il0WGl0uVjGgAA">
+<XPD:ATTR name="LineColor" type="string">clBlue</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1667,2008;1996,2008;1996,2216;1056,2216</XPD:ATTR>
+<XPD:REF name="Head">koX0Ahau6kKVxzlO62hIygAA</XPD:REF>
+<XPD:REF name="Tail">ItqaSb7VG0OjIPfNRzvWiQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[46]" type="UMLNoteLinkView" guid="FklX4nO+c0OXUp1TTMXi/gAA">
+<XPD:ATTR name="LineColor" type="string">clBlue</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2052,2008;1996,2008;1996,2740;1256,2740</XPD:ATTR>
+<XPD:REF name="Head">haZsCF8blkG0UMu0rEUPJQAA</XPD:REF>
+<XPD:REF name="Tail">2dFDNtam20W6CBRGFOtz4gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[47]" type="UMLNoteLinkView" guid="cGDqLfEZq0SqU5JClpvYMwAA">
+<XPD:ATTR name="LineColor" type="string">clLime</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2744,1528;2452,1528</XPD:ATTR>
+<XPD:REF name="Head">B/3Afi43tE6HBpVzQWtCAQAA</XPD:REF>
+<XPD:REF name="Tail">cqhfc2dp1kKI9btNo1w4+gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[48]" type="UMLNoteLinkView" guid="kgRssAlCN0e6TB5BmVcHEwAA">
+<XPD:ATTR name="LineColor" type="string">clLime</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2744,1720;2452,1720</XPD:ATTR>
+<XPD:REF name="Head">B/3Afi43tE6HBpVzQWtCAQAA</XPD:REF>
+<XPD:REF name="Tail">oHHJznPhKUKobOiuG9/BIQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[49]" type="UMLNoteLinkView" guid="3PbPGzrCKEaxRErQsL63BQAA">
+<XPD:ATTR name="LineColor" type="string">$004080FF</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1948,1907;1948,2652;1256,2652</XPD:ATTR>
+<XPD:REF name="Head">haZsCF8blkG0UMu0rEUPJQAA</XPD:REF>
+<XPD:REF name="Tail">eQLfyY3FAUCGCq3r+PMetQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[50]" type="UMLNoteView" guid="u5X5l1cU/kS89TINuo/7hwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2744</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1796</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">425</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">
+// 激活并绑定index级纹理
+void Graphics::SetTexture(unsigned index, Texture* texture)
+{
+    if (impl_-&gt;activeTexture_ != index)
+    {
+        glActiveTexture(GL_TEXTURE0 + index);
+        glBindTexture(glType, texture-&gt;GetGPUObjectName());
+    }
+    textures_[index] = texture;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[51]" type="UMLNoteLinkView" guid="hDBImSTnAUiqHfVrTWeSAQAA">
+<XPD:ATTR name="LineColor" type="string">$0040FF00</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2744,1876;2428,1876</XPD:ATTR>
+<XPD:REF name="Head">2dFDNtam20W6CBRGFOtz4gAA</XPD:REF>
+<XPD:REF name="Tail">u5X5l1cU/kS89TINuo/7hwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>

@@ -1,0 +1,3209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+<XPD:PROFILE>UMLStandard</XPD:PROFILE>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="jRhx/R9wMEK99n4Dcz03wwAA">
+<XPD:ATTR name="Title" type="string">GpuProgramParameters</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="vWDcAuLR2k+RIk8B1MSTwAAA">
+<XPD:ATTR name="Name" type="string">GpuProgramParameters</XPD:ATTR>
+<XPD:REF name="Namespace">jRhx/R9wMEK99n4Dcz03wwAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="io0oqR26tE+2lKU21jdy4wAA">
+<XPD:ATTR name="Name" type="string">GpuProgramParameters</XPD:ATTR>
+<XPD:ATTR name="DefaultDiagram" type="boolean">True</XPD:ATTR>
+<XPD:REF name="DiagramOwner">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="LEzme3pgb0S2cBvltZ8nRQAA">
+<XPD:REF name="Diagram">io0oqR26tE+2lKU21jdy4wAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">54</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLClassView" guid="+SHaiP2ts0CeanRyB2AaWQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">152</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">244</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">503</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">264</XPD:ATTR>
+<XPD:REF name="Model">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="ww0NuyBxKE6bOD1GTqTCPwAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="MTzy6uKsnUSfwSTu57PcWwAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">GpuSharedParameters</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="BRBH8x1xr0izgpsrhxeRMQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="9c4TugzmJ0yeTEQXQ6beigAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="T68n+XefTkGx2u/uNYu0iAAA">
+<XPD:REF name="Model">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="Z0av7nBRo0ibH0BftbM09gAA">
+<XPD:REF name="Model">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="7oDS2DaRkkiIEEPGz6dtcQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLClassView" guid="yPwEbMWCNkKb+b7JAjK4xAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">260</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">556</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">284</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">121</XPD:ATTR>
+<XPD:REF name="Model">1zNsvGp8hUiR2guQUa/YkQAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="DTykX26Jz0u/jeYIhRWJNAAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="VqHABjFD602S1OqTCgliYgAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">GpuSharedParametersUsage</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="AD1X/bY1SEqzH8ltE/ywbgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="/ayiRiq+vEegSrwQgfNtrQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="TeZi0f4T8E6ghjuu9wMnpgAA">
+<XPD:REF name="Model">1zNsvGp8hUiR2guQUa/YkQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="UDDABVI780qMlN1yq/UtRAAA">
+<XPD:REF name="Model">1zNsvGp8hUiR2guQUa/YkQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="U2s0MLqwg0CaisK3B5D3zgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">1zNsvGp8hUiR2guQUa/YkQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLClassView" guid="w2heXNLNNk2meCnsL6Y1pgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">376</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1484</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">680</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">719</XPD:ATTR>
+<XPD:REF name="Model">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="qHZcc9IiIUSR4pHkUoMqqAAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="q9ax/FQlUESZscNB/TTFbgAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">GpuProgramParameters</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="8bYx+TWsWUugMlROn1/ZowAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="PreCEaLfjEyxxjdCMR6OQgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="+t9pyLorcU+Mywxl8oxK5wAA">
+<XPD:REF name="Model">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="zD20hvOZ/k6sGNYAYiRVaQAA">
+<XPD:REF name="Model">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="agqI+gr+U0qhfYGDIVDJCwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLClassView" guid="j4UdCe1ut0SkmfEAPXdk7gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">52</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1492</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">151</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">108</XPD:ATTR>
+<XPD:REF name="Model">RMXN04WW50aDJdi/Km8YuAAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="SZqhIrvoS0OywVH23l+fGQAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="BuhLquPzrkCFNbF3aoBMWgAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">AutoConstantDefinition</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="FQ8tFR+JVk2MhxG2ZwBC5wAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="FdSjVkwFdE+vQEG2b+I+vwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="t0OBzF/YsE61s8XS93EyyAAA">
+<XPD:REF name="Model">RMXN04WW50aDJdi/Km8YuAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="UU2skGq8QEauHykjh96xegAA">
+<XPD:REF name="Model">RMXN04WW50aDJdi/Km8YuAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="pL95RAxJ1k6NRdoOnmpT/wAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">RMXN04WW50aDJdi/Km8YuAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLClassView" guid="dFWV4KncxUCOB/RZLoQ7IgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">48</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1616</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">172</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">108</XPD:ATTR>
+<XPD:REF name="Model">BfCYj+1LJUivuKPS4lxyhAAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="H+j6qLeHaE6tzlHWZI4tWQAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="8dHTqScdd0KNTJol5KSf3QAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">AutoConstantEntry</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="DxQP95H4nEq8FEM7SqahZwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="9mB30iwpcUmFNsVkoKRXMQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="UE2ZuKjFkE+oie1DQWs2VAAA">
+<XPD:REF name="Model">BfCYj+1LJUivuKPS4lxyhAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="cDFWUoKegkyTv9pGifyNSwAA">
+<XPD:REF name="Model">BfCYj+1LJUivuKPS4lxyhAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="yDImbpjc/UyIhtevvctzIgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">BfCYj+1LJUivuKPS4lxyhAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLAssociationView" guid="hI3cAfURx0aV+jAd0dl8swAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">376,1552;202,1552</XPD:ATTR>
+<XPD:REF name="Model">y+Ux/Q479Eq+yLA1QZLdJAAA</XPD:REF>
+<XPD:REF name="Head">j4UdCe1ut0SkmfEAPXdk7gAA</XPD:REF>
+<XPD:REF name="Tail">w2heXNLNNk2meCnsL6Y1pgAA</XPD:REF>
+<XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="SVKKBK+OF0aGNYIQvv/xEAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
+<XPD:REF name="Model">y+Ux/Q479Eq+yLA1QZLdJAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="8Em1shsc/kya2voEMCvPIwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">30</XPD:ATTR>
+<XPD:REF name="Model">y+Ux/Q479Eq+yLA1QZLdJAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="EdgeLabelView" guid="92NwWEMgl0Skzvv31s3tqgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
+<XPD:REF name="Model">y+Ux/Q479Eq+yLA1QZLdJAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="HeadRoleNameLabel" type="EdgeLabelView" guid="DpMX37JyZ0C7CTRC6LoingAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-0.523598775598299</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">30</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epHead</XPD:ATTR>
+<XPD:REF name="Model">MSpNPkOHSkOvUoGfwyxo7wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TailRoleNameLabel" type="EdgeLabelView" guid="DC8t9EpDp0+LNuwZixoArAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">0.523598775598299</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">30</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epTail</XPD:ATTR>
+<XPD:REF name="Model">TX0h4p7gKU2mxWNvx+eu2AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="HeadMultiplicityLabel" type="EdgeLabelView" guid="eqHWlHT/S0+w97LiNNEMhwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">0.523598775598299</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epHead</XPD:ATTR>
+<XPD:REF name="Model">MSpNPkOHSkOvUoGfwyxo7wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TailMultiplicityLabel" type="EdgeLabelView" guid="2TxUs2GFs0SXzd4Yl4e8ZwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-0.523598775598299</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epTail</XPD:ATTR>
+<XPD:REF name="Model">TX0h4p7gKU2mxWNvx+eu2AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="HeadPropertyLabel" type="EdgeLabelView" guid="W57P10ZKUk+QNgty+DJGdAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-0.785398163397448</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">40</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epHead</XPD:ATTR>
+<XPD:REF name="Model">MSpNPkOHSkOvUoGfwyxo7wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TailPropertyLabel" type="EdgeLabelView" guid="Z1BKDGJizE+4PmwX5EPJWgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">0.785398163397448</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">40</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epTail</XPD:ATTR>
+<XPD:REF name="Model">TX0h4p7gKU2mxWNvx+eu2AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="HeadQualifierCompartment" type="UMLQualifierCompartmentView" guid="91x3LCkyekKjFLKTKx0LkgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">-1768</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">-2324</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">50</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">8</XPD:ATTR>
+<XPD:REF name="Model">MSpNPkOHSkOvUoGfwyxo7wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TailQualifierCompartment" type="UMLQualifierCompartmentView" guid="iJtdIpxWjEefdElAtn6+3wAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">-1768</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">-2324</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">50</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">8</XPD:ATTR>
+<XPD:REF name="Model">TX0h4p7gKU2mxWNvx+eu2AAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLAssociationView" guid="TliNK0V5dkCQL/JxStszpQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">376,1723;219,1723</XPD:ATTR>
+<XPD:REF name="Model">zJ22732E8kWMXlClKig0/AAA</XPD:REF>
+<XPD:REF name="Head">dFWV4KncxUCOB/RZLoQ7IgAA</XPD:REF>
+<XPD:REF name="Tail">w2heXNLNNk2meCnsL6Y1pgAA</XPD:REF>
+<XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="XQALuFaFBUylvzmfqxqW1wAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
+<XPD:REF name="Model">zJ22732E8kWMXlClKig0/AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="+q7k8htH/Um3NHnZDQruuAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">30</XPD:ATTR>
+<XPD:REF name="Model">zJ22732E8kWMXlClKig0/AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="EdgeLabelView" guid="xoLF+1Ppvk+E1g8WcKwRdwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
+<XPD:REF name="Model">zJ22732E8kWMXlClKig0/AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="HeadRoleNameLabel" type="EdgeLabelView" guid="5fEkUhD1FkG1nn0Q7beDBAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-0.523598775598299</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">30</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epHead</XPD:ATTR>
+<XPD:REF name="Model">aRw40516K0ChyEMHtcgJZQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TailRoleNameLabel" type="EdgeLabelView" guid="hIdvOclKlkKGtWPVMrWdEwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">0.523598775598299</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">30</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epTail</XPD:ATTR>
+<XPD:REF name="Model">VpYP3EkczEmkaDdidOJfuwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="HeadMultiplicityLabel" type="EdgeLabelView" guid="KNW/2D3AeUCIz5O01UX2AgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">0.523598775598299</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epHead</XPD:ATTR>
+<XPD:REF name="Model">aRw40516K0ChyEMHtcgJZQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TailMultiplicityLabel" type="EdgeLabelView" guid="VJpdHxqeQkGuhvYE9UVcJQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-0.523598775598299</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epTail</XPD:ATTR>
+<XPD:REF name="Model">VpYP3EkczEmkaDdidOJfuwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="HeadPropertyLabel" type="EdgeLabelView" guid="c9v1ZL89D0ClbDswZ0V2lQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-0.785398163397448</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">40</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epHead</XPD:ATTR>
+<XPD:REF name="Model">aRw40516K0ChyEMHtcgJZQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TailPropertyLabel" type="EdgeLabelView" guid="g97t1A4oNE+f8hTSjcTI0wAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">0.785398163397448</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">40</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epTail</XPD:ATTR>
+<XPD:REF name="Model">VpYP3EkczEmkaDdidOJfuwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="HeadQualifierCompartment" type="UMLQualifierCompartmentView" guid="r6fpvFUh1USz2rAT76ezeAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">-1768</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">-2324</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">50</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">8</XPD:ATTR>
+<XPD:REF name="Model">aRw40516K0ChyEMHtcgJZQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TailQualifierCompartment" type="UMLQualifierCompartmentView" guid="0xFrmFRWWky9QJQ8M4qnrAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">-1768</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">-2324</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">50</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">8</XPD:ATTR>
+<XPD:REF name="Model">VpYP3EkczEmkaDdidOJfuwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLClassView" guid="TqnbUclWmkyVY/CpoSykDAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">184</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">788</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">414</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">134</XPD:ATTR>
+<XPD:REF name="Model">GEI2tXuy1E2V/Hq2xV6vXAAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="Jbr4z1h7kUWG1j9kAk/SHwAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="gv0YgMZqXUyPwqgxwzGCGgAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">GpuConstantDefinition</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="fVOZ1c0hx0SGvkFTFIKp1AAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="pmc+yhQ8XESQDIyp70trnQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="Cid13ZlILkqnfGMIhixJJwAA">
+<XPD:REF name="Model">GEI2tXuy1E2V/Hq2xV6vXAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="F0a06hub2UyvEODAEXog0gAA">
+<XPD:REF name="Model">GEI2tXuy1E2V/Hq2xV6vXAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="rIJ1d5OAAkO/30L4F8tM2wAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">GEI2tXuy1E2V/Hq2xV6vXAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLClassView" guid="ug5EQ5K3XUGOC4RbZSy/2gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">104</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">972</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">564</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">160</XPD:ATTR>
+<XPD:REF name="Model">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="3b7rBDXjVkutwu0Bm24/MQAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="ANBhn+5caUKOrp3OIrjSKQAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">GpuNamedConstants</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="oiloMCGp90eykA7IMi1NlAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="cR68ctqA2kqhEq8bDjZcdwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="XX8l9o6D1UKqjDdj9DIPBgAA">
+<XPD:REF name="Model">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="388MAcyPDUeuKdD2uGFffgAA">
+<XPD:REF name="Model">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="h0q4wnBtE06qxoBX5osDYAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLNoteView" guid="3az1wOpfF02frn3kd+EY+wAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1276</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">64</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">460</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">323</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuSharedParameters::addConstantDefinition
+(const String&amp; name, GpuConstantType constType, size_t arraySize)
+{
+     GpuConstantDefinition def;
+     def.arraySize = arraySize;
+     def.constType = constType;
+     def.elementSize = GpuConstantDefinition::getElementSize(constType, false);
+     def.logicalIndex = 0;
+     def.variability = (uint16)GPV_GLOBAL;
+
+      if (def.isFloat())
+      {
+            def.physicalIndex = mFloatConstants.size();
+            mFloatConstants.resize(mFloatConstants.size() + def.arraySize * def.elementSize);
+       }
+       ........
+       mNamedConstants.map[name] = def;
+}
+//根据传入的constType  name arraySize构建一个GpuConstantDefinition 
+//同时根据mFloatConstants 等的大小确定 def.physicalIndex的大小
+//再调整mFloatConstants的大小，最后存到 mNamedConstants.map中
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLNoteView" guid="muXxs0GoAkOYgLAbPqERLAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1292</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">436</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">441</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">308</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuSharedParameters::removeConstantDefinition(const String&amp; name)
+{
+           for (GpuConstantDefinitionMap::iterator j = mNamedConstants.map.begin();
+                 j != mNamedConstants.map.end(); ++j)
+            {
+                GpuConstantDefinition&amp; otherDef = j-&gt;second;
+                bool otherIsFloat = otherDef.isFloat();
+                if ( (isFloat == otherIsFloat) &amp;&amp; otherDef.physicalIndex &gt; def.physicalIndex)
+                {
+                    otherDef.physicalIndex -= numElems;
+                }
+            }
+            if (isFloat)
+            {
+                mNamedConstants.floatBufferSize -= numElems;
+                mFloatConstants.erase(beg, en);
+            }
+     //从mNamedConstants.map中移除name对应的 GpuConstantDefinition
+     //同时调整表中前面所有otherDef 的 physicalIndex大小
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[11]" type="UMLNoteView" guid="qT4UgEqHWUKTYHuDXJHXnQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1296</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">764</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">498</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuSharedParameters::setNamedConstant(const String&amp; name, const float *val, size_t count)
+    {
+        GpuConstantDefinitionMap::const_iterator i = mNamedConstants.map.find(name);
+        if (i != mNamedConstants.map.end())
+        {
+            const GpuConstantDefinition&amp; def = i-&gt;second;
+            memcpy(&amp;mFloatConstants[def.physicalIndex], val,
+                   sizeof(float) * std::min(count, def.elementSize * def.arraySize));
+        }
+        //将值拷贝到mFloatConstants中
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[12]" type="UMLNoteView" guid="MUEoFWYVTkuFOK9buMr97AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1300</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">968</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">283</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuSharedParametersUsage::initCopyData()
+{
+       //找出mSharedParams和 mParams 中相同名字的
+       //GpuConstantDefinition构建CopyDataEntry 对象
+       //放入mCopyDataList中
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[13]" type="UMLNoteView" guid="okY96hdK9EKRW9JRGjbE3gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1308</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1104</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">394</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuSharedParametersUsage::_copySharedParamsToTargetParams()
+{
+       //遍历mCopyDataList,把mSharedParams(GpuSharedParameters类型)
+       //中mFloatConstants中的值拷到
+       //mParams(GpuProgramParameters类型) 中对应的mFloatConstants中去
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[14]" type="UMLNoteView" guid="iqeTU/BDC0eBk5t5esKXRAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1312</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1236</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">283</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuProgramParameters::_setNamedConstants(
+        const GpuNamedConstantsPtr&amp; namedConstants)
+{
+      //设置 mNamedConstants = namedConstants
+      //调整 mFloatConstants 的大小
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[15]" type="UMLNoteView" guid="rOXTSfYUo0yEOimaM0EYjwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1308</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1360</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">412</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">323</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuProgramParameters::_setLogicalIndexes(
+        const GpuLogicalBufferStructPtr&amp; floatIndexMap,
+        const GpuLogicalBufferStructPtr&amp; doubleIndexMap,
+        const GpuLogicalBufferStructPtr&amp; intIndexMap,
+        const GpuLogicalBufferStructPtr&amp; uintIndexMap,
+        const GpuLogicalBufferStructPtr&amp; boolIndexMap
+    )
+    {
+        mFloatLogicalToPhysical = floatIndexMap;
+        mDoubleLogicalToPhysical = doubleIndexMap;
+        mIntLogicalToPhysical = intIndexMap;
+        mUnsignedIntLogicalToPhysical = uintIndexMap;
+        mBoolLogicalToPhysical = boolIndexMap;
+       
+       //mFloatConstants 等 调整大小
+        if (floatIndexMap &amp;&amp; floatIndexMap-&gt;bufferSize &gt; mFloatConstants.size())
+        {
+            mFloatConstants.insert(mFloatConstants.end(),
+                                   floatIndexMap-&gt;bufferSize - mFloatConstants.size(), 0.0f);
+        }
+      }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[16]" type="UMLNoteView" guid="BXwTIXMK1UC8GWae8y2TagAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1308</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1704</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">486</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuProgramParameters::setConstant(size_t index, const float *val, size_t count)
+    { // Raw buffer size is 4x count
+        size_t rawCount = count * 4;
+        size_t physicalIndex = _getFloatConstantPhysicalIndex(index, rawCount, GPV_GLOBAL);
+        _writeRawConstants(physicalIndex, val, rawCount);
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[17]" type="UMLNoteView" guid="GNcjEuqJUkyQItfTPNT+vwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1308</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1808</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">516</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuProgramParameters::_writeRawConstants(size_t physicalIndex, const float* val, size_t count)
+    {
+        assert(physicalIndex + count &lt;= mFloatConstants.size());
+        memcpy(&amp;mFloatConstants[physicalIndex], val, sizeof(float) * count);
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[18]" type="UMLNoteView" guid="iiBnTkIIO0CXBlcB3s78qgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1308</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1908</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">490</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">uint16 GpuProgramParameters::deriveVariability(GpuProgramParameters::AutoConstantType act)
+{
+        //根据 act返回 GpuParamVariability
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[19]" type="UMLEnumerationView" guid="xMrsEb4iAEic2ZvSrqBWMwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">216</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1188</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">196</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">108</XPD:ATTR>
+<XPD:REF name="Model">Y2bZYE3Bu0SPOpsugzf4DAAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="4a2X1N93w067DtIpYPs7BgAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="nV5I1FV3ok695IcCTm2zEQAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">GpuParamVariability</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="65PgPL0tHEy7oTt+Rmc/iAAA">
+<XPD:ATTR name="Text" type="string">&lt;&lt;enumeration&gt;&gt;</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="Ddr/BB5SCUWqEaZ3i97ySgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="EnumerationLiteralCompartment" type="UMLEnumerationLiteralCompartmentView" guid="McfA96ZMn0muJuhjlmClhQAA">
+<XPD:REF name="Model">Y2bZYE3Bu0SPOpsugzf4DAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="SHPCSsdoTE2+xH+dfc/A/wAA">
+<XPD:REF name="Model">Y2bZYE3Bu0SPOpsugzf4DAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[20]" type="UMLNoteView" guid="qzVTFFSjpkmChez5LnjysgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1296</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2012</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">602</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">923</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">GpuLogicalIndexUse* GpuProgramParameters::_getFloatConstantLogicalIndexUse(
+        size_t logicalIndex, size_t requestedSize, uint16 variability)
+    {
+          GpuLogicalIndexUse* indexUse = 0;
+          GpuLogicalIndexUseMap::iterator logi = mFloatLogicalToPhysical-&gt;map.find(logicalIndex);
+          if (logi == mFloatLogicalToPhysical-&gt;map.end())
+          {
+               mFloatConstants.insert(mFloatConstants.end(), requestedSize, 0.0f);
+                mFloatLogicalToPhysical-&gt;bufferSize = mFloatConstants.size();
+                size_t currPhys = physicalIndex;
+                size_t count = requestedSize / 4;
+                GpuLogicalIndexUseMap::iterator insertedIterator;
+
+                for (size_t logicalNum = 0; logicalNum &lt; count; ++logicalNum)
+                {
+                    GpuLogicalIndexUseMap::iterator it =
+                        mFloatLogicalToPhysical-&gt;map.insert(
+                            GpuLogicalIndexUseMap::value_type(
+                                logicalIndex + logicalNum,
+                                GpuLogicalIndexUse(currPhys, requestedSize, variability))).first;
+                    currPhys += 4;
+
+                    if (logicalNum == 0)
+                        insertedIterator = it;
+                }
+                indexUse = &amp;(insertedIterator-&gt;second);
+                //根据 logicalIndex 返回GpuLogicalIndexUse，如果没有，新增一个0.0f到
+                //mFloatConstants中,再新增一个 GpuLogicalIndexUse 到mFloatLogicalToPhysical
+          }
+           else
+          {
+                //如果找得到   mFloatConstants 插入0.0f
+                 mFloatConstants.insert(insertPos, insertCount, 0.0f); 
+                //调整mFloatLogicalToPhysical 各个节点的physicalIndex大小
+                 for (GpuLogicalIndexUseMap::iterator i = mFloatLogicalToPhysical-&gt;map.begin();
+                     i != mFloatLogicalToPhysical-&gt;map.end(); ++i)
+                 {
+                      if (i-&gt;second.physicalIndex &gt; physicalIndex)
+                          i-&gt;second.physicalIndex += insertCount;
+                  }
+                  //调整 mAutoConstants各个节点的physicalIndex大小
+                  for (AutoConstantList::iterator i = mAutoConstants.begin();  i != mAutoConstants.end(); ++i)
+                  {
+                        const GpuProgramParameters::AutoConstantDefinition* def = getAutoConstantDefinition(i-&gt;paramType);
+                        if (i-&gt;physicalIndex &gt; physicalIndex &amp;&amp; def &amp;&amp; def-&gt;elementType == ET_REAL)
+                             i-&gt;physicalIndex += insertCount;
+                   }
+                  //调整 mNamedConstants各个节点的physicalIndex大小
+                   if (mNamedConstants)
+                   {
+                         for (GpuConstantDefinitionMap::iterator i = mNamedConstants-&gt;map.begin();
+                                 i != mNamedConstants-&gt;map.end(); ++i)
+                          {
+                                 if (i-&gt;second.isFloat() &amp;&amp; i-&gt;second.physicalIndex &gt; physicalIndex)
+                                          i-&gt;second.physicalIndex += insertCount;
+                           }
+                           mNamedConstants-&gt;floatBufferSize += insertCount;
+                     }
+                     logi-&gt;second.currentSize += insertCount;
+               }
+     }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[21]" type="UMLNoteView" guid="H2oN1zQQYkyMojApf79lOgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1296</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2944</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">573</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">size_t GpuProgramParameters::_getFloatConstantPhysicalIndex(
+        size_t logicalIndex, size_t requestedSize, uint16 variability)
+    {//调用上面的函数
+        GpuLogicalIndexUse* indexUse = _getFloatConstantLogicalIndexUse(logicalIndex, requestedSize, variability);
+        return indexUse ? indexUse-&gt;physicalIndex : 0;
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[22]" type="UMLNoteView" guid="Mh+Y0oXSgU20rPJu53G1LQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1296</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3076</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">532</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">158</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">const GpuConstantDefinition*GpuProgramParameters::_findNamedConstantDefinition(const String&amp; name,
+       bool throwExceptionIfNotFound) const
+    {
+         GpuConstantDefinitionMap::const_iterator i = mNamedConstants-&gt;map.find(name);
+        if  ( i != mNamedConstants-&gt;map.end())
+        {
+            return &amp;(i-&gt;second);
+        }
+    }
+//从mNamedConstants中查到对应名字的GpuConstantDefinition
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[23]" type="UMLNoteView" guid="L5NOqlAraE2XqxiOUQisSwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1296</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3256</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">557</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuProgramParameters::setAutoConstant(size_t index, AutoConstantType acType, size_t extraInfo)
+    {
+        const AutoConstantDefinition* autoDef = getAutoConstantDefinition(acType);
+        size_t sz = autoDef-&gt;elementCount;
+        if (sz % 4 &gt; 0)
+            sz += 4 - (sz % 4);
+
+        GpuLogicalIndexUse* indexUse = _getFloatConstantLogicalIndexUse(index, sz, deriveVariability(acType));
+        if(indexUse)
+            _setRawAutoConstant(indexUse-&gt;physicalIndex, acType, extraInfo, indexUse-&gt;variability, sz);
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[24]" type="UMLNoteView" guid="EvDTF1CVHE2TRG6xcq3NNwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1304</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3448</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">582</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">353</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuProgramParameters::_setRawAutoConstant(size_t physicalIndex,
+                AutoConstantType acType, size_t extraInfo, uint16 variability, size_t elementSize)
+    {
+        // update existing index if it exists
+        bool found = false;
+        for (AutoConstantList::iterator i = mAutoConstants.begin(); i != mAutoConstants.end(); ++i)
+        {
+            if (i-&gt;physicalIndex == physicalIndex)
+            {
+                i-&gt;paramType = acType;
+                i-&gt;data = extraInfo;
+                i-&gt;elementCount = elementSize;
+                i-&gt;variability = variability;
+                found = true;
+                break;
+            }
+        }
+        if (!found)
+            mAutoConstants.push_back(AutoConstantEntry(acType, physicalIndex, extraInfo, variability, elementSize));
+
+        mCombinedVariability |= variability;
+    }
+    //更新mAutoConstants中对应physicalIndex的节点，如果没找到，加入增的节点
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[25]" type="UMLNoteView" guid="ITULzMYKtEuUrVvexufdlwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1304</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3816</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">514</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuProgramParameters::_updateAutoParams(const AutoParamDataSource* source, uint16 mask)
+{
+        //将source 里面保存的数据设置到 mFloatConstants mIntConstants等表里面
+        //source来源于SceneManager的mAutoParamDataSource
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[26]" type="UMLNoteView" guid="UeQL+PXDjUumAQAFlyNgBgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1304</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3908</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">403</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuProgramParameters::setNamedConstant(const String&amp; name, Real val)
+    {
+        // 找出命名变量，设置值到mFloatConstants 对应的physicalIndex位置
+        const GpuConstantDefinition* def =
+            _findNamedConstantDefinition(name, !mIgnoreMissingParams);
+        if (def)
+            _writeRawConstant(def-&gt;physicalIndex, val);
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[27]" type="UMLNoteView" guid="/d5fm1UEi0yBsR7UpDGTQgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1304</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">4044</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">743</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">293</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuProgramParameters::setNamedAutoConstant(const String&amp; name,
+                                                    AutoConstantType acType, size_t extraInfo)
+    {
+        // look up, and throw an exception if we're not ignoring missing
+        const GpuConstantDefinition* def =
+            _findNamedConstantDefinition(name, !mIgnoreMissingParams);
+        if (def)
+        {
+            def-&gt;variability = deriveVariability(acType);
+            // make sure we also set variability on the logical index map
+            GpuLogicalIndexUse* indexUse = _getFloatConstantLogicalIndexUse(def-&gt;logicalIndex, def-&gt;elementSize * def-&gt;arraySize, def-&gt;variability);
+            if (indexUse)
+                indexUse-&gt;variability = def-&gt;variability;
+
+            _setRawAutoConstant(def-&gt;physicalIndex, acType, extraInfo, def-&gt;variability, def-&gt;elementSize);
+        }
+        //根据名字找出 GpuConstantDefinition* def，再根据 def.logicalIndex找出 GpuLogicalIndexUse* indexUse
+        //设置 mFloatConstants 对应的physicalIndex位置的值
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[28]" type="UMLNoteView" guid="jM53EcNH1ECKUOLxu5wl1QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1304</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">4356</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">438</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">GpuProgramParameters::_findRawAutoConstantEntryFloat(size_t physicalIndex) const
+    {
+       //查找 mAutoConstants 中对应physicalIndex的节点
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[29]" type="UMLNoteView" guid="CKvV26R4C0CwoQZr1KuJHAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2556</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">420</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">492</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">GpuProgram
+
+    mutable GpuLogicalBufferStructPtr mFloatLogicalToPhysical;
+    mutable GpuLogicalBufferStructPtr mDoubleLogicalToPhysical;
+    mutable GpuLogicalBufferStructPtr mIntLogicalToPhysical;
+    mutable GpuLogicalBufferStructPtr mUIntLogicalToPhysical;
+    mutable GpuLogicalBufferStructPtr mBoolLogicalToPhysical;
+
+    mutable GpuNamedConstantsPtr mConstantDefs;
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[30]" type="UMLNoteView" guid="rC8eAHKt3EiVoXHu8E+VvgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3108</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">436</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">284</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">GpuSharedParameters
+
+        GpuNamedConstants mNamedConstants;
+        FloatConstantList mFloatConstants;
+        DoubleConstantList mDoubleConstants;
+        IntConstantList mIntConstants;
+        UnsignedIntConstantList mUnsignedIntConstants;
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[31]" type="UMLNoteView" guid="5LWOgIW/dEqzDpRU5RN1PAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3456</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">376</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">347</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">GpuProgramParameters
+
+        FloatConstantList mFloatConstants;
+        DoubleConstantList mDoubleConstants;
+        IntConstantList mIntConstants;
+        UnsignedIntConstantList mUnsignedIntConstants;
+
+        GpuLogicalBufferStructPtr mFloatLogicalToPhysical;
+        GpuLogicalBufferStructPtr mDoubleLogicalToPhysical;
+        GpuLogicalBufferStructPtr mIntLogicalToPhysical;
+        GpuLogicalBufferStructPtr mUnsignedIntLogicalToPhysical;
+        GpuLogicalBufferStructPtr mBoolLogicalToPhysical;
+
+        GpuNamedConstantsPtr mNamedConstants;
+        AutoConstantList mAutoConstants;
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[32]" type="UMLNoteView" guid="1C9p4EwGOU6HTwwYoexh3QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2776</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3116</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">760</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">293</XPD:ATTR>
+<XPD:ATTR name="Text" type="string"> void GpuProgramTranslator::translateProgramParameters(ScriptCompiler *compiler, GpuProgramParametersSharedPtr params, ObjectAbstractNode *obj)
+{
+       ........
+       case ID_PARAM_INDEXED:
+       case ID_PARAM_NAMED:
+                 if (named)
+                        params-&gt;setNamedConstant(name, vals, count, 1);
+                  else
+                         params-&gt;setConstant(index, vals, roundedCount/4);
+         // 对应 mNamedConstants 再到 mFloatConstants
+       .......
+       case ID_PARAM_INDEXED_AUTO:
+       case ID_PARAM_NAMED_AUTO:
+                  if(named)
+                           params-&gt;setNamedAutoConstant(name, def-&gt;acType);
+                   else
+                           params-&gt;setAutoConstant(index, def-&gt;acType);
+         // 对应 mAutoConstants 
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[33]" type="UMLNoteView" guid="qCG4StrKqEuwHT1vpE5rdwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2544</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2712</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">475</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">203</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">vertex_program Ogre/DualQuaternionHardwareSkinningTwoWeightsCg cg
+{
+        source DualQuaternion.cg
+        entry_point dualQuaternionHardwareSkinningTwoWeights_vp
+        profiles vp40 vs_4_0 vs_4_0_level_9_1 vs_4_0_level_9_3 vs_3_0 vs_2_0 vs_1_1 arbvp1
+        includes_skeletal_animation true
+        
+        default_params
+        {   
+            param_named_auto diffuse surface_diffuse_colour
+        }
+}
+///param_named_auto  对应 ID_PARAM_NAMED_AUTO
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[34]" type="UMLNoteLinkView" guid="4n0Lp4fgPka+dwrUFY+pLwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3033,3116;2865,2914</XPD:ATTR>
+<XPD:REF name="Head">qCG4StrKqEuwHT1vpE5rdwAA</XPD:REF>
+<XPD:REF name="Tail">1C9p4EwGOU6HTwwYoexh3QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[35]" type="UMLNoteView" guid="jQ9TR5JCJUWh+cq9v5n+zAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3616</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3444</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">598</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">161</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuProgramParameters::setNamedAutoConstant(const String&amp; name,AutoConstantType acType, size_t extraInfo)
+    {
+        const GpuConstantDefinition* def =
+            _findNamedConstantDefinition(name, !mIgnoreMissingParams);
+        if (def)
+        {
+            _setRawAutoConstant(def-&gt;physicalIndex, acType, extraInfo, def-&gt;variability, def-&gt;elementSize);
+        }
+
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[36]" type="UMLNoteView" guid="WZGpsSrtdESfmUpVNqyCTQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4344</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3392</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">582</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">293</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuProgramParameters::_setRawAutoConstant(size_t physicalIndex,AutoConstantType acType,
+                          size_t extraInfo, uint16 variability, size_t elementSize)
+    {
+        bool found = false;
+        for (AutoConstantList::iterator i = mAutoConstants.begin(); i != mAutoConstants.end(); ++i)
+        {
+            if (i-&gt;physicalIndex == physicalIndex)
+            {
+                i-&gt;paramType = acType;
+                i-&gt;data = extraInfo;
+                i-&gt;elementCount = elementSize;
+                i-&gt;variability = variability;
+                found = true;
+                break;
+            }
+        }
+        if (!found)
+            mAutoConstants.push_back(AutoConstantEntry(acType, physicalIndex, extraInfo, variability, elementSize));
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[37]" type="UMLNoteLinkView" guid="Ib5Nj0FtIEGQGed8lljzZwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3682,3444;3535,3393</XPD:ATTR>
+<XPD:REF name="Head">1C9p4EwGOU6HTwwYoexh3QAA</XPD:REF>
+<XPD:REF name="Tail">jQ9TR5JCJUWh+cq9v5n+zAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[38]" type="UMLNoteLinkView" guid="8yIIeEMJi0KnTmLDwa71mQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4344,3532;4213,3530</XPD:ATTR>
+<XPD:REF name="Head">jQ9TR5JCJUWh+cq9v5n+zAAA</XPD:REF>
+<XPD:REF name="Tail">WZGpsSrtdESfmUpVNqyCTQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[39]" type="UMLNoteView" guid="kLHAvMBtkk+DgIlyqGRePwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2844</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3520</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">578</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">GpuProgramParameters::_findNamedConstantDefinition(const String&amp; name, bool throwExceptionIfNotFound) const
+    {
+        GpuConstantDefinitionMap::const_iterator i = mNamedConstants-&gt;map.find(name);
+        if (i == mNamedConstants-&gt;map.end())
+        {
+            return 0;
+        }
+        else
+        {
+            return &amp;(i-&gt;second);
+        }
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[40]" type="UMLNoteLinkView" guid="V7zPTvLNC0mn7pX19WJdfgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3138,3520;3145,3408</XPD:ATTR>
+<XPD:REF name="Head">1C9p4EwGOU6HTwwYoexh3QAA</XPD:REF>
+<XPD:REF name="Tail">kLHAvMBtkk+DgIlyqGRePwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[41]" type="UMLNoteView" guid="NMvge0/wIE+zYI+3arNOeQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3664</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3024</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">490</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuProgramParameters::setNamedConstant(const String&amp; name, const ColourValue&amp; colour)
+    {
+        // look up, and throw an exception if we're not ignoring missing
+        const GpuConstantDefinition* def =
+            _findNamedConstantDefinition(name, !mIgnoreMissingParams);
+        if (def)
+            _writeRawConstant(def-&gt;physicalIndex, colour, def-&gt;elementSize);
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[42]" type="UMLNoteLinkView" guid="66079zBfKUiEISpD/MuMagAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3664,3144;3535,3174</XPD:ATTR>
+<XPD:REF name="Head">1C9p4EwGOU6HTwwYoexh3QAA</XPD:REF>
+<XPD:REF name="Tail">NMvge0/wIE+zYI+3arNOeQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[43]" type="UMLNoteView" guid="y42f5X9FcEmCSFbrXL9EKgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4248</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3044</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">516</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuProgramParameters::_writeRawConstants(size_t physicalIndex, const float* val, size_t count)
+    {
+        assert(physicalIndex + count &lt;= mFloatConstants.size());
+        memcpy(&amp;mFloatConstants[physicalIndex], val, sizeof(float) * count);
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[44]" type="UMLNoteLinkView" guid="poFcwhZWQ06Zdtt5kZqIsgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4248,3086;4153,3086</XPD:ATTR>
+<XPD:REF name="Head">NMvge0/wIE+zYI+3arNOeQAA</XPD:REF>
+<XPD:REF name="Tail">y42f5X9FcEmCSFbrXL9EKgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[45]" type="UMLNoteView" guid="K+Kj5W7vB0S5FZPDG2bChwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3236</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2072</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">623</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GpuProgramTranslator::translateGpuProgram(ScriptCompiler *compiler, ObjectAbstractNode *obj)
+{
+         GpuProgramParametersSharedPtr ptr = prog-&gt;getDefaultParameters();
+         GpuProgramTranslator::translateProgramParameters(compiler, ptr, static_cast&lt;ObjectAbstractNode*&gt;(params.get()));
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[46]" type="UMLNoteView" guid="EueXur/I7kKdct084x8THAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3300</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2776</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">488</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void HighLevelGpuProgram::populateParameterNames(GpuProgramParametersSharedPtr params)
+    {
+        getConstantDefinitions();
+        params-&gt;_setNamedConstants(mConstantDefs);
+        // also set logical / physical maps for programs which use this
+        params-&gt;_setLogicalIndexes(mFloatLogicalToPhysical, mDoubleLogicalToPhysical, 
+                                           mIntLogicalToPhysical, mUIntLogicalToPhysical,
+                                           mBoolLogicalToPhysical);
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[47]" type="UMLNoteLinkView" guid="E2faHn31KEWAVn4sPyT6DwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3543,2776;3547,2154</XPD:ATTR>
+<XPD:REF name="Head">K+Kj5W7vB0S5FZPDG2bChwAA</XPD:REF>
+<XPD:REF name="Tail">EueXur/I7kKdct084x8THAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[48]" type="UMLNoteLinkView" guid="W+YksP3b00+PQEkCoHekdwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3292,3116;3477,2918</XPD:ATTR>
+<XPD:REF name="Head">EueXur/I7kKdct084x8THAAA</XPD:REF>
+<XPD:REF name="Tail">1C9p4EwGOU6HTwwYoexh3QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[49]" type="UMLNoteView" guid="xKL9mN6fjk6xFRK6hyyl2AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2984</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">696</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">740</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">1553</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">
+void GpuProgramTranslator::translateHighLevelGpuProgram(ScriptCompiler *compiler, ObjectAbstractNode *obj)
+{
+      prog = HighLevelGpuProgramManager::getSingleton().createProgram()
+      GpuProgramParametersSharedPtr ptr = prog-&gt;getDefaultParameters();
+}
+
+void HighLevelGpuProgram::populateParameterNames(GpuProgramParametersSharedPtr params)
+    {
+        getConstantDefinitions();
+        params-&gt;_setNamedConstants(mConstantDefs);
+        // also set logical / physical maps for programs which use this
+        params-&gt;_setLogicalIndexes(mFloatLogicalToPhysical, mDoubleLogicalToPhysical, 
+                                           mIntLogicalToPhysical, mUIntLogicalToPhysical,
+                                           mBoolLogicalToPhysical);
+    }
+//一开始解析.program 并创建GpuProgram 时就会分析包含的源码，
+//从中找出所有的 命名变量 放到 mConstantDefs 并建立每个变量从 logic 到 physical的映射放到 mFloatLogicalToPhysical
+//第一次 getDefaultParameters 时（解析.program过程）利用 populateParameterNames 函数将从源码解析从来的变量
+//放到 GpuProgramParameters 的 mNamedConstants （对应mConstantDefs ）和 mFloatLogicalToPhysical（对应mFloatLogicalToPhysical）
+
+
+void GpuProgramTranslator::translateHighLevelGpuProgram(ScriptCompiler *compiler, ObjectAbstractNode *obj)
+{
+      GpuProgramTranslator::translateProgramParameters(compiler, ptr, static_cast&lt;ObjectAbstractNode*&gt;(params.get()));
+}
+
+vertex_program Ogre/CelShadingVPCg cg
+{
+        default_params
+        {
+                param_named_auto lightPosition light_position_object_space 0
+                param_named_auto eyePosition camera_position_object_space
+                param_named_auto worldViewProj worldviewproj_matrix
+                param_named shininess float 10 
+        }
+}
+//分析完.program源码得到命名变量之后，接下来就是要赋值变量，通过 setNamedConstant()，setNamedAutoConstant()把预先定义
+//的lightPosition eyePosition 等赋值，此时，根据变量名字从GpuProgramParameters 的mNamedConstants 中找出对应的GpuConstantDefinition，
+//再根据 GpuConstantDefinition的 physicalIndex 把值放到 mFloatConstants数组的对应位置
+//注意 param_named 的值会在解析的时候就放入到mFloatConstants，而param_named_auto 会在每次render的时候才放入到 mFloatConstants
+
+material Examples/CelShading
+{
+        technique
+        {
+                pass
+                {
+                        vertex_program_ref Ogre/CelShadingVP
+                        {
+                                param_named_auto shininess custom 1
+                        }
+                        fragment_program_ref Ogre/CelShadingFP
+                        {
+                                param_named_auto diffuse custom 2
+                                param_named_auto specular custom 3
+                        }
+                }
+        }        
+}
+//到解析 .material时，如果指定了vertex_program_ref 则创建一个 GpuProgramUsage 根据名字找出已经解析的 GpuProgram
+//再创建一个 GpuProgramParameters 指向 GpuProgramUsage的mParameters，使用HighLevelGpuProgram::populateParameterNames
+//函数将对应的 GpuProgram中的 mNamedConstants 和 mFloatLogicalToPhysical 赋值给新创建的GpuProgramParameters
+
+
+void SceneManager::updateGpuProgramParameters(const Pass* pass)
+{
+        if (mGpuParamsDirty)
+            pass-&gt;_updateAutoParams(mAutoParamDataSource, mGpuParamsDirty);
+
+        if (pass-&gt;hasVertexProgram())
+        {
+            mDestRenderSystem-&gt;bindGpuProgramParameters(GPT_VERTEX_PROGRAM, 
+                pass-&gt;getVertexProgramParameters(), mGpuParamsDirty);
+        }
+}
+void GLArbGpuProgram::bindProgramParameters(GpuProgramParametersSharedPtr params, uint16 mask)
+{
+    GLenum type = getProgramType();
+    GpuLogicalBufferStructPtr floatStruct = params-&gt;getFloatLogicalBufferStruct();
+
+    for (GpuLogicalIndexUseMap::const_iterator i = floatStruct-&gt;map.begin();  i != floatStruct-&gt;map.end(); ++i)
+    {
+        if (i-&gt;second.variability &amp; mask)
+        {
+            GLuint logicalIndex = static_cast&lt;GLuint&gt;(i-&gt;first);
+            const float* pFloat = params-&gt;getFloatPointer(i-&gt;second.physicalIndex);
+            for (size_t j = 0; j &lt; i-&gt;second.currentSize; j+=4)
+            {
+                glProgramLocalParameter4fvARB(type, logicalIndex, pFloat);
+                pFloat += 4;
+                ++logicalIndex;
+            }
+        }
+    }
+}
+//在渲染的时候
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[50]" type="UMLNoteLinkView" guid="Qdmt4/9MJUCoYECMWzCCfQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2984,816;2841,562</XPD:ATTR>
+<XPD:REF name="Head">CKvV26R4C0CwoQZr1KuJHAAA</XPD:REF>
+<XPD:REF name="Tail">xKL9mN6fjk6xFRK6hyyl2AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[51]" type="UMLNoteLinkView" guid="uNJgoyQIDkmoWHV5FcQUCQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3572,696;3597,608</XPD:ATTR>
+<XPD:REF name="Head">5LWOgIW/dEqzDpRU5RN1PAAA</XPD:REF>
+<XPD:REF name="Tail">xKL9mN6fjk6xFRK6hyyl2AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[52]" type="UMLNoteView" guid="U9Il2wLvpEGPEV6QESv5LgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3916</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">436</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">276</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">GpuProgramUsage
+
+        GpuProgramType mType;
+        Pass* mParent;
+        GpuProgramPtr mProgram;
+        GpuProgramParametersSharedPtr mParameters;
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[53]" type="UMLNoteLinkView" guid="aqM35DwLY0KHTgsyYdgfCQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3723,958;4007,563</XPD:ATTR>
+<XPD:REF name="Head">U9Il2wLvpEGPEV6QESv5LgAA</XPD:REF>
+<XPD:REF name="Tail">xKL9mN6fjk6xFRK6hyyl2AAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#OwnedElements" type="integer">38</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLClass" guid="p3xcDE79zUOlegIIWKgbxgAA">
+<XPD:ATTR name="Name" type="string">GpuProgram</XPD:ATTR>
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">11</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="GjgzgL6nXEKulhSSPCkd1wAA">
+<XPD:ATTR name="Name" type="string">setupBaseParamDictionary</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkProtected</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="84Y75bQXA0W9tUUulyywXQAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">GjgzgL6nXEKulhSSPCkd1wAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="YNAbmnGlq0mC1X4/nP+MkwAA">
+<XPD:ATTR name="Name" type="string">loadImpl</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkProtected</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="BsDmeWCpNUSncU90Sct+uwAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">YNAbmnGlq0mC1X4/nP+MkwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[2]" type="UMLOperation" guid="r/q682KEqkSdPi6X/RuD4gAA">
+<XPD:ATTR name="Name" type="string">createParameterMappingStructures</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkProtected</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="tjxT7xBt/UybrHmD4+0KWwAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">r/q682KEqkSdPi6X/RuD4gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="i5dzi7XM/UiIEr+gQ3jCvgAA">
+<XPD:ATTR name="Name" type="string">bool recreateIfExists</XPD:ATTR>
+<XPD:ATTR name="DefaultValue" type="string">true</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">r/q682KEqkSdPi6X/RuD4gAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[3]" type="UMLOperation" guid="DzPFmBSeCUqFGXASOcWf2AAA">
+<XPD:ATTR name="Name" type="string">createLogicalParameterMappingStructures</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkProtected</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="qN0BZYVvDEKZuUwCSyRUPQAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">DzPFmBSeCUqFGXASOcWf2AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="3AOUFP+LvkiUNgQd2pBR8QAA">
+<XPD:ATTR name="Name" type="string">bool recreateIfExists</XPD:ATTR>
+<XPD:ATTR name="DefaultValue" type="string">true</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">DzPFmBSeCUqFGXASOcWf2AAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[4]" type="UMLOperation" guid="3+5lnFL66E+4k4KOGeqRIwAA">
+<XPD:ATTR name="Name" type="string">createNamedParameterMappingStructures</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkProtected</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="mzCBhGBXKkiR0k89bydmNwAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">3+5lnFL66E+4k4KOGeqRIwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="I8QJu7GS8UCJczEi8LnllwAA">
+<XPD:ATTR name="Name" type="string">bool recreateIfExists</XPD:ATTR>
+<XPD:ATTR name="DefaultValue" type="string">true</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">3+5lnFL66E+4k4KOGeqRIwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[5]" type="UMLOperation" guid="rReMH5uQ7EOCgqW0hLjgGQAA">
+<XPD:ATTR name="Name" type="string">setSourceFile</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="pY/UXkkHYUyAaMCuzoEw2QAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">rReMH5uQ7EOCgqW0hLjgGQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="Rai7jDQMcUulp4WzyXYL6AAA">
+<XPD:ATTR name="Name" type="string">const String&amp; filename</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">rReMH5uQ7EOCgqW0hLjgGQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[6]" type="UMLOperation" guid="wuG/ZFP8xkiXdzLhupgLxwAA">
+<XPD:ATTR name="Name" type="string">setSource</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="HFBfT8QmbE6S39yGKvKH2wAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">wuG/ZFP8xkiXdzLhupgLxwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="DWbk3LhrQ02zyQbifYzHDAAA">
+<XPD:ATTR name="Name" type="string">const String&amp; source</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">wuG/ZFP8xkiXdzLhupgLxwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[7]" type="UMLOperation" guid="s7fEMPeksUqI+IZY1+gEMAAA">
+<XPD:ATTR name="Name" type="string">createParameters</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="nE1R6dNuaUuF0xpY5IKEvgAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuProgramParametersSharedPtr</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">s7fEMPeksUqI+IZY1+gEMAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[8]" type="UMLOperation" guid="ig0EmnP4c0aCj7YyLd36BgAA">
+<XPD:ATTR name="Name" type="string">setManualNamedConstants</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="MyMkqB9CIEmsRQ04yQVY1QAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">ig0EmnP4c0aCj7YyLd36BgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[9]" type="UMLOperation" guid="LevbUT+TW0mn1+fyywrwHgAA">
+<XPD:ATTR name="Name" type="string">setManualNamedConstantsFile</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="HBYav4lW+U6D1TqdO87vjwAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">LevbUT+TW0mn1+fyywrwHgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[10]" type="UMLOperation" guid="LR1YQQ4nMUOZBSq1kAxHuwAA">
+<XPD:ATTR name="Name" type="string">loadFromSource</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkProtected</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="2Esky6skhEG5ZLrXOiQDowAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">LR1YQQ4nMUOZBSq1kAxHuwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#Associations" type="integer">7</XPD:ATTR>
+<XPD:REF name="Associations[0]">ENWWnKifEUmfUEmTgrdZ5QAA</XPD:REF>
+<XPD:REF name="Associations[1]">Rf+nDGXj10qHuTGPCHGCoQAA</XPD:REF>
+<XPD:REF name="Associations[2]">Vwi6Z2e74UGlzdBTRW9lwAAA</XPD:REF>
+<XPD:REF name="Associations[3]">Y8ISyjKLUUaDwnDJslI2owAA</XPD:REF>
+<XPD:REF name="Associations[4]">6yAiwk3t40S8VThl1xoeIgAA</XPD:REF>
+<XPD:REF name="Associations[5]">Xu2qwSgy7UymzoiXKl0f3gAA</XPD:REF>
+<XPD:REF name="Associations[6]">lCaSsxWWDUONUtBt03pOAQAA</XPD:REF>
+<XPD:ATTR name="#Attributes" type="integer">13</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="2TsvAGtJiUGk4UT6dp2RbQAA">
+<XPD:ATTR name="Name" type="string">mType</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuProgramType</XPD:ATTR>
+<XPD:REF name="Type_">WCdvfidMMEKi+ifvLpHKcwAA</XPD:REF>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="Crhfj0Ffskew3a8K0+EX9gAA">
+<XPD:ATTR name="Name" type="string">mFilename</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">String</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="yZ0009L9iUOoYhzfsKLQ3AAA">
+<XPD:ATTR name="Name" type="string">mSource</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">String</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="mtrgRCCflke7t0smK9SUPgAA">
+<XPD:ATTR name="Name" type="string">mLoadFromFile</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">bool</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="hAiZQ89e1Uquv1C5cL4kpAAA">
+<XPD:ATTR name="Name" type="string">mSyntaxCode</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">String</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[5]" type="UMLAttribute" guid="OxTZcMib60i9zP1lbzbpZgAA">
+<XPD:ATTR name="Name" type="string">mFloatLogicalToPhysical</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuLogicalBufferStructPtr</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[6]" type="UMLAttribute" guid="v4pc9dK1h0qGVBeylTfdwwAA">
+<XPD:ATTR name="Name" type="string">mDoubleLogicalToPhysical</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuLogicalBufferStructPtr</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[7]" type="UMLAttribute" guid="KTmjW2ZRo0CSUH23w9agmQAA">
+<XPD:ATTR name="Name" type="string">mIntLogicalToPhysical</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuLogicalBufferStructPtr</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[8]" type="UMLAttribute" guid="Q8KNA+0G8UK5F85pY35I6gAA">
+<XPD:ATTR name="Name" type="string">mUIntLogicalToPhysical</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuLogicalBufferStructPtr</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[9]" type="UMLAttribute" guid="1b4lmC4rRUKD87g+yeTGRAAA">
+<XPD:ATTR name="Name" type="string">mBoolLogicalToPhysical</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuLogicalBufferStructPtr</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[10]" type="UMLAttribute" guid="2DwRKmIEsEKhzCRsfpcu2QAA">
+<XPD:ATTR name="Name" type="string">mConstantDefs</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuNamedConstantsPtr</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[11]" type="UMLAttribute" guid="eBJ5WT278EK/Z19+UjJlAQAA">
+<XPD:ATTR name="Name" type="string">mManualNamedConstantsFile</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">String</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[12]" type="UMLAttribute" guid="AvFctnjJoE241Fre/sYx9gAA">
+<XPD:ATTR name="Name" type="string">mLoadedManualNamedConstants</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">bool</XPD:ATTR>
+<XPD:REF name="Owner">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[1]" type="UMLEnumeration" guid="WCdvfidMMEKi+ifvLpHKcwAA">
+<XPD:ATTR name="Name" type="string">GpuProgramType</XPD:ATTR>
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#TypedFeatures" type="integer">2</XPD:ATTR>
+<XPD:REF name="TypedFeatures[0]">2TsvAGtJiUGk4UT6dp2RbQAA</XPD:REF>
+<XPD:REF name="TypedFeatures[1]">vHSS5wxbh06/SrPohPeg+wAA</XPD:REF>
+<XPD:ATTR name="#Associations" type="integer">2</XPD:ATTR>
+<XPD:REF name="Associations[0]">X6WTOD0s8Emi1o0aQVdGMwAA</XPD:REF>
+<XPD:REF name="Associations[1]">0m3IukO5mUSAcLQ8K6JRwQAA</XPD:REF>
+<XPD:ATTR name="#Literals" type="integer">6</XPD:ATTR>
+<XPD:OBJ name="Literals[0]" type="UMLEnumerationLiteral" guid="i2q2M27uAk6qobLqCdI8MQAA">
+<XPD:ATTR name="Name" type="string">GPT_VERTEX_PROGRAM</XPD:ATTR>
+<XPD:REF name="Enumeration">WCdvfidMMEKi+ifvLpHKcwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Literals[1]" type="UMLEnumerationLiteral" guid="qyl3hEXX8EGqGDjqzkT1DgAA">
+<XPD:ATTR name="Name" type="string">GPT_FRAGMENT_PROGRAM</XPD:ATTR>
+<XPD:REF name="Enumeration">WCdvfidMMEKi+ifvLpHKcwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Literals[2]" type="UMLEnumerationLiteral" guid="2Bf1xOmJ7U+58b7tvwb0qgAA">
+<XPD:ATTR name="Name" type="string">GPT_GEOMETRY_PROGRAM</XPD:ATTR>
+<XPD:REF name="Enumeration">WCdvfidMMEKi+ifvLpHKcwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Literals[3]" type="UMLEnumerationLiteral" guid="6MZ3JfbcKEyioxWxp8Rj1wAA">
+<XPD:ATTR name="Name" type="string">GPT_DOMAIN_PROGRAM</XPD:ATTR>
+<XPD:REF name="Enumeration">WCdvfidMMEKi+ifvLpHKcwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Literals[4]" type="UMLEnumerationLiteral" guid="4c3dd6wyuUGm0Rjj6ZprEgAA">
+<XPD:ATTR name="Name" type="string">GPT_HULL_PROGRAM</XPD:ATTR>
+<XPD:REF name="Enumeration">WCdvfidMMEKi+ifvLpHKcwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Literals[5]" type="UMLEnumerationLiteral" guid="ECUxKTw0bUafMsuzJhQNAwAA">
+<XPD:ATTR name="Name" type="string">GPT_COMPUTE_PROGRAM</XPD:ATTR>
+<XPD:REF name="Enumeration">WCdvfidMMEKi+ifvLpHKcwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[2]" type="UMLAssociation" guid="FbJsQMMnC0KumJBgDF+1FQAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="ENWWnKifEUmfUEmTgrdZ5QAA">
+<XPD:REF name="Association">FbJsQMMnC0KumJBgDF+1FQAA</XPD:REF>
+<XPD:REF name="Participant">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="X6WTOD0s8Emi1o0aQVdGMwAA">
+<XPD:REF name="Association">FbJsQMMnC0KumJBgDF+1FQAA</XPD:REF>
+<XPD:REF name="Participant">WCdvfidMMEKi+ifvLpHKcwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[3]" type="UMLClass" guid="O2lnbS9N306cpMRc73uQNgAA">
+<XPD:ATTR name="Name" type="string">GpuLogicalBufferStruct</XPD:ATTR>
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Associations" type="integer">5</XPD:ATTR>
+<XPD:REF name="Associations[0]">aiAQhdZyHkaUHP6PdiwBUQAA</XPD:REF>
+<XPD:REF name="Associations[1]">/M5LGJzF/k2+9RPfDxOwBwAA</XPD:REF>
+<XPD:REF name="Associations[2]">NT6Aq3o0YEqbxXaLL/qZDAAA</XPD:REF>
+<XPD:REF name="Associations[3]">8AHXRvDboEON994DbBbcigAA</XPD:REF>
+<XPD:REF name="Associations[4]">Iiu2wPgyc0SVHMDuF/A3PwAA</XPD:REF>
+<XPD:ATTR name="#Attributes" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="122V8qT7u0SnNcD8P9zMWQAA">
+<XPD:ATTR name="Name" type="string">map</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuLogicalIndexUseMap</XPD:ATTR>
+<XPD:REF name="Owner">O2lnbS9N306cpMRc73uQNgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="1wIRjo3eXEOKpMdRiT/RZgAA">
+<XPD:ATTR name="Name" type="string">bufferSize</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="Owner">O2lnbS9N306cpMRc73uQNgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[4]" type="UMLAssociation" guid="6R2vaQXBI0a6AG3vOlCIKQAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="Rf+nDGXj10qHuTGPCHGCoQAA">
+<XPD:REF name="Association">6R2vaQXBI0a6AG3vOlCIKQAA</XPD:REF>
+<XPD:REF name="Participant">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="aiAQhdZyHkaUHP6PdiwBUQAA">
+<XPD:REF name="Association">6R2vaQXBI0a6AG3vOlCIKQAA</XPD:REF>
+<XPD:REF name="Participant">O2lnbS9N306cpMRc73uQNgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[5]" type="UMLClass" guid="fiFdrg0hEEekv3JtYHKFXAAA">
+<XPD:ATTR name="Name" type="string">GpuLogicalIndexUse</XPD:ATTR>
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="CzsmCM3qvkWVpLJJouUSOAAA">
+<XPD:ATTR name="Name" type="string">typedef map&lt;size_t, GpuLogicalIndexUse&gt;</XPD:ATTR>
+<XPD:REF name="Owner">fiFdrg0hEEekv3JtYHKFXAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="egUU6VyhjUeEAQKD9RjiGgAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">:type GpuLogicalIndexUseMap;</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">CzsmCM3qvkWVpLJJouUSOAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#Associations" type="integer">2</XPD:ATTR>
+<XPD:REF name="Associations[0]">BPCF9fM6WESvYTfYlsVr4AAA</XPD:REF>
+<XPD:REF name="Associations[1]">33m+L3tSQU2BXaYUIAJ0LAAA</XPD:REF>
+<XPD:ATTR name="#Attributes" type="integer">3</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="aMdLChEbWU+VhA+aA0/q3gAA">
+<XPD:ATTR name="Name" type="string">physicalIndex</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="Owner">fiFdrg0hEEekv3JtYHKFXAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="hSDO/Y1fMU+GaeEq2ccINAAA">
+<XPD:ATTR name="Name" type="string">currentSize</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="Owner">fiFdrg0hEEekv3JtYHKFXAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="bjIgiKad50WvlU93HxocRAAA">
+<XPD:ATTR name="Name" type="string">variability</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">uint16</XPD:ATTR>
+<XPD:REF name="Owner">fiFdrg0hEEekv3JtYHKFXAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[6]" type="UMLAssociation" guid="gIFk4GSZYUGWdfZeVkiAhwAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="/M5LGJzF/k2+9RPfDxOwBwAA">
+<XPD:REF name="Association">gIFk4GSZYUGWdfZeVkiAhwAA</XPD:REF>
+<XPD:REF name="Participant">O2lnbS9N306cpMRc73uQNgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="BPCF9fM6WESvYTfYlsVr4AAA">
+<XPD:REF name="Association">gIFk4GSZYUGWdfZeVkiAhwAA</XPD:REF>
+<XPD:REF name="Participant">fiFdrg0hEEekv3JtYHKFXAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[7]" type="UMLClass" guid="GEI2tXuy1E2V/Hq2xV6vXAAA">
+<XPD:ATTR name="Name" type="string">GpuConstantDefinition</XPD:ATTR>
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">TqnbUclWmkyVY/CpoSykDAAA</XPD:REF>
+<XPD:REF name="Views[1]">Cid13ZlILkqnfGMIhixJJwAA</XPD:REF>
+<XPD:REF name="Views[2]">F0a06hub2UyvEODAEXog0gAA</XPD:REF>
+<XPD:REF name="Views[3]">rIJ1d5OAAkO/30L4F8tM2wAA</XPD:REF>
+<XPD:ATTR name="#SupplierDependencies" type="integer">1</XPD:ATTR>
+<XPD:REF name="SupplierDependencies[0]">14DP3xU7U0m+zHuK57EaUgAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="gcIJQNkdfkyB2rNTCx4T5gAA">
+<XPD:ATTR name="Name" type="string">typedef map&lt;String, GpuConstantDefinition&gt;</XPD:ATTR>
+<XPD:REF name="Owner">GEI2tXuy1E2V/Hq2xV6vXAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="GW0+7UMjCEy+rxGbBNrqkgAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">:type GpuConstantDefinitionMap;</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">gcIJQNkdfkyB2rNTCx4T5gAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#Associations" type="integer">1</XPD:ATTR>
+<XPD:REF name="Associations[0]">WrG+L4d7jkuB1ZbkdfxfSQAA</XPD:REF>
+<XPD:ATTR name="#Attributes" type="integer">6</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="808j6YE6B0GCJaopOM76DwAA">
+<XPD:ATTR name="Name" type="string">constType</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuConstantType</XPD:ATTR>
+<XPD:REF name="Owner">GEI2tXuy1E2V/Hq2xV6vXAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="DiFS+CbsQUWA67KZ++MgLQAA">
+<XPD:ATTR name="Name" type="string">physicalIndex</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="Owner">GEI2tXuy1E2V/Hq2xV6vXAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="XdjwrQ8aBkq6BjTeiqCNvAAA">
+<XPD:ATTR name="Name" type="string">logicalIndex</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="Owner">GEI2tXuy1E2V/Hq2xV6vXAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="H9fzKMFIo0yNaXAxyiN1hAAA">
+<XPD:ATTR name="Name" type="string">elementSize</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="Owner">GEI2tXuy1E2V/Hq2xV6vXAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="wvJhe9MgF0q92GAfMRdaaQAA">
+<XPD:ATTR name="Name" type="string">arraySize</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="Owner">GEI2tXuy1E2V/Hq2xV6vXAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[5]" type="UMLAttribute" guid="YNg+FEgbMEG35U+it5aZAwAA">
+<XPD:ATTR name="Name" type="string">variability</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">uint16</XPD:ATTR>
+<XPD:REF name="Owner">GEI2tXuy1E2V/Hq2xV6vXAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[8]" type="UMLClass" guid="2qO2v6jitEyev9KJtfG33gAA">
+<XPD:ATTR name="Name" type="string">GpuNamedConstants</XPD:ATTR>
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">ug5EQ5K3XUGOC4RbZSy/2gAA</XPD:REF>
+<XPD:REF name="Views[1]">XX8l9o6D1UKqjDdj9DIPBgAA</XPD:REF>
+<XPD:REF name="Views[2]">388MAcyPDUeuKdD2uGFffgAA</XPD:REF>
+<XPD:REF name="Views[3]">h0q4wnBtE06qxoBX5osDYAAA</XPD:REF>
+<XPD:ATTR name="#SupplierDependencies" type="integer">1</XPD:ATTR>
+<XPD:REF name="SupplierDependencies[0]">iGR8L+aehUyqypTIEclNLwAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">4</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="Yk2TRJiQOUq/xszpmGoOqAAA">
+<XPD:ATTR name="Name" type="string">generateConstantDefinitionArrayEntries</XPD:ATTR>
+<XPD:REF name="Owner">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">3</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="Gs9WNtT3P06ZFqgyUALTywAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Yk2TRJiQOUq/xszpmGoOqAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="Ia0xM/kuiUm6HGm5ISTeBAAA">
+<XPD:ATTR name="Name" type="string">const String&amp; paramName</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Yk2TRJiQOUq/xszpmGoOqAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="/qMIWIyCpE6juvUtB0w8rgAA">
+<XPD:ATTR name="Name" type="string">const GpuConstantDefinition&amp; baseDef</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Yk2TRJiQOUq/xszpmGoOqAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="mw3oNa50x0aktz/RGsSBagAA">
+<XPD:ATTR name="Name" type="string">save</XPD:ATTR>
+<XPD:REF name="Owner">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="BHOjvQr/XUamw1AqUw34AAAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">mw3oNa50x0aktz/RGsSBagAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="P7KoK1Ge0kqanh26zIzWlQAA">
+<XPD:ATTR name="Name" type="string">const String&amp; filename</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">mw3oNa50x0aktz/RGsSBagAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[2]" type="UMLOperation" guid="ttSR2aE3TES7Irs+IdTCswAA">
+<XPD:ATTR name="Name" type="string">load</XPD:ATTR>
+<XPD:REF name="Owner">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="s96MVpD9fkawZzOfmm2W+AAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">ttSR2aE3TES7Irs+IdTCswAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="7nrqMx+eCE2G8ixVhGRPQQAA">
+<XPD:ATTR name="Name" type="string">DataStreamPtr&amp; stream</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">ttSR2aE3TES7Irs+IdTCswAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[3]" type="UMLOperation" guid="isCXClwjJ0e+8lAa1UnDkQAA">
+<XPD:ATTR name="Name" type="string">calculateSize</XPD:ATTR>
+<XPD:REF name="Owner">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="wj9042GRsky5X2XIzT8WWQAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">isCXClwjJ0e+8lAa1UnDkQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="XfRhGgsj5kyZvR15USyQlgAA">
+<XPD:ATTR name="Name" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">isCXClwjJ0e+8lAa1UnDkQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#TypedFeatures" type="integer">1</XPD:ATTR>
+<XPD:REF name="TypedFeatures[0]">/snR31qCXUanJ9+0qmAIMwAA</XPD:REF>
+<XPD:ATTR name="#Associations" type="integer">3</XPD:ATTR>
+<XPD:REF name="Associations[0]">lQiA8LPggkKAdgVkEdFLZgAA</XPD:REF>
+<XPD:REF name="Associations[1]">YsTVwrTt8027jcYbgUdubQAA</XPD:REF>
+<XPD:REF name="Associations[2]">9K5hRt3pUk6V7n6q9sEehAAA</XPD:REF>
+<XPD:ATTR name="#Attributes" type="integer">5</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="o+Krrxcv1U+Z8TUfcbVOVAAA">
+<XPD:ATTR name="Name" type="string">floatBufferSize</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="Owner">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="9ZCP6Uc0K0SrR7XpkdmqqAAA">
+<XPD:ATTR name="Name" type="string">doubleBufferSize</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="Owner">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="x4/pm7m3wUuy0CpnX03h7AAA">
+<XPD:ATTR name="Name" type="string">intBufferSize</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="Owner">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="XoKfv9oDuUifGu233HbN8wAA">
+<XPD:ATTR name="Name" type="string">uintBufferSize</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="Owner">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="a6woFiPfk0axqNDYRyPRYwAA">
+<XPD:ATTR name="Name" type="string">map</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuConstantDefinitionMap</XPD:ATTR>
+<XPD:REF name="Owner">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[9]" type="UMLAssociation" guid="krxbd8LZmkyhtVDr8R2G8gAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="Vwi6Z2e74UGlzdBTRW9lwAAA">
+<XPD:REF name="Association">krxbd8LZmkyhtVDr8R2G8gAA</XPD:REF>
+<XPD:REF name="Participant">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="NT6Aq3o0YEqbxXaLL/qZDAAA">
+<XPD:ATTR name="Aggregation" type="UMLAggregationKind">akAggregate</XPD:ATTR>
+<XPD:ATTR name="Multiplicity" type="string">1</XPD:ATTR>
+<XPD:REF name="Association">krxbd8LZmkyhtVDr8R2G8gAA</XPD:REF>
+<XPD:REF name="Participant">O2lnbS9N306cpMRc73uQNgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[10]" type="UMLAssociation" guid="iHVfXtmrhECKuhxubPnsowAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="8AHXRvDboEON994DbBbcigAA">
+<XPD:REF name="Association">iHVfXtmrhECKuhxubPnsowAA</XPD:REF>
+<XPD:REF name="Participant">O2lnbS9N306cpMRc73uQNgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="Y8ISyjKLUUaDwnDJslI2owAA">
+<XPD:ATTR name="Aggregation" type="UMLAggregationKind">akAggregate</XPD:ATTR>
+<XPD:REF name="Association">iHVfXtmrhECKuhxubPnsowAA</XPD:REF>
+<XPD:REF name="Participant">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[11]" type="UMLAssociation" guid="HyS10p3hBEiP907ATqqpDAAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="0m3IukO5mUSAcLQ8K6JRwQAA">
+<XPD:REF name="Association">HyS10p3hBEiP907ATqqpDAAA</XPD:REF>
+<XPD:REF name="Participant">WCdvfidMMEKi+ifvLpHKcwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="6yAiwk3t40S8VThl1xoeIgAA">
+<XPD:ATTR name="Aggregation" type="UMLAggregationKind">akAggregate</XPD:ATTR>
+<XPD:REF name="Association">HyS10p3hBEiP907ATqqpDAAA</XPD:REF>
+<XPD:REF name="Participant">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[12]" type="UMLAssociation" guid="Ls848kxGb0S3QNwR++d4PAAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="33m+L3tSQU2BXaYUIAJ0LAAA">
+<XPD:REF name="Association">Ls848kxGb0S3QNwR++d4PAAA</XPD:REF>
+<XPD:REF name="Participant">fiFdrg0hEEekv3JtYHKFXAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="Iiu2wPgyc0SVHMDuF/A3PwAA">
+<XPD:ATTR name="Aggregation" type="UMLAggregationKind">akAggregate</XPD:ATTR>
+<XPD:REF name="Association">Ls848kxGb0S3QNwR++d4PAAA</XPD:REF>
+<XPD:REF name="Participant">O2lnbS9N306cpMRc73uQNgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[13]" type="UMLAssociation" guid="gCd6H1YiqEOwJuQdJ/sqigAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="WrG+L4d7jkuB1ZbkdfxfSQAA">
+<XPD:ATTR name="Changeability" type="UMLChangeableKind">ckAddOnly</XPD:ATTR>
+<XPD:REF name="Association">gCd6H1YiqEOwJuQdJ/sqigAA</XPD:REF>
+<XPD:REF name="Participant">GEI2tXuy1E2V/Hq2xV6vXAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="lQiA8LPggkKAdgVkEdFLZgAA">
+<XPD:ATTR name="Aggregation" type="UMLAggregationKind">akAggregate</XPD:ATTR>
+<XPD:REF name="Association">gCd6H1YiqEOwJuQdJ/sqigAA</XPD:REF>
+<XPD:REF name="Participant">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[14]" type="UMLAssociation" guid="EZ+vy+b2RU+qa/Dp826CAAAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="YsTVwrTt8027jcYbgUdubQAA">
+<XPD:REF name="Association">EZ+vy+b2RU+qa/Dp826CAAAA</XPD:REF>
+<XPD:REF name="Participant">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="Xu2qwSgy7UymzoiXKl0f3gAA">
+<XPD:ATTR name="Aggregation" type="UMLAggregationKind">akAggregate</XPD:ATTR>
+<XPD:REF name="Association">EZ+vy+b2RU+qa/Dp826CAAAA</XPD:REF>
+<XPD:REF name="Participant">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[15]" type="UMLClass" guid="SxwaAf8NvEmnFXNWGRe8KgAA">
+<XPD:ATTR name="Name" type="string">GpuNamedConstantsSerializer</XPD:ATTR>
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#ClientDependencies" type="integer">1</XPD:ATTR>
+<XPD:REF name="ClientDependencies[0]">iGR8L+aehUyqypTIEclNLwAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">3</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="Fj+I/SzSmkCODk94AF5dJwAA">
+<XPD:ATTR name="Name" type="string">exportNamedConstants</XPD:ATTR>
+<XPD:REF name="Owner">SxwaAf8NvEmnFXNWGRe8KgAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">4</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="8mdwtMG+zUetOZ4gJN4yxgAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Fj+I/SzSmkCODk94AF5dJwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="ijaKqRk28kOW1ucAH8XNSgAA">
+<XPD:ATTR name="Name" type="string">const GpuNamedConstants* pConsts</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Fj+I/SzSmkCODk94AF5dJwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="clmDzPchUEC7Jk1MCB/4PAAA">
+<XPD:ATTR name="Name" type="string">const String&amp; filename</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Fj+I/SzSmkCODk94AF5dJwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[3]" type="UMLParameter" guid="lSOdh+HNnEGVNh8Wi+YUbwAA">
+<XPD:ATTR name="Name" type="string">Endian endianMode</XPD:ATTR>
+<XPD:ATTR name="DefaultValue" type="string">ENDIAN_NATIVE</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Fj+I/SzSmkCODk94AF5dJwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="DGzgVbJH0UGt2HFz54cZNgAA">
+<XPD:ATTR name="Name" type="string">exportNamedConstants</XPD:ATTR>
+<XPD:REF name="Owner">SxwaAf8NvEmnFXNWGRe8KgAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">4</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="KkNRZdlKH02zHKM3k7CrjwAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">DGzgVbJH0UGt2HFz54cZNgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="cfPUa2JnIUKbh/MuzwAzRgAA">
+<XPD:ATTR name="Name" type="string">const GpuNamedConstants* pConsts</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">DGzgVbJH0UGt2HFz54cZNgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="gRTvbPUZCECf4qA5cgxDMAAA">
+<XPD:ATTR name="Name" type="string">DataStreamPtr stream</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">DGzgVbJH0UGt2HFz54cZNgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[3]" type="UMLParameter" guid="8dAvVjhh2kiGiU0Ez0nhkwAA">
+<XPD:ATTR name="Name" type="string">Endian endianMode</XPD:ATTR>
+<XPD:ATTR name="DefaultValue" type="string">ENDIAN_NATIVE</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">DGzgVbJH0UGt2HFz54cZNgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[2]" type="UMLOperation" guid="eBbFDAsxC0Kf9t3Q+2RBdQAA">
+<XPD:ATTR name="Name" type="string">importNamedConstants</XPD:ATTR>
+<XPD:REF name="Owner">SxwaAf8NvEmnFXNWGRe8KgAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">3</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="i78N+iXdAEaFbQAJBr4OOgAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">eBbFDAsxC0Kf9t3Q+2RBdQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="7O/0SmiZTk+8QeyQbqPaOQAA">
+<XPD:ATTR name="Name" type="string">DataStreamPtr&amp; stream</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">eBbFDAsxC0Kf9t3Q+2RBdQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="KA4g+dpvukuY+1uQ11TK2QAA">
+<XPD:ATTR name="Name" type="string">GpuNamedConstants* pDest</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">eBbFDAsxC0Kf9t3Q+2RBdQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[16]" type="UMLClass" guid="6csp4pEjNEi1w0cJgZC5HwAA">
+<XPD:ATTR name="Name" type="string">GpuSharedParameters</XPD:ATTR>
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">+SHaiP2ts0CeanRyB2AaWQAA</XPD:REF>
+<XPD:REF name="Views[1]">T68n+XefTkGx2u/uNYu0iAAA</XPD:REF>
+<XPD:REF name="Views[2]">Z0av7nBRo0ibH0BftbM09gAA</XPD:REF>
+<XPD:REF name="Views[3]">7oDS2DaRkkiIEEPGz6dtcQAA</XPD:REF>
+<XPD:ATTR name="#ClientDependencies" type="integer">1</XPD:ATTR>
+<XPD:REF name="ClientDependencies[0]">14DP3xU7U0m+zHuK57EaUgAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">11</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="kiqqwdUjF0ackZOs9elX3AAA">
+<XPD:ATTR name="Name" type="string">typedef vector&lt;float&gt;</XPD:ATTR>
+<XPD:REF name="Owner">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="SyUuDj+PB02WjDXbCDzcrQAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">:type FloatConstantList;</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">kiqqwdUjF0ackZOs9elX3AAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="SLZC7pevakiKiFbvrL6/0wAA">
+<XPD:ATTR name="Name" type="string">typedef vector&lt;double&gt;</XPD:ATTR>
+<XPD:REF name="Owner">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="pjjrrwLqJ02nhUWBOVubFQAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">:type DoubleConstantList;</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">SLZC7pevakiKiFbvrL6/0wAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[2]" type="UMLOperation" guid="IQ7v3J20IUGWXY+xUxKcHwAA">
+<XPD:ATTR name="Name" type="string">typedef vector&lt;int&gt;</XPD:ATTR>
+<XPD:REF name="Owner">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="Ct2n2XjHbEqFcSUsR3uWfgAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">:type IntConstantList;</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">IQ7v3J20IUGWXY+xUxKcHwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[3]" type="UMLOperation" guid="r57cbjGHI0ePn+DciYeO/AAA">
+<XPD:ATTR name="Name" type="string">typedef vector&lt;uint&gt;</XPD:ATTR>
+<XPD:REF name="Owner">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="xgE+ImSuZkmG8MdS8jLlZQAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">:type UnsignedIntConstantList;</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">r57cbjGHI0ePn+DciYeO/AAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[4]" type="UMLOperation" guid="dQsGZBYg20G2vARn1sh1WQAA">
+<XPD:ATTR name="Name" type="string">addConstantDefinition</XPD:ATTR>
+<XPD:REF name="Owner">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">4</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="c2YxDyiltUOZTqqWbetF8QAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">dQsGZBYg20G2vARn1sh1WQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="fw3pfaaOOUSsl2i5LLkR6gAA">
+<XPD:ATTR name="Name" type="string">const String&amp; name</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">dQsGZBYg20G2vARn1sh1WQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="rEUKfXQf6ka4vwGgkSVewwAA">
+<XPD:ATTR name="Name" type="string">GpuConstantType constType</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">dQsGZBYg20G2vARn1sh1WQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[3]" type="UMLParameter" guid="RLv+TnrHmk6fFSrjaVg0qwAA">
+<XPD:ATTR name="Name" type="string">size_t arraySize</XPD:ATTR>
+<XPD:ATTR name="DefaultValue" type="string">1</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">dQsGZBYg20G2vARn1sh1WQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[5]" type="UMLOperation" guid="ZdoghZlQAUOuPBqm1DFPlQAA">
+<XPD:ATTR name="Name" type="string">removeConstantDefinition</XPD:ATTR>
+<XPD:REF name="Owner">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="RyDrTvj4LE+nPFMP1p/7cwAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">ZdoghZlQAUOuPBqm1DFPlQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="zlu+xzGo3EWt/qzkY0FC3AAA">
+<XPD:ATTR name="Name" type="string">const String&amp; name</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">ZdoghZlQAUOuPBqm1DFPlQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[6]" type="UMLOperation" guid="p5TcOb3SS0uO6D6oMWsRuwAA">
+<XPD:ATTR name="Name" type="string">removeAllConstantDefinitions</XPD:ATTR>
+<XPD:REF name="Owner">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="iud12qEcgEa4ernMjJv1qgAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">p5TcOb3SS0uO6D6oMWsRuwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[7]" type="UMLOperation" guid="z2AuMq6jCEqfQDijfZ2j3AAA">
+<XPD:ATTR name="Name" type="string">calculateSize</XPD:ATTR>
+<XPD:REF name="Owner">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="/KTc1r3MXUW1M8EvQJWP9wAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">z2AuMq6jCEqfQDijfZ2j3AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="2Z/0VjYFoUOjY0yY8f/ppAAA">
+<XPD:ATTR name="Name" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">z2AuMq6jCEqfQDijfZ2j3AAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[8]" type="UMLOperation" guid="KJn32HVtIUa9pAT3KXE5TwAA">
+<XPD:ATTR name="Name" type="string">getConstantDefinitions</XPD:ATTR>
+<XPD:REF name="Owner">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="qIcmiBxLGUmoKv4sPBISrgAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuNamedConstants&amp;</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">KJn32HVtIUa9pAT3KXE5TwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[9]" type="UMLOperation" guid="QHOEZ0Qb4EyNA29EwjXj4QAA">
+<XPD:ATTR name="Name" type="string">getConstantDefinition</XPD:ATTR>
+<XPD:REF name="Owner">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="Uz8XzOyaIE2lfT8epEtcRAAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuConstantDefinition&amp;</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">QHOEZ0Qb4EyNA29EwjXj4QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="qUkTjcf9ek+na0WYQBkNpgAA">
+<XPD:ATTR name="Name" type="string">const String&amp; name</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">QHOEZ0Qb4EyNA29EwjXj4QAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[10]" type="UMLOperation" guid="CmQo6/QlaE+M/gRv6NpChQAA">
+<XPD:ATTR name="Name" type="string">setNamedConstant</XPD:ATTR>
+<XPD:REF name="Owner">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">3</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="TVqM5RmyF0WHCWK0h0qJzgAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">CmQo6/QlaE+M/gRv6NpChQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="CmWOv0bazUO6GmYHSe/bogAA">
+<XPD:ATTR name="Name" type="string">const String&amp; name</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">CmQo6/QlaE+M/gRv6NpChQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="J928NQ1pNkiaHsj030po+gAA">
+<XPD:ATTR name="Name" type="string">Real val</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">CmQo6/QlaE+M/gRv6NpChQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#Associations" type="integer">3</XPD:ATTR>
+<XPD:REF name="Associations[0]">O4qHkCm6RkWBL8vNDcvFYgAA</XPD:REF>
+<XPD:REF name="Associations[1]">5Q9Y2m32yEOhILUynH7zIgAA</XPD:REF>
+<XPD:REF name="Associations[2]">eRDgVORtkEuWPOpSuO9WsgAA</XPD:REF>
+<XPD:ATTR name="#Attributes" type="integer">6</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="ogz1LXJJrkqgNlKAo6rdagAA">
+<XPD:ATTR name="Name" type="string">mName</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">string</XPD:ATTR>
+<XPD:REF name="Owner">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="/snR31qCXUanJ9+0qmAIMwAA">
+<XPD:ATTR name="Name" type="string">mNamedConstants</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuNamedConstants</XPD:ATTR>
+<XPD:REF name="Type_">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+<XPD:REF name="Owner">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="/tx31VtJIEiWYay5YCztxAAA">
+<XPD:ATTR name="Name" type="string">mFloatConstants</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">FloatConstantList</XPD:ATTR>
+<XPD:REF name="Owner">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="qfb/c08prkGvIES1B1us/wAA">
+<XPD:ATTR name="Name" type="string">mIntConstants</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">IntConstantList</XPD:ATTR>
+<XPD:REF name="Owner">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="zJEPVx3vtkOM3qmV9yGlEwAA">
+<XPD:ATTR name="Name" type="string">mUnsignedIntConstants</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">UnsignedIntConstantList</XPD:ATTR>
+<XPD:REF name="Owner">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[5]" type="UMLAttribute" guid="ij5klBjrEEyqhhy+/kjIhgAA">
+<XPD:ATTR name="Name" type="string">mDoubleConstants</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">DoubleConstantList</XPD:ATTR>
+<XPD:REF name="Owner">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[17]" type="UMLAssociation" guid="g3P6qLC0FE2e2pHwtM9KvgAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="9K5hRt3pUk6V7n6q9sEehAAA">
+<XPD:REF name="Association">g3P6qLC0FE2e2pHwtM9KvgAA</XPD:REF>
+<XPD:REF name="Participant">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="O4qHkCm6RkWBL8vNDcvFYgAA">
+<XPD:ATTR name="Aggregation" type="UMLAggregationKind">akAggregate</XPD:ATTR>
+<XPD:REF name="Association">g3P6qLC0FE2e2pHwtM9KvgAA</XPD:REF>
+<XPD:REF name="Participant">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[18]" type="UMLDependency" guid="iGR8L+aehUyqypTIEclNLwAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:REF name="Client">SxwaAf8NvEmnFXNWGRe8KgAA</XPD:REF>
+<XPD:REF name="Supplier">2qO2v6jitEyev9KJtfG33gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[19]" type="UMLDependency" guid="14DP3xU7U0m+zHuK57EaUgAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:REF name="Client">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+<XPD:REF name="Supplier">GEI2tXuy1E2V/Hq2xV6vXAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[20]" type="UMLClass" guid="1zNsvGp8hUiR2guQUa/YkQAA">
+<XPD:ATTR name="Name" type="string">GpuSharedParametersUsage</XPD:ATTR>
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">yPwEbMWCNkKb+b7JAjK4xAAA</XPD:REF>
+<XPD:REF name="Views[1]">TeZi0f4T8E6ghjuu9wMnpgAA</XPD:REF>
+<XPD:REF name="Views[2]">UDDABVI780qMlN1yq/UtRAAA</XPD:REF>
+<XPD:REF name="Views[3]">U2s0MLqwg0CaisK3B5D3zgAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="cnGQCo8W1UO1b/p+pNM8JQAA">
+<XPD:ATTR name="Name" type="string">initCopyData</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkProtected</XPD:ATTR>
+<XPD:REF name="Owner">1zNsvGp8hUiR2guQUa/YkQAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="LMGLxNLhr0m6bRoAOWqC8AAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">cnGQCo8W1UO1b/p+pNM8JQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="iNuXqtkPXUywQDCSR9+JqgAA">
+<XPD:ATTR name="Name" type="string">_copySharedParamsToTargetParams</XPD:ATTR>
+<XPD:REF name="Owner">1zNsvGp8hUiR2guQUa/YkQAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="DdpU4pk/gk2qfgB6JRc2aAAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">iNuXqtkPXUywQDCSR9+JqgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#Associations" type="integer">5</XPD:ATTR>
+<XPD:REF name="Associations[0]">b5VBnT53j0WhO6sUDkbH/AAA</XPD:REF>
+<XPD:REF name="Associations[1]">TP1CGU8rVEyjPLGaFASGXAAA</XPD:REF>
+<XPD:REF name="Associations[2]">kFNda3FUO0auKkVBoOxHnwAA</XPD:REF>
+<XPD:REF name="Associations[3]">YVVIZr+v3k+YS/ubaq65cgAA</XPD:REF>
+<XPD:REF name="Associations[4]">lj7vQDsXI0Kn7Gj4NDnarAAA</XPD:REF>
+<XPD:ATTR name="#Attributes" type="integer">4</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="RiWxx6U5sEah7720kjmr0QAA">
+<XPD:ATTR name="Name" type="string">mSharedParams</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuSharedParametersPtr</XPD:ATTR>
+<XPD:REF name="Owner">1zNsvGp8hUiR2guQUa/YkQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="EMCAUWneFESxAJoBSYNceAAA">
+<XPD:ATTR name="Name" type="string">mParams</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuProgramParameters*</XPD:ATTR>
+<XPD:REF name="Owner">1zNsvGp8hUiR2guQUa/YkQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="FbF253s7LkuTqqpEr3S3GgAA">
+<XPD:ATTR name="Name" type="string">typedef vector&lt;CopyDataEntry&gt;</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">:type CopyDataList;</XPD:ATTR>
+<XPD:REF name="Owner">1zNsvGp8hUiR2guQUa/YkQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="Wg98xgLImkuutt8sHWob/gAA">
+<XPD:ATTR name="Name" type="string">mCopyDataList</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">CopyDataList</XPD:ATTR>
+<XPD:REF name="Owner">1zNsvGp8hUiR2guQUa/YkQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[21]" type="UMLAssociation" guid="eMvGRXQy80OFs+oyNO7cyQAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="b5VBnT53j0WhO6sUDkbH/AAA">
+<XPD:REF name="Association">eMvGRXQy80OFs+oyNO7cyQAA</XPD:REF>
+<XPD:REF name="Participant">1zNsvGp8hUiR2guQUa/YkQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="5Q9Y2m32yEOhILUynH7zIgAA">
+<XPD:ATTR name="Aggregation" type="UMLAggregationKind">akAggregate</XPD:ATTR>
+<XPD:REF name="Association">eMvGRXQy80OFs+oyNO7cyQAA</XPD:REF>
+<XPD:REF name="Participant">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[22]" type="UMLAssociation" guid="rzNv4Rf1vUG1i9gh82mDegAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="eRDgVORtkEuWPOpSuO9WsgAA">
+<XPD:REF name="Association">rzNv4Rf1vUG1i9gh82mDegAA</XPD:REF>
+<XPD:REF name="Participant">6csp4pEjNEi1w0cJgZC5HwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="TP1CGU8rVEyjPLGaFASGXAAA">
+<XPD:ATTR name="Aggregation" type="UMLAggregationKind">akAggregate</XPD:ATTR>
+<XPD:REF name="Association">rzNv4Rf1vUG1i9gh82mDegAA</XPD:REF>
+<XPD:REF name="Participant">1zNsvGp8hUiR2guQUa/YkQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[23]" type="UMLClass" guid="KotUvCUitkSgfEXv+RedUwAA">
+<XPD:ATTR name="Name" type="string">CopyDataEntry</XPD:ATTR>
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Associations" type="integer">2</XPD:ATTR>
+<XPD:REF name="Associations[0]">Or35Hc+fwEusKt/BxFA8ZAAA</XPD:REF>
+<XPD:REF name="Associations[1]">HhFZC20mv0mKVbKoO0UVCgAA</XPD:REF>
+<XPD:ATTR name="#Attributes" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="SKhhojRT30+JjrU2iCH9gwAA">
+<XPD:ATTR name="Name" type="string">srcDefinition</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">const GpuConstantDefinition*</XPD:ATTR>
+<XPD:REF name="Owner">KotUvCUitkSgfEXv+RedUwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="Cdr+eOF41kupx25j+dU6VwAA">
+<XPD:ATTR name="Name" type="string">dstDefinition</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">const GpuConstantDefinition*</XPD:ATTR>
+<XPD:REF name="Owner">KotUvCUitkSgfEXv+RedUwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[24]" type="UMLAssociation" guid="8grtqnYdP0OSvemLGEZURQAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="Or35Hc+fwEusKt/BxFA8ZAAA">
+<XPD:REF name="Association">8grtqnYdP0OSvemLGEZURQAA</XPD:REF>
+<XPD:REF name="Participant">KotUvCUitkSgfEXv+RedUwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="kFNda3FUO0auKkVBoOxHnwAA">
+<XPD:ATTR name="Aggregation" type="UMLAggregationKind">akAggregate</XPD:ATTR>
+<XPD:REF name="Association">8grtqnYdP0OSvemLGEZURQAA</XPD:REF>
+<XPD:REF name="Participant">1zNsvGp8hUiR2guQUa/YkQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[25]" type="UMLClass" guid="KybT4YAKS0CzKOMaY5eNdAAA">
+<XPD:ATTR name="Name" type="string">GpuProgramParameters</XPD:ATTR>
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">w2heXNLNNk2meCnsL6Y1pgAA</XPD:REF>
+<XPD:REF name="Views[1]">+t9pyLorcU+Mywxl8oxK5wAA</XPD:REF>
+<XPD:REF name="Views[2]">zD20hvOZ/k6sGNYAYiRVaQAA</XPD:REF>
+<XPD:REF name="Views[3]">agqI+gr+U0qhfYGDIVDJCwAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">27</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="Ql4qrziZ9k6T20B6ST8f1gAA">
+<XPD:ATTR name="Name" type="string">deriveVariability</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="E7g95BGf1EyhRpjXpZ4zPAAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">uint16</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Ql4qrziZ9k6T20B6ST8f1gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="xjMB74kdBkeJCgnavMQDdQAA">
+<XPD:ATTR name="Name" type="string">AutoConstantType act</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Ql4qrziZ9k6T20B6ST8f1gAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="et0vbOooeEiA2y4v7/5RZwAA">
+<XPD:ATTR name="Name" type="string">copySharedParamSetUsage</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="p6FQp+Lk6kiP/mSRW5Mc9AAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">et0vbOooeEiA2y4v7/5RZwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="LBa4r4SYEUKsUBmSksjCjQAA">
+<XPD:ATTR name="Name" type="string">const GpuSharedParamUsageList&amp; srcList</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">et0vbOooeEiA2y4v7/5RZwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[2]" type="UMLOperation" guid="tAr+Sl5/REqFrr9gJLArhQAA">
+<XPD:ATTR name="Name" type="string">_setNamedConstants</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="7HV1AfQQlUKbY7AptuozxgAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">tAr+Sl5/REqFrr9gJLArhQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="HfhiE6e4RU6X5zwU/Fr5YQAA">
+<XPD:ATTR name="Name" type="string">const GpuNamedConstantsPtr&amp; constantmap</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">tAr+Sl5/REqFrr9gJLArhQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[3]" type="UMLOperation" guid="NO37+xZH4ECWhSTeIaXTNQAA">
+<XPD:ATTR name="Name" type="string">_setLogicalIndexes</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="rs4IPmZf0kmOo15Dq5hiKAAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">NO37+xZH4ECWhSTeIaXTNQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="bOg3iGXoFUWUqjx5qBioSwAA">
+<XPD:ATTR name="Name" type="string">...</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">NO37+xZH4ECWhSTeIaXTNQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[4]" type="UMLOperation" guid="buV4UMAh40qYrfEwhCkngwAA">
+<XPD:ATTR name="Name" type="string">setConstant</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="50U0QPQLFECGzARlABnqywAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">buV4UMAh40qYrfEwhCkngwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="4chHQK1ATkqiyGco2PdQUwAA">
+<XPD:ATTR name="Name" type="string">...</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">buV4UMAh40qYrfEwhCkngwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[5]" type="UMLOperation" guid="NN/U/1vwoEiQ72uUe20N1QAA">
+<XPD:ATTR name="Name" type="string">_writeRawConstants</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">4</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="v2yDej6maUWEsXBpsHV+jQAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">NN/U/1vwoEiQ72uUe20N1QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="ZQufMN2/jUqh4c8lmybiGwAA">
+<XPD:ATTR name="Name" type="string">size_t physicalIndex</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">NN/U/1vwoEiQ72uUe20N1QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="KfraX8PjhE2BakE9ykiTigAA">
+<XPD:ATTR name="Name" type="string">const Any* val</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">NN/U/1vwoEiQ72uUe20N1QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[3]" type="UMLParameter" guid="s3BGfVn26kefMP8R3MbXDgAA">
+<XPD:ATTR name="Name" type="string">size_t count</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">NN/U/1vwoEiQ72uUe20N1QAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[6]" type="UMLOperation" guid="ZQrISkR9a0Oi+vFf2tl3KQAA">
+<XPD:ATTR name="Name" type="string">getConstantDefinitionIterator</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="G26H5XhmR0Kw87vi0CjMXgAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuConstantDefinitionIterator</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">ZQrISkR9a0Oi+vFf2tl3KQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="CNxNcI6gPUy7WJ0r2ycmsQAA">
+<XPD:ATTR name="Name" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">ZQrISkR9a0Oi+vFf2tl3KQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[7]" type="UMLOperation" guid="4FA7TCJuQ02YaKzM3bWvgAAA">
+<XPD:ATTR name="Name" type="string">getConstantDefinition</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="EC/nj8QdnEuPH/lcNZTSIgAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuConstantDefinition&amp;</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">4FA7TCJuQ02YaKzM3bWvgAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="n72b0qiooEeOR1R6UliQCQAA">
+<XPD:ATTR name="Name" type="string">const String&amp; name</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">4FA7TCJuQ02YaKzM3bWvgAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[8]" type="UMLOperation" guid="Wws8MDX8M0edOSDEJ7h6JAAA">
+<XPD:ATTR name="Name" type="string">getConstantDefinitions</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="ar+1bLWTFk+NQKAH53hYhQAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuNamedConstants&amp;</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Wws8MDX8M0edOSDEJ7h6JAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[9]" type="UMLOperation" guid="5/WYWxmHR0yJRavqcoRrigAA">
+<XPD:ATTR name="Name" type="string">getXXXLogicalIndexForPhysicalIndex</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="U6i4qOa39ka9wjwy32M/HQAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">5/WYWxmHR0yJRavqcoRrigAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="v9inv9su/0+2Q8tdybdCpwAA">
+<XPD:ATTR name="Name" type="string">size_t physicalIndex</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">5/WYWxmHR0yJRavqcoRrigAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[10]" type="UMLOperation" guid="y/NjaUNJ0UiKN6vMYh8ZAAAA">
+<XPD:ATTR name="Name" type="string">getAutoConstantList</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="EIWncCaqiUKkKgmw0vcQsAAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">AutoConstantList&amp;</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">y/NjaUNJ0UiKN6vMYh8ZAAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[11]" type="UMLOperation" guid="iecIVWe5mEm6VVu1dy5/lQAA">
+<XPD:ATTR name="Name" type="string">setAutoConstant</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">4</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="qr6KyWvKbE6ZzpB5w4DoDAAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">iecIVWe5mEm6VVu1dy5/lQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="jv5ZW3ndXUiGRXl67601bQAA">
+<XPD:ATTR name="Name" type="string">size_t index</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">iecIVWe5mEm6VVu1dy5/lQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="D+PLEF8YfkOozw76r+BmWQAA">
+<XPD:ATTR name="Name" type="string">AutoConstantType acType</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">iecIVWe5mEm6VVu1dy5/lQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[3]" type="UMLParameter" guid="DJs5G7ZMd0mC/XAvWjp8dgAA">
+<XPD:ATTR name="Name" type="string">size_t extraInfo</XPD:ATTR>
+<XPD:ATTR name="DefaultValue" type="string">0</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">iecIVWe5mEm6VVu1dy5/lQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[12]" type="UMLOperation" guid="Bss6mH8FB0aCxss0OqhmwQAA">
+<XPD:ATTR name="Name" type="string">_setRawAutoConstant</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">6</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="NSuK5D1BIk+9AzS9/MLGQQAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Bss6mH8FB0aCxss0OqhmwQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="Ub2HicmbukCTFW7GtbbD+QAA">
+<XPD:ATTR name="Name" type="string">size_t physicalIndex</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Bss6mH8FB0aCxss0OqhmwQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="1tydhIcybE6jrDmTdc5BfwAA">
+<XPD:ATTR name="Name" type="string">AutoConstantType acType</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Bss6mH8FB0aCxss0OqhmwQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[3]" type="UMLParameter" guid="8RV9VrE6IEKg1vXv3VOtZgAA">
+<XPD:ATTR name="Name" type="string">size_t extraInfo</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Bss6mH8FB0aCxss0OqhmwQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[4]" type="UMLParameter" guid="mlUX4O1pikyW1hzN3+aXiQAA">
+<XPD:ATTR name="Name" type="string">uint16 variability</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Bss6mH8FB0aCxss0OqhmwQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[5]" type="UMLParameter" guid="N9qxA3wcI0qzyLY3+8SKHQAA">
+<XPD:ATTR name="Name" type="string">size_t elementSize</XPD:ATTR>
+<XPD:ATTR name="DefaultValue" type="string">4</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Bss6mH8FB0aCxss0OqhmwQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[13]" type="UMLOperation" guid="44L9Lyun6kOeBRPA7z2/xAAA">
+<XPD:ATTR name="Name" type="string">_setRawAutoConstantReal</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">6</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="XzleVZ1Vl0O/G+fqNbW3QAAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">44L9Lyun6kOeBRPA7z2/xAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="bdV1fvE6Z0OIPOzPZoTVRwAA">
+<XPD:ATTR name="Name" type="string">size_t physicalIndex</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">44L9Lyun6kOeBRPA7z2/xAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="NHxRnU3NmUeEl6pBRpbSyAAA">
+<XPD:ATTR name="Name" type="string">AutoConstantType acType</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">44L9Lyun6kOeBRPA7z2/xAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[3]" type="UMLParameter" guid="YdzQahzgdU6D73MyU/pX6wAA">
+<XPD:ATTR name="Name" type="string">Real rData</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">44L9Lyun6kOeBRPA7z2/xAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[4]" type="UMLParameter" guid="Cvaah4my1UuebAlcxahR0QAA">
+<XPD:ATTR name="Name" type="string">uint16 variability</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">44L9Lyun6kOeBRPA7z2/xAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[5]" type="UMLParameter" guid="u+WSOJHPQUC0mLP+ewI8lwAA">
+<XPD:ATTR name="Name" type="string">size_t elementSize</XPD:ATTR>
+<XPD:ATTR name="DefaultValue" type="string">4</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">44L9Lyun6kOeBRPA7z2/xAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[14]" type="UMLOperation" guid="dVqpwFjJdEisjHxlQLB9hgAA">
+<XPD:ATTR name="Name" type="string">findXXXAutoConstantEntry</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="dpkc6k6PHEeAMqI5fQUDIQAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">AutoConstantEntry*</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">dVqpwFjJdEisjHxlQLB9hgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="QxvtZ6a7+U+g1S3c+sDCTQAA">
+<XPD:ATTR name="Name" type="string">size_t logicalIndex</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">dVqpwFjJdEisjHxlQLB9hgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[15]" type="UMLOperation" guid="Nolpxa7oWEe1u1YFoqeNmwAA">
+<XPD:ATTR name="Name" type="string">_findRawAutoConstantEntryXXX</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="cypsxnNyx0aVZRksY8GNgwAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">AutoConstantEntry*</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Nolpxa7oWEe1u1YFoqeNmwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="ekqtxfqk5E+aTCX2adewtAAA">
+<XPD:ATTR name="Name" type="string">size_t physicalIndex</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Nolpxa7oWEe1u1YFoqeNmwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[16]" type="UMLOperation" guid="gzrkx+Vmu02ukfvjlnic5QAA">
+<XPD:ATTR name="Name" type="string">_updateAutoParams</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">3</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="nEx7gLmh6UeSgEW+m39NkwAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">gzrkx+Vmu02ukfvjlnic5QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="rBD+KfLAwEC1XdKmV7dwQwAA">
+<XPD:ATTR name="Name" type="string">const AutoParamDataSource* source</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">gzrkx+Vmu02ukfvjlnic5QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="WEsCVrB1qUOBqRT9uLjVPAAA">
+<XPD:ATTR name="Name" type="string">uint16 variabilityMask</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">gzrkx+Vmu02ukfvjlnic5QAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[17]" type="UMLOperation" guid="zjSYJRKo9kqnBavnCuULbQAA">
+<XPD:ATTR name="Name" type="string">setNamedConstant</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">3</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="EqAd25NXPE+aVXQiVbU8/wAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">zjSYJRKo9kqnBavnCuULbQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="4XzPBre4IEWNIMIq77rp5AAA">
+<XPD:ATTR name="Name" type="string">const String&amp; name</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">zjSYJRKo9kqnBavnCuULbQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="D69JJXK7nkKrnvxCSUdF/AAA">
+<XPD:ATTR name="Name" type="string">Any val</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">zjSYJRKo9kqnBavnCuULbQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[18]" type="UMLOperation" guid="W+tTfqD2Y0K/FfHMtZ3quAAA">
+<XPD:ATTR name="Name" type="string">setNamedAutoConstant</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">4</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="6qDJODITbUGIcziCVxQGfwAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">W+tTfqD2Y0K/FfHMtZ3quAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="YoS+K5J3n0qARxtgPis8fQAA">
+<XPD:ATTR name="Name" type="string">const String&amp; name</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">W+tTfqD2Y0K/FfHMtZ3quAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="vwGi0vjz4EeQNTLujZsz1wAA">
+<XPD:ATTR name="Name" type="string">AutoConstantType acType</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">W+tTfqD2Y0K/FfHMtZ3quAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[3]" type="UMLParameter" guid="kvEVu8xNrkCkqaY+mz7v9QAA">
+<XPD:ATTR name="Name" type="string">size_t extraInfo</XPD:ATTR>
+<XPD:ATTR name="DefaultValue" type="string">0</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">W+tTfqD2Y0K/FfHMtZ3quAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[19]" type="UMLOperation" guid="hr3gHKotLkW0OHDuLB3TbAAA">
+<XPD:ATTR name="Name" type="string">setNamedAutoConstantReal</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">4</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="eLAbZz9I0kyep+Nn1+zIpAAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">hr3gHKotLkW0OHDuLB3TbAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="EUU2CEdYbkCt5Mg5gzOhcQAA">
+<XPD:ATTR name="Name" type="string">const String&amp; name</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">hr3gHKotLkW0OHDuLB3TbAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="y1vPkiyhU0uSx9TIIxUtbQAA">
+<XPD:ATTR name="Name" type="string">AutoConstantType acType</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">hr3gHKotLkW0OHDuLB3TbAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[3]" type="UMLParameter" guid="Ip5GZNYRV0aQT/aPC8w+5AAA">
+<XPD:ATTR name="Name" type="string">Real rData</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">hr3gHKotLkW0OHDuLB3TbAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[20]" type="UMLOperation" guid="vyBexyLoUUeQzCROCqezcwAA">
+<XPD:ATTR name="Name" type="string">setNamedAutoConstant</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">5</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="gAJpk/fzvkKxAmSmwtx/9wAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">vyBexyLoUUeQzCROCqezcwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="M1XNwoWT+Em1OkxqWuDRkgAA">
+<XPD:ATTR name="Name" type="string">const String&amp; name</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">vyBexyLoUUeQzCROCqezcwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="Z8/v3ZgkQkigGOZaYPQnRQAA">
+<XPD:ATTR name="Name" type="string">AutoConstantType acType</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">vyBexyLoUUeQzCROCqezcwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[3]" type="UMLParameter" guid="MuOC1XwMUUaXrCl4avgxbgAA">
+<XPD:ATTR name="Name" type="string">uint16 extraInfo1</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">vyBexyLoUUeQzCROCqezcwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[4]" type="UMLParameter" guid="PHm4TZcVy0aSg3yTHygPOgAA">
+<XPD:ATTR name="Name" type="string">uint16 extraInfo2</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">vyBexyLoUUeQzCROCqezcwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[21]" type="UMLOperation" guid="RWg2306++0W4a1gUNZAimAAA">
+<XPD:ATTR name="Name" type="string">_findNamedConstantDefinition</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">3</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="cf2jRXNYR0Wj2xLDuKJYGQAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuConstantDefinition*</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">RWg2306++0W4a1gUNZAimAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="2x7qxuDUykm8GhWQGXtEpgAA">
+<XPD:ATTR name="Name" type="string">const String&amp; name</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">RWg2306++0W4a1gUNZAimAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="tf4REQifhEK9nvJdJgEEggAA">
+<XPD:ATTR name="Name" type="string">bool throwExceptionIfMissing</XPD:ATTR>
+<XPD:ATTR name="DefaultValue" type="string">false</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">RWg2306++0W4a1gUNZAimAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[22]" type="UMLOperation" guid="ilciNpsockS3jaqz16j37gAA">
+<XPD:ATTR name="Name" type="string">_getXXXConstantPhysicalIndex</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">4</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="q+FGetRKZkGD8VIqN6SSmgAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">ilciNpsockS3jaqz16j37gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="dqMl47o//UqeYcj680VpbwAA">
+<XPD:ATTR name="Name" type="string">size_t logicalIndex</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">ilciNpsockS3jaqz16j37gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="ZnhexLAyjEOO4XswVSkDPQAA">
+<XPD:ATTR name="Name" type="string">size_t requestedSize</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">ilciNpsockS3jaqz16j37gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[3]" type="UMLParameter" guid="AZ0gRddWukeHwPlj3TWuZwAA">
+<XPD:ATTR name="Name" type="string">uint16 variability</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">ilciNpsockS3jaqz16j37gAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[23]" type="UMLOperation" guid="hu4YBm/wU06REHR43hLh4AAA">
+<XPD:ATTR name="Name" type="string">copyConstantsFrom</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="x0DLnox/Lk+IInPZG3evJQAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">hu4YBm/wU06REHR43hLh4AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="TdUVSB/z4kysHe07RLkPnwAA">
+<XPD:ATTR name="Name" type="string">const GpuProgramParameters&amp; source</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">hu4YBm/wU06REHR43hLh4AAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[24]" type="UMLOperation" guid="1Vl/gT2hikqIIm5+bFnqgwAA">
+<XPD:ATTR name="Name" type="string">copyMatchingNamedConstantsFrom</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="yk+ZPehTCk6m1VdrSUM+dgAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">1Vl/gT2hikqIIm5+bFnqgwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="JeOMydmsV0GZcFmIO2oHWgAA">
+<XPD:ATTR name="Name" type="string">const GpuProgramParameters&amp; source</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">1Vl/gT2hikqIIm5+bFnqgwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[25]" type="UMLOperation" guid="ZycSYAES3USMB+YwjqcnuQAA">
+<XPD:ATTR name="Name" type="string">getAutoConstantDefinition</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="UJfvRHT91UiUmZGnwUBBOwAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">AutoConstantDefinition*</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">ZycSYAES3USMB+YwjqcnuQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="f9GSY39OwE+d6iwfg8ewigAA">
+<XPD:ATTR name="Name" type="string">const String&amp; name</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">ZycSYAES3USMB+YwjqcnuQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[26]" type="UMLOperation" guid="yGKmbrSn6k+TDAl0USSmswAA">
+<XPD:ATTR name="Name" type="string">getAutoConstantDefinition</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="R+V0IRipIky00oEBTP7aiAAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">AutoConstantDefinition*</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">yGKmbrSn6k+TDAl0USSmswAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="twmzDZC8PE+Q97pxYTQwbwAA">
+<XPD:ATTR name="Name" type="string">const size_t idx</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">yGKmbrSn6k+TDAl0USSmswAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#Associations" type="integer">4</XPD:ATTR>
+<XPD:REF name="Associations[0]">TX0h4p7gKU2mxWNvx+eu2AAA</XPD:REF>
+<XPD:REF name="Associations[1]">VpYP3EkczEmkaDdidOJfuwAA</XPD:REF>
+<XPD:REF name="Associations[2]">j1dvB/YyVEKh2Bu+iun32AAA</XPD:REF>
+<XPD:REF name="Associations[3]">XeNn8DbaBkeb8s06ifAYXAAA</XPD:REF>
+<XPD:ATTR name="#Attributes" type="integer">25</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="6MPx3ytVXkSz57ZbQJxNWwAA">
+<XPD:ATTR name="Name" type="string">enum AutoConstantType</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="M+JTu1eyx0S1E1UjiJb62QAA">
+<XPD:ATTR name="Name" type="string">enum ACDataType</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="2aWd1OmfcEW4aDIipsIVSQAA">
+<XPD:ATTR name="Name" type="string">enum ElementType</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="1NOOd3wvHU+WhB1pF00jFAAA">
+<XPD:ATTR name="Name" type="string">typedef vector&lt;AutoConstantEntry&gt;</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">:type AutoConstantList</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="0+X+WFW75UCXtPDW1TPy+wAA">
+<XPD:ATTR name="Name" type="string">typedef vector&lt;GpuSharedParametersUsage&gt;</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">:type GpuSharedParamUsageList</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[5]" type="UMLAttribute" guid="Ezjh/Jme80OP/1qsZfFiuQAA">
+<XPD:ATTR name="Name" type="string">typedef OGRE_HashMap&lt;unsigned int, String&gt; SubroutineMap</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[6]" type="UMLAttribute" guid="TzTW2Wf0vUmoVM+XU6hUlQAA">
+<XPD:ATTR name="Name" type="string">typedef OGRE_HashMap&lt;unsigned int, String&gt;</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">:const_iterator SubroutineIterator</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[7]" type="UMLAttribute" guid="UFxyRIQq30ydDyymYByb1QAA">
+<XPD:ATTR name="Name" type="string">mSubroutineMap</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">SubroutineMap</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[8]" type="UMLAttribute" guid="lW4/3i7uOU2PiS1BwOctIwAA">
+<XPD:ATTR name="Name" type="string">AutoConstantDictionary</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">AutoConstantDefinition</XPD:ATTR>
+<XPD:REF name="Type_">RMXN04WW50aDJdi/Km8YuAAA</XPD:REF>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[9]" type="UMLAttribute" guid="g24W+DPjVk2d8Cj1kY2e3AAA">
+<XPD:ATTR name="Name" type="string">mFloatConstants</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">FloatConstantList</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[10]" type="UMLAttribute" guid="ebJ3anq2rUWvU8MO2ebvRgAA">
+<XPD:ATTR name="Name" type="string">mDoubleConstants</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">DoubleConstantList</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[11]" type="UMLAttribute" guid="nR8mDU6Eo0iyVmLG7O517wAA">
+<XPD:ATTR name="Name" type="string">mIntConstants</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">IntConstantList</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[12]" type="UMLAttribute" guid="xptEFCFVsEKHVVYyHcfYpwAA">
+<XPD:ATTR name="Name" type="string">mUnsignedIntConstants</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">UnsignedIntConstantList</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[13]" type="UMLAttribute" guid="PvZbmcdb90ypzpIS9vnR/gAA">
+<XPD:ATTR name="Name" type="string">mFloatLogicalToPhysical</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuLogicalBufferStructPtr</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[14]" type="UMLAttribute" guid="GMtGiBW8+EmW1fSzsi+2YwAA">
+<XPD:ATTR name="Name" type="string">mDoubleLogicalToPhysical</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuLogicalBufferStructPtr</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[15]" type="UMLAttribute" guid="jx8zeRWgtUigJTPD82AeXQAA">
+<XPD:ATTR name="Name" type="string">mIntLogicalToPhysical</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuLogicalBufferStructPtr</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[16]" type="UMLAttribute" guid="KbRhVTuxFEy9XmRnZiNNUQAA">
+<XPD:ATTR name="Name" type="string">mUnsignedIntLogicalToPhysical</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuLogicalBufferStructPtr</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[17]" type="UMLAttribute" guid="8giw9yh4ikGjwt1NejvncAAA">
+<XPD:ATTR name="Name" type="string">mBoolLogicalToPhysical</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuLogicalBufferStructPtr</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[18]" type="UMLAttribute" guid="GOTJil46eEKryz5fND/newAA">
+<XPD:ATTR name="Name" type="string">mNamedConstants</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuNamedConstantsPtr</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[19]" type="UMLAttribute" guid="ZEUz8AKIoUuEp3aEbnFXdQAA">
+<XPD:ATTR name="Name" type="string">mAutoConstants</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">AutoConstantList</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[20]" type="UMLAttribute" guid="JCoeMj2K4EmsIDxXV0oJfQAA">
+<XPD:ATTR name="Name" type="string">mCombinedVariability</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">uint16</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[21]" type="UMLAttribute" guid="SxTMtzkUe0SUS+A7fwrkQQAA">
+<XPD:ATTR name="Name" type="string">mTransposeMatrices</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">bool</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[22]" type="UMLAttribute" guid="rBSWVQZPF06moPbC//1XjgAA">
+<XPD:ATTR name="Name" type="string">mIgnoreMissingParams</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">bool</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[23]" type="UMLAttribute" guid="h2Gk6lB5lkiGjFSaE0zAYgAA">
+<XPD:ATTR name="Name" type="string">mActivePassIterationIndex</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[24]" type="UMLAttribute" guid="C+gD4OhP00SpI2Byul3UIQAA">
+<XPD:ATTR name="Name" type="string">mSharedParamSets</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuSharedParamUsageList</XPD:ATTR>
+<XPD:REF name="Owner">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[26]" type="UMLClass" guid="RMXN04WW50aDJdi/Km8YuAAA">
+<XPD:ATTR name="Name" type="string">AutoConstantDefinition</XPD:ATTR>
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">j4UdCe1ut0SkmfEAPXdk7gAA</XPD:REF>
+<XPD:REF name="Views[1]">t0OBzF/YsE61s8XS93EyyAAA</XPD:REF>
+<XPD:REF name="Views[2]">UU2skGq8QEauHykjh96xegAA</XPD:REF>
+<XPD:REF name="Views[3]">pL95RAxJ1k6NRdoOnmpT/wAA</XPD:REF>
+<XPD:ATTR name="#TypedFeatures" type="integer">1</XPD:ATTR>
+<XPD:REF name="TypedFeatures[0]">lW4/3i7uOU2PiS1BwOctIwAA</XPD:REF>
+<XPD:ATTR name="#Associations" type="integer">1</XPD:ATTR>
+<XPD:REF name="Associations[0]">MSpNPkOHSkOvUoGfwyxo7wAA</XPD:REF>
+<XPD:ATTR name="#Attributes" type="integer">5</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="ZZ1+IEYwBEG17cUFCBe3jgAA">
+<XPD:ATTR name="Name" type="string">acType</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">AutoConstantType</XPD:ATTR>
+<XPD:REF name="Owner">RMXN04WW50aDJdi/Km8YuAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="fMBsGjKC5USSO3VwseO8ZgAA">
+<XPD:ATTR name="Name" type="string">name</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">String</XPD:ATTR>
+<XPD:REF name="Owner">RMXN04WW50aDJdi/Km8YuAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="r5teNmwy1kCAgOYZZR7+NQAA">
+<XPD:ATTR name="Name" type="string">elementCount</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="Owner">RMXN04WW50aDJdi/Km8YuAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="KGQDfnPXh0etcPYoAbY++wAA">
+<XPD:ATTR name="Name" type="string">elementType</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">ElementType</XPD:ATTR>
+<XPD:REF name="Owner">RMXN04WW50aDJdi/Km8YuAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="u7CZICYNFUWhA3ZB7gf8xgAA">
+<XPD:ATTR name="Name" type="string">dataType</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">ACDataType</XPD:ATTR>
+<XPD:REF name="Owner">RMXN04WW50aDJdi/Km8YuAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[27]" type="UMLClass" guid="BfCYj+1LJUivuKPS4lxyhAAA">
+<XPD:ATTR name="Name" type="string">AutoConstantEntry</XPD:ATTR>
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">dFWV4KncxUCOB/RZLoQ7IgAA</XPD:REF>
+<XPD:REF name="Views[1]">UE2ZuKjFkE+oie1DQWs2VAAA</XPD:REF>
+<XPD:REF name="Views[2]">cDFWUoKegkyTv9pGifyNSwAA</XPD:REF>
+<XPD:REF name="Views[3]">yDImbpjc/UyIhtevvctzIgAA</XPD:REF>
+<XPD:ATTR name="#Associations" type="integer">1</XPD:ATTR>
+<XPD:REF name="Associations[0]">aRw40516K0ChyEMHtcgJZQAA</XPD:REF>
+<XPD:ATTR name="#Attributes" type="integer">5</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="bPlcof8LtkKgPqsqmdc1YwAA">
+<XPD:ATTR name="Name" type="string">paramType</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">AutoConstantType</XPD:ATTR>
+<XPD:REF name="Owner">BfCYj+1LJUivuKPS4lxyhAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="I49J0iVQaEGyEO80D1fHbwAA">
+<XPD:ATTR name="Name" type="string">physicalIndex</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="Owner">BfCYj+1LJUivuKPS4lxyhAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="+ARoiPsafE+1dl4jsIUqIgAA">
+<XPD:ATTR name="Name" type="string">elementCount</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">size_t</XPD:ATTR>
+<XPD:REF name="Owner">BfCYj+1LJUivuKPS4lxyhAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="3KWucfw9hES4GCG9xX0RJAAA">
+<XPD:ATTR name="Name" type="string">union{
+size_t data;
+ Real fData;
+ }</XPD:ATTR>
+<XPD:REF name="Owner">BfCYj+1LJUivuKPS4lxyhAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="IyoX5lMSw06jsRLdRwnUkwAA">
+<XPD:ATTR name="Name" type="string">variability</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">uint16</XPD:ATTR>
+<XPD:REF name="Owner">BfCYj+1LJUivuKPS4lxyhAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[28]" type="UMLAssociation" guid="y+Ux/Q479Eq+yLA1QZLdJAAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">hI3cAfURx0aV+jAd0dl8swAA</XPD:REF>
+<XPD:REF name="Views[1]">SVKKBK+OF0aGNYIQvv/xEAAA</XPD:REF>
+<XPD:REF name="Views[2]">8Em1shsc/kya2voEMCvPIwAA</XPD:REF>
+<XPD:REF name="Views[3]">92NwWEMgl0Skzvv31s3tqgAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="TX0h4p7gKU2mxWNvx+eu2AAA">
+<XPD:REF name="Association">y+Ux/Q479Eq+yLA1QZLdJAAA</XPD:REF>
+<XPD:REF name="Participant">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">DC8t9EpDp0+LNuwZixoArAAA</XPD:REF>
+<XPD:REF name="Views[1]">2TxUs2GFs0SXzd4Yl4e8ZwAA</XPD:REF>
+<XPD:REF name="Views[2]">Z1BKDGJizE+4PmwX5EPJWgAA</XPD:REF>
+<XPD:REF name="Views[3]">iJtdIpxWjEefdElAtn6+3wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="MSpNPkOHSkOvUoGfwyxo7wAA">
+<XPD:REF name="Association">y+Ux/Q479Eq+yLA1QZLdJAAA</XPD:REF>
+<XPD:REF name="Participant">RMXN04WW50aDJdi/Km8YuAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">DpMX37JyZ0C7CTRC6LoingAA</XPD:REF>
+<XPD:REF name="Views[1]">eqHWlHT/S0+w97LiNNEMhwAA</XPD:REF>
+<XPD:REF name="Views[2]">W57P10ZKUk+QNgty+DJGdAAA</XPD:REF>
+<XPD:REF name="Views[3]">91x3LCkyekKjFLKTKx0LkgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[29]" type="UMLAssociation" guid="zJ22732E8kWMXlClKig0/AAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">TliNK0V5dkCQL/JxStszpQAA</XPD:REF>
+<XPD:REF name="Views[1]">XQALuFaFBUylvzmfqxqW1wAA</XPD:REF>
+<XPD:REF name="Views[2]">+q7k8htH/Um3NHnZDQruuAAA</XPD:REF>
+<XPD:REF name="Views[3]">xoLF+1Ppvk+E1g8WcKwRdwAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="VpYP3EkczEmkaDdidOJfuwAA">
+<XPD:REF name="Association">zJ22732E8kWMXlClKig0/AAA</XPD:REF>
+<XPD:REF name="Participant">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">hIdvOclKlkKGtWPVMrWdEwAA</XPD:REF>
+<XPD:REF name="Views[1]">VJpdHxqeQkGuhvYE9UVcJQAA</XPD:REF>
+<XPD:REF name="Views[2]">g97t1A4oNE+f8hTSjcTI0wAA</XPD:REF>
+<XPD:REF name="Views[3]">0xFrmFRWWky9QJQ8M4qnrAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="aRw40516K0ChyEMHtcgJZQAA">
+<XPD:REF name="Association">zJ22732E8kWMXlClKig0/AAA</XPD:REF>
+<XPD:REF name="Participant">BfCYj+1LJUivuKPS4lxyhAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">5fEkUhD1FkG1nn0Q7beDBAAA</XPD:REF>
+<XPD:REF name="Views[1]">KNW/2D3AeUCIz5O01UX2AgAA</XPD:REF>
+<XPD:REF name="Views[2]">c9v1ZL89D0ClbDswZ0V2lQAA</XPD:REF>
+<XPD:REF name="Views[3]">r6fpvFUh1USz2rAT76ezeAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[30]" type="UMLAssociation" guid="QrFC0oHgskuTjsHIi4O0UAAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="YVVIZr+v3k+YS/ubaq65cgAA">
+<XPD:REF name="Association">QrFC0oHgskuTjsHIi4O0UAAA</XPD:REF>
+<XPD:REF name="Participant">1zNsvGp8hUiR2guQUa/YkQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="HhFZC20mv0mKVbKoO0UVCgAA">
+<XPD:REF name="Association">QrFC0oHgskuTjsHIi4O0UAAA</XPD:REF>
+<XPD:REF name="Participant">KotUvCUitkSgfEXv+RedUwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[31]" type="UMLAssociation" guid="BpHXAdxpmkyIiFKgCl5tFAAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="lj7vQDsXI0Kn7Gj4NDnarAAA">
+<XPD:REF name="Association">BpHXAdxpmkyIiFKgCl5tFAAA</XPD:REF>
+<XPD:REF name="Participant">1zNsvGp8hUiR2guQUa/YkQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="j1dvB/YyVEKh2Bu+iun32AAA">
+<XPD:ATTR name="Aggregation" type="UMLAggregationKind">akAggregate</XPD:ATTR>
+<XPD:REF name="Association">BpHXAdxpmkyIiFKgCl5tFAAA</XPD:REF>
+<XPD:REF name="Participant">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[32]" type="UMLClass" guid="WcEUrlaRVUOgBhnksFn5gQAA">
+<XPD:ATTR name="Name" type="string">GpuProgramUsage</XPD:ATTR>
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Generalizations" type="integer">1</XPD:ATTR>
+<XPD:REF name="Generalizations[0]">mwoNA276cEmRjgZBdqNCLgAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">4</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="cAeAhvi5tEOeNC/9NinYjAAA">
+<XPD:ATTR name="Name" type="string">_load</XPD:ATTR>
+<XPD:REF name="Owner">WcEUrlaRVUOgBhnksFn5gQAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="Td78yotVQUO7aCdOMpvHowAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">cAeAhvi5tEOeNC/9NinYjAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="PvwyZrJlgEeuDhUGn+ARxgAA">
+<XPD:ATTR name="Name" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">cAeAhvi5tEOeNC/9NinYjAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="dYgeEiOrPUGWcGT49ReyYgAA">
+<XPD:ATTR name="Name" type="string">_unload</XPD:ATTR>
+<XPD:REF name="Owner">WcEUrlaRVUOgBhnksFn5gQAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="47TKQY7SMUuxOQ+dc3swawAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">dYgeEiOrPUGWcGT49ReyYgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="ujvOPT6mdUKCfYx3xpmxWAAA">
+<XPD:ATTR name="Name" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">dYgeEiOrPUGWcGT49ReyYgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[2]" type="UMLOperation" guid="zexof46uYEC63e7+OMot4gAA">
+<XPD:ATTR name="Name" type="string">unloadingComplete</XPD:ATTR>
+<XPD:REF name="Owner">WcEUrlaRVUOgBhnksFn5gQAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="6pvEyOeG+0W4Mg7lUfW4gAAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">zexof46uYEC63e7+OMot4gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="cZApv2peMUua6klW/fVKvwAA">
+<XPD:ATTR name="Name" type="string">Resource* prog</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">zexof46uYEC63e7+OMot4gAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[3]" type="UMLOperation" guid="g9YVS4CC+kOPlZjnxh60FgAA">
+<XPD:ATTR name="Name" type="string">loadingComplete</XPD:ATTR>
+<XPD:REF name="Owner">WcEUrlaRVUOgBhnksFn5gQAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="WoJ5OgTC0UyRS1YSrXnWFgAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">g9YVS4CC+kOPlZjnxh60FgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="jigDKyaom0OX5ly9ebSH/gAA">
+<XPD:ATTR name="Name" type="string">Resource* prog</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">g9YVS4CC+kOPlZjnxh60FgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#Associations" type="integer">2</XPD:ATTR>
+<XPD:REF name="Associations[0]">RvkUiRdk30mGY39Br5RaPgAA</XPD:REF>
+<XPD:REF name="Associations[1]">sy4nHpzjek+0rSR5Gm/QXwAA</XPD:REF>
+<XPD:ATTR name="#Attributes" type="integer">4</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="vHSS5wxbh06/SrPohPeg+wAA">
+<XPD:ATTR name="Name" type="string">mType</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuProgramType</XPD:ATTR>
+<XPD:REF name="Type_">WCdvfidMMEKi+ifvLpHKcwAA</XPD:REF>
+<XPD:REF name="Owner">WcEUrlaRVUOgBhnksFn5gQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="+VEOeBNmx0mk11BaAazNSAAA">
+<XPD:ATTR name="Name" type="string">mParent</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">Pass*</XPD:ATTR>
+<XPD:REF name="Owner">WcEUrlaRVUOgBhnksFn5gQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="UGM1sTqIJUCz3/jfgDM44QAA">
+<XPD:ATTR name="Name" type="string">mProgram</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuProgramPtr</XPD:ATTR>
+<XPD:REF name="Owner">WcEUrlaRVUOgBhnksFn5gQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="nGTP7FAINk+d8LzPYH4fUgAA">
+<XPD:ATTR name="Name" type="string">mParameters</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GpuProgramParametersSharedPtr</XPD:ATTR>
+<XPD:REF name="Owner">WcEUrlaRVUOgBhnksFn5gQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[33]" type="UMLClass" guid="0wJlq5lTsUuVYWmdImcTxgAA">
+<XPD:ATTR name="Name" type="string">Listener</XPD:ATTR>
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Specializations" type="integer">1</XPD:ATTR>
+<XPD:REF name="Specializations[0]">mwoNA276cEmRjgZBdqNCLgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[34]" type="UMLGeneralization" guid="mwoNA276cEmRjgZBdqNCLgAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:REF name="Child">WcEUrlaRVUOgBhnksFn5gQAA</XPD:REF>
+<XPD:REF name="Parent">0wJlq5lTsUuVYWmdImcTxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[35]" type="UMLAssociation" guid="TuETI3S6eEWmxr1mCaO2tgAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="RvkUiRdk30mGY39Br5RaPgAA">
+<XPD:REF name="Association">TuETI3S6eEWmxr1mCaO2tgAA</XPD:REF>
+<XPD:REF name="Participant">WcEUrlaRVUOgBhnksFn5gQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="lCaSsxWWDUONUtBt03pOAQAA">
+<XPD:REF name="Association">TuETI3S6eEWmxr1mCaO2tgAA</XPD:REF>
+<XPD:REF name="Participant">p3xcDE79zUOlegIIWKgbxgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[36]" type="UMLAssociation" guid="3u8Jqd+CBU2C5fALhjl1kAAA">
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="sy4nHpzjek+0rSR5Gm/QXwAA">
+<XPD:REF name="Association">3u8Jqd+CBU2C5fALhjl1kAAA</XPD:REF>
+<XPD:REF name="Participant">WcEUrlaRVUOgBhnksFn5gQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="XeNn8DbaBkeb8s06ifAYXAAA">
+<XPD:REF name="Association">3u8Jqd+CBU2C5fALhjl1kAAA</XPD:REF>
+<XPD:REF name="Participant">KybT4YAKS0CzKOMaY5eNdAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[37]" type="UMLEnumeration" guid="Y2bZYE3Bu0SPOpsugzf4DAAA">
+<XPD:ATTR name="Name" type="string">GpuParamVariability</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">GpuParamVariability</XPD:ATTR>
+<XPD:REF name="Namespace">vWDcAuLR2k+RIk8B1MSTwAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">3</XPD:ATTR>
+<XPD:REF name="Views[0]">xMrsEb4iAEic2ZvSrqBWMwAA</XPD:REF>
+<XPD:REF name="Views[1]">McfA96ZMn0muJuhjlmClhQAA</XPD:REF>
+<XPD:REF name="Views[2]">SHPCSsdoTE2+xH+dfc/A/wAA</XPD:REF>
+<XPD:ATTR name="#Literals" type="integer">4</XPD:ATTR>
+<XPD:OBJ name="Literals[0]" type="UMLEnumerationLiteral" guid="IAS8rZqjK0OmddQeDmgwbgAA">
+<XPD:ATTR name="Name" type="string">GPV_GLOBAL = 1</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">GPV_GLOBAL = 1</XPD:ATTR>
+<XPD:REF name="Enumeration">Y2bZYE3Bu0SPOpsugzf4DAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Literals[1]" type="UMLEnumerationLiteral" guid="yAEBTp4Y7UiPJlQJLkqK+AAA">
+<XPD:ATTR name="Name" type="string">GPV_PER_OBJECT = 2</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">GPV_PER_OBJECT = 2</XPD:ATTR>
+<XPD:REF name="Enumeration">Y2bZYE3Bu0SPOpsugzf4DAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Literals[2]" type="UMLEnumerationLiteral" guid="pPnB0aLls0C9BNi/Xg9nnQAA">
+<XPD:ATTR name="Name" type="string">GPV_LIGHTS = 4</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">GPV_LIGHTS = 4</XPD:ATTR>
+<XPD:REF name="Enumeration">Y2bZYE3Bu0SPOpsugzf4DAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Literals[3]" type="UMLEnumerationLiteral" guid="7V/0miB6HEaPCwWkM/0KXgAA">
+<XPD:ATTR name="Name" type="string">GPV_PASS_ITERATION_NUMBER = 8</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">GPV_PASS_ITERATION_NUMBER = 8</XPD:ATTR>
+<XPD:REF name="Enumeration">Y2bZYE3Bu0SPOpsugzf4DAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>

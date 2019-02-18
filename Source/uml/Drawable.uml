@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="K5IW9QRLO0C3bOrMLIU4iAAA">
+<XPD:ATTR name="Title" type="string">Drawable</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="JfzTWQwIm0CU5jScGS0woQAA">
+<XPD:ATTR name="Name" type="string">Drawable</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Drawable</XPD:ATTR>
+<XPD:REF name="Namespace">K5IW9QRLO0C3bOrMLIU4iAAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="csuqVCA6Q0Oanu5WjJ8wJgAA">
+<XPD:ATTR name="Name" type="string">Drawable</XPD:ATTR>
+<XPD:REF name="DiagramOwner">JfzTWQwIm0CU5jScGS0woQAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="4mAtDgoETUe/DiSNCVGr/gAA">
+<XPD:REF name="Diagram">csuqVCA6Q0Oanu5WjJ8wJgAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">3</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="CV1WmX4t2EeHBLUgbIqijwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">204</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">240</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">214</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">/// Rendering frame update parameters.
+struct FrameInfo
+{
+    /// Frame number.
+    unsigned frameNumber_;
+    /// Time elapsed since last frame.
+    float timeStep_;
+    /// Viewport size.
+    IntVector2 viewSize_;
+    /// Camera being used.
+    Camera* camera_;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="KJQEv7XeQU+vElAgMFmkTQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">556</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">128</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">431</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">428</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">/// Source data for a 3D geometry draw call.
+struct URHO3D_API SourceBatch
+{
+    /// Construct with defaults.
+    SourceBatch();
+    /// Copy-construct.
+    SourceBatch(const SourceBatch&amp; batch);
+    /// Destruct.
+    ~SourceBatch();
+
+    /// Assignment operator.
+    SourceBatch&amp; operator =(const SourceBatch&amp; rhs);
+
+    /// Distance from camera.
+    float distance_;
+    /// Geometry.
+    Geometry* geometry_;
+    /// Material.
+    SharedPtr&lt;Material&gt; material_;
+    /// World transform(s). For a skinned model, these are the bone transforms.
+    const Matrix3x4* worldTransform_;
+    /// Number of world transforms.
+    unsigned numWorldTransforms_;
+    /// Per-instance data. If not null, must contain enough data to fill instancing buffer.
+    void* instancingData_;
+    /// %Geometry type.
+    GeometryType geometryType_;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLNoteView" guid="NG5Z7HY1B0u65mXk/RYRSAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1256</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">92</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">684</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">1265</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">/// Base class for visible components.
+// 所有可见物体的基类
+class URHO3D_API Drawable : public Component
+{
+    URHO3D_OBJECT(Drawable, Component);
+public:
+    static void RegisterObject(Context* context);
+
+    /// Handle enabled/disabled state change.
+    virtual void OnSetEnabled();
+    /// Process octree raycast. May be called from a worker thread.
+    virtual void ProcessRayQuery(const RayOctreeQuery&amp; query, PODVector&lt;RayQueryResult&gt;&amp; results);
+    /// Update before octree reinsertion. Is called from a worker thread
+    virtual void Update(const FrameInfo&amp; frame) { }
+    /// Calculate distance and prepare batches for rendering. May be called from worker thread(s), possibly re-entrantly.
+    virtual void UpdateBatches(const FrameInfo&amp; frame);
+    /// Prepare geometry for rendering.
+    virtual void UpdateGeometry(const FrameInfo&amp; frame) { }
+
+    /// Return the geometry for a specific LOD level.
+    virtual Geometry* GetLodGeometry(unsigned batchIndex, unsigned level);
+
+    /// Return number of occlusion geometry triangles.
+    virtual unsigned GetNumOccluderTriangles() { return 0; }
+
+    /// Draw to occlusion buffer. Return true if did not run out of triangles.
+    virtual bool DrawOcclusion(OcclusionBuffer* buffer);
+    /// Visualize the component as debug geometry.
+    virtual void DrawDebugGeometry(DebugRenderer* debug, bool depthTest);
+
+    /// Mark for update and octree reinsertion. Update is automatically queued when the drawable's scene node moves or changes scale.
+    void MarkForUpdate();
+
+    /// Return local space bounding box. May not be applicable or properly updated on all drawables.
+    const BoundingBox&amp; GetBoundingBox() const { return boundingBox_; }
+
+    /// Return world-space bounding box.
+    const BoundingBox&amp; GetWorldBoundingBox();
+
+    /// Return whether is in view this frame from any viewport camera. Excludes shadow map cameras.
+    bool IsInView() const;
+    /// Return whether is in view of a specific camera this frame. Pass in a null camera to allow any camera, including shadow map cameras.
+    bool IsInView(Camera* camera) const;
+
+    /// Return draw call source data.
+    const Vector&lt;SourceBatch&gt;&amp; GetBatches() const { return batches_; }
+
+protected:
+    /// Add to octree.
+    void AddToOctree();
+    /// Remove from octree.
+    void RemoveFromOctree();
+
+    /// Move into another octree octant.
+    void SetOctant(Octant* octant) { octant_ = octant; }
+
+    /// World-space bounding box.
+    BoundingBox worldBoundingBox_;
+    /// Local-space bounding box.
+    BoundingBox boundingBox_;
+    /// Draw call source data.
+    Vector&lt;SourceBatch&gt; batches_;
+   
+    Octant* octant_;
+    /// Current zone.
+    Zone* zone_;
+    /// LOD bias.
+    float lodBias_;
+    /// Base pass flags, bit per batch.
+    unsigned basePassFlags_;
+    /// Maximum per-pixel lights.
+    unsigned maxLights_;
+    /// List of cameras from which is seen on the current frame.
+    PODVector&lt;Camera*&gt; viewCameras_;
+    /// First per-pixel light added this frame.
+    Light* firstLight_;
+    /// Per-pixel lights affecting this drawable.
+    PODVector&lt;Light*&gt; lights_;
+    /// Per-vertex lights affecting this drawable.
+    PODVector&lt;Light*&gt; vertexLights_;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>

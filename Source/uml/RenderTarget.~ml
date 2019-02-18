@@ -1,0 +1,1124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="ddA8lXoVs0+xXPoUpr33sgAA">
+<XPD:ATTR name="Title" type="string">RenderTarget</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="1XgaTdeHRkeLSJ1KM1XdJgAA">
+<XPD:ATTR name="Name" type="string">RenderTarget</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">RenderTarget</XPD:ATTR>
+<XPD:REF name="Namespace">ddA8lXoVs0+xXPoUpr33sgAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="mxBwjIZS30CLcTFe07RBnwAA">
+<XPD:ATTR name="Name" type="string">RenderTarget</XPD:ATTR>
+<XPD:REF name="DiagramOwner">1XgaTdeHRkeLSJ1KM1XdJgAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="FzL/VM9WxkOPlYfe9fUe7gAA">
+<XPD:REF name="Diagram">mxBwjIZS30CLcTFe07RBnwAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">47</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="XUjYtVnoGEe8FkMfmxxfBQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">52</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">612</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">418</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void RenderSystem::_updateAllRenderTargets(bool swapBuffers)
+    {
+        // Update all in order of priority
+        // This ensures render-to-texture targets get updated before render windows
+        RenderTargetPriorityMap::iterator itarg, itargend;
+        itargend = mPrioritisedRenderTargets.end();
+        for( itarg = mPrioritisedRenderTargets.begin(); itarg != itargend; ++itarg )
+        {
+            if( itarg-&gt;second-&gt;isActive() &amp;&amp; itarg-&gt;second-&gt;isAutoUpdated())
+                itarg-&gt;second-&gt;update(swapBuffers);
+        }
+    }
+//windown和fbo
+ 正常情况下是手机或电脑上看到的窗口
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="KdJk2L1y4kuXLDXpvt56qAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">556</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">656</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">208</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void RenderTarget::update(bool swap)
+    {
+        updateImpl();
+        if (swap)
+        {
+            swapBuffers();
+        }
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLNoteView" guid="NbwXRnRR/U+yL8rSl/RqcwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">816</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">672</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">227</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void RenderTarget::updateImpl(void)
+    {
+        _beginUpdate();
+        _updateAutoUpdatedViewports(true);
+        _endUpdate();
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLNoteView" guid="Di9/YFT6R02+jQQBmDjsFwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1184</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">488</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">193</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void RenderTarget::_beginUpdate()
+{
+        firePreUpdate();
+ }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLNoteView" guid="yWKTqYeJsku7cFE2Ef2xZwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1504</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">312</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">245</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void RenderTarget::firePreUpdate(void)
+    {
+        RenderTargetEvent evt;
+        evt.source = this;
+        RenderTargetListenerList::iterator i, iend;
+        i = mListeners.begin();
+        iend = mListeners.end();
+        for(; i != iend; ++i)
+        {
+            (*i)-&gt;preRenderTargetUpdate(evt);
+        }
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteLinkView" guid="oWZlLGhEIU6F6+ftG1neXgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">556,719;469,719</XPD:ATTR>
+<XPD:REF name="Head">XUjYtVnoGEe8FkMfmxxfBQAA</XPD:REF>
+<XPD:REF name="Tail">KdJk2L1y4kuXLDXpvt56qAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteLinkView" guid="xgzXKlhIJkSXLe+kGVtmOAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">816,720;763,720</XPD:ATTR>
+<XPD:REF name="Head">KdJk2L1y4kuXLDXpvt56qAAA</XPD:REF>
+<XPD:REF name="Tail">NbwXRnRR/U+yL8rSl/RqcwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteLinkView" guid="tBPl1xudw0aCG/rI9V4jmAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1220,555;1014,672</XPD:ATTR>
+<XPD:REF name="Head">NbwXRnRR/U+yL8rSl/RqcwAA</XPD:REF>
+<XPD:REF name="Tail">Di9/YFT6R02+jQQBmDjsFwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="ttVKShmHxkWs639+6cw79wAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1504,446;1376,489</XPD:ATTR>
+<XPD:REF name="Head">Di9/YFT6R02+jQQBmDjsFwAA</XPD:REF>
+<XPD:REF name="Tail">yWKTqYeJsku7cFE2Ef2xZwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLNoteView" guid="fJinomTOoUudnYdoSl0BXgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1180</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">608</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">377</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void RenderTarget::_updateAutoUpdatedViewports(bool updateStatistics)
+    {
+        ViewportList::iterator it = mViewportList.begin();
+        while (it != mViewportList.end())
+        {
+            Viewport* viewport = (*it).second;
+            if(viewport-&gt;isAutoUpdated())
+            {
+                _updateViewport(viewport,updateStatistics);
+            }
+            ++it;
+        }
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLNoteLinkView" guid="Yqrjs4eAuE+M/XbPLOEoiQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1180,722;1042,721</XPD:ATTR>
+<XPD:REF name="Head">NbwXRnRR/U+yL8rSl/RqcwAA</XPD:REF>
+<XPD:REF name="Tail">fJinomTOoUudnYdoSl0BXgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[11]" type="UMLNoteView" guid="/rHP2lTvG0OqgCWeRPbAtwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1660</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">696</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">420</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">    void RenderTarget::_updateViewport(Viewport* viewport, bool updateStatistics)
+    {
+        fireViewportPreUpdate(viewport);
+        viewport-&gt;update();
+        fireViewportPostUpdate(viewport);
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="BhbrbrUjekieT6uuvgpnHgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1660,736;1556,732</XPD:ATTR>
+<XPD:REF name="Head">fJinomTOoUudnYdoSl0BXgAA</XPD:REF>
+<XPD:REF name="Tail">/rHP2lTvG0OqgCWeRPbAtwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[13]" type="UMLNoteView" guid="qEBxgB9T+kC1pskXIsav7AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2288</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">444</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">310</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">203</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">    void RenderTarget::fireViewportPreUpdate(Viewport* vp)
+    {
+        RenderTargetViewportEvent evt;
+        evt.source = vp;
+
+        RenderTargetListenerList::iterator i, iend;
+        i = mListeners.begin();
+        iend = mListeners.end();
+        for(; i != iend; ++i)
+        {
+            (*i)-&gt;preViewportUpdate(evt);
+        }
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[14]" type="UMLNoteLinkView" guid="/VlWqjxqs0OKRHiMy9/ixQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2288,598;2007,696</XPD:ATTR>
+<XPD:REF name="Head">/rHP2lTvG0OqgCWeRPbAtwAA</XPD:REF>
+<XPD:REF name="Tail">qEBxgB9T+kC1pskXIsav7AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[15]" type="UMLNoteView" guid="GOtz9oJP1UaXOhrKgOLimAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2296</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">672</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">293</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">158</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">    void Viewport::update(void)
+    {
+        if (mCamera)
+        {
+            if (mCamera-&gt;getViewport() != this)
+                mCamera-&gt;_notifyViewport(this);
+
+            mCamera-&gt;_renderScene(this, mShowOverlays);
+        }
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[16]" type="UMLNoteLinkView" guid="dXL3E2Up4kOcg8BwnN4MhwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2296,748;2079,746</XPD:ATTR>
+<XPD:REF name="Head">/rHP2lTvG0OqgCWeRPbAtwAA</XPD:REF>
+<XPD:REF name="Tail">GOtz9oJP1UaXOhrKgOLimAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[17]" type="UMLNoteView" guid="zg44oGtickGUQk8zYggURwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2748</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">628</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">464</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">248</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">    void Camera::_renderScene(Viewport *vp, bool includeOverlays)
+    {
+        ListenerList listenersCopy = mListeners;
+        for (ListenerList::iterator i = listenersCopy.begin(); i != listenersCopy.end(); ++i)
+        {
+            (*i)-&gt;cameraPreRenderScene(this);
+        }
+
+        mSceneMgr-&gt;_renderScene(this, vp, includeOverlays);
+
+        listenersCopy = mListeners;
+        for (ListenerList::iterator i = listenersCopy.begin(); i != listenersCopy.end(); ++i)
+        {
+            (*i)-&gt;cameraPostRenderScene(this);
+        }
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[18]" type="UMLNoteLinkView" guid="qlBsGuPOe0+21f34Maj7VQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2748,751;2588,750</XPD:ATTR>
+<XPD:REF name="Head">GOtz9oJP1UaXOhrKgOLimAAA</XPD:REF>
+<XPD:REF name="Tail">zg44oGtickGUQk8zYggURwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[19]" type="UMLNoteView" guid="lnsvrDbQckC/8jlUAInOkwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3376</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">572</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">479</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">368</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void SceneManager::_renderScene(Camera* camera, Viewport* vp, bool includeOverlays)
+{
+     setViewport(vp);
+     prepareRenderQueue();
+
+    firePreFindVisibleObjects(vp);
+    _findVisibleObjects(camera, &amp;(camVisObjIt-&gt;second),
+                mIlluminationStage == IRS_RENDER_TO_TEXTURE? true : false);
+    firePostFindVisibleObjects(vp);
+
+    mDestRenderSystem-&gt;_beginFrame();
+
+    mDestRenderSystem-&gt;_setPolygonMode(camera-&gt;getPolygonMode());
+    mDestRenderSystem-&gt;_setProjectionMatrix(mCameraInProgress-&gt;getProjectionMatrixRS());
+    mCachedViewMatrix = mCameraInProgress-&gt;getViewMatrix(true);
+    setViewMatrix(mCachedViewMatrix);
+
+        _renderVisibleObjects();  //渲染
+
+    mDestRenderSystem-&gt;_endFrame();
+
+    camera-&gt;_notifyRenderedFaces(mDestRenderSystem-&gt;_getFaceCount());
+    camera-&gt;_notifyRenderedBatches(mDestRenderSystem-&gt;_getBatchCount());
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[20]" type="UMLNoteLinkView" guid="bvd10zuq0k6G8CSswg0eRgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3376,753;3211,752</XPD:ATTR>
+<XPD:REF name="Head">zg44oGtickGUQk8zYggURwAA</XPD:REF>
+<XPD:REF name="Tail">lnsvrDbQckC/8jlUAInOkwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[21]" type="UMLNoteView" guid="yDmgUgt6pki662GdyD06YgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2296</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">860</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">315</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">203</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">    void RenderTarget::fireViewportPostUpdate(Viewport* vp)
+    {
+        RenderTargetViewportEvent evt;
+        evt.source = vp;
+
+        RenderTargetListenerList::iterator i, iend;
+        i = mListeners.begin();
+        iend = mListeners.end();
+        for(; i != iend; ++i)
+        {
+            (*i)-&gt;postViewportUpdate(evt);
+        }
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[22]" type="UMLNoteLinkView" guid="bo26UbSBd0S4VfUANJB4ygAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2296,903;2001,793</XPD:ATTR>
+<XPD:REF name="Head">/rHP2lTvG0OqgCWeRPbAtwAA</XPD:REF>
+<XPD:REF name="Tail">yDmgUgt6pki662GdyD06YgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[23]" type="UMLNoteView" guid="0cxf4TGY6kO3P1mWd8ha0AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1200</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">880</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">185</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void RenderTarget::_endUpdate()
+    {
+        firePostUpdate();
+        updateStats();
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[24]" type="UMLNoteLinkView" guid="YlthSDrfkUChF9N2dugOpwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1218,880;1018,769</XPD:ATTR>
+<XPD:REF name="Head">NbwXRnRR/U+yL8rSl/RqcwAA</XPD:REF>
+<XPD:REF name="Tail">0cxf4TGY6kO3P1mWd8ha0AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[25]" type="UMLNoteView" guid="xr/aSgG43kOTYuEDLendcAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1524</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">952</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">245</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">203</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">    void RenderTarget::firePostUpdate(void)
+    {
+        RenderTargetEvent evt;
+        evt.source = this;
+
+        RenderTargetListenerList::iterator i, iend;
+        i = mListeners.begin();
+        iend = mListeners.end();
+        for(; i != iend; ++i)
+        {
+            (*i)-&gt;postRenderTargetUpdate(evt);
+        }
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[26]" type="UMLNoteLinkView" guid="x7IGQSf9oEKDijfB9Mn1SQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1524,1008;1384,956</XPD:ATTR>
+<XPD:REF name="Head">0cxf4TGY6kO3P1mWd8ha0AAA</XPD:REF>
+<XPD:REF name="Tail">xr/aSgG43kOTYuEDLendcAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[27]" type="UMLClassView" guid="niID3xgCUEeUy49ORhe7AQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">996</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1884</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">252</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">121</XPD:ATTR>
+<XPD:REF name="Model">Ka6VgBPlv0u+X6aagqCbCQAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="lcsF1rE0DUmylWduGfjM6wAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="12jelBo3bUCFvTeGVyGGvQAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Viewport</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="Dgx1B/8HZ0uDFB/g29x2VAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="nPndD30BmUq6r6wjg907NQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="xRPev7RAJE2IIH4JVHzAiAAA">
+<XPD:REF name="Model">Ka6VgBPlv0u+X6aagqCbCQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="x3Rxu0SRck+WIAuqn+XWxAAA">
+<XPD:REF name="Model">Ka6VgBPlv0u+X6aagqCbCQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="T/pE0d2Uj0Kw+ieplKyHiwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">Ka6VgBPlv0u+X6aagqCbCQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[28]" type="UMLClassView" guid="KUoYThoYAkihmMOFFAm/RQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1444</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1832</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">285</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">225</XPD:ATTR>
+<XPD:REF name="Model">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="A8chQJ2udUusoaH92dh4hwAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="9HcQRRp3+UCNLAprfcpC1QAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Camera</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="74PC8ulQKkS63PusqjxcJgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="4qdp0LJB0Ue29NMTVlbmmAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="raZiSpF6zU+jOKFFDUKBwgAA">
+<XPD:REF name="Model">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="0r7iTvy4NEGCNPd5rBEkSgAA">
+<XPD:REF name="Model">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="hkenV66WYUOVH/T1gOQVAgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[29]" type="UMLClassView" guid="+wMt0aOQUEGhutXRnoYu/AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1480</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1488</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">215</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">264</XPD:ATTR>
+<XPD:REF name="Model">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="KDOkeJ+3qU2lgK4PSwjB1gAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="eUvPhTcng0SEjiyWOrQxggAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Frustum</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="nNB7/k6Pz0y0Tx+mR5EuuQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="aj4KzWwG0Ui54nnb0GJCGgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="dP6GnW6wN0SKnHPPUXHIPQAA">
+<XPD:REF name="Model">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="MGjTZPfJBEmPtQYsECIyHgAA">
+<XPD:REF name="Model">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="nX7zrl/j5Eysjy7NuVu8NgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[30]" type="UMLGeneralizationView" guid="oofOrZQUIE28PxOwHcb50gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1586,1832;1586,1751</XPD:ATTR>
+<XPD:REF name="Model">CCep0R3UuEOA6DKcLsL1EAAA</XPD:REF>
+<XPD:REF name="Head">+wMt0aOQUEGhutXRnoYu/AAA</XPD:REF>
+<XPD:REF name="Tail">KUoYThoYAkihmMOFFAm/RQAA</XPD:REF>
+<XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="7q/qYG0HPEKsiyQ1etFudAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
+<XPD:REF name="Model">CCep0R3UuEOA6DKcLsL1EAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="JycXuhgrdUSVh9nX7ISXmAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">30</XPD:ATTR>
+<XPD:REF name="Model">CCep0R3UuEOA6DKcLsL1EAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="EdgeLabelView" guid="0sAel53370CSURR2PQUzpgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
+<XPD:REF name="Model">CCep0R3UuEOA6DKcLsL1EAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[31]" type="UMLAssociationView" guid="3Cl+Clygw0eBdUaj/gsh1AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1247,1944;1444,1944</XPD:ATTR>
+<XPD:REF name="Model">SqOgp19VO0ealxqEkDjaCgAA</XPD:REF>
+<XPD:REF name="Head">KUoYThoYAkihmMOFFAm/RQAA</XPD:REF>
+<XPD:REF name="Tail">niID3xgCUEeUy49ORhe7AQAA</XPD:REF>
+<XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="8/8nMMKFGkWX2KSaOV/oTQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
+<XPD:REF name="Model">SqOgp19VO0ealxqEkDjaCgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="zJ53H/erl0KYHb0/Z0k1RgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">30</XPD:ATTR>
+<XPD:REF name="Model">SqOgp19VO0ealxqEkDjaCgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="EdgeLabelView" guid="qkJxX9ZGqkW02hrxh0rNHgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
+<XPD:REF name="Model">SqOgp19VO0ealxqEkDjaCgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="HeadRoleNameLabel" type="EdgeLabelView" guid="8th8LW4FuE+YC48BPYTBvgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-0.523598775598299</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">30</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epHead</XPD:ATTR>
+<XPD:REF name="Model">jav6J4cf40O7g+VTFeLH0AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TailRoleNameLabel" type="EdgeLabelView" guid="mlMQsseNmEikTzmkmlwF8AAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">0.523598775598299</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">30</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epTail</XPD:ATTR>
+<XPD:REF name="Model">CsmzQtc7JU26QcCETXTAegAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="HeadMultiplicityLabel" type="EdgeLabelView" guid="sU2T66TDz0Gh2YS9vrXyTQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">0.523598775598299</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epHead</XPD:ATTR>
+<XPD:REF name="Model">jav6J4cf40O7g+VTFeLH0AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TailMultiplicityLabel" type="EdgeLabelView" guid="I5p7Z5opnkOLsLD2S6gb2AAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-0.523598775598299</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epTail</XPD:ATTR>
+<XPD:REF name="Model">CsmzQtc7JU26QcCETXTAegAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="HeadPropertyLabel" type="EdgeLabelView" guid="yWSN8PdDWkC1UBhhII8kpgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-0.785398163397448</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">40</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epHead</XPD:ATTR>
+<XPD:REF name="Model">jav6J4cf40O7g+VTFeLH0AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TailPropertyLabel" type="EdgeLabelView" guid="Us9Zee2DXUy+PO9vUzub0gAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">0.785398163397448</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">40</XPD:ATTR>
+<XPD:ATTR name="EdgePosition" type="EdgePositionKind">epTail</XPD:ATTR>
+<XPD:REF name="Model">CsmzQtc7JU26QcCETXTAegAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="HeadQualifierCompartment" type="UMLQualifierCompartmentView" guid="JawquEktEkuTCmn/gzvnJQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">-928</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">-772</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">50</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">8</XPD:ATTR>
+<XPD:REF name="Model">jav6J4cf40O7g+VTFeLH0AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TailQualifierCompartment" type="UMLQualifierCompartmentView" guid="TQX8y6tfwky4NtHiwdTbagAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">-928</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">-772</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">50</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">8</XPD:ATTR>
+<XPD:REF name="Model">CsmzQtc7JU26QcCETXTAegAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[32]" type="UMLNoteView" guid="wPLKhkSMaEeWIoG5Lob5oQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1848</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1336</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">499</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Frustum::updateViewImpl(void) const
+{
+        if (!mCustomViewMatrix)
+        {
+            Matrix3 rot;
+            const Quaternion&amp; orientation = getOrientationForViewUpdate();
+            const Vector3&amp; position = getPositionForViewUpdate();
+
+            mViewMatrix = Math::makeViewMatrix(position, orientation, mReflect? &amp;mReflectMatrix : 0);
+        }
+ }
+//计算 mViewMatrix
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[33]" type="UMLNoteLinkView" guid="eQimz0MXJEy128QnMPQZkAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1848,1522;1694,1579</XPD:ATTR>
+<XPD:REF name="Head">+wMt0aOQUEGhutXRnoYu/AAA</XPD:REF>
+<XPD:REF name="Tail">wPLKhkSMaEeWIoG5Lob5oQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[34]" type="UMLNoteView" guid="g6R4b5xGiEuGQHsyMdTGSQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1920</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1544</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">267</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">203</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//根据公式计算 mProjMatrix
+void Frustum::updateFrustumImpl(void) const
+{
+        if (!mCustomProjMatrix)
+        {
+            if (mProjType == PT_PERSPECTIVE)
+            {
+            } // perspective
+            else if (mProjType == PT_ORTHOGRAPHIC)
+            {
+            } // ortho            
+        } // !mCustomProjMatrix
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[35]" type="UMLNoteLinkView" guid="IKJIjCy91Ui8Qz2jPFNYeAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1920,1638;1694,1625</XPD:ATTR>
+<XPD:REF name="Head">+wMt0aOQUEGhutXRnoYu/AAA</XPD:REF>
+<XPD:REF name="Tail">g6R4b5xGiEuGQHsyMdTGSQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[36]" type="UMLNoteView" guid="yBzK0foLL0iUaiMbPnSt1gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1856</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1764</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">271</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Frustum::updateFrustumPlanesImpl(void) const
+{
+    //根据  mProjMatrix * mViewMatrix计算 六面体
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[37]" type="UMLNoteLinkView" guid="TmtAyYy8r06ovqVyDo4BtAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1916,1764;1694,1666</XPD:ATTR>
+<XPD:REF name="Head">+wMt0aOQUEGhutXRnoYu/AAA</XPD:REF>
+<XPD:REF name="Tail">yBzK0foLL0iUaiMbPnSt1gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[38]" type="UMLNoteView" guid="W+M4b9SrjEqVPMkSeBo0LgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1904</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1904</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">272</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Camera::lookAt(const Vector3&amp; targetPoint)
+    {
+        updateView();
+        this-&gt;setDirection(targetPoint - mRealPosition);
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[39]" type="UMLNoteLinkView" guid="kOMHu3DAw0CB2Kj4PdZUrQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1904,1945;1728,1944</XPD:ATTR>
+<XPD:REF name="Head">KUoYThoYAkihmMOFFAm/RQAA</XPD:REF>
+<XPD:REF name="Tail">W+M4b9SrjEqVPMkSeBo0LgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[40]" type="UMLNoteView" guid="YOdjjnDRkkma9QxbBAAUcwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1036</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2436</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">521</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ApplicationContext::createDummyScene()
+{
+    mWindows[0].render-&gt;removeAllViewports();
+    Ogre::SceneManager* sm = mRoot-&gt;createSceneManager(&quot;DefaultSceneManager&quot;, &quot;DummyScene&quot;);
+    sm-&gt;addRenderQueueListener(mOverlaySystem);
+    Ogre::Camera* cam = sm-&gt;createCamera(&quot;DummyCamera&quot;);
+    mWindows[0].render-&gt;addViewport(cam);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[41]" type="UMLNoteView" guid="m6qJqeZ/HEK2SK9pOyszfwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1652</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2416</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">446</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">    Viewport* RenderTarget::addViewport(Camera* cam, int ZOrder, float left, float top ,
+        float width , float height)
+    {       
+        Viewport* vp = OGRE_NEW Viewport(cam, this, left, top, width, height, ZOrder);
+
+        mViewportList.insert(ViewportList::value_type(ZOrder, vp));
+
+        fireViewportAdded(vp);
+
+        return vp;
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[42]" type="UMLNoteLinkView" guid="irKOOKIR2k+WdZNO//hgnwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1652,2501;1556,2500</XPD:ATTR>
+<XPD:REF name="Head">YOdjjnDRkkma9QxbBAAUcwAA</XPD:REF>
+<XPD:REF name="Tail">m6qJqeZ/HEK2SK9pOyszfwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[43]" type="UMLNoteView" guid="eOlzbrACoki+TsZIWOhAiAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2184</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2364</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">487</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void SceneManager::_renderScene(Camera* camera, Viewport* vp, bool includeOverlays)
+{
+        mDestRenderSystem-&gt;_setProjectionMatrix(mCameraInProgress-&gt;getProjectionMatrixRS())
+        //设置投影矩阵
+        setViewMatrix(mCachedViewMatrix);
+        //设置视图矩阵
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[44]" type="UMLNoteLinkView" guid="QUp9AVkzsU67nNO/cQdagQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2184,2456;2097,2469</XPD:ATTR>
+<XPD:REF name="Head">m6qJqeZ/HEK2SK9pOyszfwAA</XPD:REF>
+<XPD:REF name="Tail">eOlzbrACoki+TsZIWOhAiAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[45]" type="UMLNoteView" guid="Kp1WKuJ5A0G//6P5l8DGuAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2256</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2524</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">341</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void SceneManager::setViewMatrix(const Matrix4&amp; m)
+{
+    mDestRenderSystem-&gt;_setViewMatrix(m);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[46]" type="UMLNoteLinkView" guid="8uK68a+8n0iLyI87VvziBgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2426,2524;2426,2476</XPD:ATTR>
+<XPD:REF name="Head">eOlzbrACoki+TsZIWOhAiAAA</XPD:REF>
+<XPD:REF name="Tail">Kp1WKuJ5A0G//6P5l8DGuAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#OwnedElements" type="integer">5</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLClass" guid="Ka6VgBPlv0u+X6aagqCbCQAA">
+<XPD:ATTR name="Name" type="string">Viewport</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Viewport</XPD:ATTR>
+<XPD:REF name="Namespace">1XgaTdeHRkeLSJ1KM1XdJgAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">niID3xgCUEeUy49ORhe7AQAA</XPD:REF>
+<XPD:REF name="Views[1]">xRPev7RAJE2IIH4JVHzAiAAA</XPD:REF>
+<XPD:REF name="Views[2]">x3Rxu0SRck+WIAuqn+XWxAAA</XPD:REF>
+<XPD:REF name="Views[3]">T/pE0d2Uj0Kw+ieplKyHiwAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">3</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="6BfEPRAjDEyStQFDfiJOwAAA">
+<XPD:ATTR name="Name" type="string">void update</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">void update</XPD:ATTR>
+<XPD:REF name="Owner">Ka6VgBPlv0u+X6aagqCbCQAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="TMgwIGSUhU2C+AYhFo2WRQAA">
+<XPD:ATTR name="Name" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">6BfEPRAjDEyStQFDfiJOwAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="h9pbXQtApkW2UvSex0LnrAAA">
+<XPD:ATTR name="Name" type="string">Camera* getCamera</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Camera* getCamera</XPD:ATTR>
+<XPD:REF name="Owner">Ka6VgBPlv0u+X6aagqCbCQAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="Lmm7VAujq0m9eaBL/+DlawAA">
+<XPD:ATTR name="Name" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">h9pbXQtApkW2UvSex0LnrAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[2]" type="UMLOperation" guid="Pd2ut5OKeUyi6MYZKk7R7gAA">
+<XPD:ATTR name="Name" type="string">void setCamera</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">void setCamera</XPD:ATTR>
+<XPD:REF name="Owner">Ka6VgBPlv0u+X6aagqCbCQAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="wk+I/FiDV06GRlBujWJ+TwAA">
+<XPD:ATTR name="Name" type="string">Camera* cam</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Pd2ut5OKeUyi6MYZKk7R7gAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#Associations" type="integer">1</XPD:ATTR>
+<XPD:REF name="Associations[0]">CsmzQtc7JU26QcCETXTAegAA</XPD:REF>
+<XPD:ATTR name="#Attributes" type="integer">3</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="Gy/44uOPbkGyIgq5Tl+JuwAA">
+<XPD:ATTR name="Name" type="string">Camera* mCamera</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Camera* mCamera</XPD:ATTR>
+<XPD:REF name="Owner">Ka6VgBPlv0u+X6aagqCbCQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="waRocQECKkKTSGh8mQ9jSQAA">
+<XPD:ATTR name="Name" type="string">RenderTarget* mTarget</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">RenderTarget* mTarget</XPD:ATTR>
+<XPD:REF name="Owner">Ka6VgBPlv0u+X6aagqCbCQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="XnHo9CBu2EyK5huWbCXPPAAA">
+<XPD:ATTR name="Name" type="string">float mRelLeft, mRelTop, mRelWidth, mRelHeight</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">float mRelLeft, mRelTop, mRelWidth, mRelHeight</XPD:ATTR>
+<XPD:REF name="Owner">Ka6VgBPlv0u+X6aagqCbCQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[1]" type="UMLClass" guid="sUB+J8S5Bk67b4+cUyPqVgAA">
+<XPD:ATTR name="Name" type="string">Camera</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Frustum</XPD:ATTR>
+<XPD:REF name="Namespace">1XgaTdeHRkeLSJ1KM1XdJgAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">KUoYThoYAkihmMOFFAm/RQAA</XPD:REF>
+<XPD:REF name="Views[1]">raZiSpF6zU+jOKFFDUKBwgAA</XPD:REF>
+<XPD:REF name="Views[2]">0r7iTvy4NEGCNPd5rBEkSgAA</XPD:REF>
+<XPD:REF name="Views[3]">hkenV66WYUOVH/T1gOQVAgAA</XPD:REF>
+<XPD:ATTR name="#Generalizations" type="integer">1</XPD:ATTR>
+<XPD:REF name="Generalizations[0]">CCep0R3UuEOA6DKcLsL1EAAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">3</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="i21RW35C4keZ/yHoG2GDGAAA">
+<XPD:ATTR name="Name" type="string">void lookAt</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">void lookAt</XPD:ATTR>
+<XPD:REF name="Owner">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="TdLu2vmNfUChKo7xlRgwogAA">
+<XPD:ATTR name="Name" type="string">const Vector3&amp; targetPoint</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">i21RW35C4keZ/yHoG2GDGAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="7i6MCjyt2UChT1RO56oO4QAA">
+<XPD:ATTR name="Name" type="string">void _renderScene</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">void _renderScene</XPD:ATTR>
+<XPD:REF name="Owner">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="q5vxpZLHxE+SLWVM03nHgAAA">
+<XPD:ATTR name="Name" type="string">Viewport *vp</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">7i6MCjyt2UChT1RO56oO4QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="xPbZyDvxv0yTQN9sBFPSuwAA">
+<XPD:ATTR name="Name" type="string">bool includeOverlays</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">7i6MCjyt2UChT1RO56oO4QAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[2]" type="UMLOperation" guid="eXbiCTAY80SubPa1CcskJQAA">
+<XPD:ATTR name="Name" type="string">void _autoTrack</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">void _autoTrack</XPD:ATTR>
+<XPD:REF name="Owner">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="V+9hR+tDKUGyjqoX54MKjAAA">
+<XPD:ATTR name="Name" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">eXbiCTAY80SubPa1CcskJQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#Associations" type="integer">1</XPD:ATTR>
+<XPD:REF name="Associations[0]">jav6J4cf40O7g+VTFeLH0AAA</XPD:REF>
+<XPD:ATTR name="#Attributes" type="integer">11</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="iP15lG99WUupMyIiWpBKsgAA">
+<XPD:ATTR name="Name" type="string">SceneManager *mSceneMgr</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">SceneManager *mSceneMgr</XPD:ATTR>
+<XPD:REF name="Owner">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="v7Oiq+F7fUusjvumwIHDkQAA">
+<XPD:ATTR name="Name" type="string">Quaternion mOrientation</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Quaternion mOrientation</XPD:ATTR>
+<XPD:REF name="Owner">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="FLst4gAHYkKgC1vg1a/PXwAA">
+<XPD:ATTR name="Name" type="string">Vector3 mPosition</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Vector3 mPosition</XPD:ATTR>
+<XPD:REF name="Owner">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="XP7CborAwEGAucT8VQZWtwAA">
+<XPD:ATTR name="Name" type="string">mutable Quaternion mDerivedOrientation</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">mutable Quaternion mDerivedOrientation</XPD:ATTR>
+<XPD:REF name="Owner">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="XXbMe+jFlUSZ6DOMnqAeZwAA">
+<XPD:ATTR name="Name" type="string">mutable Vector3 mDerivedPosition</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">mutable Vector3 mDerivedPosition</XPD:ATTR>
+<XPD:REF name="Owner">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[5]" type="UMLAttribute" guid="RQXrvufQs0aFiajgTAktBwAA">
+<XPD:ATTR name="Name" type="string">mutable Quaternion mRealOrientation</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">mutable Quaternion mRealOrientation</XPD:ATTR>
+<XPD:REF name="Owner">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[6]" type="UMLAttribute" guid="Q9ePdITPhUyAZnhyqaE5OwAA">
+<XPD:ATTR name="Name" type="string">mutable Vector3 mRealPosition</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">mutable Vector3 mRealPosition</XPD:ATTR>
+<XPD:REF name="Owner">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[7]" type="UMLAttribute" guid="ZQraBmclh0+krNMSS8v4owAA">
+<XPD:ATTR name="Name" type="string">Viewport* mLastViewport</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Viewport* mLastViewport</XPD:ATTR>
+<XPD:REF name="Owner">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[8]" type="UMLAttribute" guid="KoYMdgrPFUCkYU57kzE4lQAA">
+<XPD:ATTR name="Name" type="string">Frustum *mCullFrustum</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Frustum *mCullFrustum</XPD:ATTR>
+<XPD:REF name="Owner">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[9]" type="UMLAttribute" guid="XMWe4oWUnE2vN9A5x4nlBgAA">
+<XPD:ATTR name="Name" type="string">const Camera* mLodCamera</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">const Camera* mLodCamera</XPD:ATTR>
+<XPD:REF name="Owner">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[10]" type="UMLAttribute" guid="AWlLdbGJqEWCWyuWrRdTrgAA">
+<XPD:ATTR name="Name" type="string">Real mPixelDisplayRatio</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Real mPixelDisplayRatio</XPD:ATTR>
+<XPD:REF name="Owner">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[2]" type="UMLClass" guid="eJOBXmp9LkatpBvcy6oQAwAA">
+<XPD:ATTR name="Name" type="string">Frustum</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Frustum</XPD:ATTR>
+<XPD:REF name="Namespace">1XgaTdeHRkeLSJ1KM1XdJgAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">+wMt0aOQUEGhutXRnoYu/AAA</XPD:REF>
+<XPD:REF name="Views[1]">dP6GnW6wN0SKnHPPUXHIPQAA</XPD:REF>
+<XPD:REF name="Views[2]">MGjTZPfJBEmPtQYsECIyHgAA</XPD:REF>
+<XPD:REF name="Views[3]">nX7zrl/j5Eysjy7NuVu8NgAA</XPD:REF>
+<XPD:ATTR name="#Specializations" type="integer">1</XPD:ATTR>
+<XPD:REF name="Specializations[0]">CCep0R3UuEOA6DKcLsL1EAAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">6</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="10/nCF9G3kGq4nL9P3qHNAAA">
+<XPD:ATTR name="Name" type="string">void updateFrustum</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">void updateFrustum</XPD:ATTR>
+<XPD:REF name="Owner">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="dPJw2yC7vEWK6ozUHvqACgAA">
+<XPD:ATTR name="Name" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">10/nCF9G3kGq4nL9P3qHNAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="boF/0GKu7UCp8gn/kx4JfAAA">
+<XPD:ATTR name="Name" type="string">virtual void updateFrustumImpl</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">virtual void updateFrustumImpl</XPD:ATTR>
+<XPD:REF name="Owner">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="Oxjwy/r0dU+ihV32NjDfPgAA">
+<XPD:ATTR name="Name" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">boF/0GKu7UCp8gn/kx4JfAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[2]" type="UMLOperation" guid="iiwQjBDOFkCQC8Iw1xBwbQAA">
+<XPD:ATTR name="Name" type="string">void updateView</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">void updateView</XPD:ATTR>
+<XPD:REF name="Owner">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="Fc+4sLGjvEW0hlBVhvUN/gAA">
+<XPD:ATTR name="Name" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">iiwQjBDOFkCQC8Iw1xBwbQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[3]" type="UMLOperation" guid="ymLyk+nafkaRsFWJneESTwAA">
+<XPD:ATTR name="Name" type="string">virtual void updateViewImpl</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">virtual void updateViewImpl</XPD:ATTR>
+<XPD:REF name="Owner">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="JKjrF/JEF0KPGcy5sd7LxAAA">
+<XPD:ATTR name="Name" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">ymLyk+nafkaRsFWJneESTwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[4]" type="UMLOperation" guid="TKa/pzeRuESqtEa5Azuo4gAA">
+<XPD:ATTR name="Name" type="string">const Matrix4&amp; getProjectionMatrix</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">const Matrix4&amp; getProjectionMatrix</XPD:ATTR>
+<XPD:REF name="Owner">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="2qBYadyhQEuNEnvfm951xgAA">
+<XPD:ATTR name="Name" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">TKa/pzeRuESqtEa5Azuo4gAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[5]" type="UMLOperation" guid="9C9XEqKHq0S7StwJKVxjJQAA">
+<XPD:ATTR name="Name" type="string">const Matrix4&amp; getViewMatrix</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">const Matrix4&amp; getViewMatrix</XPD:ATTR>
+<XPD:REF name="Owner">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="79XI+uhH8kq/S4wmC9w/RQAA">
+<XPD:ATTR name="Name" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">9C9XEqKHq0S7StwJKVxjJQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#Attributes" type="integer">11</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="Gt1HjxHt8ky2XynS/QFxnAAA">
+<XPD:ATTR name="Name" type="string">ProjectionType mProjType</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">ProjectionType mProjType</XPD:ATTR>
+<XPD:REF name="Owner">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="4sVY4tBEDEaWAPvN9UWYbwAA">
+<XPD:ATTR name="Name" type="string">Radian mFOVy</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Radian mFOVy</XPD:ATTR>
+<XPD:REF name="Owner">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="o8p044wa3kmZBj6nfhuyNgAA">
+<XPD:ATTR name="Name" type="string">Real mFarDist</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Real mFarDist</XPD:ATTR>
+<XPD:REF name="Owner">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="Tb4n2/dHs0eKqaSdyMZ9iQAA">
+<XPD:ATTR name="Name" type="string">Real mNearDist</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Real mNearDist</XPD:ATTR>
+<XPD:REF name="Owner">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="WwEgBkVW/UeZ2sxbjDBhAQAA">
+<XPD:ATTR name="Name" type="string">Real mAspect</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Real mAspect</XPD:ATTR>
+<XPD:REF name="Owner">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[5]" type="UMLAttribute" guid="LAFdCXvKmUelS7dxNE0a7gAA">
+<XPD:ATTR name="Name" type="string">Real mOrthoHeight</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Real mOrthoHeight</XPD:ATTR>
+<XPD:REF name="Owner">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[6]" type="UMLAttribute" guid="aza+A1rW60KdvG8CYx4bNgAA">
+<XPD:ATTR name="Name" type="string">Vector2 mFrustumOffset</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Vector2 mFrustumOffset</XPD:ATTR>
+<XPD:REF name="Owner">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[7]" type="UMLAttribute" guid="DspBONETZkC9NXwEbINq9gAA">
+<XPD:ATTR name="Name" type="string">Real mFocalLength</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Real mFocalLength</XPD:ATTR>
+<XPD:REF name="Owner">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[8]" type="UMLAttribute" guid="Rs89/ARw7Uiqudx8URw71gAA">
+<XPD:ATTR name="Name" type="string">mutable Plane mFrustumPlanes</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">mutable Plane mFrustumPlanes</XPD:ATTR>
+<XPD:ATTR name="Multiplicity" type="string">6</XPD:ATTR>
+<XPD:REF name="Owner">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[9]" type="UMLAttribute" guid="y+WERAQGCEGQkfBouNKvXAAA">
+<XPD:ATTR name="Name" type="string">mutable Matrix4 mProjMatrix</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">mutable Matrix4 mProjMatrix</XPD:ATTR>
+<XPD:REF name="Owner">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[10]" type="UMLAttribute" guid="TEPUUfep9EmnhyTzg+hC8gAA">
+<XPD:ATTR name="Name" type="string">mutable Matrix4 mViewMatrix</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">mutable Matrix4 mViewMatrix</XPD:ATTR>
+<XPD:REF name="Owner">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[3]" type="UMLGeneralization" guid="CCep0R3UuEOA6DKcLsL1EAAA">
+<XPD:REF name="Namespace">1XgaTdeHRkeLSJ1KM1XdJgAA</XPD:REF>
+<XPD:REF name="Child">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+<XPD:REF name="Parent">eJOBXmp9LkatpBvcy6oQAwAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">oofOrZQUIE28PxOwHcb50gAA</XPD:REF>
+<XPD:REF name="Views[1]">7q/qYG0HPEKsiyQ1etFudAAA</XPD:REF>
+<XPD:REF name="Views[2]">JycXuhgrdUSVh9nX7ISXmAAA</XPD:REF>
+<XPD:REF name="Views[3]">0sAel53370CSURR2PQUzpgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[4]" type="UMLAssociation" guid="SqOgp19VO0ealxqEkDjaCgAA">
+<XPD:REF name="Namespace">1XgaTdeHRkeLSJ1KM1XdJgAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">3Cl+Clygw0eBdUaj/gsh1AAA</XPD:REF>
+<XPD:REF name="Views[1]">8/8nMMKFGkWX2KSaOV/oTQAA</XPD:REF>
+<XPD:REF name="Views[2]">zJ53H/erl0KYHb0/Z0k1RgAA</XPD:REF>
+<XPD:REF name="Views[3]">qkJxX9ZGqkW02hrxh0rNHgAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="CsmzQtc7JU26QcCETXTAegAA">
+<XPD:ATTR name="IsNavigable" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Association">SqOgp19VO0ealxqEkDjaCgAA</XPD:REF>
+<XPD:REF name="Participant">Ka6VgBPlv0u+X6aagqCbCQAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">mlMQsseNmEikTzmkmlwF8AAA</XPD:REF>
+<XPD:REF name="Views[1]">Us9Zee2DXUy+PO9vUzub0gAA</XPD:REF>
+<XPD:REF name="Views[2]">I5p7Z5opnkOLsLD2S6gb2AAA</XPD:REF>
+<XPD:REF name="Views[3]">TQX8y6tfwky4NtHiwdTbagAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="jav6J4cf40O7g+VTFeLH0AAA">
+<XPD:REF name="Association">SqOgp19VO0ealxqEkDjaCgAA</XPD:REF>
+<XPD:REF name="Participant">sUB+J8S5Bk67b4+cUyPqVgAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">8th8LW4FuE+YC48BPYTBvgAA</XPD:REF>
+<XPD:REF name="Views[1]">yWSN8PdDWkC1UBhhII8kpgAA</XPD:REF>
+<XPD:REF name="Views[2]">sU2T66TDz0Gh2YS9vrXyTQAA</XPD:REF>
+<XPD:REF name="Views[3]">JawquEktEkuTCmn/gzvnJQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>

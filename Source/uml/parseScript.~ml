@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="swVKpcLqtUusgLv4GpjKwgAA">
+<XPD:ATTR name="Title" type="string">parseScript</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="Urz58gIygkilKyHoRW7EbQAA">
+<XPD:ATTR name="Name" type="string">parseScript</XPD:ATTR>
+<XPD:REF name="Namespace">swVKpcLqtUusgLv4GpjKwgAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="h/EkyoaKj0S0TH9zmUWugAAA">
+<XPD:ATTR name="Name" type="string">parseScript</XPD:ATTR>
+<XPD:REF name="DiagramOwner">Urz58gIygkilKyHoRW7EbQAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="tfdrx0NhWkSsuz5WeSLL9AAA">
+<XPD:REF name="Diagram">h/EkyoaKj0S0TH9zmUWugAAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">34</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="Ee9D2OYyvUSj8usg1lZSLwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">60</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">136</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">453</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">273</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ResourceGroupManager::initialiseResourceGroup(const String&amp; name)
+    {
+       //找出当前组，判断是否已经初始化过
+        ResourceGroup* grp = getResourceGroup(name);
+       
+        if (grp-&gt;groupStatus == ResourceGroup::UNINITIALSED)
+        {
+            // 把当前组设置为正在初始化
+            grp-&gt;groupStatus = ResourceGroup::INITIALISING;
+            // 开始解析
+            parseResourceGroupScripts(grp);
+            mCurrentGroup = grp;
+            createDeclaredResources(grp);
+            grp-&gt;groupStatus = ResourceGroup::INITIALISED;
+            mCurrentGroup = 0;
+        }
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="CArTtSrfokSsUOLU7uy/tAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">40</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">416</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">30</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Ogre::ResourceGroupManager::getSingleton().initialiseResourceGroup(&quot;General&quot;);
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLNoteLinkView" guid="8bMF8KOnPU2K1QePnygiMQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">279,136;276,69</XPD:ATTR>
+<XPD:REF name="Head">CArTtSrfokSsUOLU7uy/tAAA</XPD:REF>
+<XPD:REF name="Tail">Ee9D2OYyvUSj8usg1lZSLwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLNoteView" guid="yOh4vppnw0yTM9ByjYsE3wAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">604</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">28</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">560</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">668</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ResourceGroupManager::parseResourceGroupScripts(ResourceGroup* grp) const
+    {
+        ScriptLoaderFileList scriptLoaderFileList;
+
+//mScriptLoaderOrderMap
+//[90]==&gt;&gt;ScriptCompilerManager
+                    mScriptPatterns ==&gt;&gt;
+                                                         &quot;*.program&quot;  &quot;*.material&quot; &quot;*.particle&quot;  &quot;*.compositor&quot;  &quot;*.os&quot;
+//[99]==&gt;&gt;CgFxScriptLoader
+//                  mScriptPatterns ==&gt;&gt;
+                                                         &quot;*.cgfx&quot;
+//[110]==&gt;&gt;Quake3ShaderManager
+//                  mScriptPatterns ==&gt;&gt;
+                                                         &quot;*.shader&quot;
+//[200]==&gt;&gt;FontManager
+//                  mScriptPatterns ==&gt;&gt;
+                                                         &quot;*.fontdef&quot;
+//[200]==&gt;&gt;OverlayManager
+//                  mScriptPatterns ==&gt;&gt;
+                                                         &quot;*.overlay&quot;
+       //找出默认需要解析的文件
+        for (oi = mScriptLoaderOrderMap.begin(); oi != mScriptLoaderOrderMap.end(); ++oi)
+        {
+          //su = ScriptCompilerManager/CgFxScriptLoader/Quake3ShaderManager/FontManager/OverlayManager
+            ScriptLoader* su = oi-&gt;second;
+            // MEMCATEGORY_GENERAL is the only category supported for SharedPtr
+            FileListListPtr fileListList(OGRE_NEW_T(FileListList, MEMCATEGORY_GENERAL)(), SPFM_DELETE_T);
+
+            // Get all the patterns and search them
+            const StringVector&amp; patterns = su-&gt;getScriptPatterns();
+            for (StringVector::const_iterator p = patterns.begin(); p != patterns.end(); ++p)
+            {
+                //p =  &quot;*.program&quot;  &quot;*.material&quot; &quot;*.particle&quot;  &quot;*.compositor&quot;  &quot;*.os&quot;
+                FileInfoListPtr fileList = findResourceFileInfo(grp-&gt;name, *p);
+                scriptCount += fileList-&gt;size();
+                fileListList-&gt;push_back(fileList);
+            }
+            scriptLoaderFileList.push_back( LoaderFileListPair(su, fileListList));
+        }
+        // Fire scripting event
+        fireResourceGroupScriptingStarted(grp-&gt;name, scriptCount);
+
+       ...............................................
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLNoteView" guid="TZda6/tmjkSrTId7jPcXvgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1252</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">44</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">562</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">623</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ResourceGroupManager::parseResourceGroupScripts(ResourceGroup* grp) const
+   { 
+            ..............................
+// Iterate over scripts and parse
+       
+        for (ScriptLoaderFileList::iterator slfli = scriptLoaderFileList.begin();slfli != scriptLoaderFileList.end(); ++slfli)
+        {
+          //su = ScriptCompilerManager/CgFxScriptLoader/Quake3ShaderManager/FontManager/OverlayManager
+            ScriptLoader* su = slfli-&gt;first;
+            // Iterate over each list
+            for (FileListList::iterator flli = slfli-&gt;second-&gt;begin(); flli != slfli-&gt;second-&gt;end(); ++flli)
+            {
+                // Iterate over each item in the list
+                for (FileInfoList::iterator fii = (*flli)-&gt;begin(); fii != (*flli)-&gt;end(); ++fii)
+                {
+                    bool skipScript = false;
+                    fireScriptStarted(fii-&gt;filename, skipScript);
+                    {
+                       //读取文件二进制数据，开始解析  filename == &quot;Sinbad.material&quot; 为例
+                        DataStreamPtr stream = fii-&gt;archive-&gt;open(fii-&gt;filename);
+                        if (stream)
+                        {
+                            if (mLoadingListener)
+                                mLoadingListener-&gt;resourceStreamOpened(fii-&gt;filename, grp-&gt;name, 0, stream);
+
+                            if(fii-&gt;archive-&gt;getType() == &quot;FileSystem&quot; &amp;&amp; stream-&gt;size() &lt;= 1024 * 1024)
+                            {
+                                DataStreamPtr cachedCopy(OGRE_NEW MemoryDataStream(stream-&gt;getName(), stream));
+                                su-&gt;parseScript(cachedCopy, grp-&gt;name);
+                            }
+                            else
+                                su-&gt;parseScript(stream, grp-&gt;name);
+                        }
+                    }
+                    fireScriptEnded(fii-&gt;filename, skipScript);
+                }
+            }
+        }
+
+        fireResourceGroupScriptingEnded(grp-&gt;name);
+   }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="pZez9/ZPLEGk9YEhfNngVAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1920</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">610</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">278</XPD:ATTR>
+<XPD:ATTR name="Text" type="string"> void ScriptCompilerManager::parseScript(DataStreamPtr&amp; stream, const String&amp; groupName)
+    {
+#if OGRE_THREAD_SUPPORT
+        // check we have an instance for this thread (should always have one for main thread)
+        if (!OGRE_THREAD_POINTER_GET(mScriptCompiler))
+        {
+            // create a new instance for this thread - will get deleted when
+            // the thread dies
+            OGRE_THREAD_POINTER_SET(mScriptCompiler, OGRE_NEW ScriptCompiler());
+        }
+#endif
+        // Set the listener on the compiler before we continue
+        {
+                    OGRE_LOCK_AUTO_MUTEX;
+            OGRE_THREAD_POINTER_GET(mScriptCompiler)-&gt;setListener(mListener);
+        }
+        OGRE_THREAD_POINTER_GET(mScriptCompiler)-&gt;compile(stream-&gt;getAsString(), stream-&gt;getName(), groupName);
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteView" guid="LJP+h7L6ikePosIfG+zw3QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2004</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">340</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">456</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">357</XPD:ATTR>
+<XPD:ATTR name="Text" type="string"> bool ScriptCompiler::compile(const String &amp;str, const String &amp;source, const String &amp;group)
+    {
+        ConcreteNodeListPtr nodes = ScriptParser::parse(ScriptLexer::tokenize(str, source));
+        return compile(nodes, group);
+    }
+
+//nodes[12] ===&gt;&gt;
+[0] ==&gt;&gt;
+     token:&quot;material&quot;
+     file:&quot;Sinbad.material&quot;
+     line:1
+     type:CNT_WORD
+     children[3]:
+                 [0]==&gt;&gt;
+                       token:&quot;material&quot;
+                       file:&quot;Sinbad.material&quot;
+                       line:1
+                       type:CNT_WORD
+                       children[0]
+                      parent:nodes[0]
+      parent:null
+[1]
+.......................................
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="QumYCTJKN0+KRhBj7fpHXQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2652</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">168</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">533</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">377</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool ScriptCompiler::compile(const ConcreteNodeListPtr &amp;nodes, const String &amp;group)
+    {
+        // Set up the compilation context
+        mGroup = group;
+
+        if(mListener)
+            mListener-&gt;preConversion(this, nodes);
+
+        AbstractNodeListPtr ast = convertToAST(nodes);
+        processImports(ast);
+        processObjects(ast.get(), ast);
+        processVariables(ast.get());
+
+        // Translate the nodes
+        for(AbstractNodeList::iterator i = ast-&gt;begin(); i != ast-&gt;end(); ++i)
+        {
+            if((*i)-&gt;type == ANT_OBJECT &amp;&amp; static_cast&lt;ObjectAbstractNode*&gt;((*i).get())-&gt;abstract)
+                continue;
+            //translator = MaterialTranslator
+            ScriptTranslator *translator = ScriptCompilerManager::getSingleton().getTranslator(*i);
+            if(translator)
+                translator-&gt;translate(this, *i);
+        }
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLNoteView" guid="lQLLXdly7U6VQotho367+wAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3292</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">28</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">655</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">677</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void MaterialTranslator::translate(ScriptCompiler *compiler, const AbstractNodePtr &amp;node)
+    {
+        ObjectAbstractNode *obj = static_cast&lt;ObjectAbstractNode*&gt;(node.get());
+
+       //创建material  obj-&gt;name == &quot;Sinbad/Body&quot;
+        if(!processed)
+        {
+            mMaterial = MaterialManager::getSingleton().create(obj-&gt;name, compiler-&gt;getResourceGroup()).get();
+
+            if(!mMaterial) // duplicate definition resolved by &quot;use previous&quot;
+                return;
+        }
+
+        mMaterial-&gt;removeAllTechniques();
+        obj-&gt;context = Any(mMaterial);
+        mMaterial-&gt;_notifyOrigin(obj-&gt;file);
+
+        for(AbstractNodeList::iterator i = obj-&gt;children.begin(); i != obj-&gt;children.end(); ++i)
+        {
+            if((*i)-&gt;type == ANT_PROPERTY)
+            {
+                PropertyAbstractNode *prop = static_cast&lt;PropertyAbstractNode*&gt;((*i).get());
+                switch(prop-&gt;id)
+                {
+                case ID_LOD_VALUES:
+                         ..............
+                case ID_LOD_DISTANCES:
+                        ...............
+                case ID_LOD_STRATEGY:
+                        ...............
+                case ID_RECEIVE_SHADOWS:
+                        ..............
+                case ID_TRANSPARENCY_CASTS_SHADOWS:
+                        ............
+                case ID_SET_TEXTURE_ALIAS:
+                         ..............
+                }
+            }
+            else if((*i)-&gt;type == ANT_OBJECT)
+            {
+                processNode(compiler, *i);
+            }
+        }
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLNoteView" guid="JI8JaaoBMkO5xmgIilDYEwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4064</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">360</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">551</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">253</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ScriptTranslator::processNode(ScriptCompiler *compiler, const AbstractNodePtr &amp;node)
+    {
+        if(node-&gt;type != ANT_OBJECT)
+            return;
+
+        // Abstract objects are completely skipped
+        if((static_cast&lt;ObjectAbstractNode*&gt;(node.get()))-&gt;abstract)
+            return;
+
+        // Retrieve the translator to use
+        ScriptTranslator *translator = ScriptCompilerManager::getSingleton().getTranslator(node);
+       //translator == TechniqueTranslator
+        if(translator)
+            translator-&gt;translate(compiler, node);
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLNoteView" guid="i1aj5kQAuUOSOub1URz4dwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4008</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">844</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">655</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">637</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void TechniqueTranslator::translate(ScriptCompiler *compiler, const AbstractNodePtr &amp;node)
+    {
+        ObjectAbstractNode *obj = static_cast&lt;ObjectAbstractNode*&gt;(node.get());
+
+        // Create the technique from the material
+        Ogre::Material *material = Ogre::any_cast&lt;Ogre::Material*&gt;(obj-&gt;parent-&gt;context);
+        mTechnique = material-&gt;createTechnique();
+        obj-&gt;context = Any(mTechnique);
+
+        // Get the name of the technique
+        if(!obj-&gt;name.empty())
+            mTechnique-&gt;setName(obj-&gt;name);
+
+        // Set the properties for the material
+        for(AbstractNodeList::iterator i = obj-&gt;children.begin(); i != obj-&gt;children.end(); ++i)
+        {
+            if((*i)-&gt;type == ANT_PROPERTY)
+            {
+                PropertyAbstractNode *prop = static_cast&lt;PropertyAbstractNode*&gt;((*i).get());
+                switch(prop-&gt;id)
+                {
+                case ID_SCHEME:
+                   
+                case ID_LOD_INDEX:
+                   
+                case ID_SHADOW_CASTER_MATERIAL:
+                   
+                case ID_SHADOW_RECEIVER_MATERIAL:
+                    
+                case ID_GPU_VENDOR_RULE:
+                   
+                case ID_GPU_DEVICE_RULE:
+                 
+                }
+            }
+            else if((*i)-&gt;type == ANT_OBJECT)
+            {
+                processNode(compiler, *i);
+            }
+        }
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[11]" type="UMLNoteLinkView" guid="RiuLckyh+kKnzbMXel/8EAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">604,319;512,305</XPD:ATTR>
+<XPD:REF name="Head">Ee9D2OYyvUSj8usg1lZSLwAA</XPD:REF>
+<XPD:REF name="Tail">yOh4vppnw0yTM9ByjYsE3wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="Jmh6TXTOQEm3VcSQnpn/GgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1252,358;1163,359</XPD:ATTR>
+<XPD:REF name="Head">yOh4vppnw0yTM9ByjYsE3wAA</XPD:REF>
+<XPD:REF name="Tail">TZda6/tmjkSrTId7jPcXvgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[13]" type="UMLNoteLinkView" guid="8THnNUtKWk69TCVRDzQIHgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1920,233;1813,267</XPD:ATTR>
+<XPD:REF name="Head">TZda6/tmjkSrTId7jPcXvgAA</XPD:REF>
+<XPD:REF name="Tail">pZez9/ZPLEGk9YEhfNngVAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[14]" type="UMLNoteLinkView" guid="dzH1omZgxkamt+zYERQLcQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2228,340;2227,277</XPD:ATTR>
+<XPD:REF name="Head">pZez9/ZPLEGk9YEhfNngVAAA</XPD:REF>
+<XPD:REF name="Tail">LJP+h7L6ikePosIfG+zw3QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[15]" type="UMLNoteLinkView" guid="xQ/wVz6u7EKFwpPacZ2OJwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2652,419;2459,464</XPD:ATTR>
+<XPD:REF name="Head">LJP+h7L6ikePosIfG+zw3QAA</XPD:REF>
+<XPD:REF name="Tail">QumYCTJKN0+KRhBj7fpHXQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[16]" type="UMLNoteLinkView" guid="55jhk+Qbp0WKGSGv/NknmQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3292,361;3184,360</XPD:ATTR>
+<XPD:REF name="Head">QumYCTJKN0+KRhBj7fpHXQAA</XPD:REF>
+<XPD:REF name="Tail">lQLLXdly7U6VQotho367+wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[17]" type="UMLNoteLinkView" guid="4ri5O4sT/kOInzRppgfoLQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4064,440;3946,420</XPD:ATTR>
+<XPD:REF name="Head">lQLLXdly7U6VQotho367+wAA</XPD:REF>
+<XPD:REF name="Tail">JI8JaaoBMkO5xmgIilDYEwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[18]" type="UMLNoteLinkView" guid="oaLr6HwItEScL2JBLABUTAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4337,844;4338,612</XPD:ATTR>
+<XPD:REF name="Head">JI8JaaoBMkO5xmgIilDYEwAA</XPD:REF>
+<XPD:REF name="Tail">i1aj5kQAuUOSOub1URz4dwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[19]" type="UMLNoteView" guid="6xrKiIegkUyGCXeRcBpIJgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4740</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">952</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">258</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Technique* Material::createTechnique(void)
+    {
+        Technique *t = OGRE_NEW Technique(this);
+        mTechniques.push_back(t);
+        mCompilationRequired = true;
+        return t;
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[20]" type="UMLNoteLinkView" guid="6SaZBEWRoEuLugBGuQ7MxAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4740,1045;4662,1068</XPD:ATTR>
+<XPD:REF name="Head">i1aj5kQAuUOSOub1URz4dwAA</XPD:REF>
+<XPD:REF name="Tail">6xrKiIegkUyGCXeRcBpIJgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[21]" type="UMLNoteLinkView" guid="yS6/r8PhqkCSKzikBpw6pgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4339,360;4339,340;4644,340;4644,486;4614,486</XPD:ATTR>
+<XPD:REF name="Head">JI8JaaoBMkO5xmgIilDYEwAA</XPD:REF>
+<XPD:REF name="Tail">JI8JaaoBMkO5xmgIilDYEwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[22]" type="UMLNoteView" guid="PW6/GgqD5k6ek97CslzrgQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3340</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1028</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">551</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">253</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ScriptTranslator::processNode(ScriptCompiler *compiler, const AbstractNodePtr &amp;node)
+    {
+        if(node-&gt;type != ANT_OBJECT)
+            return;
+
+        // Abstract objects are completely skipped
+        if((static_cast&lt;ObjectAbstractNode*&gt;(node.get()))-&gt;abstract)
+            return;
+
+        // Retrieve the translator to use
+        ScriptTranslator *translator = ScriptCompilerManager::getSingleton().getTranslator(node);
+       //translator == PassTranslator
+        if(translator)
+            translator-&gt;translate(compiler, node);
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[23]" type="UMLNoteLinkView" guid="qalKnL6+b0qLsnY7XEv7EAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3890,1157;4008,1158</XPD:ATTR>
+<XPD:REF name="Head">i1aj5kQAuUOSOub1URz4dwAA</XPD:REF>
+<XPD:REF name="Tail">PW6/GgqD5k6ek97CslzrgQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[24]" type="UMLNoteView" guid="Lz14nhow20qeInuw8i3h7AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2700</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">972</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">459</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">338</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void PassTranslator::translate(ScriptCompiler *compiler, const AbstractNodePtr &amp;node)
+    {
+        ObjectAbstractNode *obj = static_cast&lt;ObjectAbstractNode*&gt;(node.get());
+
+        Technique *technique = any_cast&lt;Technique*&gt;(obj-&gt;parent-&gt;context);
+        mPass = technique-&gt;createPass();
+        obj-&gt;context = Any(mPass);
+
+        // Get the name of the technique
+        if(!obj-&gt;name.empty())
+            mPass-&gt;setName(obj-&gt;name);
+// Set the properties for the material
+        for(AbstractNodeList::iterator i = obj-&gt;children.begin(); i != obj-&gt;children.end(); ++i)
+        {
+            if((*i)-&gt;type == ANT_PROPERTY)
+            {
+            }
+            else if((*i)-&gt;type == ANT_OBJECT)
+            {
+             }
+         }
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[25]" type="UMLNoteView" guid="WSfAhFYZakygh3oYTwcnyAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2708</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">820</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">467</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Pass* Technique::createPass(void)
+    {
+        Pass* newPass = OGRE_NEW Pass(this, static_cast&lt;unsigned short&gt;(mPasses.size()));
+        mPasses.push_back(newPass);
+        return newPass;
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[26]" type="UMLNoteLinkView" guid="PjLGwOt920uX4ZsaNJ0E5gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3158,1145;3340,1149</XPD:ATTR>
+<XPD:REF name="Head">PW6/GgqD5k6ek97CslzrgQAA</XPD:REF>
+<XPD:REF name="Tail">Lz14nhow20qeInuw8i3h7AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[27]" type="UMLNoteLinkView" guid="UlhDijQa7UqkhInC2cZDqwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2939,917;2937,972</XPD:ATTR>
+<XPD:REF name="Head">Lz14nhow20qeInuw8i3h7AAA</XPD:REF>
+<XPD:REF name="Tail">WSfAhFYZakygh3oYTwcnyAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[28]" type="UMLNoteView" guid="FyWYdQdC5kOyY1aXWlvqpAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2048</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1012</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">551</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">253</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ScriptTranslator::processNode(ScriptCompiler *compiler, const AbstractNodePtr &amp;node)
+    {
+        if(node-&gt;type != ANT_OBJECT)
+            return;
+
+        // Abstract objects are completely skipped
+        if((static_cast&lt;ObjectAbstractNode*&gt;(node.get()))-&gt;abstract)
+            return;
+
+        // Retrieve the translator to use
+        ScriptTranslator *translator = ScriptCompilerManager::getSingleton().getTranslator(node);
+       //translator == TextureUnitTranslator
+        if(translator)
+            translator-&gt;translate(compiler, node);
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[29]" type="UMLNoteLinkView" guid="lPm02MkwKUyEchBRz/GE+gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2598,1139;2700,1139</XPD:ATTR>
+<XPD:REF name="Head">Lz14nhow20qeInuw8i3h7AAA</XPD:REF>
+<XPD:REF name="Tail">FyWYdQdC5kOyY1aXWlvqpAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[30]" type="UMLNoteView" guid="sPDtL+/GX0abQglEKIVzHAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1440</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">952</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">506</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">368</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void TextureUnitTranslator::translate(ScriptCompiler *compiler, const Ogre::AbstractNodePtr &amp;node)
+    {
+        ObjectAbstractNode *obj = static_cast&lt;ObjectAbstractNode*&gt;(node.get());
+
+        Pass *pass = any_cast&lt;Pass*&gt;(obj-&gt;parent-&gt;context);
+        mUnit = pass-&gt;createTextureUnitState();
+        obj-&gt;context = Any(mUnit);
+
+        // Get the name of the technique
+        if(!obj-&gt;name.empty())
+            mUnit-&gt;setName(obj-&gt;name);
+
+        // Set the properties for the material
+        for(AbstractNodeList::iterator i = obj-&gt;children.begin(); i != obj-&gt;children.end(); ++i)
+        {
+             if((*i)-&gt;type == ANT_PROPERTY)
+            {
+             }
+             else if((*i)-&gt;type == ANT_OBJECT)
+            {
+                processNode(compiler, *i);
+            }
+        }
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[31]" type="UMLNoteView" guid="CbzZQd0Qu0+nFOwBlb0n1gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1512</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">784</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">326</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">TextureUnitState* Pass::createTextureUnitState(void)
+    {
+        TextureUnitState *t = OGRE_NEW TextureUnitState(this);
+        addTextureUnitState(t);
+        mContentTypeLookupBuilt = false;
+        return t;
+    }
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[32]" type="UMLNoteLinkView" guid="KUGCokxFQkK2cPTcV1TigwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1945,1136;2048,1137</XPD:ATTR>
+<XPD:REF name="Head">FyWYdQdC5kOyY1aXWlvqpAAA</XPD:REF>
+<XPD:REF name="Tail">sPDtL+/GX0abQglEKIVzHAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[33]" type="UMLNoteLinkView" guid="otGxsa9LqkSa3B4rmvLHrwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1677,896;1681,952</XPD:ATTR>
+<XPD:REF name="Head">sPDtL+/GX0abQglEKIVzHAAA</XPD:REF>
+<XPD:REF name="Tail">CbzZQd0Qu0+nFOwBlb0n1gAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>
