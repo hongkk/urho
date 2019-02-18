@@ -1330,6 +1330,7 @@ void View::GetBaseBatches()
             if (!srcBatch.geometry_ || !srcBatch.numWorldTransforms_ || !tech)
                 continue;
 
+			// 遍历检查所有scenepass
             // Check each of the scene passes
             for (unsigned k = 0; k < scenePasses_.Size(); ++k)
             {
@@ -1348,6 +1349,7 @@ void View::GetBaseBatches()
                 destBatch.isBase_ = true;
                 destBatch.lightMask_ = (unsigned char)GetLightMask(drawable);
 
+				// 如果有逐顶点光源
                 if (info.vertexLights_)
                 {
                     const PODVector<Light*>& drawableVertexLights = drawable->GetVertexLights();
@@ -1500,6 +1502,7 @@ void View::GetLitBatches(Drawable* drawable, LightBatchQueue& lightQueue, BatchQ
     Zone* zone = GetZone(drawable);
     const Vector<SourceBatch>& batches = drawable->GetBatches();
 
+	// 只有drawable上的第一个光源的"litbase" pass会渲染，其他光源的"litbase" pass 不渲染，如果tech配置的是"light" pass则不会有这个限制
     bool allowLitBase =
         useLitBase_ && !lightQueue.negative_ && light == drawable->GetFirstLight() && drawable->GetVertexLights().Empty() &&
         !zone->GetAmbientGradient();
