@@ -1899,6 +1899,7 @@ void View::SetRenderTargets(RenderPathCommand& command)
                 useColorWrite = false;
                 useCustomDepth = true;
 #if !defined(URHO3D_OPENGL) && !defined(URHO3D_D3D11)
+				// 在 D3D9 上，不能只有渲染深度（即只绑定了fbo的深度附加点，而没有任何颜色附加点），所以这里需要申请一张临时的纹理来绑定到颜色附加点
                 // On D3D9 actual depth-only rendering is illegal, we need a color rendertarget
                 if (!depthOnlyDummyTexture_)
                 {
