@@ -1706,7 +1706,8 @@ void Graphics::SetRenderTarget(unsigned index, RenderSurface* renderTarget)
         if (renderTarget)
         {
             Texture* parentTexture = renderTarget->GetParentTexture();
-
+			// rendertarget一般会关联一个纹理，即parentTexture
+			// 遍历所有textures_纹理，如果有纹理跟当前设置的rendertarget所以关联的parentTexture为同一个纹理，则重置 textures_[i] = 0
             for (unsigned i = 0; i < MAX_TEXTURE_UNITS; ++i)
             {
                 if (textures_[i] == parentTexture)
