@@ -3013,6 +3013,7 @@ void Graphics::PrepareDraw()
                 }
 				//void glDrawBuffers(GLsizei n, const GLenum *buffers);
 				///指定用于接收颜色值的多个缓冲区，buffers是缓冲区枚举型的数组
+				//我们需要显式告知OpenGL我们正在通过glDrawBuffers渲染到多个颜色缓冲，否则OpenGL只会渲染到帧缓冲的第一个颜色附件
                 glDrawBuffers(drawBufferCount, (const GLenum*)drawBufferIds);
             }
 
