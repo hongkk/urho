@@ -1011,6 +1011,8 @@ Texture2D* Renderer::GetShadowMap(Light* light, Camera* camera, unsigned viewWid
             // and other shadowed lights matches
             newShadowMap->SetFilterMode(graphics_->GetHardwareShadowSupport() ? FILTER_BILINEAR : FILTER_NEAREST);
 #endif
+			// 创建一张临时的虚拟纹理，OS X +上的opengl 和 所有Direct3D9上fbo至少要有一个颜色附加点被附加
+			// 而 newShadowMap 最终会被附加到 fbo 的深度附加点
             // Create dummy color texture for the shadow map if necessary: Direct3D9, or OpenGL when working around an OS X +
             // Intel driver bug
             if (shadowMapUsage == TEXTURE_DEPTHSTENCIL && dummyColorFormat)
