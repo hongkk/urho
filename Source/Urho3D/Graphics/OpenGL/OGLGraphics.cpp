@@ -1706,7 +1706,8 @@ void Graphics::SetRenderTarget(unsigned index, RenderSurface* renderTarget)
         if (renderTarget)
         {
             Texture* parentTexture = renderTarget->GetParentTexture();
-
+			// rendertarget一般会关联一个纹理，即parentTexture
+			// 遍历所有textures_纹理，如果有纹理跟当前设置的rendertarget所以关联的parentTexture为同一个纹理，则重置 textures_[i] = 0
             for (unsigned i = 0; i < MAX_TEXTURE_UNITS; ++i)
             {
                 if (textures_[i] == parentTexture)
@@ -1738,12 +1739,20 @@ void Graphics::SetRenderTarget(unsigned index, Texture2D* texture)
     SetRenderTarget(index, renderTarget);
 }
 
+// 设置模版缓冲，有几种情况
+// 如果renderTargets_[0] = 0 且 depthStencil = 0，则说明是直接渲染到屏幕后缓冲区，这候不需要提供额外的 depthStencil_
+// 如果renderTargets_[0] != 0 且 depthStencil = 0,则说明渲染到自定义的fbo，这时候需要额外生成一个新的 depthStencil_绑定到fbo的深度附加点
+// 如果renderTargets_[0] = 0 且 depthStencil != 0,则是opengl阴影图的渲染，在preparedraw()的时候会绑定到额外的fbo，这时不需要renderTargets_
+// 如果renderTargets_[0] != 0 且 depthStencil != 0,则是Direct3D9阴影图的渲染，renderTargets_[0] 为一个虚拟纹理
 void Graphics::SetDepthStencil(RenderSurface* depthStencil)
 {
     // If we are using a rendertarget texture, it is required in OpenGL to also have an own depth-stencil
     // Create a new depth-stencil texture as necessary to be able to provide similar behaviour as Direct3D9
     // Only do this for non-multisampled rendertargets; when using multisampled target a similarly multisampled
     // depth-stencil should also be provided (backbuffer depth isn't compatible)
+	// 如果我们的RenderTarget是一个纹理，即RT,那么在opengl上，同时也需要有一个深度缓冲模版，
+	// 这时，创建一个深度模版纹理把它附加到fbo的深度附加点，以提供和Direct3D9上相似的功能
+	// 注意，只有在非多重采样的时候才能这么做。当使用多重采样纹理做为RenderTarget的时候，类似的深度缓冲模版也必须是多重采样的
     if (renderTargets_[0] && renderTargets_[0]->GetMultiSample() == 1 && !depthStencil)
     {
         int width = renderTargets_[0]->GetWidth();
@@ -1751,6 +1760,7 @@ void Graphics::SetDepthStencil(RenderSurface* depthStencil)
 
         // Direct3D9 default depth-stencil can not be used when rendertarget is larger than the window.
         // Check size similarly
+		// 在Direct3D9上，当前rendertarget比窗口尺寸还大的时候默认的深度缓冲模版不能使用
         if (width <= width_ && height <= height_)
         {
             int searchKey = (width << 16) | height;
