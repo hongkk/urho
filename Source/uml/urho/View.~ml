@@ -20,7 +20,7 @@
 <XPD:REF name="DiagramOwner">r64MlZtLZkedhLnHuSzN1QAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="eE7mTTubA0uBimka2n2B0QAA">
 <XPD:REF name="Diagram">CS7FTBjoS0SSvqwPDQ8zOgAA</XPD:REF>
-<XPD:ATTR name="#OwnedViews" type="integer">74</XPD:ATTR>
+<XPD:ATTR name="#OwnedViews" type="integer">81</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="1/bKgAGn70q9oBGMyfuTTAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
@@ -900,8 +900,8 @@ void Graphics::PrepareDraw()
 <XPD:OBJ name="OwnedViews[53]" type="UMLNoteView" guid="TRHdNKF/UU68jvIhao7kNwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1940</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2452</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2196</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2496</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">180</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ApplicationBase::runFrame()
@@ -915,8 +915,8 @@ void Graphics::PrepareDraw()
 <XPD:OBJ name="OwnedViews[54]" type="UMLNoteView" guid="z5gHf0X/Y0ye7L9mmQXqmQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2208</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2612</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2464</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2656</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">340</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ApplicationBase::render()
@@ -935,15 +935,15 @@ void Graphics::PrepareDraw()
 <XPD:OBJ name="OwnedViews[55]" type="UMLNoteLinkView" guid="HH1z4gqfCE2zekhexCJZvgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2219,2612;2119,2557</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2475,2656;2375,2601</XPD:ATTR>
 <XPD:REF name="Head">TRHdNKF/UU68jvIhao7kNwAA</XPD:REF>
 <XPD:REF name="Tail">z5gHf0X/Y0ye7L9mmQXqmQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[56]" type="UMLNoteView" guid="53ZCqgYQFUKQWV4bAHwZwAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2292</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2860</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2548</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2904</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">178</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">struct RenderFunction
@@ -958,15 +958,15 @@ void Graphics::PrepareDraw()
 <XPD:OBJ name="OwnedViews[57]" type="UMLNoteLinkView" guid="VKDZVpfF/EKZCq/waAOMHQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2379,2860;2378,2784</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2635,2904;2634,2828</XPD:ATTR>
 <XPD:REF name="Head">z5gHf0X/Y0ye7L9mmQXqmQAA</XPD:REF>
 <XPD:REF name="Tail">53ZCqgYQFUKQWV4bAHwZwAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[58]" type="UMLNoteView" guid="AW5lYfwXD0edpAOgCQIm9AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2232</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3036</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2488</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3080</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">305</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void Renderer::render()
@@ -983,15 +983,15 @@ void Graphics::PrepareDraw()
 <XPD:OBJ name="OwnedViews[59]" type="UMLNoteLinkView" guid="OmWZT+6Pl0Wt/wMiEa0R8gAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2383,3036;2381,2972</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2639,3080;2637,3016</XPD:ATTR>
 <XPD:REF name="Head">53ZCqgYQFUKQWV4bAHwZwAAA</XPD:REF>
 <XPD:REF name="Tail">AW5lYfwXD0edpAOgCQIm9AAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[60]" type="UMLNoteView" guid="nsxt6+V6p0u3f0x4zKoMgQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2132</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3272</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2388</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3316</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">511</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void View::render()
@@ -1010,15 +1010,15 @@ void Graphics::PrepareDraw()
 <XPD:OBJ name="OwnedViews[61]" type="UMLNoteLinkView" guid="00eJJeeTJ0mgOlKq8TtmMgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2386,3272;2385,3178</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2642,3316;2641,3222</XPD:ATTR>
 <XPD:REF name="Head">AW5lYfwXD0edpAOgCQIm9AAA</XPD:REF>
 <XPD:REF name="Tail">nsxt6+V6p0u3f0x4zKoMgQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[62]" type="UMLNoteView" guid="I6y/HOIndkePMfc0SOKxOAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1600</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2616</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1856</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2660</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">282</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ApplicationBase::update()
@@ -1033,15 +1033,15 @@ void Graphics::PrepareDraw()
 <XPD:OBJ name="OwnedViews[63]" type="UMLNoteLinkView" guid="0pJB7Y0/8km+DLomYRR+7wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1839,2616;1940,2559</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2095,2660;2196,2603</XPD:ATTR>
 <XPD:REF name="Head">TRHdNKF/UU68jvIhao7kNwAA</XPD:REF>
 <XPD:REF name="Tail">I6y/HOIndkePMfc0SOKxOAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[64]" type="UMLNoteView" guid="yX6MmuDDqkmftAb2zq2JCwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1508</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2808</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1764</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2852</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">459</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void Renderer::handleRenderUpdate(StringHash eventType, HashVariantMap&amp; eventData)
@@ -1053,15 +1053,15 @@ void Graphics::PrepareDraw()
 <XPD:OBJ name="OwnedViews[65]" type="UMLNoteLinkView" guid="KmK2m3LA8Umgcq/fkCVN4wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1738,2808;1739,2728</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1994,2852;1995,2772</XPD:ATTR>
 <XPD:REF name="Head">I6y/HOIndkePMfc0SOKxOAAA</XPD:REF>
 <XPD:REF name="Tail">yX6MmuDDqkmftAb2zq2JCwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[66]" type="UMLNoteView" guid="flbQI2bglESB0UvgHiK80QAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1548</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2956</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1804</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3000</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">384</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void Renderer::update(float timeStep)
@@ -1080,15 +1080,15 @@ void Graphics::PrepareDraw()
 <XPD:OBJ name="OwnedViews[67]" type="UMLNoteLinkView" guid="1qkJU/1w0UmEbq1sBGJggQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1738,2956;1737,2875</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1994,3000;1993,2919</XPD:ATTR>
 <XPD:REF name="Head">yX6MmuDDqkmftAb2zq2JCwAA</XPD:REF>
 <XPD:REF name="Tail">flbQI2bglESB0UvgHiK80QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[68]" type="UMLNoteView" guid="K5LXgzo7Vkq1SglVrpyTXwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1592</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3208</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1848</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3252</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">291</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void Renderer::updateQueuedViewport(unsigned index)
@@ -1110,15 +1110,15 @@ void Graphics::PrepareDraw()
 <XPD:OBJ name="OwnedViews[69]" type="UMLNoteLinkView" guid="GmbsIL7ncE6D8Lslbs9QTwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1738,3208;1738,3128</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1994,3252;1994,3172</XPD:ATTR>
 <XPD:REF name="Head">flbQI2bglESB0UvgHiK80QAA</XPD:REF>
 <XPD:REF name="Tail">K5LXgzo7Vkq1SglVrpyTXwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[70]" type="UMLNoteView" guid="zr//xSglI0mBlkUpd0XbkwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1624</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3492</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1880</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3536</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">232</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void View::update(const FrameInfo&amp; frame)
@@ -1131,15 +1131,15 @@ void Graphics::PrepareDraw()
 <XPD:OBJ name="OwnedViews[71]" type="UMLNoteLinkView" guid="zx38japCAkeDcWpMAL1OHgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1739,3492;1738,3425</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1995,3536;1994,3469</XPD:ATTR>
 <XPD:REF name="Head">K5LXgzo7Vkq1SglVrpyTXwAA</XPD:REF>
 <XPD:REF name="Tail">zr//xSglI0mBlkUpd0XbkwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[72]" type="UMLNoteView" guid="3BBqFs/EfEe+Z3Oi4YvNcAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1672</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3628</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1928</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3672</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">135</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void View::getBatches()
@@ -1153,9 +1153,160 @@ void Graphics::PrepareDraw()
 <XPD:OBJ name="OwnedViews[73]" type="UMLNoteLinkView" guid="ISdKN3sCHUeA0itZlUwouAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1739,3628;1739,3574</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1995,3672;1995,3618</XPD:ATTR>
 <XPD:REF name="Head">zr//xSglI0mBlkUpd0XbkwAA</XPD:REF>
 <XPD:REF name="Tail">3BBqFs/EfEe+Z3Oi4YvNcAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[74]" type="UMLNoteView" guid="9HMI5KvORkmJufk+PWGcqQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3308</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2736</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">470</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">593</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Renderer::setBatchShaders
+{
+       if (!vertexShaders.size() || !pixelShaders.size())
+             loadPassShaders(pass, vertexShaders, pixelShaders, queue);
+
+       if (pass-&gt;getLightingMode() == LIGHTING_PERPIXEL)
+        {
+            LightBatchQueue* lightQueue = batch.mLightQueue;
+
+            Light* light = lightQueue-&gt;mLight;
+            unsigned vsi = 0;
+            unsigned psi = 0;
+            vsi = batch.mGeometryType * MAX_LIGHT_VS_VARIATIONS;
+
+            bool materialHasSpecular = batch.mMaterial ? batch.mMaterial-&gt;getSpecular() : true;
+            if (mSpecularLighting &amp;&amp; light-&gt;getSpecularIntensity() &gt; 0.0f &amp;&amp; materialHasSpecular)
+                psi += LPS_SPEC;
+            if (allowShadows &amp;&amp; lightQueue-&gt;mShadowMap)
+            {
+                if (light-&gt;getShadowBias().mNormalOffset &gt; 0.0f)
+                    vsi += LVS_SHADOWNORMALOFFSET;
+                else
+                    vsi += LVS_SHADOW;
+                psi += LPS_SHADOW;
+            }
+
+            switch (light-&gt;getLightType())
+            {
+            case LIGHT_DIRECTIONAL:
+                vsi += LVS_DIR;
+            }
+
+            if (heightFog)
+                psi += MAX_LIGHT_PS_VARIATIONS;
+
+            batch.mVertexShader = vertexShaders[vsi];
+            batch.mPixelShader = pixelShaders[psi];
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[75]" type="UMLNoteView" guid="yeXF24iVl0KORTtHumoN9QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3900</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2800</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">453</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">488</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Renderer::loadPassShaders
+{
+       if (pass-&gt;getLightingMode() == LIGHTING_PERPIXEL)
+    {
+        vertexShaders.resize(MAX_GEOMETRYTYPES * MAX_LIGHT_VS_VARIATIONS);
+        pixelShaders.resize(MAX_LIGHT_PS_VARIATIONS * 2);
+
+        for (unsigned j = 0; j &lt; MAX_GEOMETRYTYPES * MAX_LIGHT_VS_VARIATIONS; ++j)
+        {
+            unsigned g = j / MAX_LIGHT_VS_VARIATIONS;
+            unsigned l = j % MAX_LIGHT_VS_VARIATIONS;
+
+            vertexShaders[j] = mGraphics-&gt;getShader(VS, pass-&gt;getVertexShader(),
+                vsDefines + lightVSVariations[l] + geometryVSVariations[g]);
+        }
+        for (unsigned j = 0; j &lt; MAX_LIGHT_PS_VARIATIONS * 2; ++j)
+        {
+            unsigned l = j % MAX_LIGHT_PS_VARIATIONS;
+            unsigned h = j / MAX_LIGHT_PS_VARIATIONS;
+
+            if (l &amp; LPS_SHADOW)
+            {
+                pixelShaders[j] = mGraphics-&gt;getShader(PS, pass-&gt;getPixelShader(),
+                    psDefines + lightPSVariations[l] + getShadowVariations() +
+                    heightFogVariations[h]);
+            }
+            else
+                pixelShaders[j] = mGraphics-&gt;getShader(PS, pass-&gt;getPixelShader(),
+                    psDefines + lightPSVariations[l] + heightFogVariations[h]);
+        }
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[76]" type="UMLNoteLinkView" guid="Ltl4peY+ckyklB0tKiyGlgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3900,3039;3777,3037</XPD:ATTR>
+<XPD:REF name="Head">9HMI5KvORkmJufk+PWGcqQAA</XPD:REF>
+<XPD:REF name="Tail">yeXF24iVl0KORTtHumoN9QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[77]" type="UMLNoteView" guid="5P1AhVOYnk2PQrWvZFf90QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4504</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2936</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">467</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Graphics::getShader
+{
+        ResourceCache* cache = getSubsystem&lt;ResourceCache&gt;();
+
+        String fullShaderName = mShaderPath + name + mShaderExtension;
+        if (mLastShaderName == name &amp;&amp; !cache-&gt;exists(fullShaderName))
+            return 0;
+
+        mLastShader = cache-&gt;getResource&lt;Shader&gt;(fullShaderName);
+        mLastShaderName = name;
+
+         return mLastShader ? mLastShader-&gt;getVariation(type, defines) : (ShaderVariation*)0;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[78]" type="UMLNoteLinkView" guid="BwuLKNModkaNUvZ5vQaw3wAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4504,3044;4352,3044</XPD:ATTR>
+<XPD:REF name="Head">yeXF24iVl0KORTtHumoN9QAA</XPD:REF>
+<XPD:REF name="Tail">5P1AhVOYnk2PQrWvZFf90QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[79]" type="UMLNoteView" guid="2ei1frByR0WCzxEyex6hkAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4384</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3372</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">596</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Shader::getVariation
+{
+            i = variations.insert(makePair(normalizedHash, SharedPtr&lt;ShaderVariation&gt;(new ShaderVariation(this, type))));
+            if (definesHash != normalizedHash)
+                variations.insert(makePair(definesHash, i-&gt;second));
+
+            i-&gt;second-&gt;setName(FileSystem::getFileName(getName()));
+            i-&gt;second-&gt;setDefines(normalizedDefines);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[80]" type="UMLNoteLinkView" guid="6lGVhR1EtE+tSELLrtaDxAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4722,3372;4722,3153</XPD:ATTR>
+<XPD:REF name="Head">5P1AhVOYnk2PQrWvZFf90QAA</XPD:REF>
+<XPD:REF name="Tail">2ei1frByR0WCzxEyex6hkAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>

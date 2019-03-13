@@ -262,20 +262,26 @@ private:
     /// East neighbor terrain.
     WeakPtr<Terrain> east_;
     /// Vertex and height spacing.
+	// 一个terrain上最小格子的顶点间距  AreaSize/(terrainSize-1)
     Vector3 spacing_;
     /// Vertex and height sacing at the time of last update.
     Vector3 lastSpacing_;
     /// Origin of patches on the XZ-plane.
+	// 一个terrain的起始点，一般是大小的一半，负值
     Vector2 patchWorldOrigin_;
     /// Size of a patch on the XZ-plane.
+	// 一个terrain的总大小，也就是 AreaSize
     Vector2 patchWorldSize_;
     /// Terrain size in vertices.
+	// 一个terrain横竖方向上的顶点数量  (AreaSize/spaceing)+1
     IntVector2 numVertices_;
     /// Terrain size in vertices at the time of last update.
     IntVector2 lastNumVertices_;
     /// Terrain size in patches.
+	// 一个terrain横竖方向上的 patch数量   (heightMap_->GetWidth() - 1) / patchSize_, (heightMap_->GetHeight() - 1) / patchSize_
     IntVector2 numPatches_;
     /// Patch size, quads per side.
+	// 一个patch中有多少个spacing
     int patchSize_;
     /// Patch size at the time of last update.
     int lastPatchSize_;
