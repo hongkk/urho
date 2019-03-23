@@ -1157,7 +1157,9 @@ void Terrain::CreateIndexData()
     PODVector<unsigned short> indices;
     drawRanges_.Clear();
     unsigned row = (unsigned)(patchSize_ + 1);
-
+	// stitch  缝
+	/*为每个LOD级别构建索引数据。 除最低点之外的每个LOD级别都可以从边缘缝合到下一个较低的LOD：
+		北，南，西，东或它们的任意组合，需要16个不同版本的每个LOD级别的索引数据*/
     /* Build index data for each LOD level. Each LOD level except the lowest can stitch to the next lower LOD from the edges:
        north, south, west, east, or any combination of them, requiring 16 different versions of each LOD level's index data
 
