@@ -861,6 +861,7 @@ ResourceRef Terrain::GetHeightMapAttr() const
     return GetResourceRef(heightMap_, Image::GetTypeStatic());
 }
 
+//生成地形顶点数据
 void Terrain::CreateGeometry()
 {
     recreateTerrain_ = false;
@@ -871,7 +872,7 @@ void Terrain::CreateGeometry()
     URHO3D_PROFILE(CreateTerrainGeometry);
 
     unsigned prevNumPatches = patches_.Size();
-
+	//确定 lod 的等级数量
     // Determine number of LOD levels
     unsigned lodSize = (unsigned)patchSize_;
     numLodLevels_ = 1;
@@ -880,11 +881,11 @@ void Terrain::CreateGeometry()
         lodSize >>= 1;
         ++numLodLevels_;
     }
-
+	// 确定所有的 terrain 大小
     // Determine total terrain size
     patchWorldSize_ = Vector2(spacing_.x_ * (float)patchSize_, spacing_.z_ * (float)patchSize_);
     bool updateAll = false;
-
+	// 处理高度图数据
     if (heightMap_)
     {
         numPatches_ = IntVector2((heightMap_->GetWidth() - 1) / patchSize_, (heightMap_->GetHeight() - 1) / patchSize_);
@@ -894,11 +895,12 @@ void Terrain::CreateGeometry()
         if (numVertices_ != lastNumVertices_ || lastSpacing_ != spacing_ || patchSize_ != lastPatchSize_)
             updateAll = true;
         unsigned newDataSize = (unsigned)(numVertices_.x_ * numVertices_.y_);
-
+		// 如果terrain大小惊变，要重新生成高度图数据
         // Create new height data if terrain size changed
         if (!heightData_ || updateAll)
             heightData_ = new float[newDataSize];
 
+		// 如果smoothing开启，则创建多一个 sourceHeightData_ 存储高度图数据
         // Ensure that the source (unsmoothed) data exists if smoothing is active
         if (smoothing_ && (!sourceHeightData_ || updateAll))
         {
@@ -920,7 +922,7 @@ void Terrain::CreateGeometry()
     lastNumVertices_ = numVertices_;
     lastPatchSize_ = patchSize_;
     lastSpacing_ = spacing_;
-
+	// 删除旧的 patch 节点
     // Remove old patch nodes which are not needed
     if (updateAll)
     {
@@ -944,7 +946,7 @@ void Terrain::CreateGeometry()
                 node_->RemoveChild(*i);
         }
     }
-
+	//
     // Keep track of which patches actually need an update
     PODVector<bool> dirtyPatches((unsigned)(numPatches_.x_ * numPatches_.y_));
     for (unsigned i = 0; i < dirtyPatches.Size(); ++i)
@@ -952,6 +954,7 @@ void Terrain::CreateGeometry()
 
     patches_.Clear();
 
+	// 填充高度图数据到 heightData_ 或 sourceHeightData_
     if (heightMap_)
     {
         // Copy heightmap data
@@ -1013,7 +1016,7 @@ void Terrain::CreateGeometry()
                 }
             }
         }
-
+		// 如果更新一个区域的高度图，检查一下哪个与之相关的patch需要更新
         // If updating a region of the heightmap, check which patches change
         if (!updateAll)
         {
@@ -1038,10 +1041,15 @@ void Terrain::CreateGeometry()
         patches_.Reserve((unsigned)(numPatches_.x_ * numPatches_.y_));
 
         bool enabled = IsEnabledEffective();
-
+		//生成patchNode节点和TerrainPatch
+		// TerrainPatch 是真正最终被渲染出来成地形块
+		// 一个Terrain会根据heightMap_->GetWidth() 和 patchSize_，把自已分成很多个 TerrainPatch
+		// 例如在test.scene地图中，patchsize = 32,heightMap->width = 257
+		// patchsize = 32 表示一个 TerrainPatch的大小为长宽32个spacing_
+		// 所以 test.scene地形会把自己分成长宽为 8*8 = 64 个 TerrainPatch
         {
             URHO3D_PROFILE(CreatePatches);
-
+			// 创建节点和TerrainPatch，并设置节点位置
             // Create patches and set node transforms
             for (int z = 0; z < numPatches_.y_; ++z)
             {
@@ -1056,7 +1064,8 @@ void Terrain::CreateGeometry()
                         // file or replicated over the network
                         patchNode = node_->CreateTemporaryChild(nodeName, LOCAL);
                     }
-
+					// patchWorldSize_ = spacing_.x_ * patchSize_ 一个TerrainPatch块的大小，
+					// 如test.scene中为 100*32 = 3200
                     patchNode->SetPosition(Vector3(patchWorldOrigin_.x_ + (float)x * patchWorldSize_.x_, 0.0f,
                         patchWorldOrigin_.y_ + (float)z * patchWorldSize_.y_));
 
@@ -1087,7 +1096,7 @@ void Terrain::CreateGeometry()
                 }
             }
         }
-
+		// 生成共享的顶点索引数据
         // Create the shared index data
         if (updateAll)
             CreateIndexData();
@@ -1124,7 +1133,7 @@ void Terrain::CreateGeometry()
                 }
             }
         }
-
+		//遍历所以 patchs，创建对应patch的顶点数据
         for (unsigned i = 0; i < patches_.Size(); ++i)
         {
             TerrainPatch* patch = patches_[i];
@@ -1150,6 +1159,9 @@ void Terrain::CreateGeometry()
     }
 }
 
+//生成顶点索引数据
+// 这里只会生成单个 TerrainPatch 的索引数据，
+// 因为所有TerrainPatch的顶点数据也是针对单个 TerrainPatch 生成的
 void Terrain::CreateIndexData()
 {
     URHO3D_PROFILE(CreateIndexData);
