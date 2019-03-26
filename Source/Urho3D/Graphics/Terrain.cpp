@@ -57,6 +57,7 @@ static const unsigned STITCH_SOUTH = 2;
 static const unsigned STITCH_WEST = 4;
 static const unsigned STITCH_EAST = 8;
 
+// 调整updateRegion 的合适大小
 inline void GrowUpdateRegion(IntRect& updateRegion, int x, int y)
 {
     if (updateRegion.left_ < 0)
@@ -220,7 +221,7 @@ void Terrain::SetSpacing(const Vector3& spacing)
         MarkNetworkUpdate();
     }
 }
-
+// 设置最大Lod等级
 void Terrain::SetMaxLodLevels(unsigned levels)
 {
     levels = Clamp(levels, MIN_LOD_LEVELS, MAX_LOD_LEVELS);
@@ -234,6 +235,7 @@ void Terrain::SetMaxLodLevels(unsigned levels)
     }
 }
 
+// 设置剃除Lod等级
 void Terrain::SetOcclusionLodLevel(unsigned level)
 {
     if (level != occlusionLodLevel_)
@@ -246,6 +248,7 @@ void Terrain::SetOcclusionLodLevel(unsigned level)
     }
 }
 
+//设置平滑
 void Terrain::SetSmoothing(bool enable)
 {
     if (enable != smoothing_)
@@ -257,6 +260,7 @@ void Terrain::SetSmoothing(bool enable)
     }
 }
 
+// 设置高度图
 bool Terrain::SetHeightMap(Image* image)
 {
     bool success = SetHeightMapInternal(image, true);
@@ -393,6 +397,7 @@ void Terrain::SetNeighbors(Terrain* north, Terrain* south, Terrain* west, Terrai
     MarkNetworkUpdate();
 }
 
+// 设置当前Terrain与镜头的距离
 void Terrain::SetDrawDistance(float distance)
 {
     drawDistance_ = distance;
@@ -568,6 +573,7 @@ TerrainPatch* Terrain::GetNeighborPatch(int x, int z) const
         return GetPatch(x, z);
 }
 
+// 根据世界坐标获取高度值
 float Terrain::GetHeight(const Vector3& worldPosition) const
 {
     if (node_)
@@ -602,6 +608,7 @@ float Terrain::GetHeight(const Vector3& worldPosition) const
         return 0.0f;
 }
 
+// 根据世界坐标获取法线值
 Vector3 Terrain::GetNormal(const Vector3& worldPosition) const
 {
     if (node_)
@@ -664,6 +671,8 @@ Vector3 Terrain::HeightMapToWorld(const IntVector2& pixelPosition) const
     return wPos;
 }
 
+
+//生成TerrainPatch的顶点数据
 void Terrain::CreatePatchGeometry(TerrainPatch* patch)
 {
     URHO3D_PROFILE(CreatePatchGeometry);
@@ -699,9 +708,12 @@ void Terrain::CreatePatchGeometry(TerrainPatch* patch)
         {
             for (int x = 0; x <= patchSize_; ++x)
             {
+				//xPos zPos是在Terrain中的真实位置，这里算出来只是为了下面计算GetRawHeight(xPos, zPos)时，计算当前点在高度图中的位置
                 int xPos = coords.x_ * patchSize_ + x;
                 int zPos = coords.y_ * patchSize_ + z;
 
+				// 这里存入vbo中的顶点数据是相对位置，第一个点是（0，height1,0),第二个点是 （100，height2,0) 依此类推
+				// 注意这里每个点的高度都是不一样的，这也是为什么所有TerrainPatch的索引数据是共享的，但顶点vbo数据不能共享
                 // Position
                 Vector3 position((float)x * spacing_.x_, GetRawHeight(xPos, zPos), (float)z * spacing_.z_);
                 *vertexData++ = position.x_;
@@ -712,7 +724,7 @@ void Terrain::CreatePatchGeometry(TerrainPatch* patch)
                 *positionData++ = position.z_;
 
                 box.Merge(position);
-
+				//	对于作为遮挡LOD一部分的顶点，计算相邻区域的最小高度，以防止由于遮挡LOD和可见LOD之间的不准确而导致假阳性遮挡。
                 // For vertices that are part of the occlusion LOD, calculate the minimum height in the neighborhood
                 // to prevent false positive occlusion due to inaccuracy between occlusion LOD & visible LOD
                 float minHeight = position.y_;
@@ -1133,7 +1145,9 @@ void Terrain::CreateGeometry()
                 }
             }
         }
-		//遍历所以 patchs，创建对应patch的顶点数据
+		// 为什么 索引数据要共享而顶点数据要每个TerrainPatch都生成一份？
+		// 因为在每个TerrainPatch中虽然每个点的x,z的相对位置都是一样的，但是每个点的y都是不同的，也就是高度和法线信息是一直在变化的，所以顶点数据不能共享
+		// 遍历所有 patchs，创建对应patch的顶点数据
         for (unsigned i = 0; i < patches_.Size(); ++i)
         {
             TerrainPatch* patch = patches_[i];
