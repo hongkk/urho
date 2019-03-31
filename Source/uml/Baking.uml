@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="Xa0RVmV9/kS2Ge50oWVD7wAA">
+<XPD:ATTR name="Title" type="string">Baking</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="wz/gZgcar0+VZqSIMDo0xQAA">
+<XPD:ATTR name="Name" type="string">Baking</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Baking</XPD:ATTR>
+<XPD:REF name="Namespace">Xa0RVmV9/kS2Ge50oWVD7wAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="KS4l4L6RUUWMIF5pRKWh1AAA">
+<XPD:ATTR name="Name" type="string">Baking</XPD:ATTR>
+<XPD:REF name="DiagramOwner">wz/gZgcar0+VZqSIMDo0xQAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="kD+JD1jBm0OPYUwqGhX+AwAA">
+<XPD:REF name="Diagram">KS4l4L6RUUWMIF5pRKWh1AAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">29</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="y/cNIhkKjEqkjH73O4Kf7QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">120</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">684</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">481</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">608</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void BakeDlg::bakeImpl(int flags)
+{
+        Baking* baking = scene-&gt;getComponent&lt;Baking&gt;();
+
+        baking-&gt;setBeastPath(&quot;beast/&quot;);
+        String outputPath = proj-&gt;getSceneAbsoPath() + &quot;/&quot; + baseName + &quot;/lightmaps/&quot;;
+        baking-&gt;setOutputPath(outputPath);
+
+        //烘焙区域
+        baking-&gt;addArea(area-&gt;getAreaID());
+        EndlessTerrain* terrain = area-&gt;getTerrain();
+        baking-&gt;addTerrain(terrain-&gt;getTerrainID(), true);
+        //添加相邻的区域
+
+        //烘焙地图模型
+        if ((flags &amp; BF_OBJ) != 0)
+        {
+                baking-&gt;loadSceneObjects();
+                baking-&gt;build(area-&gt;getLightmapID(), area-&gt;getBakeLightmapCount(),
+                                area-&gt;getBakeLightmapSize(), area-&gt;getBakeLightmapSize(),
+                                area-&gt;getBakeLightmapScale(), false);
+        }
+        
+        //烘焙地形
+        if((flags &amp; BF_TERRAIN) != 0)
+        {
+                EndlessTerrain* terrain = area-&gt;getTerrain();
+                if (terrain)
+                {
+                        baking-&gt;setAreaShadowOnly(area-&gt;getAreaID(), true);
+                        baking-&gt;setTerrainShadowOnly(terrain-&gt;getTerrainID(), false);
+                        //添加相邻的区域
+
+                        baking-&gt;loadSceneObjects();
+                        baking-&gt;build(area-&gt;getTerrainLightmapID(), 1,
+                                area-&gt;getBakeTerrainLightmapSize(), area-&gt;getBakeTerrainLightmapSize(),
+                                1.0f, true);
+                }
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="GeOh13PS9EGbbHYXjqS98AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">784</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">664</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">314</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Baking::addArea(AreaID areaID, bool bakeShadowOnly)
+{
+        BakingDef def;
+        def.id = areaID;
+        def.bakeShadowOnly = bakeShadowOnly;
+        mAreas[areaID] = def;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLNoteLinkView" guid="AUvDosu5Qkufz6s9uA1MewAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">784,716;600,716</XPD:ATTR>
+<XPD:REF name="Head">y/cNIhkKjEqkjH73O4Kf7QAA</XPD:REF>
+<XPD:REF name="Tail">GeOh13PS9EGbbHYXjqS98AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLNoteView" guid="LZln6dhKjEyrYTVjgUA/iwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">784</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">904</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">346</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Baking::addTerrain(TerrainID terrainID, bool bakeShadowOnly)
+{
+        BakingDef def;
+        def.id = terrainID;
+        def.bakeShadowOnly = bakeShadowOnly;
+        mTerrains[terrainID] = def;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLNoteLinkView" guid="I9UHG4Miak2sdArKF+FKewAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">784,952;600,952</XPD:ATTR>
+<XPD:REF name="Head">y/cNIhkKjEqkjH73O4Kf7QAA</XPD:REF>
+<XPD:REF name="Tail">LZln6dhKjEyrYTVjgUA/iwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="8F41vLvrfkGGtXGl4NsONgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">784</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1104</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">515</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">698</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//装载场景信息
+void Baking::loadSceneObjects()
+{
+        //设置beast路径
+        mBakingScene-&gt;setBeastPath(mBeastPath);
+        //mBakingScene-&gt;setBeastPath(&quot;C:\\SourceCode\\ly3d\\bin\\Debug.win32\\beast\\&quot;);
+        //初始化
+        mBakingScene-&gt;init();
+        //开始
+        mBakingScene-&gt;begin();
+        EndlessScene* endlessScene = dynamic_cast&lt;EndlessScene*&gt;(getScene());
+        if (endlessScene)
+        {
+                //设置摄像机
+                mBakingScene-&gt;setCamera(endlessScene-&gt;getMainCamera());
+                //环境设置
+                mBakingScene-&gt;setAmbientColor(endlessScene-&gt;getAmbientColor());
+                //mBakingScene-&gt;setSkyLight(mSkyColor, mSkyIntensity);
+                mBakingScene-&gt;setAoEnabled(mAOEnabled, mAOMaxDistance, mAOConeAngle,
+                        mAOContrast, mAOScale);
+                mBakingScene-&gt;setShadowBias(mShadowBias);
+                mBakingScene-&gt;setHdr(mHDREnabled, mHDRRate);
+
+                mBakingScene-&gt;addLight(endlessScene-&gt;getMainLight());
+        }
+        //装载所有区域
+        {
+                HashMap&lt;unsigned, BakingDef&gt;::Iterator i, iend = mAreas.end();
+                for (i = mAreas.begin(); i != iend; ++i)
+                {
+                        EndlessArea* area = endlessScene-&gt;getArea(i-&gt;second.id);
+                        loadArea(area, i-&gt;second.bakeShadowOnly);
+                }
+        }
+        //装载所有地形
+        {
+                HashMap&lt;unsigned, BakingDef&gt;::Iterator i, iend = mTerrains.end();
+                for (i = mTerrains.begin(); i != iend; ++i)
+                {
+                        EndlessTerrain* terrain = endlessScene-&gt;getTerrainGroup()-&gt;getTerrain(i-&gt;second.id);
+                        loadTerrain(terrain, i-&gt;second.bakeShadowOnly);
+                }
+        }
+        //结束
+        mBakingScene-&gt;end();
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteLinkView" guid="dXvuHR9Lo0eIsSsdqO2S8QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">784,1220;600,1220</XPD:ATTR>
+<XPD:REF name="Head">y/cNIhkKjEqkjH73O4Kf7QAA</XPD:REF>
+<XPD:REF name="Tail">8F41vLvrfkGGtXGl4NsONgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="iU26yLS+q0WDUB2xZuMZJgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1480</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1108</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">515</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">578</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Baking::loadArea(EndlessArea* area, bool bakeShadowOnly)
+{
+        if (area)
+        {
+                //区域收集
+                {
+                        PODVector&lt;Zone*&gt; zoneList;
+                        collectZones(area, zoneList);
+                        PODVector&lt;Zone*&gt;::Iterator i, iend = zoneList.end();
+                        for (i = zoneList.begin(); i != iend; ++i)
+                        {
+                                mBakingScene-&gt;addZone(*i);
+                        }
+                }
+                //灯光收集
+                {
+                        PODVector&lt;Light*&gt; lightList;
+                        collectLights(area, lightList);
+                        PODVector&lt;Light*&gt;::Iterator i, iend = lightList.end();
+                        for (i = lightList.begin(); i != iend; ++i)
+                        {
+                                Light* light = *i;
+                                if (light-&gt;getLightType() == LIGHT_POINT)
+                                        mBakingScene-&gt;addLight(light);
+                        }
+                }
+                //实例收集
+                {
+                        PODVector&lt;BakeModel*&gt; modelList;
+                        collectInstance(area, modelList);
+                        PODVector&lt;BakeModel*&gt;::Iterator i, iend = modelList.end();
+                        for (i = modelList.begin(); i != iend; ++i)
+                        {
+                                mBakingScene-&gt;addBakeModel(*i, bakeShadowOnly || (*i)-&gt;isBakeShadowOnly());
+                        }
+                }
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="Hzni75M0vE6IZ2qLDvHxsQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1480,1376;1298,1376</XPD:ATTR>
+<XPD:REF name="Head">8F41vLvrfkGGtXGl4NsONgAA</XPD:REF>
+<XPD:REF name="Tail">iU26yLS+q0WDUB2xZuMZJgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLNoteView" guid="14Wkd26BPEa99MTEAQsYSQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1528</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1708</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">425</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Baking::loadTerrain(EndlessTerrain* terrain, bool bakeShadowOnly /*= false*/)
+{
+        mBakingScene-&gt;addTerrain(terrain, bakeShadowOnly);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLNoteLinkView" guid="GQwak5rCrEm4b7pV9zfzjgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1528,1752;1298,1752</XPD:ATTR>
+<XPD:REF name="Head">8F41vLvrfkGGtXGl4NsONgAA</XPD:REF>
+<XPD:REF name="Tail">14Wkd26BPEa99MTEAQsYSQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[11]" type="UMLNoteView" guid="TMS4xaiBeEy8DtSIJP3OCQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2224</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">708</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">480</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">383</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//添加灯光
+void BakingScene::addLight(Light* light)
+{
+        ILBLightHandle lightHandle = 0;
+        Vector3 worldPos = light-&gt;getNode()-&gt;getWorldPosition();
+        Vector3 worldDir = light-&gt;getNode()-&gt;getWorldDirection();
+        Color color = light-&gt;getColor();
+        if (light-&gt;getLightType() == LIGHT_DIRECTIONAL)
+        {
+                bex::apiCall(ILBCreateDirectionalLight(mSceneHandle,
+                        _WSTR(msNameGenerator.generate()),
+                        &amp;bex::directionalLightOrientation(bex::Vec3(worldDir.x, worldDir.y, worldDir.z)),
+                        &amp;bex::ColorRGB(color.r, color.g, color.b),
+                        &amp;lightHandle));
+        }
+        
+        if (lightHandle)
+        {
+                if (light-&gt;getCastShadows())
+                        bex::apiCall(ILBSetCastShadows(lightHandle, true));
+                else
+                        bex::apiCall(ILBSetCastShadows(lightHandle, false));
+                bex::apiCall(ILBSetShadowSamples(lightHandle, DEFAULT_SHADOW_SAMPLES));
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[12]" type="UMLNoteView" guid="0nZ/+Lo+T0iN/Jxlgh2dOgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2220</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1160</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">620</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">503</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void BakingScene::addBakeModelImpl(BakeModel* staticModel, int geoIndex, bool take, bool bakeShadowOnly)
+{
+        SharedPtr&lt;Model&gt; model(staticModel-&gt;getModel());
+        String modelName = model-&gt;getName();
+
+        addModel(model, geoIndex, take);
+
+        //添加实例
+        String name = msNameGenerator.generate();
+
+        ILBMeshHandle meshHandle;
+        ILBStatus result = ILBFindMesh(mBeastHandle, _WSTR(modelName), &amp;meshHandle);
+        if (ILB_ST_SUCCESS != result)
+                return;
+
+        ILBInstanceHandle instance;
+        bex::Matrix4x4 trans = buildMatrix(staticModel-&gt;getNode()-&gt;getWorldPosition(),
+                staticModel-&gt;getNode()-&gt;getWorldRotation(),
+                staticModel-&gt;getNode()-&gt;getWorldScale());
+
+        bex::apiCall(ILBCreateInstance(mSceneHandle, meshHandle, _WSTR(name), &amp;trans, &amp;instance));
+        bex::apiCall(ILBSetRenderStats(instance, ILB_RS_SHADOW_BIAS, ILB_RSOP_ENABLE));
+
+        BakingInstance bakeInstance(instance);
+        bakeInstance.id = bakeID;
+
+        ILBSetRenderStats(instance, ILB_RS_CAST_SHADOWS, castShadow ? ILB_RSOP_ENABLE : ILB_RSOP_DISABLE);
+        ILBSetRenderStats(instance, ILB_RS_RECEIVE_SHADOWS, receiveShadow ? ILB_RSOP_ENABLE : ILB_RSOP_DISABLE);
+        bakeInstance.bakingTex = !bakeShadowOnly;
+        bakeInstance.texelScale = staticModel-&gt;getBakeTexelScale();
+
+        mInstances[bakeID] = bakeInstance;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[13]" type="UMLNoteLinkView" guid="r+spLQn8PEmb/5o3AsaGUAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2220,1408;1994,1408</XPD:ATTR>
+<XPD:REF name="Head">iU26yLS+q0WDUB2xZuMZJgAA</XPD:REF>
+<XPD:REF name="Tail">0nZ/+Lo+T0iN/Jxlgh2dOgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[14]" type="UMLNoteLinkView" guid="/xaLY2oU7UiJzUr2F9cMHwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1994,1408;2104,1408;2104,912;2224,912</XPD:ATTR>
+<XPD:REF name="Head">TMS4xaiBeEy8DtSIJP3OCQAA</XPD:REF>
+<XPD:REF name="Tail">iU26yLS+q0WDUB2xZuMZJgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[15]" type="UMLNoteView" guid="ch+9lzGCqkKtFGKUqBrYuAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3008</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1064</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">594</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">848</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool BakingScene::addModel( SharedPtr&lt;Model&gt; model, int geoIndex, bool take)
+{
+        String modelName = model-&gt;getName();
+
+        ILBMeshHandle meshHandle;
+        ILBStatus result = ILBFindMesh(mBeastHandle, _WSTR(modelName), &amp;meshHandle);
+        if (ILB_ST_SUCCESS == result)
+        {
+                return false;
+        }
+
+        //添加材质
+        Vector&lt;SharedPtr&lt;Material&gt;&gt; materialPtrs;
+        StringVector materials;
+        ResourceCache* cache = model-&gt;getSubsystem&lt;ResourceCache&gt;();
+        materials = model-&gt;getMetadata(&quot;materials&quot;).getStringVector();
+        for (int index = 0; index &lt; materials.size(); ++index)
+        {
+                SharedPtr&lt;Material&gt; material(cache-&gt;getResource&lt;Material&gt;(materials[index]));
+                addMaterial(material);
+                materialPtrs.push(material);
+        }
+
+        BeastMesh mesh;
+        toBeastMesh(model, &amp;mesh, materialPtrs, geoIndex, take)
+
+        bex::apiCall(ILBBeginMesh(mBeastHandle, _WSTR(modelName), &amp;meshHandle));
+
+        bex::apiCall(ILBAddVertexData(meshHandle, &amp;mesh.Positions[0], &amp;mesh.Normals[0], mesh.Positions.size()));
+
+        bex::apiCall(ILBBeginUVLayer(meshHandle, _T(&quot;uv_diffuse&quot;)));
+        bex::apiCall(ILBAddUVData(meshHandle, &amp;mesh.UVDiffuses[0], mesh.UVDiffuses.size()));
+        bex::apiCall(ILBEndUVLayer(meshHandle));
+
+        bex::apiCall(ILBBeginUVLayer(meshHandle, _T(&quot;uv_lightmap&quot;)));
+        bex::apiCall(ILBAddUVData(meshHandle, &amp;mesh.UVLightmaps[0], mesh.UVLightmaps.size()));
+        bex::apiCall(ILBEndUVLayer(meshHandle));
+
+        bex::apiCall(ILBBeginColorLayer(meshHandle, _T(&quot;diffuse&quot;)));
+        bex::apiCall(ILBAddColorData(meshHandle, &amp;mesh.Colors[0], mesh.Colors.size()));
+        bex::apiCall(ILBEndColorLayer(meshHandle));
+
+        uint32 idx = 0;
+        for (uint32 i = 0; i &lt; mesh.Meshes.size(); i++)
+        {
+                if (i &lt; materials.size())
+                {
+                        bex::apiCall(ILBBeginMaterialGroup(meshHandle, _WSTR(materials[i])));
+                        bex::apiCall(ILBAddTriangleData(meshHandle, &amp;mesh.Triangles[idx], mesh.Meshes[i]));
+                        bex::apiCall(ILBEndMaterialGroup(meshHandle));
+                }
+                idx += mesh.Meshes[i];
+        }
+
+        bex::apiCall(ILBEndMesh(meshHandle));
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[16]" type="UMLNoteLinkView" guid="JfGhYXso+EOvTNREZSqw+AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3008,1408;2839,1408</XPD:ATTR>
+<XPD:REF name="Head">0nZ/+Lo+T0iN/Jxlgh2dOgAA</XPD:REF>
+<XPD:REF name="Tail">ch+9lzGCqkKtFGKUqBrYuAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[17]" type="UMLNoteView" guid="d0Ek9EjGQk66MI1bf099gwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3728</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1384</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">508</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">893</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">
+//添加材质
+ILBMaterialHandle BakingScene::addMaterial(Material* material, bool addNormal, float normalScale)
+{
+        const String&amp; name = material-&gt;getName();
+
+        ILBMaterialHandle handle;
+        bex::apiCall(ILBCreateMaterial(mSceneHandle, _WSTR(name), &amp;handle));
+
+        Texture* texture = material-&gt;getTexture(TU_DIFFUSE);
+        if (addNormal)
+        {
+                Texture* normal = material-&gt;getTexture(TU_NORMAL);
+                ILBTextureHandle texHandle = addTexture(normal);
+
+                if (texHandle != NULL)
+                {
+                        bex::apiCall(ILBSetMaterialTexture(handle, ILB_CC_NORMAL, texHandle));
+                        bex::apiCall(ILBSetChannelUVLayer(handle, ILB_CC_NORMAL, _T(&quot;uv_diffuse&quot;)));
+                }
+        }
+        
+        if (textureName.length() &gt; 4)
+        {
+                ILBTextureHandle texHandle = addTexture(texture);
+                bex::apiCall(ILBSetMaterialTexture(handle, ILB_CC_DIFFUSE, texHandle));
+                bex::apiCall(ILBSetChannelUVLayer(handle, ILB_CC_DIFFUSE, _T(&quot;uv_diffuse&quot;)));
+        }
+        Vector4 DiffColor = material-&gt;getShaderParameter(&quot;MatDiffColor&quot;).getVector4();
+        Vector4 EmissiveColor = material-&gt;getShaderParameter(&quot;MatEmissiveColor&quot;).getVector4();
+        Vector4 EnvMapColor = material-&gt;getShaderParameter(&quot;MatEnvMapColor&quot;).getVector4();
+        Vector4 SpecColor = material-&gt;getShaderParameter(&quot;MatSpecColor&quot;).getVector4();
+        
+        if (isTextureAlpha)
+                bex::apiCall(ILBSetAlphaAsTransparency(handle, true));
+
+        ILBSetMaterialScale(handle, ILB_CC_DIFFUSE, 1.0f); //漫反射
+        ILBSetMaterialScale(handle, ILB_CC_SPECULAR, 1.0f);//镜面光
+        ILBSetMaterialScale(handle, ILB_CC_EMISSIVE, 0.0f);//自发光
+        ILBSetMaterialScale(handle, ILB_CC_SHININESS, 0.0f);//光滑度
+        ILBSetMaterialScale(handle, ILB_CC_REFLECTION, 1.0f);//反光
+        ILBSetMaterialScale(handle, ILB_CC_TRANSPARENCY, 0.0f);
+        if(addNormal)
+                ILBSetMaterialScale(handle, ILB_CC_NORMAL, 1.0f);//法线
+        if (isAlpha)
+                ILBSetMaterialScale(handle, ILB_CC_TRANSPARENCY, 1.0f - DiffColor.w);//透明
+
+        ILBSetMaterialColor(handle, ILB_CC_DIFFUSE, 
+                        &amp;ILBLinearRGBA(DiffColor.x, DiffColor.y, DiffColor.z, DiffColor.w));
+        ILBSetMaterialColor(handle, ILB_CC_SPECULAR, 
+                        &amp;ILBLinearRGBA(SpecColor.x, SpecColor.y, SpecColor.z, SpecColor.w));
+        ILBSetMaterialColor(handle, ILB_CC_EMISSIVE, 
+                        &amp;ILBLinearRGBA(EmissiveColor.x, EmissiveColor.y, EmissiveColor.z, EmissiveColor.w));
+
+        if (userVertexColor)
+                ILBSetMaterialUseVertexColors(handle, ILB_CC_DIFFUSE);
+
+        mMaterials[name] = handle;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[18]" type="UMLNoteLinkView" guid="moHoUrU6CE6hriSUrFGV/gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3728,1702;3601,1638</XPD:ATTR>
+<XPD:REF name="Head">ch+9lzGCqkKtFGKUqBrYuAAA</XPD:REF>
+<XPD:REF name="Tail">d0Ek9EjGQk66MI1bf099gwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[19]" type="UMLNoteView" guid="Bmef8HyW0UOxJy5clao4EwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4400</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1644</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">512</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">383</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">ILBTextureHandle BakingScene::addTexture(Texture* texture)
+{
+        String textureName = texture-&gt;getName();
+        textureName = FileSystem::replaceExtension(textureName, &quot;.png&quot;);
+
+        ILBTextureHandle handle = NULL;
+        ILBStatus status = ILBFindTexture(mBeastHandle, _WSTR(textureName), &amp;handle);
+        if (ILB_ST_SUCCESS == status)
+        {
+                return handle;
+        }
+        Texture2D* tex2d = dynamic_cast&lt;Texture2D*&gt;(texture);
+        if (tex2d)
+        {
+                SharedPtr&lt;Image&gt; image = tex2d-&gt;getImage();
+                ILBBeginTexture(mBeastHandle, _WSTR(textureName),
+                        image-&gt;getWidth(), image-&gt;getHeight(),
+                        (image-&gt;getComponents() == 3) ? ILB_PF_RGB_BYTE : ILB_PF_RGBA_BYTE, &amp;handle);
+                ILBAddPixelDataLDR(handle, image-&gt;getData(),
+                        image-&gt;getWidth() * image-&gt;getHeight());
+                ILBEndTexture(handle);
+        }
+
+        return handle;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[20]" type="UMLNoteLinkView" guid="s3Cvw+QoHkyfW0hGb5gkQQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4400,1833;4235,1832</XPD:ATTR>
+<XPD:REF name="Head">d0Ek9EjGQk66MI1bf099gwAA</XPD:REF>
+<XPD:REF name="Tail">Bmef8HyW0UOxJy5clao4EwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[21]" type="UMLNoteView" guid="7/8r4ugJKUGDlQm3abWw4gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2220</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1748</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">620</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">1763</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//添加地形
+bool BakingScene::addTerrain(EndlessTerrain* terrain, bool bakeShadowOnly)
+{
+        ILBMeshHandle meshHandle;
+        ILBStatus result = ILBFindMesh(mBeastHandle, _WSTR(terrainName), &amp;meshHandle);
+        if (ILB_ST_SUCCESS == result)
+                return false;
+        BeastMesh mesh;
+
+        String materialName = getTerrainMaterialName(terrain);
+        toBeastMesh(terrain, &amp;mesh)
+
+        if (bakeShadowOnly)
+        {
+                //添加材质
+                Material* material = terrain-&gt;getMaterial();
+                addMaterial(mat, false);
+        }
+        else
+        {
+                float normalScale = 1.0f;
+                //添加材质
+                Material* material = terrain-&gt;getMaterial();
+                if (material)
+                {
+                        DetailDef* def1 = terrain-&gt;getTerrainGroup()-&gt;getDetailDef(terrain-&gt;getDetail1ID());
+                        DetailDef* def2 = terrain-&gt;getTerrainGroup()-&gt;getDetailDef(terrain-&gt;getDetail2ID());
+                        DetailDef* def3 = terrain-&gt;getTerrainGroup()-&gt;getDetailDef(terrain-&gt;getDetail3ID());
+                        DetailDef* def4 = terrain-&gt;getTerrainGroup()-&gt;getDetailDef(terrain-&gt;getDetail4ID());
+
+                        SharedPtr&lt;PixelBox&gt; blendmap(new PixelBox(terrain-&gt;getBlendMap()-&gt;getImage(), mContext));
+                        ///根据混合层，构建超大纹理
+                        int texSize = 2048;//beast最大支持2048大小的纹理
+                        SharedPtr&lt;PixelBox&gt; bigBox(new PixelBox(texSize, texSize, mContext));
+                        // 初始化bigBox中每个像素，颜色设为黑色
+                        if (def1)
+                                gBlendPixelBox(def1-&gt;normal, bigBox, def1-&gt;tiling, blendmap, 0, def1-&gt;normalScale);
+                        if (def2)
+                                gBlendPixelBox(def2-&gt;normal, bigBox, def2-&gt;tiling, blendmap, 1, def1-&gt;normalScale);
+                        if (def3)
+                                gBlendPixelBox(def3-&gt;normal, bigBox, def3-&gt;tiling, blendmap, 2, def1-&gt;normalScale);
+                        if (def4)
+                                gBlendPixelBox(def4-&gt;normal, bigBox, def4-&gt;tiling, blendmap, 3, def1-&gt;normalScale);
+                        
+                        SharedPtr&lt;Image&gt; bigImage = bigBox-&gt;toImage();
+                        SharedPtr&lt;Material&gt; mat(new Material(mContext));
+                        mat-&gt;setName(materialName);
+
+                        SharedPtr&lt;Texture2D&gt; texture(new Texture2D(mContext));
+                        texture-&gt;setName(terrainName + &quot;_normal&quot;);
+                        texture-&gt;setData(bigImage);
+
+                        mat-&gt;setTexture(TU_NORMAL, texture);
+                        addMaterial(mat, true);
+                }
+        }
+
+        bex::apiCall(ILBBeginMesh(mBeastHandle, _WSTR(terrainName), &amp;meshHandle));
+
+        {
+                bex::apiCall(ILBAddVertexData(meshHandle, &amp;mesh.Positions[0], &amp;mesh.Normals[0], mesh.Positions.size()));
+
+                bex::apiCall(ILBBeginUVLayer(meshHandle, _T(&quot;uv_diffuse&quot;)));
+                bex::apiCall(ILBAddUVData(meshHandle, &amp;mesh.UVDiffuses[0], mesh.UVDiffuses.size()));
+                bex::apiCall(ILBEndUVLayer(meshHandle));
+
+                bex::apiCall(ILBBeginUVLayer(meshHandle, _T(&quot;uv_lightmap&quot;)));
+                bex::apiCall(ILBAddUVData(meshHandle, &amp;mesh.UVLightmaps[0], mesh.UVLightmaps.size()));
+                bex::apiCall(ILBEndUVLayer(meshHandle));
+
+                if (!bakeShadowOnly)
+                {
+                        ILBBeginTangents(meshHandle);
+                        ILBAddTangentData(meshHandle, &amp;mesh.Tangents[0], &amp;mesh.Bitangents[0], mesh.Tangents.size());
+                        ILBEndTangents(meshHandle);
+                }
+
+                uint32 idx = 0;
+
+                for (uint32 i = 0; i &lt; mesh.Meshes.size(); i++)
+                {
+                        bex::apiCall(ILBBeginMaterialGroup(meshHandle, _WSTR(materialName)));
+                        bex::apiCall(ILBAddTriangleData(meshHandle, &amp;mesh.Triangles[idx], mesh.Meshes[i]));
+                        bex::apiCall(ILBEndMaterialGroup(meshHandle));
+                        idx += mesh.Meshes[i];
+                }
+        }
+
+        bex::apiCall(ILBEndMesh(meshHandle));
+
+        //添加实例
+        String name = msNameGenerator.generate();
+
+        Vector3 offsetPos = terrain-&gt;getTerrainGroup()-&gt;calcTerrainWorldPosition(0, 0);
+        offsetPos.y = 0.0f;
+        ILBInstanceHandle instance;
+        bex::Matrix4x4 trans = buildMatrix(terrain-&gt;getWorldPosition() - offsetPos,
+                terrain-&gt;getWorldRotation(),
+                terrain-&gt;getWorldScale());
+
+        bex::apiCall(ILBCreateInstance(mSceneHandle, meshHandle, _WSTR(name), &amp;trans, &amp;instance));
+        bex::apiCall(ILBSetRenderStats(instance, ILB_RS_SHADOW_BIAS, ILB_RSOP_ENABLE));
+
+        BakingInstance bakeInstance(instance);
+        bakeInstance.id = terrain-&gt;getBakeID();
+
+        bool castShadow = terrain-&gt;getTerrain()-&gt;getCastShadows();
+        bool receiveShadow = true;
+
+        ILBSetRenderStats(instance, ILB_RS_CAST_SHADOWS, castShadow ? ILB_RSOP_ENABLE : ILB_RSOP_DISABLE);
+        ILBSetRenderStats(instance, ILB_RS_RECEIVE_SHADOWS, receiveShadow ? ILB_RSOP_ENABLE : ILB_RSOP_DISABLE);
+        bakeInstance.bakingTex = !bakeShadowOnly;
+        bakeInstance.texelScale = 1.0f;
+        bakeInstance.uvScale = 1.0f;
+
+        mInstances[terrain-&gt;getBakeID()] = bakeInstance;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[22]" type="UMLNoteLinkView" guid="1M2i+KyCDUWOQpoIl3XJTgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2220,2552;1748,2552;1748,1805</XPD:ATTR>
+<XPD:REF name="Head">14Wkd26BPEa99MTEAQsYSQAA</XPD:REF>
+<XPD:REF name="Tail">7/8r4ugJKUGDlQm3abWw4gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[23]" type="UMLNoteView" guid="mvTzAwkp/EOBhdZ9edckUgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">92</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1368</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">555</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">548</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//开始渲染
+void Baking::build(unsigned lightmapID, unsigned maxTextures, unsigned atlasWidth 
+                                        , unsigned atlasHeight, float texelScale , bool bBakingTerrain)
+{
+        EndlessScene* endlessScene = dynamic_cast&lt;EndlessScene*&gt;(getScene());
+        //设置atlas参数
+        mBakingScene-&gt;setAtlasParams(atlasWidth, atlasHeight, maxTextures, texelScale);
+        
+        //开始
+        bool ret = false;
+        if (bBakingTerrain)
+        {
+                ret = mBakingScene-&gt;start(false, true);
+        }
+        else
+        {
+                ret = mBakingScene-&gt;start(false, false);
+        }
+        if (ret)
+        {
+                EndlessLightmaps* lightmaps = endlessScene-&gt;getLightmaps();
+
+                //保存光照图
+                const Vector&lt;SharedPtr&lt;Image&gt;&gt;&amp; images = mBakingScene-&gt;getImages();
+                for (int index = 0; index &lt; images.size(); ++index)
+                {
+                        String fileName = FileSystem::normalizeFilePath(StringUtil::toString(&quot;%s_lightmap_%d_%d.png&quot;
+                                        , endlessScene-&gt;getSceneName().cstring(), lightmapID, index));
+                        images[index]-&gt;savePNG(absoFileName);
+
+                        EndlessScene* endlessScene = dynamic_cast&lt;EndlessScene*&gt;(getScene());
+                        String lightmapTextureName = endlessScene-&gt;getLightmapTextureFileName(fileName);
+                        lightmaps-&gt;addTexture(lightmapID, lightmapTextureName);
+                }
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[24]" type="UMLNoteLinkView" guid="mSkEyJKgW0Gp5Zji1qlYDwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">365,1368;364,1291</XPD:ATTR>
+<XPD:REF name="Head">y/cNIhkKjEqkjH73O4Kf7QAA</XPD:REF>
+<XPD:REF name="Tail">mvTzAwkp/EOBhdZ9edckUgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[25]" type="UMLNoteView" guid="z8prZW/iuki2rctoZ5NFoAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">92</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2020</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">891</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">1643</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool BakingScene::start(/*PageID pageID, */bool bPreview /*= false*/, bool bBakingTerrain /*= false */)
+{
+        String xmlFileName = mBeastPath + &quot;atlas.xml&quot;;
+        writeAtlasConfig(xmlFileName);
+
+        ILBJobHandle job;
+        ILBCreateJob(mBeastHandle, _T(&quot;TestJob&quot;), mSceneHandle, _WSTR(xmlFileName), &amp;job);
+
+        // Create pass
+        ILBRenderPassHandle fullShadingPass = 0;
+        if (bPreview)
+                ILBCreateFullShadingPass(job, _T(&quot;FullShading&quot;), &amp;fullShadingPass);
+        else
+                ILBCreateIlluminationPass(job, _T(&quot;Illumination&quot;), ILB_IM_FULL, &amp;mIlluminationPass);
+
+        if (mBakingConfig.AOEnabled)
+        {
+                ILBCreateAmbientOcclusionPass(job, _T(&quot;AmbientOcclusion&quot;), mBakingConfig.AOMaxdistance, mBakingConfig.AOConeAngle, &amp;mAoPass);
+                ILBSetAOContrast(mAoPass, mBakingConfig.AOContrast, mBakingConfig.AOScale);
+        }
+
+        if (bPreview)
+        {
+                ILBCreateCameraTarget(job, _T(&quot;CameraTarget&quot;), mCameraHandle, PREVIEW_SCREEN_WIDTH, PREVIEW_SCREEN_HEIGHT, &amp;mCameraTarget);
+                ILBAddPassToTarget(mCameraTarget, fullShadingPass);
+        }
+        else {
+                if (bBakingTerrain)
+                        ILBCreateTextureTarget(job, _T(&quot;AtlasTarget&quot;), mBakingConfig.AtlasTexWidth, mBakingConfig.AtlasTexHeight, &amp;mAtlasTarget);
+                else
+                        ILBCreateAtlasedTextureTarget(job, _T(&quot;AtlasTarget&quot;), mBakingConfig.AtlasTexWidth, mBakingConfig.AtlasTexHeight, mBakingConfig.MaxTextures, &amp;mAtlasTarget);
+                ILBSetAtlasAlignment(mAtlasTarget, 4);
+                ILBSetAtlasPadding(mAtlasTarget, 4);
+                ILBAddPassToTarget(mAtlasTarget, mIlluminationPass);
+                if(mBakingConfig.AOEnabled)
+                        ILBAddPassToTarget(mAtlasTarget, mAoPass);
+
+                        HashMap&lt;int, BakingInstance&gt;::Iterator iter = mInstances.begin();
+
+                        while (iter != mInstances.end())
+                        {
+                                ILBTargetEntityHandle entity = NULL;
+                                BakingInstance&amp; i = iter-&gt;second;
+                                if (i.bakingTex)
+                                        ILBAddBakeInstance(mAtlasTarget, i.instance, &amp;entity);
+                                if (entity)
+                                {
+                                        ILBSetBakeResolution(entity, mBakingConfig.AtlasTexWidth, mBakingConfig.AtlasTexHeight);
+                                        ILBSetTexelScale(entity, mBakingConfig.GlobalTexelScale * i.texelScale);
+                                        ILBSetBakeUVSet(entity, _WSTR(&quot;uv_lightmap&quot;));
+                                        bex::Vec2 uvOffset(0, 0);
+                                        bex::Vec2 uvScake(i.uvScale, i.uvScale);
+                                        ILBSetUVTransform(entity, &amp;uvOffset, &amp;uvScake);
+                                        i.targetEntity = entity;
+                                }
+                                //}
+                                iter++;
+                        }
+        }
+
+
+        // Finally render the scene
+        bex::renderJob(job, stream, ！bPreview, false)
+
+        if (!bPreview)
+        {
+                Vector&lt;String&gt; smallLightmapList;
+                Vector&lt;String&gt; bigLightmapList;
+
+                HashMap&lt;int, BakingInstance&gt;::Iterator iter = mInstances.begin();
+
+                while (iter != mInstances.end())
+                {
+                        int32 frameBufferIndex;
+                        ILBVec2 offset, scale;
+                        ILBGetAtlasInformation(iter-&gt;second.targetEntity, &amp;frameBufferIndex, &amp;offset, &amp;scale);
+
+                        LightmapInfo info;
+                        info.id = iter-&gt;second.id;
+                        info.index = frameBufferIndex;
+                        info.offset.x = offset.x;
+                        info.offset.y = offset.y;
+                        info.scale.x = scale.x;
+                        info.scale.y = scale.y;
+
+                        mlightmapInfos[iter-&gt;first] = info;
+                        iter++;
+                }
+
+                cacheAtlasedTextures();
+        }
+
+        ILBDestroyJob(job);
+
+        //生成Image对象
+        for (int index = 0; index &lt; mAtlasTextures.size(); ++index)
+        {
+                const LightmapData&amp; data = mAtlasTextures[index];
+                SharedPtr&lt;Image&gt; image(new Image(mContext));
+                image-&gt;setSize(data.width, data.height, 3);
+                image-&gt;setData(data.data);
+                mLightmaps.push(image);
+        }
+        if (mSceneHandle != NULL)
+        {
+                ILBReleaseScene(mSceneHandle);
+                mSceneHandle = NULL;
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[26]" type="UMLNoteLinkView" guid="nYXk1HHvvUukTlW0uWebOAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">407,2020;407,1915</XPD:ATTR>
+<XPD:REF name="Head">mvTzAwkp/EOBhdZ9edckUgAA</XPD:REF>
+<XPD:REF name="Tail">z8prZW/iuki2rctoZ5NFoAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[27]" type="UMLNoteView" guid="0KNoUnZLeEq9eqJWLxqW3AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3720</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">536</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">550</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">818</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//模型数据转换到BeastMesh
+static bool toBeastMesh(Geometry* geometry, BeastMesh* mesh, bool flipNormal)
+{
+    const unsigned char* vertexData;
+    const unsigned char* indexData;
+    unsigned vertexSize;
+    unsigned indexSize;
+    const PODVector&lt;VertexElement&gt;* elements;
+
+    geometry-&gt;getRawData(vertexData, vertexSize, indexData, indexSize, elements);
+
+    int posOffset = VertexBuffer::getElementOffset(*elements, TYPE_VECTOR3, SEM_POSITION);
+    int norOffset = VertexBuffer::getElementOffset(*elements, TYPE_VECTOR3, SEM_NORMAL);
+    int texOffset = VertexBuffer::getElementOffset(*elements, TYPE_VECTOR2, SEM_TEXCOORD);
+    int texOffset1 = VertexBuffer::getElementOffset(*elements, TYPE_VECTOR2, SEM_TEXCOORD, 1);
+    if (texOffset1 == M_MAX_UNSIGNED)
+            texOffset1 = texOffset;
+
+    int colorOffset = VertexBuffer::getElementOffset(*elements, TYPE_UBYTE4, SEM_COLOR);
+
+    for (unsigned k = srcVertexStart; k &lt; srcVertexStart + srcVertexCount; ++k)
+    {
+            Vector3 pos = *((const Vector3*)(&amp;vertexData[k * vertexSize + posOffset]));
+            Vector3 nor = *((const Vector3*)(&amp;vertexData[k * vertexSize + norOffset]));
+            Vector2 tex = *((const Vector2*)(&amp;vertexData[k * vertexSize + texOffset]));
+            Vector2 tex1 = *((const Vector2*)(&amp;vertexData[k * vertexSize + texOffset1]));
+            unsigned color = *((unsigned*)(&amp;vertexData[k * vertexSize + colorOffset]));
+
+            ILBVec3 p(pos.x, pos.y, pos.z);
+            ILBVec3 n(nor.x, nor.y, nor.z);
+            ILBVec2 t(tex.x, tex.y);
+            ILBVec2 t2(tex1.x, tex1.y);
+            Color c;
+            c.setAsABGR(color);
+            if (colorOffset == -1)
+                    c = Color::White;
+            ILBLinearRGBA linearRGBA(c.r, c.g, c.b, c.a);
+
+            mesh-&gt;Positions.push(p);
+            mesh-&gt;Normals.push(n);
+            mesh-&gt;UVDiffuses.push(t);
+            mesh-&gt;UVLightmaps.push(t2);
+            mesh-&gt;Colors.push(linearRGBA);
+    }
+    const unsigned short* indices = ((const unsigned short*)indexData) + srcIndexStart;
+    const unsigned short* indicesEnd = indices + srcIndexCount;
+
+    while (indices &lt; indicesEnd)
+    {
+            mesh-&gt;Triangles.push(*indices);
+            ++indices;
+    }
+    mesh-&gt;Meshes.push(srcIndexCount);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[28]" type="UMLNoteLinkView" guid="ZfBjygsVDEG9Wb2N3uFMLwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3720,1160;3601,1254</XPD:ATTR>
+<XPD:REF name="Head">ch+9lzGCqkKtFGKUqBrYuAAA</XPD:REF>
+<XPD:REF name="Tail">0KNoUnZLeEq9eqJWLxqW3AAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>
