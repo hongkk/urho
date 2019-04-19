@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="O4daVzxGpEezAsD5/i5EDwAA">
+<XPD:ATTR name="Title" type="string">Node</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="CcxWmrPAOkC+QWrUIy45NgAA">
+<XPD:ATTR name="Name" type="string">Node</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Node</XPD:ATTR>
+<XPD:REF name="Namespace">O4daVzxGpEezAsD5/i5EDwAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="XsVzhP0r8EKIaiihz9b2LAAA">
+<XPD:ATTR name="Name" type="string">Node</XPD:ATTR>
+<XPD:REF name="DiagramOwner">CcxWmrPAOkC+QWrUIy45NgAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="Iucu/XpE90SYXgoaOV9oDgAA">
+<XPD:REF name="Diagram">XsVzhP0r8EKIaiihz9b2LAAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">9</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="uACo+QyvPUG/2FncTgkT5AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">328</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1112</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">311</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///序列化对象
+class LYCORE_API Serializable :  public Object
+{
+        ///从文件读取
+        virtual bool readFromFile(const String&amp; fileName);
+        ///写入到文件
+        virtual bool writeToFile(const String&amp; fileName);
+        ///从缓冲区读取
+        virtual void readFromStream(const Stream&amp; stream) {};
+        ///写入到缓冲区
+        virtual void writeToStream(Stream&amp; stream) const {};
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="iiIVrp78lkSDmp6ogAqBFQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">240</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">488</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">486</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">518</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///所有类型的基类
+class LYCORE_API Object : public RefCounted
+{
+        friend class Context;
+
+        ///初始化
+        virtual void init() {};
+        ///获取类型
+        virtual const StringHash&amp; getType() const = 0;
+        ///获取类型名字
+        virtual const String&amp; getTypeName() const = 0;
+        ///获取类型信息
+        virtual const TypeInfo* getTypeInfo() const = 0;
+        ///获取静态类型信息
+        static const TypeInfo* getTypeInfoStatic() { return 0; }
+       
+        ///获取子系统
+        template &lt;class T&gt; T* getSubsystem() const;
+       
+        /* 事件管理 */
+        virtual void onEvent(Object* sender, StringHash eventType, HashVariantMap&amp; eventData);
+        ///监听某个事件，未指定发送者表示全局
+        void subscribeToEvent(StringHash eventType, EventHandler* handler);
+        void subscribeToEvent(const String&amp; eventType, EventHandler* handler);
+        void subscribeToEvent(const char* eventType, EventHandler* handler);
+        void subscribeToEvent(Object* sender, StringHash eventType, EventHandler* handler);
+      
+        ///发送时间
+        void sendEvent(StringHash eventType);
+        void sendEvent(StringHash eventType, HashVariantMap&amp; eventData);
+        
+protected:
+        Context* mContext;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLNoteView" guid="snvlG+brXEKnXh6j/aYxtQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">340</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">116</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">277</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">278</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///引用计数对象
+class LYCORE_API RefCounted
+{
+public:
+    RefCounted();
+        virtual ~RefCounted();
+        RefCounted* addRef();
+        void releaseRef();
+    int refs() const;
+    int weakRefs() const;
+        RefCount* refCountPtr() { return mRefCount; }
+        ///自动释放
+        RefCounted* autorelease();
+private:
+    RefCounted(const RefCounted&amp; rhs);
+    RefCounted&amp; operator =(const RefCounted&amp; rhs);
+    RefCount* mRefCount;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLNoteView" guid="4cS4yUoisE6yFE6Gr4oXuwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">820</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">116</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">129</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">278</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///引用计数结构
+struct RefCount
+{
+    RefCount() :
+        mRefs(0),
+        mWeakRefs(0)
+    {
+    }
+
+    ~RefCount()
+    {
+        mRefs = -1;
+        mWeakRefs = -1;
+    }
+
+    int mRefs;
+    int mWeakRefs;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLNoteLinkView" guid="LrpckFrSGE22F7/9JfRNkwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">820,254;616,254</XPD:ATTR>
+<XPD:REF name="Head">snvlG+brXEKnXh6j/aYxtQAA</XPD:REF>
+<XPD:REF name="Tail">4cS4yUoisE6yFE6Gr4oXuwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteLinkView" guid="Hk6/NMIdRUKGcNdq8Ntj1QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">480,488;479,393</XPD:ATTR>
+<XPD:REF name="Head">snvlG+brXEKnXh6j/aYxtQAA</XPD:REF>
+<XPD:REF name="Tail">iiIVrp78lkSDmp6ogAqBFQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteLinkView" guid="/RZQejXiZU6dAJBDxTfcOgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">483,1112;483,1005</XPD:ATTR>
+<XPD:REF name="Head">iiIVrp78lkSDmp6ogAqBFQAA</XPD:REF>
+<XPD:REF name="Tail">uACo+QyvPUG/2FncTgkT5AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="1/o3GW546Ue3LvK35v7kVAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">260</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1424</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">452</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">338</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///节点
+class LYCORE_API Node :public Serializable, public NodeAlloc
+{
+       ///创建节点
+        Node* createChild(const String&amp; name, unsigned id,bool temporary);
+        Node* createTemporaryChild(const String&amp; name = String::EMPTY, unsigned id = 0);
+        Node* getOrCreateChild(const String&amp; name);
+        ///添加节点
+        virtual void addChild(Node* child, unsigned index = M_MAX_UNSIGNED);
+        virtual void removeChild(Node* child);
+
+        void setPosition(float x, float y, float z);
+        void setScale(float x, float y, float z);
+        void setRotation(float w, float x, float y, float z);
+
+        ///获取绝对的变换矩阵
+        const Matrix3x4&amp; getWorldTransform(void) const;
+        void setWorldTransform(const Matrix3x4&amp; matrix);
+
+        ///获取或者创建
+        Component* getOrCreateComponent(StringHash type, unsigned id = 0);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="uGJpJ4/Vmku1mj0eex1JOwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">484,1424;483,1299</XPD:ATTR>
+<XPD:REF name="Head">uACo+QyvPUG/2FncTgkT5AAA</XPD:REF>
+<XPD:REF name="Tail">1/o3GW546Ue3LvK35v7kVAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>

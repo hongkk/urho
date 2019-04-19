@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="/QCScTPIG0+qZ/yqgbRUjAAA">
+<XPD:ATTR name="Title" type="string">EndlessScene</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="+W5APx+prkW1p9JhXq7EQwAA">
+<XPD:ATTR name="Name" type="string">Scene</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Scene</XPD:ATTR>
+<XPD:REF name="Namespace">/QCScTPIG0+qZ/yqgbRUjAAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="f8vDfbCppkq2kjcOjIKUMQAA">
+<XPD:ATTR name="Name" type="string">EndlessScene</XPD:ATTR>
+<XPD:REF name="DiagramOwner">+W5APx+prkW1p9JhXq7EQwAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="1j8wszyrHEOMvsfXGS9oFAAA">
+<XPD:REF name="Diagram">f8vDfbCppkq2kjcOjIKUMQAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">48</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="eXfJPslhX0+U1wAsTLs3QwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3458</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">704</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">431</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">503</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">EndlessScene::EndlessScene()
+{
+        this-&gt;createComponent&lt;Octree&gt;()-&gt;setTemporary(true);
+        this-&gt;createComponent&lt;DebugRenderer&gt;()-&gt;setTemporary(true);
+        this-&gt;createComponent&lt;Baking&gt;()-&gt;setTemporary(true);
+        //this-&gt;createComponent&lt;EffectCache&gt;()-&gt;setTemporary(true);
+        this-&gt;createComponent&lt;AvatarCache&gt;()-&gt;setTemporary(true);
+        this-&gt;createComponent&lt;DecalGroup&gt;()-&gt;setTemporary(true);
+        this-&gt;createComponent&lt;BakeModelGroup&gt;()-&gt;setTemporary(true);
+        this-&gt;createComponent&lt;GrassWindAgentManager&gt;()-&gt;setTemporary(true);
+        this-&gt;createComponent&lt;EndlessPather&gt;()-&gt;setTemporary(true);
+        this-&gt;createComponent&lt;EndlessSceneLoader&gt;()-&gt;setTemporary(true);
+        PhysicsWorld * physicsWorld = this-&gt;createComponent&lt;PhysicsWorld&gt;();
+
+        mSceneEffect = this-&gt;createComponent&lt;EndlessSceneEffect&gt;();
+
+        mAvatarEnvironment = this-&gt;createComponent&lt;EndlessAvatarEnvironment&gt;();
+
+        mZoneNode = this-&gt;createChild(&quot;ZoneNode&quot;);
+        mZone = mZoneNode-&gt;createComponent&lt;EndlessZone&gt;();
+
+        mMainCameraNode = this-&gt;createChild(&quot;MainCameraNode&quot;);
+        mMainCamera = mMainCameraNode-&gt;createComponent&lt;Camera&gt;();
+
+        mMainLightNode = this-&gt;createChild(&quot;MainLightNode&quot;);
+        mMainLight = mMainLightNode-&gt;createComponent&lt;Light&gt;();
+
+        mTerrainGroup = new EndlessTerrainGroup(mContext);
+
+        mWaterGroup = new EndlessWaterGroup(mContext);
+
+        mTerrainGridGroup = new TerrainGridGroup(mContext);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="Ttbq4kdAkEWUda1JOEz+swAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4114</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1352</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">431</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">548</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool EndlessScene::loadFromXml(Deserializer&amp; source)
+{
+        source.seek(0);
+        XMLFile xml(mContext);
+        if (!xml.load(source, Resource::EMTITY_PARAMS))
+                return false;
+        XMLElement RootEmt = xml.getRoot();
+        //读取场景属性
+        CoreUtil::loadPropertiesFromXmlElement(this, RootEmt);
+        CoreUtil::loadParamsFromXmlElement(this, RootEmt);
+        //保读取主灯光参数
+        XMLElement MainLightNodeEmt = RootEmt.getChild(&quot;MainLightNode&quot;);
+        mMainLightNode-&gt;loadSelfFromXML(MainLightNodeEmt);
+        XMLElement MainLightEmt = MainLightNodeEmt.getChild(&quot;MainLight&quot;);
+        mMainLight-&gt;loadXML(MainLightEmt);
+        //读取烘焙属性
+        XMLElement BakingEmt = RootEmt.getChild(&quot;Baking&quot;);
+        CoreUtil::loadPropertiesFromXmlElement(getComponent&lt;Baking&gt;(), BakingEmt);
+        //读取地形定义
+        XMLElement TerrainGroupEmt = RootEmt.getChild(&quot;TerrainGroup&quot;);
+        mTerrainGroup-&gt;loadXML(TerrainGroupEmt);
+        //读取水域定义
+        XMLElement WaterGroupEmt = RootEmt.getChild(&quot;WaterGroup&quot;);
+        mWaterGroup-&gt;loadXML(WaterGroupEmt);
+        //读取分区定义
+        XMLElement AreaDescsEmt = RootEmt.getChild(&quot;AreaDescs&quot;);
+        XMLElement AreaDescEmt = AreaDescsEmt.getChild(&quot;AreaDesc&quot;);
+        while (AreaDescEmt)
+        {
+                AreaDesc desc;
+                mAreaDescs.push(desc);
+        }
+        //读取Avatar 环境
+        XMLElement AvatarEnvironmentEmt = RootEmt.getChild(&quot;AvatarEnvironment&quot;);
+        mAvatarEnvironment-&gt;loadXML(AvatarEnvironmentEmt);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLNoteLinkView" guid="EsXBsrw/n0StU0R9w2WSmwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4114,1405;3888,1174</XPD:ATTR>
+<XPD:REF name="Head">eXfJPslhX0+U1wAsTLs3QwAA</XPD:REF>
+<XPD:REF name="Tail">Ttbq4kdAkEWUda1JOEz+swAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLNoteView" guid="33IHxnB43EmwEUg1wwFe4QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3490</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1332</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">390</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">EndlessArea* EndlessScene::createArea(int x, int z,bool force)
+{
+        EndlessArea* area = C_NEW EndlessArea(x, z, this, mContext);
+        AreaID id = calculateAreaID(x, z);
+        area-&gt;setNavigationMeshDebugDraw(mNavigationMeshDebugDraw);
+        this-&gt;addChild(area);
+        if (mLightmapsEnabled)
+                area-&gt;setLightmapsEnabled(true);
+        area-&gt;setPagedEnabled(mAreaPagedEnabled);
+        mAreas.insert(makePair(id, SharedPtr&lt;EndlessArea&gt;(area)));
+        return area;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLNoteLinkView" guid="+CNax65Dn0Gcc8u6PTtM4gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3682,1332;3679,1206</XPD:ATTR>
+<XPD:REF name="Head">eXfJPslhX0+U1wAsTLs3QwAA</XPD:REF>
+<XPD:REF name="Tail">33IHxnB43EmwEUg1wwFe4QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="276VAu4pO0WaT7udGHBZ5QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2966</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1064</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">327</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//场景加载辅助类
+EndlessSceneLoader
+
+///注入位置
+void EndlessSceneLoader::injectPosition(const Vector3&amp; pos)
+{
+//根据位置查找对应的Area,如果该Area还没加载
+//则开始对该Area进行异步加载，记录加载状态和发送消息
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteLinkView" guid="HkpsKJ3FI0WyKj7J5QIdlwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3093,1340;3093,1206</XPD:ATTR>
+<XPD:REF name="Head">276VAu4pO0WaT7udGHBZ5QAA</XPD:REF>
+<XPD:REF name="Tail">SJgG+o73cU+OvimpFBp9jwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="SJgG+o73cU+OvimpFBp9jwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2962</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1340</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">358</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">EndlessArea* EndlessScene::loadArea(int x, int z, unsigned loadFlags)
+{
+        EndlessArea* area = getArea(x, z);
+        if (!area)
+                area = createArea(x, z);
+        if (area &amp;&amp; !area-&gt;load(loadFlags))
+        {
+                C_LOG_ERROR(&quot;area load error. X: %d Z: %d&quot;, x, z);
+        }
+        return area;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="ihuM5P+KU0GEWkCwhMbOWQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3490,1425;3319,1425</XPD:ATTR>
+<XPD:REF name="Head">SJgG+o73cU+OvimpFBp9jwAA</XPD:REF>
+<XPD:REF name="Tail">33IHxnB43EmwEUg1wwFe4QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLNoteView" guid="5rDvIjqJ3kO15WxJN5xnigAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3526</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1660</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">321</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">248</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool EndlessArea::loadImpl(EndlessAreaResource * resource)
+{
+        //加载同名光照图信息，必须在对象信息加载前加载
+        loadLightmaps();
+
+        loadFromXml(resource)
+
+        loadTerrain();
+        loadWater();
+        //加载同名导航网格
+        loadNavMesh();
+        // 通知avatar 环境进行更新。
+        mScene-&gt;getAvatarEnvironment()-&gt;onAreaLoaded(this);
+        //启用烘焙信息
+        setLightmapsEnabled();
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLNoteLinkView" guid="e0SC+zPy70qNylcktH25aAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3685,1660;3684,1519</XPD:ATTR>
+<XPD:REF name="Head">33IHxnB43EmwEUg1wwFe4QAA</XPD:REF>
+<XPD:REF name="Tail">5rDvIjqJ3kO15WxJN5xnigAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[11]" type="UMLNoteView" guid="KNRviNQ7mEW27YkEB4ccpQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2782</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1572</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">528</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool EndlessArea::loadLightmapsFromFile(const String&amp; filename)
+{
+        ResourceCache* cache = getSubsystem&lt;ResourceCache&gt;();
+        //mLightmaps = cache-&gt;getResource&lt;EndlessLightmaps&gt;(filename);
+        return mLightmaps-&gt;loadFile(cache-&gt;getResourceFileName(filename), Resource::EMTITY_PARAMS);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="77sqZR/Tyk+g4c7T9EMiogAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3309,1644;3418,1644;3418,1740;3526,1740</XPD:ATTR>
+<XPD:REF name="Head">5rDvIjqJ3kO15WxJN5xnigAA</XPD:REF>
+<XPD:REF name="Tail">KNRviNQ7mEW27YkEB4ccpQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[13]" type="UMLNoteView" guid="ksTPEbsqakCTz4/aPu7qJwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3674</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2060</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">318</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool EndlessArea::loadTerrain()
+{
+        EndlessTerrainGroup* terrainGroup = getTerrainGroup();
+        if (!terrainGroup)
+                return false;
+        return terrainGroup-&gt;loadTerrain(mX, mZ);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[14]" type="UMLNoteLinkView" guid="mcCZsW8AeE61bIs18OSQtgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3834,2060;3834,1968;3674,1968;3674,1907</XPD:ATTR>
+<XPD:REF name="Head">5rDvIjqJ3kO15WxJN5xnigAA</XPD:REF>
+<XPD:REF name="Tail">ksTPEbsqakCTz4/aPu7qJwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[15]" type="UMLNoteView" guid="0HbHxh1cQk+gdc/8kbe4SAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3334</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2060</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">306</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool EndlessArea::loadWater()
+{
+        EndlessWaterGroup* waterGroup = getWaterGroup();
+        if (!waterGroup)
+                return false;
+        return waterGroup-&gt;loadWater(mX, mZ);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[16]" type="UMLNoteLinkView" guid="bSYtICSgzk2jcxQ6Bn3dnAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3506,2060;3506,1968;3674,1968;3674,1907</XPD:ATTR>
+<XPD:REF name="Head">5rDvIjqJ3kO15WxJN5xnigAA</XPD:REF>
+<XPD:REF name="Tail">0HbHxh1cQk+gdc/8kbe4SAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[17]" type="UMLNoteView" guid="j2anz6SjUUigsowpdlEwzQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2970</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1780</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">329</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool EndlessArea::loadNavMeshFromFile(const String&amp; filename)
+{
+        return mNavigationMesh-&gt;load(filename);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[18]" type="UMLNoteLinkView" guid="HWRyQqcxDUGU8Iywof7XXwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3298,1813;3418,1813;3418,1740;3526,1740</XPD:ATTR>
+<XPD:REF name="Head">5rDvIjqJ3kO15WxJN5xnigAA</XPD:REF>
+<XPD:REF name="Tail">j2anz6SjUUigsowpdlEwzQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[19]" type="UMLNoteView" guid="qhouQ6Cm30G3CJZLZAEQngAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3714</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2396</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">404</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">428</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool EndlessTerrain::load()
+{
+        EndlessScene* scene = dynamic_cast&lt;EndlessScene*&gt;(getScene());
+        mTerrain = this-&gt;createComponent&lt;Terrain&gt;();
+
+        mMaterial = SharedPtr&lt;Material&gt;(C_NEW Material(mContext));
+        mMaterial-&gt;setTechniqueName(0, &quot;Techniques/TerrainBlend.tech&quot;);
+        mMaterial-&gt;setTextureType(TU_ENVIRONMENT, TT_2D);
+
+        mMaterial-&gt;setTexture(TU_DIFFUSE, mDiffuse);
+        mMaterial-&gt;setTexture(TU_NORMAL, mNormal);
+        mTerrain-&gt;setMaterial(mMaterial);
+
+        //读取混合图
+        loadBlendMap(mBlendMapName, mAsyncLoad);
+        //读取高度图
+        loadHeightMap(mHeightMapName, mAsyncLoad);
+
+        mTerrain-&gt;setFlags(ENF_Terrain);
+        mTerrain-&gt;setCastShadows(mCastShadows);
+
+        for (ConstIterator i = mGrassNodes.begin(); i != mGrassNodes.end(); ++i)
+        {
+                Node* grassNode = *i;
+                Grass* grass = grassNode-&gt;getComponent&lt;Grass&gt;();
+                grass-&gt;load();
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[20]" type="UMLNoteView" guid="FDd53SoQuU22dmheON5TNgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3734</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2216</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">260</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool EndlessTerrainGroup::loadTerrain(int x, int z)
+{
+        EndlessTerrain* terrain = getTerrain(x, z);
+        if (!terrain)
+                return false;
+
+        return terrain-&gt;load();
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[21]" type="UMLNoteLinkView" guid="mWsRa8E/l0CKDBb+S7TUNQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3851,2216;3843,2172</XPD:ATTR>
+<XPD:REF name="Head">ksTPEbsqakCTz4/aPu7qJwAA</XPD:REF>
+<XPD:REF name="Tail">FDd53SoQuU22dmheON5TNgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[22]" type="UMLNoteLinkView" guid="0A0rvj78vkS2IlMfu9puHQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3881,2396;3873,2343</XPD:ATTR>
+<XPD:REF name="Head">FDd53SoQuU22dmheON5TNgAA</XPD:REF>
+<XPD:REF name="Tail">qhouQ6Cm30G3CJZLZAEQngAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[23]" type="UMLNoteView" guid="dPC16R7hZ0inYnL4pJmU2wAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3326</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2220</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">252</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool EndlessWaterGroup::loadWater(int x, int z)
+{
+        EndlessWater* water = getWater(x, z);
+        if (!water)
+                return false;
+
+        return water-&gt;load();
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[24]" type="UMLNoteLinkView" guid="3kqG5IkrtUmdA+GUC+vfqQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3464,2220;3474,2172</XPD:ATTR>
+<XPD:REF name="Head">0HbHxh1cQk+gdc/8kbe4SAAA</XPD:REF>
+<XPD:REF name="Tail">dPC16R7hZ0inYnL4pJmU2wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[25]" type="UMLNoteView" guid="q1LzH1FXX0eKu43+3An/BwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3238</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2464</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">316</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool EndlessWater::load()
+{
+        mWater = this-&gt;createComponent&lt;Water&gt;();
+
+        mWater-&gt;setMaterial(getWaterGroup()-&gt;getMaterial());
+
+        //加载高度图
+        loadHeightMap(mHeightMapName, mAsyncLoad);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[26]" type="UMLNoteLinkView" guid="lpULI15fqkuNAL78EKR/IwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3411,2464;3437,2347</XPD:ATTR>
+<XPD:REF name="Head">dPC16R7hZ0inYnL4pJmU2wAA</XPD:REF>
+<XPD:REF name="Tail">q1LzH1FXX0eKu43+3An/BwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[27]" type="UMLNoteView" guid="h92B5vPds0q2pxmd1wJaeQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3698</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2916</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">445</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">368</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Terrain::createGeometry()
+{
+    mPatches.reserve((unsigned)(mNumPatches.width * mNumPatches.height));
+
+    for (int z = 0; z &lt; mNumPatches.height; ++z)
+    {
+        for (int x = 0; x &lt; mNumPatches.width; ++x)
+        {
+            String nodeName = &quot;Patch_&quot; + String(x) + &quot;_&quot; + String(z);
+            Node* patchNode = mNode-&gt;getChild(nodeName);
+
+            patchNode-&gt;setPosition(Vector3(mPatchWorldOrigin.x + (float)x * 
+            mPatchWorldSize.x, 0.0f,mPatchWorldOrigin.y + (float)z * mPatchWorldSize.y));
+
+            TerrainPatch* patch = patchNode-&gt;getComponent&lt;TerrainPatch&gt;();
+            if (!patch)
+            {
+                patch = patchNode-&gt;createComponent&lt;TerrainPatch&gt;();
+                patch-&gt;setOwner(this);
+            }
+            mPatches.push(WeakPtr&lt;TerrainPatch&gt;(patch));
+        }
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[28]" type="UMLNoteLinkView" guid="+tg7PMbNrkC5SizwojW/+QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3918,2916;3917,2823</XPD:ATTR>
+<XPD:REF name="Head">qhouQ6Cm30G3CJZLZAEQngAA</XPD:REF>
+<XPD:REF name="Tail">h92B5vPds0q2pxmd1wJaeQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[29]" type="UMLNoteView" guid="8SQ4ZES/+UW7B0sGTcYiHAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3250</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2668</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">286</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">class LYSCENE_API Water : public Terrain
+{
+        LY_OBJECT(EndlessWater::Water, Terrain);
+ public:
+        Water(Context* context);
+        ~Water();
+        ///类型注册
+        static void registerObject(Context* context);
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[30]" type="UMLNoteLinkView" guid="Fid5TnLik0GWsishIXbA9gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3393,2668;3394,2606</XPD:ATTR>
+<XPD:REF name="Head">q1LzH1FXX0eKu43+3An/BwAA</XPD:REF>
+<XPD:REF name="Tail">8SQ4ZES/+UW7B0sGTcYiHAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[31]" type="UMLNoteView" guid="51njp33pBU6XJIzLUoVvnQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">572</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1488</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">189</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">30</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">class  Drawable : public Component
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[32]" type="UMLNoteView" guid="QJBalfz7hkShbW0BV10/UwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">580</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1360</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">176</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">class  Component : 
+        public Serializable,
+        public PropertySet,
+        public ComponentAlloc
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[33]" type="UMLNoteLinkView" guid="FqGkGgIoNkCw5kJiIB3MQAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">666,1488;667,1427</XPD:ATTR>
+<XPD:REF name="Head">QJBalfz7hkShbW0BV10/UwAA</XPD:REF>
+<XPD:REF name="Tail">51njp33pBU6XJIzLUoVvnQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[34]" type="UMLNoteView" guid="mxTmSiQOI0CVoWYaAK62+AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">904</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1184</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">372</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void View::getDrawables()
+{
+      OccludedFrustumOctreeQueryForDrawable query
+            (tempDrawables, mCullCamera-&gt;getFrustum(), mOcclusionBuffer,
+              DRAWABLE_GEOMETRY | DRAWABLE_LIGHT, NODE_NULL, 
+              mCullCamera-&gt;getViewMask());
+        mOctree-&gt;getDrawables(query);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[35]" type="UMLNoteView" guid="MUXqwhJwmUSQOMaAFjcHOQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">948</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1388</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">288</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Octree::getDrawables(OctreeQuery&amp; query) const
+{
+    query.mResult.clear();
+    getDrawablesInternal(query, false);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[36]" type="UMLNoteView" guid="MdS8Rv38WkyC3G+Ix54azQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">904</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1548</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">383</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Octant::getDrawablesInternal(OctreeQuery&amp; query, bool inside) const
+{
+    if (mDrawables.size())
+    {
+        Drawable** start = const_cast&lt;Drawable**&gt;(&amp;mDrawables[0]);
+        Drawable** end = start + mDrawables.size();
+        query.testDrawables(start, end, inside);
+    }
+
+    for (unsigned i = 0; i &lt; NUM_OCTANTS; ++i)
+    {
+        if (mChildren[i])
+            mChildren[i]-&gt;getDrawablesInternal(query, inside);
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[37]" type="UMLNoteLinkView" guid="3VItFMarEUWZ/+LhwYWDfgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1091,1388;1090,1311</XPD:ATTR>
+<XPD:REF name="Head">mxTmSiQOI0CVoWYaAK62+AAA</XPD:REF>
+<XPD:REF name="Tail">MUXqwhJwmUSQOMaAFjcHOQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[38]" type="UMLNoteLinkView" guid="STbskbDdSE+Dv7S5ByB4IwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1093,1548;1092,1470</XPD:ATTR>
+<XPD:REF name="Head">MUXqwhJwmUSQOMaAFjcHOQAA</XPD:REF>
+<XPD:REF name="Tail">MdS8Rv38WkyC3G+Ix54azQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[39]" type="UMLNoteView" guid="/2WGUXjE+Ee3MwPl0UDTuAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1740</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">904</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">367</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">template &lt;class T&gt; T* Node::createComponent(unsigned id)
+{
+        return static_cast&lt;T*&gt;(createComponent(T::getTypeStatic(), id));
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[40]" type="UMLNoteView" guid="Bom4/L0kLU6LMeQlWsz1RQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1656</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">984</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">551</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Component* Node::createComponent(StringHash type, unsigned id)
+{
+        SharedPtr&lt;Component&gt; newComponent = dynamicCast&lt;Component&gt;(mContext-&gt;createObject(type));
+        addComponent(newComponent, id);
+        return newComponent;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[41]" type="UMLNoteView" guid="AEdzqgeIYEyONpJL0F0VGwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1748</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1096</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">360</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Node::addComponent(Component* component, unsigned id)
+{
+        mComponents.push(SharedPtr&lt;Component&gt;(component));
+        component-&gt;setNode(this);
+         if (!id || mScene-&gt;getComponent(id))
+                  id = mScene-&gt;getFreeComponentID();
+         component-&gt;setID(id);
+         mScene-&gt;onComponentAdded(component);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[42]" type="UMLNoteView" guid="n2svPtlyDU+wyhWMcmylvAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1760</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1256</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">339</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void EndlessScene::onComponentAdded(Component* component)
+{
+        Scene::onComponentAdded(component);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[43]" type="UMLNoteView" guid="Bhc+RhFnVEK6Ze5+yD/TKwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1760</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1344</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">342</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Scene::onComponentAdded(Component* component)
+{
+        mComponents[id] = component;
+
+        component-&gt;onSceneSet(this);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[44]" type="UMLNoteView" guid="8oyRti0uYkWb2t1r33Yk3wAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1808</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1460</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">227</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Drawable::onSceneSet(Scene* scene)
+{
+    if (scene)
+        addToOctree();
+    else
+        removeFromOctree();
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[45]" type="UMLNoteView" guid="AXlDaM0+9EWzNvAuRlDj3QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1776</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1588</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">303</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">158</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Drawable::addToOctree()
+{
+    Scene* scene = getScene();
+    if (scene)
+    {
+        Octree* octree = scene-&gt;getComponent&lt;Octree&gt;();
+        if (octree)
+            octree-&gt;insertDrawable(this);
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[46]" type="UMLNoteView" guid="i4i1BzhwrU2L9qYiqmn6pgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1660</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1776</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">544</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">443</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Octant::insertDrawable(Drawable* drawable)
+{
+    const Boundingbox&amp; box = drawable-&gt;getWorldBoundingbox();
+    bool insertHere;
+    if (this == mRoot)
+        insertHere = !drawable-&gt;isOccludee() || mCullingBox.isInside(box) != INSIDE || checkDrawableFit(box);
+    else
+        insertHere = checkDrawableFit(box);
+
+    if (insertHere)
+    {
+        Octant* oldOctant = drawable-&gt;mOctant;
+        if (oldOctant != this)
+        {
+            addDrawable(drawable);
+            if (oldOctant)
+                oldOctant-&gt;removeDrawable(drawable, false);
+        }
+    }
+    else
+    {
+        Vector3 boxCenter = box.getCenter();
+        unsigned x = boxCenter.x &lt; mCenter.x ? 0 : 1;
+        unsigned y = boxCenter.y &lt; mCenter.y ? 0 : 2;
+        unsigned z = boxCenter.z &lt; mCenter.z ? 0 : 4;
+
+        getOrCreateChild(x + y + z)-&gt;insertDrawable(drawable);
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[47]" type="UMLNoteLinkView" guid="H48Aegciwk+DwpR7NUXsSQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1927,984;1926,971</XPD:ATTR>
+<XPD:REF name="Head">/2WGUXjE+Ee3MwPl0UDTuAAA</XPD:REF>
+<XPD:REF name="Tail">Bom4/L0kLU6LMeQlWsz1RQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>
