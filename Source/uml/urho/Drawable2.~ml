@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="MVPryCDTekifzarqEWjejAAA">
+<XPD:ATTR name="Title" type="string">Drawable</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="32T3+bp7uUGC76h8m9sMhQAA">
+<XPD:ATTR name="Name" type="string">Drawable</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Drawable</XPD:ATTR>
+<XPD:REF name="Namespace">MVPryCDTekifzarqEWjejAAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="bmG6+rR5bUepfKg3AYdh8QAA">
+<XPD:ATTR name="Name" type="string">Drawable</XPD:ATTR>
+<XPD:REF name="DiagramOwner">32T3+bp7uUGC76h8m9sMhQAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="6wzoaqs3jUKejvcSADFWjQAA">
+<XPD:REF name="Diagram">bmG6+rR5bUepfKg3AYdh8QAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">9</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="R3OmobP6oUqQxbDeylatkgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1746</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1428</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">310</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///绘制组件
+class LYCORE_API Drawable : public Component
+{
+    ///更新
+    virtual void update(const FrameInfo&amp; frame) { }
+
+    ///更新批次
+    virtual void updateBatches(const FrameInfo&amp; frame);
+    ///更新几何数据，根据更新类型，允许多线程更新
+    virtual void updateGeometry(const FrameInfo&amp; frame) { }
+
+    const Vector&lt;SourceBatch&gt;&amp; getBatches() const;
+    const Vector&lt;SourceBatch&gt;&amp; getRawBatches() const;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="saqjVLvVY0+A1UQYfyGU7wAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1706</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1058</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">391</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">278</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///组件
+class LYCORE_API Component : 
+        public Serializable,
+        public PropertySet,
+        public ComponentAlloc
+{
+        ///节点设置时(外部通知)
+        virtual void onNodeSet(Node* node);
+        ///场景设置时(外部通知)
+        virtual void onSceneSet(Scene* scene);
+        ///设置节点
+        void setNode(Node* node);
+        ///附加到节点
+        void attachToNode(Node* node);
+
+        template &lt;class T&gt; T* getComponent() const;
+        template &lt;class T&gt; void getComponents(PODVector&lt;T*&gt;&amp; dest) const;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLNoteView" guid="Yf3LmuTfZUq8MnVOfVS+HgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1498</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">734</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">311</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///序列化对象
+class LYCORE_API Serializable :  public Object
+{
+        ///从文件读取
+        virtual bool readFromFile(const String&amp; fileName);
+        ///写入到文件
+        virtual bool writeToFile(const String&amp; fileName);
+        ///从缓冲区读取
+        virtual void readFromStream(const Stream&amp; stream) {};
+        ///写入到缓冲区
+        virtual void writeToStream(Stream&amp; stream) const {};
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLNoteView" guid="VPKQiBFsykiYm6oom7qkBgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1954</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">690</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">362</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">class LYCORE_API PropertySet : public PropertyReceiver
+{
+public:
+        void        addProperty(Property* property);
+        void        removeProperty(const String&amp; name);
+
+        virtual void setProperty(const String&amp; name, const String&amp; value);
+
+        const PropInfo* getPropInfo(int index) const;
+protected:
+        ///初始化属性
+        virtual void initProperties(void) {};
+protected:
+        PropInfoList        mProperties;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLNoteLinkView" guid="iw1da44Mz0SJK//wq1qhWgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1808,1058;1716,921</XPD:ATTR>
+<XPD:REF name="Head">Yf3LmuTfZUq8MnVOfVS+HgAA</XPD:REF>
+<XPD:REF name="Tail">saqjVLvVY0+A1UQYfyGU7wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteLinkView" guid="YdUbX/0Lt0qZvziOxsMzrgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1983,1058;2064,922</XPD:ATTR>
+<XPD:REF name="Head">VPKQiBFsykiYm6oom7qkBgAA</XPD:REF>
+<XPD:REF name="Tail">saqjVLvVY0+A1UQYfyGU7wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteLinkView" guid="P6WcSvT6HkO51S0RDr1n/QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1900,1428;1900,1335</XPD:ATTR>
+<XPD:REF name="Head">saqjVLvVY0+A1UQYfyGU7wAA</XPD:REF>
+<XPD:REF name="Tail">R3OmobP6oUqQxbDeylatkgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="zA4UIC12wkKrr4zhQe2iKAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2036</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">544</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">195</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">class LYCORE_API PropertyReceiver
+{
+public:
+        PropertyReceiver() {}
+        virtual ~PropertyReceiver() {}
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="IT3FxIcob0eK3tPFylQh3wAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2133,690;2133,641</XPD:ATTR>
+<XPD:REF name="Head">zA4UIC12wkKrr4zhQe2iKAAA</XPD:REF>
+<XPD:REF name="Tail">VPKQiBFsykiYm6oom7qkBgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>

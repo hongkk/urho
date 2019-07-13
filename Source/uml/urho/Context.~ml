@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="Inb7BBQUN0e4xpAHbrHhUwAA">
+<XPD:ATTR name="Title" type="string">Context</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="sG89IjAu1EqonzKSxR1gbAAA">
+<XPD:ATTR name="Name" type="string">Context</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Context</XPD:ATTR>
+<XPD:REF name="Namespace">Inb7BBQUN0e4xpAHbrHhUwAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="lfWdQSue8USUovbsnYExWAAA">
+<XPD:ATTR name="Name" type="string">Context</XPD:ATTR>
+<XPD:REF name="DiagramOwner">sG89IjAu1EqonzKSxR1gbAAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="Fs8juhAgN0+h8pcdWtQf0wAA">
+<XPD:REF name="Diagram">lfWdQSue8USUovbsnYExWAAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">13</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="Jm61Fx8d20eYxipWH6OaTAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">668</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">488</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">258</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">class LYCORE_API RefObject : public RefCounted
+{
+public:
+        template&lt;typename T&gt;
+        static T* create()
+        {
+                T* obj = C_NEW T();
+                obj-&gt;autorelease();
+                obj-&gt;addRef();
+                return obj;
+        }
+public:
+        virtual RefObject* copy(void){return 0;};
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="8Ibstmmg1Euv47YQ2Az/qgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">660</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">124</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">277</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">263</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">class LYCORE_API RefCounted
+{
+public:
+    RefCounted();
+        virtual ~RefCounted();
+        RefCounted* addRef();
+        void releaseRef();
+    int refs() const;
+    int weakRefs() const;
+        RefCount* refCountPtr() { return mRefCount; }
+        ///自动释放
+        RefCounted* autorelease();
+private:
+    RefCounted(const RefCounted&amp; rhs);
+    RefCounted&amp; operator =(const RefCounted&amp; rhs);
+    RefCount* mRefCount;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLNoteView" guid="HMowDJm8n0qtosAEM0NdgAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">332</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">140</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">215</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">struct RefCount
+{
+    RefCount() : mRefs(0),mWeakRefs(0)
+    {
+    }
+
+    ~RefCount()
+    {
+        mRefs = -1;
+        mWeakRefs = -1;
+    }
+
+    int mRefs;
+    int mWeakRefs;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLNoteLinkView" guid="FP7Ggh/fr0WCgF0JnITKaAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">546,256;660,256</XPD:ATTR>
+<XPD:REF name="Head">8Ibstmmg1Euv47YQ2Az/qgAA</XPD:REF>
+<XPD:REF name="Tail">HMowDJm8n0qtosAEM0NdgAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLNoteLinkView" guid="+phdL5Ne+EKsSLgFHbggLQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">797,488;797,386</XPD:ATTR>
+<XPD:REF name="Head">8Ibstmmg1Euv47YQ2Az/qgAA</XPD:REF>
+<XPD:REF name="Tail">Jm61Fx8d20eYxipWH6OaTAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="XxaYzkIbik+n+Y9wq7CZiwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">620</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">784</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">370</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">653</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">class LYCORE_API Context :  public RefObject, public GeneralAlloc
+{
+        ///创建对象
+        template &lt;class T&gt; inline T* createObject()
+        {
+                return createObject(T::getTypeStatic());
+        }
+        SharedPtr&lt;Object&gt; createObject(StringHash objectType);
+        ///注册工厂
+        void registerFactory(ObjectFactory* factory);
+        ///工厂模板函数
+        template &lt;class T&gt; void registerFactory();
+
+        ///注册子系统
+        Object* registerSubsystem(Object* subsystem);
+        ///获取子系统
+        Object* getSubsystem(StringHash type) const;
+        template &lt;class T&gt; T* getSubsystem() const;
+
+        ///设置脚本模块
+        void setScriptModule(ScriptModule* sm);
+        ///获取脚本模块
+        ScriptModule* getScriptModule() const {
+                return mScriptModule;
+        }
+}
+
+template &lt;class T&gt; void Context::registerFactory()
+ { 
+        registerFactory(new ObjectFactoryImpl&lt;T&gt;(this)); 
+}
+template &lt;class T&gt; void Context::registerFactory(const char* category)
+{
+        registerFactory(new ObjectFactoryImpl&lt;T&gt;(this), category);
+}
+template &lt;class T&gt; void Context::removeSubsystem()
+ {
+       removeSubsystem(T::getTypeStatic()); 
+}
+template &lt;class T&gt; T* Context::getSubsystem() const 
+{ 
+        return static_cast&lt;T*&gt;(getSubsystem(T::getTypeStatic())); 
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteView" guid="GQjngNMCs0GqGDlO1HWGdwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">40</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1016</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">491</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///默认对象工厂的实现
+template &lt;class T&gt; class ObjectFactoryImpl : public ObjectFactory
+{
+public:
+        ObjectFactoryImpl(Context* context) :
+                ObjectFactory(context)
+        {
+                mTypeInfo = T::getTypeInfoStatic();
+        }
+        virtual SharedPtr&lt;Object&gt; createObject() { return SharedPtr&lt;Object&gt;(new T(mContext)); }
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="FInL8vyJN0yb0fVW/6HrkQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">120</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">680</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">331</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">248</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///对象工厂
+class LYCORE_API ObjectFactory : 
+        public RefObject
+{
+public:
+        ObjectFactory(Context* context) : mContext(context){ }
+        ///创建对象
+        virtual SharedPtr&lt;Object&gt; createObject() = 0;
+        Context* getContext() const { return mContext; }
+        const TypeInfo* getTypeInfo() const { return mTypeInfo; }
+protected:
+        ///上下文
+        Context* mContext;
+        ///类型信息
+        const TypeInfo* mTypeInfo;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="9qDKQR/16kW++VpSaPtoLQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">285,1016;285,927</XPD:ATTR>
+<XPD:REF name="Head">FInL8vyJN0yb0fVW/6HrkQAA</XPD:REF>
+<XPD:REF name="Tail">GQjngNMCs0GqGDlO1HWGdwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLNoteLinkView" guid="D+zY0axnhEuE9I8JC3uZaQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">620,1107;530,1106</XPD:ATTR>
+<XPD:REF name="Head">GQjngNMCs0GqGDlO1HWGdwAA</XPD:REF>
+<XPD:REF name="Tail">XxaYzkIbik+n+Y9wq7CZiwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLNoteView" guid="1n97w2bcU0GoJB99PSy8PQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1116</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">980</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">413</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">293</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Object* Context::registerSubsystem(StringHash objectType, Object* subsystem)
+{
+        mSubsystems[objectType] = subsystem;
+}
+
+void Context::removeSubsystem(StringHash objectType)
+{
+        Subsystems::Iterator i = mSubsystems.find(objectType);
+        if (i != mSubsystems.end())
+        {
+                mSubsystems.erase(i);
+        }
+}
+
+相当于只是在Context这个全局单例中保存了一个表
+在某个适当的位置把objectType对应的实例注册进去，
+在另一个地方又把这个objectType对应的实例取出来，
+由于Context是单例，所以间接的，注册进来的实例
+在全局也只有一份
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[11]" type="UMLNoteLinkView" guid="YtCpbsA5REex+9BuWK8f+AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1116,1044;989,1044</XPD:ATTR>
+<XPD:REF name="Head">XxaYzkIbik+n+Y9wq7CZiwAA</XPD:REF>
+<XPD:REF name="Tail">1n97w2bcU0GoJB99PSy8PQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="9v6Hjav0tEidN9f/lsFucQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">799,784;798,705</XPD:ATTR>
+<XPD:REF name="Head">Jm61Fx8d20eYxipWH6OaTAAA</XPD:REF>
+<XPD:REF name="Tail">XxaYzkIbik+n+Y9wq7CZiwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>
