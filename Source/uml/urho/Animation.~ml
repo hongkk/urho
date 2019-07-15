@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="i+BeyjQxDUiqGfd9QcozpwAA">
+<XPD:ATTR name="Title" type="string">Animation</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="KzKQ92jzvUi1Qjk8tJsQ+wAA">
+<XPD:ATTR name="Name" type="string">Animation</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Animation</XPD:ATTR>
+<XPD:REF name="Namespace">i+BeyjQxDUiqGfd9QcozpwAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="n6AYQYb1FkSQhIMWIb5mgwAA">
+<XPD:ATTR name="Name" type="string">Animation</XPD:ATTR>
+<XPD:REF name="DiagramOwner">KzKQ92jzvUi1Qjk8tJsQ+wAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="iFiR5x+FZkWwyXOpRdigkwAA">
+<XPD:REF name="Diagram">n6AYQYb1FkSQhIMWIb5mgwAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">33</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="q8yaN9xVXEmd+ro0lZHBtgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">376</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">844</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">431</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">413</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Animation
+
+bool Animation::beginLoad(Deserializer&amp; source, const HashVariantMap&amp; parameters)
+{
+    mTracks.clear();
+
+    for (unsigned i = 0; i &lt; tracks; ++i)
+    {
+        AnimationTrack* newTrack = createTrack(source.readString());
+        newTrack-&gt;mChannelMask = source.readUByte();
+
+        unsigned keyFrames = source.readUInt();
+        newTrack-&gt;mKeyFrames.resize(keyFrames);
+
+        for (unsigned j = 0; j &lt; keyFrames; ++j)
+        {
+            AnimationKeyFrame&amp; newKeyFrame = newTrack-&gt;mKeyFrames[j];
+            newKeyFrame.mTime = source.readFloat();
+            if (newTrack-&gt;mChannelMask &amp; CHANNEL_POSITION)
+                newKeyFrame.mPosition = source.readVector3();
+            if (newTrack-&gt;mChannelMask &amp; CHANNEL_ROTATION)
+                newKeyFrame.mRotation = source.readQuaternion();
+            if (newTrack-&gt;mChannelMask &amp; CHANNEL_SCALE)
+                newKeyFrame.mScale = source.readVector3();
+        }
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="rufonAc6BkSoR9VPthPoPAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">628</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2724</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">305</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">278</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///动画控制
+struct LYSCENE_API AnimationControl
+{
+    String mName;
+    StringHash mHash;
+    float                mSpeed; ///常量速度
+    SharedPtr&lt;DynamicAttribute&gt; mDynSpeed;///速度曲线
+    float mTargetWeight;///fade目标权重
+    float mFadeTime;///fadein时间
+    float mAutoFadeTime;///fadeout时间
+    float mSetTimeTtl;
+    float mSetWeightTtl;
+    unsigned short mSetTime;
+    unsigned char mSetWeight;
+    unsigned char mSetTimeRev;
+    unsigned char mSetWeightRev;
+    bool mRemoveOnCompletion;///是否在完成时删除自己
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLNoteView" guid="fQ4ti76aU0WExAsjee9/LQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">672</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3048</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">214</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">158</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///层级配置
+struct AnimationLayerConfig
+{
+        float mSpeed;
+        float mFadeTime;
+        float mAutoFadeTime;
+        bool mRemoveOnCompletion;
+        bool mResetTimeAtPlay;
+        AnimationBlendMode mBlendMode;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLNoteView" guid="BgRxKUcVxUWpe96SeN2pIwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1936</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">724</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">420</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">638</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///动画状态
+class LYSCENE_API AnimationState : public RefCounted
+{
+public:
+    AnimationState(AnimatedModel* model, Animation* animation);
+    AnimationState(Node* node, Animation* animation);
+    ~AnimationState();
+        ///设置开始骨骼
+    void setStartBone(Bone* bone);
+        ///添加权重
+    void addWeight(float delta);
+        ///添加时间
+    void addTime(float delta);
+        ///获取起始骨骼
+    Bone* getStartBone() const;
+        ///应用到变换
+    void apply();
+        ///设置状态
+    void setRunStatus(RunStatus runStatus);
+        ///获取当前状态
+    const RunStatus&amp; getRunStatus() const;
+        ///设置监听器
+    void setListener(AnimationStateListener* listener);
+private:
+    void applyToModel();
+    void applyToNodes();
+    void applyTrack(AnimationStateTrack&amp; stateTrack, float weight, bool silent);
+
+protected:
+    WeakPtr&lt;AnimatedModel&gt; mModel;
+    WeakPtr&lt;Node&gt; mNode;
+        SharedPtr&lt;Animation&gt; mAnimation;
+    Bone* mStartBone;
+    Vector&lt;AnimationStateTrack&gt; mStateTracks;
+    bool mLooped;
+    float mWeight;
+    float mTime;
+    unsigned char mLayer;
+    AnimationBlendMode mBlendingMode;
+        RunStatus mRunStatus;
+        AnimationStateListener* mListener;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLNoteView" guid="tGuxgSMedUu6MkU2jGZ0VQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1524</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">772</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">268</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">        //运行状态
+        enum RunStatus
+        {
+                PLAYING = 0,                // 正常播放状态
+                STOP,                                // 停止状态
+                FADING_OUT,                        // 淡出状态
+                FADING_IN                        // 淡入状态
+        };
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="cEOgaGrEhEu2L8QMdyV9TQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1296</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">916</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">498</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">263</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///动画监听器
+class LYSCENE_API AnimationStateListener
+{
+public:
+        AnimationStateListener() {}
+        ~AnimationStateListener() {}
+        ///完成一次
+        virtual void onAnimationFinished(AnimationState* state) {};
+        ///时间变化
+        virtual void onAnimationTimeChanged(AnimationState* state, float oldTime, float newTime) {};
+        ///时间叠加后
+        virtual void onAnimationTimeSteped(AnimationState* state, float delta) {};
+        ///结束
+        virtual void onAnimationStateDestroy(AnimationState* state) {};
+protected:
+private:
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteView" guid="rDcKBYYVekeE1K7RiQE+fAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1576</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1196</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">219</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">
+///动画状态轨道
+struct LYSCENE_API AnimationStateTrack
+{
+        AnimationStateTrack();
+    ~AnimationStateTrack();
+    const AnimationTrack* mTrack;
+    Bone* mBone;
+    WeakPtr&lt;Node&gt; mNode;
+    float mWeight;
+    unsigned mKeyFrame;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="rDWVjVfyH0elcmIeslyS1gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2612</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">268</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">616</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">413</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// mAnimation-&gt;getTracks() 从动画文件中获取所有的轨道信息 AnimationTrack，
+// 再生成对应的 AnimationStateTrack 设置每个AnimationStateTrack的mNode信息，也就是每个轨道关联的节点的信息
+// AnimationStateTrack 是 AnimationTrack 的相关状态描述,记录对应AnimationTrack的mNode,mBone,weight和keyframe
+AnimationState::AnimationState(Node* node, Animation* animation) :
+{
+    const HashMap&lt;StringHash, AnimationTrack&gt;&amp; tracks = mAnimation-&gt;getTracks();
+    mStateTracks.clear();
+
+    for (HashMap&lt;StringHash, AnimationTrack&gt;::ConstIterator i = tracks.begin(); i != tracks.end(); ++i)
+    {
+        const StringHash&amp; nameHash = i-&gt;second.mNameHash;
+        AnimationStateTrack stateTrack;
+        stateTrack.mTrack = &amp;i-&gt;second;
+
+        if (mNode-&gt;getNameHash() == nameHash || tracks.size() == 1)
+            stateTrack.mNode = mNode;
+        else
+        {
+            Node* targetNode = mNode-&gt;getChild(nameHash, true);
+            if (targetNode)
+                stateTrack.mNode = targetNode;
+        }
+
+        if (stateTrack.mNode)
+            mStateTracks.push(stateTrack);
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="Fnte9zBSbUu5PKcBsQlklgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1936,953;1791,892</XPD:ATTR>
+<XPD:REF name="Head">tGuxgSMedUu6MkU2jGZ0VQAA</XPD:REF>
+<XPD:REF name="Tail">BgRxKUcVxUWpe96SeN2pIwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLNoteLinkView" guid="XaXQk36dt0+01IA65b0olAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1936,1044;1793,1045</XPD:ATTR>
+<XPD:REF name="Head">cEOgaGrEhEu2L8QMdyV9TQAA</XPD:REF>
+<XPD:REF name="Tail">BgRxKUcVxUWpe96SeN2pIwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLNoteLinkView" guid="X+fv9+P/qkeBU3Q4NdXG+gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1936,1154;1794,1230</XPD:ATTR>
+<XPD:REF name="Head">rDcKBYYVekeE1K7RiQE+fAAA</XPD:REF>
+<XPD:REF name="Tail">BgRxKUcVxUWpe96SeN2pIwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[11]" type="UMLNoteLinkView" guid="H7ibpD6DTkWL0stQ27IgfQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2638,680;2355,888</XPD:ATTR>
+<XPD:REF name="Head">BgRxKUcVxUWpe96SeN2pIwAA</XPD:REF>
+<XPD:REF name="Tail">rDWVjVfyH0elcmIeslyS1gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[12]" type="UMLNoteView" guid="WHuDrihEjkuv/jHrtBIuzAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2616</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">736</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">408</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">AnimationState::AnimationState(AnimatedModel* model, Animation* animation) :
+{
+    setStartBone(0);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[13]" type="UMLNoteLinkView" guid="ysD6OBS7jUGGiNd4On/dIwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2735,803;2355,957</XPD:ATTR>
+<XPD:REF name="Head">BgRxKUcVxUWpe96SeN2pIwAA</XPD:REF>
+<XPD:REF name="Tail">WHuDrihEjkuv/jHrtBIuzAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[14]" type="UMLNoteView" guid="+/XvofQ3vke/2yaBGtDxxwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2588</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1604</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">520</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">623</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 确定 mStartBone 
+// 遍历设置所有 tracks 的 mBone 和 mNode
+void AnimationState::setStartBone(Bone* startBone)
+{
+    Skeleton&amp; skeleton = mModel-&gt;getSkeleton();
+    if (!startBone)
+    {
+        Bone* rootBone = skeleton.getRootBone();
+        startBone = rootBone;
+    }
+
+    mStartBone = startBone;
+
+    const HashMap&lt;StringHash, AnimationTrack&gt;&amp; tracks = mAnimation-&gt;getTracks();
+    mStateTracks.clear();
+
+    for (HashMap&lt;StringHash, AnimationTrack&gt;::ConstIterator i = tracks.begin(); i != tracks.end(); ++i)
+    {
+        AnimationStateTrack stateTrack;
+        stateTrack.mTrack = &amp;i-&gt;second;
+
+        Bone* trackBone = 0;
+        const StringHash&amp; nameHash = i-&gt;second.mNameHash;
+
+        if (nameHash == startBone-&gt;mNameHash)
+            trackBone = startBone;
+        else
+        {
+            Node* trackBoneNode = startBone-&gt;mNode-&gt;getChild(nameHash, true);
+            if (trackBoneNode)
+                trackBone = skeleton.getBone(nameHash);
+        }
+
+        if (trackBone &amp;&amp; trackBone-&gt;mNode)
+        {
+            stateTrack.mBone = trackBone;
+            stateTrack.mNode = trackBone-&gt;mNode;
+            mStateTracks.push(stateTrack);
+        }
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[15]" type="UMLNoteLinkView" guid="n9D6iLqiB0uEJqmKC2IVSAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2597,1604;2355,1303</XPD:ATTR>
+<XPD:REF name="Head">BgRxKUcVxUWpe96SeN2pIwAA</XPD:REF>
+<XPD:REF name="Tail">+/XvofQ3vke/2yaBGtDxxwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[16]" type="UMLNoteView" guid="GsgJyrxRpkmc4wm/7Q+hCgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2616</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">860</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">363</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">263</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">--WorkQueue::processItems(unsigned int threadIndex)
+--updateDrawablesWork(const WorkItem* item, unsigned threadIndex)
+--AnimatedModel::update(const FrameInfo&amp; frame)
+--AnimatedModel::updateAnimation(const ly::FrameInfo &amp; frame)
+--AnimatedModel::applyAnimation()
+
+void AnimationState::apply()
+{
+    if (!mAnimation || !isEnabled())
+        return;
+
+    if (mModel)
+        applyToModel();
+    else
+        applyToNodes();
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[17]" type="UMLNoteLinkView" guid="QodfhA3nY0SQxCixROQfDQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2616,1005;2355,1026</XPD:ATTR>
+<XPD:REF name="Head">BgRxKUcVxUWpe96SeN2pIwAA</XPD:REF>
+<XPD:REF name="Tail">GsgJyrxRpkmc4wm/7Q+hCgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[18]" type="UMLNoteView" guid="2uSgKk7/Y0WVim41qxmaSQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2572</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1316</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">518</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 应用到模型  权重重新计算，不为1
+void AnimationState::applyToModel()
+{
+    for (Vector&lt;AnimationStateTrack&gt;::Iterator i = mStateTracks.begin(); i != mStateTracks.end(); ++i)
+    {
+        AnimationStateTrack&amp; stateTrack = *i;
+        float finalWeight = mWeight * stateTrack.mWeight;
+
+        if (Equals(finalWeight, 0.0f) || !stateTrack.mBone-&gt;mAnimated)
+            continue;
+            
+        applyTrack(stateTrack, finalWeight, true);
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[19]" type="UMLNoteLinkView" guid="iFGMWgQ6YkCGhvi4izS1sgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2636,1316;2355,1159</XPD:ATTR>
+<XPD:REF name="Head">BgRxKUcVxUWpe96SeN2pIwAA</XPD:REF>
+<XPD:REF name="Tail">2uSgKk7/Y0WVim41qxmaSQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[20]" type="UMLNoteView" guid="emHJzr4+3Uu1fCTdYtOU9wAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2584</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1156</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">518</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//应用到节点上 权重为1
+void AnimationState::applyToNodes()
+{
+    for (Vector&lt;AnimationStateTrack&gt;::Iterator i = mStateTracks.begin(); i != mStateTracks.end(); ++i)
+        applyTrack(*i, 1.0f, false);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[21]" type="UMLNoteLinkView" guid="Vgf4Y9zoy02WvezBGm5APwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2635,1156;2355,1091</XPD:ATTR>
+<XPD:REF name="Head">BgRxKUcVxUWpe96SeN2pIwAA</XPD:REF>
+<XPD:REF name="Tail">emHJzr4+3Uu1fCTdYtOU9wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[22]" type="UMLNoteView" guid="HAAw/9LZ0UCm1FWl1WrXowAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3372</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">448</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">463</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">1673</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void AnimationState::applyTrack(AnimationStateTrack&amp; stateTrack, float weight, bool silent)
+{
+    // 获取AnimationStateTrack 对应的 AnimationTrack
+    const AnimationTrack* track = stateTrack.mTrack;
+    Node* node = stateTrack.mNode;
+    // 如果对应的AnimationTrack中没有关键帧，则返回
+    if (track-&gt;mKeyFrames.empty() || !node)
+        return;
+
+    //根据时间确定当时实际的关键帧index，并回写到 stateTrack.mKeyFrame
+    unsigned&amp; frame = stateTrack.mKeyFrame;
+    track-&gt;getKeyFrameIndex(mTime, frame);
+    // 下一个关键帧
+    unsigned nextFrame = frame + 1;
+    bool interpolate = true;
+    if (nextFrame &gt;= track-&gt;mKeyFrames.size())
+    {
+        if (!mLooped)
+        {
+            nextFrame = frame;
+            interpolate = false;
+        }
+        else
+            nextFrame = 0;
+    }
+
+    const AnimationKeyFrame* keyFrame = &amp;track-&gt;mKeyFrames[frame];
+    unsigned char channelMask = track-&gt;mChannelMask;
+
+    Vector3 newPosition;
+    Quaternion newRotation;
+    Vector3 newScale;
+    // 插值计算 newPosition newRotation newScale
+    if (interpolate)
+    {
+        const AnimationKeyFrame* nextKeyFrame = &amp;track-&gt;mKeyFrames[nextFrame];
+        float timeInterval = nextKeyFrame-&gt;mTime - keyFrame-&gt;mTime;
+        if (timeInterval &lt; 0.0f)
+            timeInterval += mAnimation-&gt;getLength();
+        float t = timeInterval &gt; 0.0f ? (mTime - keyFrame-&gt;mTime) / timeInterval : 1.0f;
+
+        if (channelMask &amp; CHANNEL_POSITION)
+            newPosition = keyFrame-&gt;mPosition.lerp(nextKeyFrame-&gt;mPosition, t);
+        if (channelMask &amp; CHANNEL_ROTATION)
+            newRotation = keyFrame-&gt;mRotation.slerp(nextKeyFrame-&gt;mRotation, t);
+        if (channelMask &amp; CHANNEL_SCALE)
+            newScale = keyFrame-&gt;mScale.lerp(nextKeyFrame-&gt;mScale, t);
+    }
+    else
+    {
+        if (channelMask &amp; CHANNEL_POSITION)
+            newPosition = keyFrame-&gt;mPosition;
+        if (channelMask &amp; CHANNEL_ROTATION)
+            newRotation = keyFrame-&gt;mRotation;
+        if (channelMask &amp; CHANNEL_SCALE)
+            newScale = keyFrame-&gt;mScale;
+    }
+    // 加入权重进行计算
+    // 混合模式如果是相加，还要再计算
+    if (mBlendingMode == ABM_ADDITIVE)
+    {
+        if (channelMask &amp; CHANNEL_POSITION)
+        {
+            Vector3 delta = newPosition - stateTrack.mBone-&gt;mInitialPosition;
+            newPosition = node-&gt;getPosition() + delta * weight;
+        }
+        if (channelMask &amp; CHANNEL_ROTATION)
+        {
+            Quaternion delta = newRotation * stateTrack.mBone-&gt;mInitialRotation.inverse();
+            newRotation = (delta * node-&gt;getRotation()).normalisedCopy();
+            if (!Equals(weight, 1.0f))
+                newRotation = node-&gt;getRotation().slerp(newRotation, weight);
+        }
+        if (channelMask &amp; CHANNEL_SCALE)
+        {
+            Vector3 delta = newScale - stateTrack.mBone-&gt;mInitialScale;
+            newScale = node-&gt;getScale() + delta * weight;
+        }
+    }
+    else
+    {
+        if (!Equals(weight, 1.0f))
+        {
+            if (channelMask &amp; CHANNEL_POSITION)
+                newPosition = node-&gt;getPosition().lerp(newPosition, weight);
+            if (channelMask &amp; CHANNEL_ROTATION)
+                newRotation = node-&gt;getRotation().slerp(newRotation, weight);
+            if (channelMask &amp; CHANNEL_SCALE)
+                newScale = node-&gt;getScale().lerp(newScale, weight);
+        }
+    }
+    // 如果是silent 只改变属性，不发消息通知 ，如果不是 silent，则要发出改变的消息
+    if (silent)
+    {
+        if (channelMask &amp; CHANNEL_POSITION)
+            node-&gt;setPositionSilent(newPosition);
+        if (channelMask &amp; CHANNEL_ROTATION)
+            node-&gt;setRotationSilent(newRotation);
+        if (channelMask &amp; CHANNEL_SCALE)
+            node-&gt;setScaleSilent(newScale);
+    }
+    else
+    {
+        if (channelMask &amp; CHANNEL_POSITION)
+            node-&gt;setPosition(newPosition);
+        if (channelMask &amp; CHANNEL_ROTATION)
+            node-&gt;setRotation(newRotation);
+        if (channelMask &amp; CHANNEL_SCALE)
+            node-&gt;setScale(newScale);
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[23]" type="UMLNoteLinkView" guid="dTMm9AKoF0qr6lzisPOOWAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3372,1326;3089,1377</XPD:ATTR>
+<XPD:REF name="Head">2uSgKk7/Y0WVim41qxmaSQAA</XPD:REF>
+<XPD:REF name="Tail">HAAw/9LZ0UCm1FWl1WrXowAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[24]" type="UMLNoteLinkView" guid="Vo+OFnsaIUOOW4LCmuu3kwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3372,1260;3101,1231</XPD:ATTR>
+<XPD:REF name="Head">emHJzr4+3Uu1fCTdYtOU9wAA</XPD:REF>
+<XPD:REF name="Tail">HAAw/9LZ0UCm1FWl1WrXowAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[25]" type="UMLNoteView" guid="7WzDIxqIjkGJFxCWxh/iIAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1336</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2712</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">497</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">1148</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///动画控制器
+class LYSCENE_API AnimationController :  public Component
+{
+public:
+    ///更新
+    virtual void update(float timeStep);
+    ///播放
+    bool play(const String&amp; name, unsigned char layer, bool looped, float fadeInTime = 0.0f);
+    ///排斥播放
+    bool playExclusive(const String&amp; name, unsigned char layer, bool looped, float fadeTime = 0.0f);
+    ///根据层级配置播放
+    bool playWithConfig(const String&amp; name, unsigned char layer, bool looped);
+    ///停止
+    bool stop(const String&amp; name, float fadeOutTime = 0.0f);
+    bool stopWithConfig(const String&amp; name, unsigned char layer);
+    ///停止某一层
+    void stopLayer(unsigned char layer, float fadeOutTime = 0.0f);
+    void stopLayerWithConfig(unsigned char layer);
+    ///停止全部
+    void stopAll(float fadeTime = 0.0f);
+    ///淡进淡出
+    bool fade(const String&amp; name, float targetWeight, float fadeTime);
+    bool fadeOthers(const String&amp; name, float targetWeight, float fadeTime);
+    ///设置层级
+    bool setLayer(const String&amp; name, unsigned char layer);
+    ///设置开始的骨骼
+    bool setStartBone(const String&amp; name, const String&amp; startBoneName);
+    ///设置时间
+    bool setTime(const String&amp; name, float time);
+    void setLayerTime(unsigned char layer, float time);
+    ///设置全部状态的时间
+    void addAllStateTime(float time);
+    void setAllStateTime(float time);
+    ///设置权重
+    bool setWeight(const String&amp; name, float weight);
+    ///设置循环
+    bool setLooped(const String&amp; name, bool enable);
+    ///设置速度
+    bool setSpeed(const String&amp; name, float speed);
+    ///设置动态速度
+    bool setDynSpeed(const String&amp; name, DynamicAttribute* dynSpeed);
+
+    ///添加没有fade的动画列表
+    void addNoFadeAnim(const String&amp; animFileName);
+    void removeNoFadeAnim(const String&amp; animFileName)
+protected:
+    virtual void onSceneSet(Scene* scene);
+    ///层级配置管理
+    ///创建或获取层级
+    AnimationLayerConfig* getOrCreateLayerConfig(unsigned char layer);
+    ///获取层级配置
+    AnimationLayerConfig* getLayerConfig(unsigned char layer);
+private:
+    AnimationState* addAnimationState(Animation* animation);
+    void removeAnimationState(AnimationState* state);
+    void findAnimation(const String&amp; name, unsigned&amp; index, AnimationState*&amp; state) const;
+    void handleScenePostUpdate(StringHash eventType, HashVariantMap&amp; eventData);
+
+protected:
+    Vector&lt;AnimationControl&gt; mAnimations;
+    Vector&lt;SharedPtr&lt;AnimationState&gt; &gt; mAnimationStates;
+    ///全局速度
+    float       mGlobalSpeed;
+
+    typedef HashMap&lt;unsigned char, AnimationLayerConfig&gt; LayerConfigs;
+    LayerConfigs    mLayerConfigs;
+
+    ///共享Config的对象
+    WeakPtr&lt;AnimationController&gt; mOwnerAnimationController;
+
+    ///没有Fade的动画列表
+    Vector&lt;StringHash&gt; mNoFadeAnims;
+
+    bool            mManualUpdate;
+    bool            mEnableFade;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[26]" type="UMLNoteView" guid="UhHSbq+mU0GYAmL6ozleGwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2208</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2640</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">510</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">578</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//播放 .ani文件
+bool AnimationController::playWithConfig(const String&amp; name, unsigned char layer, bool looped)
+{
+    Animation* newAnimation = getSubsystem&lt;ResourceCache&gt;()-&gt;getResource&lt;Animation&gt;(name);
+    if (!newAnimation)
+        return false;
+
+    AnimationLayerConfig* layerConfig = getLayerConfig(layer);
+   // 创建一个 AnimationState
+    unsigned index;
+    AnimationState* state;
+    findAnimation(newAnimation-&gt;getName(), index, state);
+
+    if (!state)
+        state = addAnimationState(newAnimation);
+
+    // 创建一个 AnimationControl 
+    if (index == M_MAX_UNSIGNED)
+    {
+        AnimationControl newControl;
+        newControl.mName = newAnimation-&gt;getName();
+        newControl.mHash = newAnimation-&gt;getNameHash();
+        mAnimations.push(newControl);
+        index = mAnimations.size() - 1;
+    }
+    state-&gt;setLayer(layer);
+    state-&gt;setLooped(looped);
+
+    mAnimations[index].mTargetWeight = 1.0f;
+
+    if (mAnimations[index].mFadeTime &gt; 0)
+    {
+        // 有融合时间，权重应该由0逐渐增长
+        state-&gt;setRunStatus(AnimationState::RunStatus::FADING_IN);
+    }
+    else
+        state-&gt;setRunStatus(AnimationState::RunStatus::PLAYING);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[27]" type="UMLNoteLinkView" guid="WuCF1+E1REOK+D0pjN2C6gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2208,3031;1832,3184</XPD:ATTR>
+<XPD:REF name="Head">7WzDIxqIjkGJFxCWxh/iIAAA</XPD:REF>
+<XPD:REF name="Tail">UhHSbq+mU0GYAmL6ozleGwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[28]" type="UMLNoteView" guid="2P5qgg6EcUOs3g/S6OO0QwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">528</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3284</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">539</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">53</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">AnimationController 和与其关联的 AnimatedModel都有 mAnimationStates属性
+但如果AnimationController 中的 AnimatedModel不为空，
+那一般AnimationController.mAnimationStates 都是用 AnimatedModel.mAnimationStates 中这个属性代替
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[29]" type="UMLNoteLinkView" guid="uZIJmoctF0+GNAI25bxXrQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1336,3155;932,2942</XPD:ATTR>
+<XPD:REF name="Head">rufonAc6BkSoR9VPthPoPAAA</XPD:REF>
+<XPD:REF name="Tail">7WzDIxqIjkGJFxCWxh/iIAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[30]" type="UMLNoteLinkView" guid="z5h9NI8uekmGbidTtNVLrQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1336,3236;885,3147</XPD:ATTR>
+<XPD:REF name="Head">fQ4ti76aU0WExAsjee9/LQAA</XPD:REF>
+<XPD:REF name="Tail">7WzDIxqIjkGJFxCWxh/iIAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[31]" type="UMLNoteLinkView" guid="m+7WgdQz+kStJs9Y/B1+UAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1336,3293;1066,3302</XPD:ATTR>
+<XPD:REF name="Head">2P5qgg6EcUOs3g/S6OO0QwAA</XPD:REF>
+<XPD:REF name="Tail">7WzDIxqIjkGJFxCWxh/iIAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[32]" type="UMLNoteView" guid="PzfJSmVSNEuRg2cZ1Hy/MgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2208</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3280</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">512</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">248</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void AnimationController::update(float timeStep)
+{
+    timeStep = mGlobalSpeed * timeStep;
+    for (unsigned i = 0; i &lt; mAnimations.size();)
+    {
+        AnimationControl&amp; ctrl = mAnimations[i];
+        AnimationState* state = getAnimationState(ctrl.mHash);
+
+        // 根据 AnimationControl.mFadeTime 计算对应 AnimationState.mWeight
+        state-&gt;setWeight(currentWeight);
+
+        // 根据 AnimationControl.mDynSpeed 和 AnimationControl.mSpeed 计算 AnimationState.mTime
+        float dynSpeed = ctrl.mDynSpeed-&gt;getValue(state-&gt;getTime() / state-&gt;getLength()).getFloat();
+        state-&gt;addTime(ctrl.mSpeed * timeStep * dynSpeed);
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>

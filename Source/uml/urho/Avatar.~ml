@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="lpm6TCQP8kOrnzhzj+YdoAAA">
+<XPD:ATTR name="Title" type="string">Avatar</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="27/3GBf/u0676Vgi6SGK/wAA">
+<XPD:ATTR name="Name" type="string">Avatar</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Avatar</XPD:ATTR>
+<XPD:REF name="Namespace">lpm6TCQP8kOrnzhzj+YdoAAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="MwsFsUsvkUGrj+c9dK8KzQAA">
+<XPD:ATTR name="Name" type="string">Avatar</XPD:ATTR>
+<XPD:REF name="DiagramOwner">27/3GBf/u0676Vgi6SGK/wAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="Kglc+P6x2kOFGt3Ab5vIgwAA">
+<XPD:REF name="Diagram">MwsFsUsvkUGrj+c9dK8KzQAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">19</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="ECzVv8tC80+AjuSfqHiTPQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">336</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1168</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">424</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">443</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">class LYSCENE_API Avatar :
+        public Node,
+        public EventSet,
+        public PropertySet
+{
+public:
+        ///加载预制
+        bool load(AvatarResource* resource);
+        /// 异步加载预制
+        bool loadAsync(const String &amp; name);
+       
+        ///创建子部件
+        Avatar* createChildAvatar(const String&amp; name, const String&amp; fileName);
+        ///添加已经创建好的子部件
+        Avatar* addChildAvatar(Avatar * childAvatar);
+
+        ///播放动画
+        bool playAnimation(const String&amp; name, unsigned char layer,
+                                           bool looped, const String&amp; actionName);
+        ///停止动画
+        void stopAnimation(const String&amp; name, unsigned char layer);
+public:
+        String   mAvatarResourceName;
+        SharedPtr&lt;AvatarResource&gt; mAvatarResource;
+        WeakPtr&lt;AnimatedModel&gt;        mAnimModel;
+        WeakPtr&lt;AnimationController&gt; mAnimCtrl;
+}
+// avatar类实际是一个节点，不负责具体的渲染，他主要是做为AnimatedModel
+// 的容器，并把.avatar配置和对AnimatedModel的操作作一个封装
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="Y6N138zya0SayhGH3XwWrAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">644</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1080</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">78</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">30</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">PropertySet
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLNoteView" guid="fLMQIWAn5EqnHTBBgEPaZQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">520</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1080</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">64</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">30</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">EventSet
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLNoteView" guid="8ovhFhzsLkqBI08fD4wxuQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">376</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1080</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">50</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">30</XPD:ATTR>
+<XPD:ATTR name="Text" type="string"> Node
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLNoteLinkView" guid="CpdXfUv9jUeR4btl/nIirAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">437,1168;408,1109</XPD:ATTR>
+<XPD:REF name="Head">8ovhFhzsLkqBI08fD4wxuQAA</XPD:REF>
+<XPD:REF name="Tail">ECzVv8tC80+AjuSfqHiTPQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteLinkView" guid="LWlBnX1r1ESbJDtJf64GzQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">550,1168;551,1109</XPD:ATTR>
+<XPD:REF name="Head">fLMQIWAn5EqnHTBBgEPaZQAA</XPD:REF>
+<XPD:REF name="Tail">ECzVv8tC80+AjuSfqHiTPQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteLinkView" guid="q9aBNESjZkmmcxWFhsDpUAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">648,1168;675,1109</XPD:ATTR>
+<XPD:REF name="Head">Y6N138zya0SayhGH3XwWrAAA</XPD:REF>
+<XPD:REF name="Tail">ECzVv8tC80+AjuSfqHiTPQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="roVg2CHN5EutDjpgdU2XgAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">900</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1184</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">492</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">413</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//动画模型对象
+class LYSCENE_API AnimatedModel : public StaticModel
+{
+public:
+        ///设置模型
+        void setModel(Model* model, bool loadMaterialFromMate = true, bool createBones = true);
+        virtual void setModel(Model* model, bool loadMaterialFromMate = true);
+        ///更新几何信息
+        virtual void updateGeometry(const FrameInfo&amp; frame);
+        ///添加动画状态
+        AnimationState* addAnimationState(Animation* animation);
+        ///移除动画状态
+        void removeAnimationState(Animation* animation);
+
+        ///应用动画
+        void applyAnimation();
+protected:
+        ///骨骼
+        Skeleton mSkeleton;
+        ///动画状态
+        Vector&lt;SharedPtr&lt;AnimationState&gt; &gt; mAnimationStates;
+}
+// AnimatedModel 一是个模型动画的实体，每个模型的动作都通过mAnimationStates进行
+// 管理，mSkeleton 保存着动画的骨骼数据，通过applyAnimation()，对mAnimationStates
+// 中每个动进行帧驱动式的更新,AnimationState保存着每个动作的所有关键帧，
+// 当AnimationState.applyTrack()执行时，所有骨骼会被设置到当前对应的位置，旋转和缩放
+// 下一帧更新时，所有骨骼又会被设置到新的位置和旋转，这样就形成了连续的动作
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="TqNo6vNS6kiep4+SlyRZ7QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">900,1390;759,1390</XPD:ATTR>
+<XPD:REF name="Head">ECzVv8tC80+AjuSfqHiTPQAA</XPD:REF>
+<XPD:REF name="Tail">roVg2CHN5EutDjpgdU2XgAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLNoteView" guid="zdiEqDF4W0OLmOmdNOPUkQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1228</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">820</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">474</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">293</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///静态模型对象
+class LYSCENE_API StaticModel : public Drawable, public EventSet
+{
+public:
+       ///设置模型
+        virtual void setModelName(const String&amp; modelName, bool loadMaterialFromMate = true);
+        virtual void setModel(Model* model, bool loadMaterialFromMate = true);
+        ///设置材质
+        virtual void setMaterial(Material* material);
+        virtual bool setMaterial(unsigned index, Material* material);
+protected:
+         PODVector&lt;StaticModelGeometryData&gt; mGeometryData;
+         Vector&lt;Vector&lt;SharedPtr&lt;Geometry&gt; &gt; &gt; mGeometries;
+         SharedPtr&lt;Model&gt; mModel;
+}
+// 静态模型,通过mModel 和 setMaterial()接口，组合显示一个模型，比如水面，平面等
+// 所有不带骨骼动画的模型都可以通过这个类继承
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLNoteLinkView" guid="gy9Tj+vyzkSI/9XpZ0115gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1300,1184;1354,1112</XPD:ATTR>
+<XPD:REF name="Head">zdiEqDF4W0OLmOmdNOPUkQAA</XPD:REF>
+<XPD:REF name="Tail">roVg2CHN5EutDjpgdU2XgAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[11]" type="UMLNoteView" guid="gSXnqXS8c0Ka626TWJPTWQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1248</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">252</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">430</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">488</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///绘制组件
+class LYCORE_API Drawable : public Component
+{
+public:
+///更新
+        virtual void update(const FrameInfo&amp; frame) { }
+        ///更新批次
+        virtual void updateBatches(const FrameInfo&amp; frame);
+        ///更新几何数据，根据更新类型，允许多线程更新
+        virtual void updateGeometry(const FrameInfo&amp; frame) { }
+        ///获取批次
+        virtual const Vector&lt;SourceBatch&gt;&amp; getBatches() const;
+protected:
+         ///添加到八叉树
+         void addToOctree();
+         void removeFromOctree();
+protected:
+          Vector&lt;SourceBatch&gt; mBatches;
+          Octant* mOctant;
+          Zone* mZone;
+}
+// Drawable 是基础的可渲染对象基类，所以需要被渲染出来的
+// 对象和组件都必须继承于它，在每一帧渲染之前，View类会
+// 遍历查看Octree中的所有Drawable，通过Drawable.getBatches()
+// 接口收集所有要渲染的批次，然后每个批次单独或合并渲染一次
+
+// 实际上View类收集批次的过程就是收集Drawable.mBatches 中的 
+// SourceBatch.mGeometry 和 SourceBatch.mMaterial 所有Drawable 
+// 的子类实际上只是对这两个数据的填充。
+// 例如StaticModel 通过StaticModel.setModel()来获取其中的Geometry
+// 数据从而赋值给 Drawable.mBatches[i].mGeometry,通过StaticModel.setMaterial()
+// 来设置Drawable.mBatches[i].mMaterial
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="8vy6SIzASESmyVrWFVNTeQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1463,820;1463,739</XPD:ATTR>
+<XPD:REF name="Head">gSXnqXS8c0Ka626TWJPTWQAA</XPD:REF>
+<XPD:REF name="Tail">zdiEqDF4W0OLmOmdNOPUkQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[13]" type="UMLNoteView" guid="Dxy9yHCHHUy9CuYDXtx6hQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1528</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1184</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">379</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">398</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">class LYSCENE_API WindModel : public StaticModel
+{
+publicl:
+        ///启用风力
+        void setWindEnabled(bool enabled);
+        ///获取树索引
+        int getWindIndex() const {  return mWindIndex;  }
+        ///设置风力等级
+        void setWindPowerScale(float scale);
+        float getWindPowerScale() const {  return mWindPowerScale;  }
+protected:
+        bool                mWindEnabled;
+        float                mWindTimeDelay;//风力时间偏移，随机生成
+        float                mWindPowerScale;//风力缩放
+        int                mWindIndex;
+        SharedPtr&lt;Material&gt; mWindMaterial;
+        SharedPtr&lt;Material&gt; mNotWindMaterial;
+}
+
+
+
+// WindModel 实际只是对 StaticModel一个简单的封装
+// WindModel::setModel() 接口几乎完全使用 StaticModell::setModel() 
+// 增加的这几个属性mWindTimeDelay，mWindPowerScale，mWindIndex
+// 都是为了给mWindMaterial 设置 shaderParam,而mWindMaterial最终会
+// 通过StaticModel::setMaterial()设置为Drawable.mBatches[i].mMaterial
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[14]" type="UMLNoteView" guid="WgLHWoQTa0KGHFEGtM02yAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1492</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1700</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">452</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">533</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///带有lod功能的模型
+class LYSCENE_API LodModel :public WindModel
+{
+public:
+        ///设置主体结构
+        void setMainBody(bool value);
+        ///欺诈启用
+        void setUseImpostor(bool value);
+        ///是否主体结构
+        bool isMainBody() const { return mMainBody; }
+        ///是否启用欺诈纹理
+        bool isUseImpostor() const { return mUseImpostor; }
+protected:
+        bool                        mMainBody;///主体结构，不会受隐藏影响，仅存在Lod
+        bool                        mUseImpostor;///欺诈启用
+}
+
+//更新节点Flags
+void LodModel::updateNodeFlags()
+{
+        if (mNode)
+        {
+                if (mMainBody)
+                {
+                        mNode-&gt;setFlag(ENF_LODMODEL, false);
+                        mNode-&gt;setFlag(ENF_LODMAINBODY, true);
+                }
+                else
+                {
+                        mNode-&gt;setFlag(ENF_LODMODEL, true);
+                        mNode-&gt;setFlag(ENF_LODMAINBODY, false);
+                }
+        }
+}
+// 仅仅是在WindModel的基础上设置ENF_LODMODEL, (ENF_LODMAINBODY, 这两个flag
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[15]" type="UMLNoteLinkView" guid="MQaOPtLTTU2TyeI+ZipvPAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1597,1184;1553,1112</XPD:ATTR>
+<XPD:REF name="Head">zdiEqDF4W0OLmOmdNOPUkQAA</XPD:REF>
+<XPD:REF name="Tail">Dxy9yHCHHUy9CuYDXtx6hQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[16]" type="UMLNoteLinkView" guid="MOl+zOt56UyFUyDbR4zqaQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1717,1700;1717,1581</XPD:ATTR>
+<XPD:REF name="Head">Dxy9yHCHHUy9CuYDXtx6hQAA</XPD:REF>
+<XPD:REF name="Tail">WgLHWoQTa0KGHFEGtM02yAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[17]" type="UMLNoteView" guid="4ClcjO33REWiJqSGFp5HxwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1532</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2284</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">367</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">338</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///烘焙模型
+class LYSCENE_API BakeModel :public LodModel,public EndlessPageNode
+{
+public:
+        ///设置烘焙ID
+        void setBakeID(int id);
+        int getBakeID() const;
+        ///设置启用光照图
+        void setLightmapsEnabled(bool enabled, bool force = false);
+        bool isLightmapsEnabled() const { return mLightmapsEnabled; }
+        ///获取所在的贴花组
+        BakeModelGroup* getGroup() const { return mGroup; }
+        ///设置模型组
+        void setGroup(BakeModelGroup* group);
+protected:
+        ///计算Lod层级
+        virtual void calculateLodLevels();
+        ///更新物理
+        void updatePhysics();
+        ///更新分页
+        void updatePage();
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[18]" type="UMLNoteLinkView" guid="rsfvN5w9eU2Q87dB/P/TuAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1716,2284;1716,2232</XPD:ATTR>
+<XPD:REF name="Head">WgLHWoQTa0KGHFEGtM02yAAA</XPD:REF>
+<XPD:REF name="Tail">4ClcjO33REWiJqSGFp5HxwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>

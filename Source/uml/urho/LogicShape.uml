@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="DC0rjS29d0KpcrNLlI5zQQAA">
+<XPD:ATTR name="Title" type="string">LogicShape</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="0Zp0r4IrsUCfiXNFykph2AAA">
+<XPD:ATTR name="Name" type="string">LogicShape</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">LogicShape</XPD:ATTR>
+<XPD:REF name="Namespace">DC0rjS29d0KpcrNLlI5zQQAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="3GApX0FxIESacaQ72Wd0fAAA">
+<XPD:ATTR name="Name" type="string">LogicShape</XPD:ATTR>
+<XPD:REF name="DiagramOwner">0Zp0r4IrsUCfiXNFykph2AAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="fyb/dGvObEGbhAiMnm62cAAA">
+<XPD:REF name="Diagram">3GApX0FxIESacaQ72Wd0fAAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">21</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="dE05VUQhXk+XjzOierbmOgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">704</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">992</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">355</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">563</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///打击形状
+class LYSCENE_API LogicShape :public Drawable, public ParamsObject
+{
+public:
+///绘制调试信息
+        virtual void drawDebugGeometry();
+        ///绘制调试信息
+        virtual void drawDebugGeometryImpl);
+        ///碰撞检测
+        bool intersects(const Ray&amp; target) const;
+        bool intersects(const Sphere&amp; target) const;
+        bool intersects(const AxisAlignedFan&amp; target) const;
+        bool intersects(const Boundingbox&amp; target) const;
+        bool intersects(const OrientedBoundingbox&amp; target) const;
+        bool intersects(const Cylinder&amp; target) const;
+protected:
+        virtual void onWorldBoundingboxUpdate() override;
+        ///自身包围盒的更新
+        virtual void onBoundingboxUpdate() override;
+        ///更新形状
+        void updateShape() const;
+protected:
+        unsigned                mShapeType;
+        Vector3                        mExtents;
+        Vector3                        mPivot;
+        Vector3                        mOffset;
+        mutable bool        mShapeDirty;
+
+        float                        mFanDegree;
+        float                        mFanLength;
+        float                        mFanFov;
+
+        mutable Shape        mShape;
+        ///绑定到节点的名字
+        WeakPtr&lt;Node&gt;        mBindNode;
+        String                        mBindNodeName;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="k/tk5wKse0GrLDx5IPoKXQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">320</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1756</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">348</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">383</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///打击组件
+class LYSCENE_API AttackShape :public LogicShape, public EventSet
+{
+public:
+        ///相交判定
+        bool intersects(HitShape* hitShape) const;
+        ///重置组件
+        virtual void reset();
+        ///设置检测时间间隔
+        void setCheckInterval(float interval);
+        ///进行一次检查
+        void doCheck();
+protected:
+        ///攻击类型
+        unsigned                        mAttackType;
+        unsigned                        mAttackID;///用于时间轴识别
+        unsigned                        mGroupID;
+        bool                                mCheckValid;
+        unsigned                        mCheckInterval;
+        Timer                                mCheckTimer;
+        ///是否仅命中一次
+        bool                                mOnlyOnce;
+        Vector&lt;WeakPtr&lt;HitShape&gt;&gt; mInsideHitShapes;
+        bool                                mIsManualUpdate;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLNoteLinkView" guid="tbEkvquI306iDD+79Oc8FQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">603,1756;719,1554</XPD:ATTR>
+<XPD:REF name="Head">dE05VUQhXk+XjzOierbmOgAA</XPD:REF>
+<XPD:REF name="Tail">k/tk5wKse0GrLDx5IPoKXQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLNoteView" guid="3ln4525+GkW7k1a/38jHCgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">708</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1756</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">341</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">293</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///受击组件
+class LYSCENE_API HitShape : public LogicShape
+{
+public:
+        HitShape(Context* context);
+        ~HitShape();
+        ///注册对象
+        static void registerObject(Context* context);
+        ///从缓冲区读取
+        virtual void readFromStream(const Stream&amp; stream) override;
+        ///写入到缓冲区
+        virtual void writeToStream(Stream&amp; stream) const override;
+        ///绘制调试信息
+        virtual void drawDebugGeometry();
+protected:
+        ///初始化属性
+        virtual void initProperties(void) override;
+protected:
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLNoteLinkView" guid="fePH6UlB2US3veVW/unaKAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">879,1756;880,1554</XPD:ATTR>
+<XPD:REF name="Head">dE05VUQhXk+XjzOierbmOgAA</XPD:REF>
+<XPD:REF name="Tail">3ln4525+GkW7k1a/38jHCgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="I8AwGyDH/Uu2ufcnsB0oZQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1612</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">92</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">391</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">278</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///组件
+class LYCORE_API Component : 
+        public Serializable,
+        public PropertySet,
+        public ComponentAlloc
+{
+        ///节点设置时(外部通知)
+        virtual void onNodeSet(Node* node);
+        ///场景设置时(外部通知)
+        virtual void onSceneSet(Scene* scene);
+        ///设置节点
+        void setNode(Node* node);
+        ///附加到节点
+        void attachToNode(Node* node);
+
+        template &lt;class T&gt; T* getComponent() const;
+        template &lt;class T&gt; void getComponents(PODVector&lt;T*&gt;&amp; dest) const;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteView" guid="OuaQEDNEjUeLQAbbswYcwQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1072</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">568</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">310</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///绘制组件
+class LYCORE_API Drawable : public Component
+{
+    ///更新
+    virtual void update(const FrameInfo&amp; frame) { }
+
+    ///更新批次
+    virtual void updateBatches(const FrameInfo&amp; frame);
+    ///更新几何数据，根据更新类型，允许多线程更新
+    virtual void updateGeometry(const FrameInfo&amp; frame) { }
+
+    const Vector&lt;SourceBatch&gt;&amp; getBatches() const;
+    const Vector&lt;SourceBatch&gt;&amp; getRawBatches() const;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteLinkView" guid="dZ8VTSREgUyrUGyG0FSjeQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1367,568;1626,369</XPD:ATTR>
+<XPD:REF name="Head">I8AwGyDH/Uu2ufcnsB0oZQAA</XPD:REF>
+<XPD:REF name="Tail">OuaQEDNEjUeLQAbbswYcwQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="xstB04Kx4EakuR93Y71TegAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1043,992;1163,785</XPD:ATTR>
+<XPD:REF name="Head">OuaQEDNEjUeLQAbbswYcwQAA</XPD:REF>
+<XPD:REF name="Tail">dE05VUQhXk+XjzOierbmOgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLNoteView" guid="b1+ekoaeHUON29V6WOFrVQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1120</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">992</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">248</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">248</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///效果组件
+class LYEFFECT_API EffectComponent :
+        public Drawable
+{
+public:
+        void                        play(bool loop = false);
+        void                        stop();
+        void                        pause();
+        void                        resume();
+protected:
+        bool onEffectFinished(EventArgs&amp; args);
+protected:
+        String                                mEffectName;
+        WeakPtr&lt;Effect&gt;                mEffect;
+        bool                                mRepeat;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLNoteLinkView" guid="JKrFvGS41UCXSmROnMa/IgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1238,992;1230,785</XPD:ATTR>
+<XPD:REF name="Head">OuaQEDNEjUeLQAbbswYcwQAA</XPD:REF>
+<XPD:REF name="Tail">b1+ekoaeHUON29V6WOFrVQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[11]" type="UMLNoteView" guid="17KmFE8RDUOZyvFqXWUXHAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1420</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">992</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">213</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">293</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///物理形状
+class LYSCENE_API PhysicsShape :
+        public Drawable,
+        public ParamsObject
+{
+protected:
+        ///更新物理
+        void updatePhysics();
+protected:
+        ///形状类型
+        unsigned        mShapeType;
+        float                mWidth;
+        float                mDepth;
+        float                mHeight;
+        ///生成碰撞体
+        bool                mCollision;
+        unsigned        mCollisionLayer;
+        unsigned        mCollisionMask;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="OgaVlA8KY0uLXlInchPMqwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1431,992;1297,785</XPD:ATTR>
+<XPD:REF name="Head">OuaQEDNEjUeLQAbbswYcwQAA</XPD:REF>
+<XPD:REF name="Tail">17KmFE8RDUOZyvFqXWUXHAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[13]" type="UMLNoteView" guid="9rSuV719jkWEKGN5yzIHJAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1084</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1756</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">205</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///触摸组件
+class LYSCENE_API TouchShape :
+        public LogicShape
+{
+protected:
+        ///优先级
+        unsigned                        mPriority;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[14]" type="UMLNoteLinkView" guid="5IJ6eCIB1kC8cAVDJPWrlQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1151,1756;1038,1554</XPD:ATTR>
+<XPD:REF name="Head">dE05VUQhXk+XjzOierbmOgAA</XPD:REF>
+<XPD:REF name="Tail">9rSuV719jkWEKGN5yzIHJAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[15]" type="UMLNoteView" guid="SSebSG0K60i9HaEzCrs9qwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1472</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">568</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">252</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//挂点
+class LYSCENE_API LinkPoint : public Component
+{
+protected:
+        String mLinkPointName;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[16]" type="UMLNoteLinkView" guid="KroBDZpbQU6NuQmx+rBtwAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1623,568;1731,369</XPD:ATTR>
+<XPD:REF name="Head">I8AwGyDH/Uu2ufcnsB0oZQAA</XPD:REF>
+<XPD:REF name="Tail">SSebSG0K60i9HaEzCrs9qwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[17]" type="UMLNoteView" guid="qjlX46qhtkGCTEMqVsuD9QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1792</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">568</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">260</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">323</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//劈腿组件
+class LYSCENE_API IKTrestle :public Component
+{
+protected:
+        String                        mLeftFloorName;
+        String                        mRightFloorName;
+        unsigned                mLeftChainLength;
+        unsigned                mRightChainLength;
+        WeakPtr&lt;Node&gt;        mCustomOwnerNode;
+        WeakPtr&lt;Node&gt;        mLeftNode;
+        WeakPtr&lt;Node&gt;        mRightNode;
+        SharedPtr&lt;IKEffector&gt;        mLeftEffector;
+        SharedPtr&lt;IKEffector&gt;        mRightEffector;
+        SharedPtr&lt;IKSolver&gt;                mSolver;
+        float                        mSplayDistance;
+        bool                        mOwnerSolver;
+        ///是否从节点的夫节点开始查找
+        bool                        mFindNodeInNodeParent;
+
+        bool                        mIKDirty;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[18]" type="UMLNoteView" guid="TmcECYXO+EO5rKgUOS6k1AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2120</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">568</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">260</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//弓弦
+class LYSCENE_API ArchString : public Component
+{
+protected:
+        Vector&lt;WeakPtr&lt;Node&gt;&gt;  mNodes;
+        Color                mColor;
+        bool                mDepthTest;
+        String                mNodeNames;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[19]" type="UMLNoteLinkView" guid="zf32wJxaaEWanjp/YNkfowAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1884,568;1839,369</XPD:ATTR>
+<XPD:REF name="Head">I8AwGyDH/Uu2ufcnsB0oZQAA</XPD:REF>
+<XPD:REF name="Tail">qjlX46qhtkGCTEMqVsuD9QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[20]" type="UMLNoteLinkView" guid="Z4033qA2E0q5dFPg6Np30QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2172,568;1957,369</XPD:ATTR>
+<XPD:REF name="Head">I8AwGyDH/Uu2ufcnsB0oZQAA</XPD:REF>
+<XPD:REF name="Tail">TmcECYXO+EO5rKgUOS6k1AAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>
