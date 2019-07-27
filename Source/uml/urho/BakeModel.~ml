@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="YHzmz9Nr1kyLHweknIkjKgAA">
+<XPD:ATTR name="Title" type="string">BakeModel</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="xWODPjFV0kiaTEatC5QBPAAA">
+<XPD:ATTR name="Name" type="string">BakeModel</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">BakeModel</XPD:ATTR>
+<XPD:REF name="Namespace">YHzmz9Nr1kyLHweknIkjKgAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="5YuLbzbKbkeE5fJe03euwAAA">
+<XPD:ATTR name="Name" type="string">BakeModel</XPD:ATTR>
+<XPD:REF name="DiagramOwner">xWODPjFV0kiaTEatC5QBPAAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="vY0NinF0BkC83YlQXIhuwwAA">
+<XPD:REF name="Diagram">5YuLbzbKbkeE5fJe03euwAAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">26</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="N/9KUx5N3kCaMtRbQBJ78QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">728</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">672</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">403</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">383</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///烘焙模型
+class LYSCENE_API BakeModel :public LodModel,public EndlessPageNode
+{
+public:
+        ///设置烘焙ID
+        void setBakeID(int id);
+        int getBakeID() const;
+        ///设置启用光照图
+        void setLightmapsEnabled(bool enabled, bool force = false);
+        bool isLightmapsEnabled() const { return mLightmapsEnabled; }
+        ///获取所在的贴花组
+        BakeModelGroup* getGroup() const { return mGroup; }
+        ///设置模型组
+        void setGroup(BakeModelGroup* group);
+protected:
+        ///计算Lod层级
+        virtual void calculateLodLevels();
+        ///更新物理
+        void updatePhysics();
+        ///更新分页
+        void updatePage();
+protected:
+        WeakPtr&lt;BakeModelGroup&gt;                mGroup;
+}
+// 在LodModel 的基础上加入烘焙所需要的信息，还有建立物理世界的信息
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="GcKRnJPa7UOG+v8yIBdm7AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1624</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">668</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">564</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">398</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">class LYSCENE_API BakeModelGroup :public Component
+{
+public:
+        ///创建队列
+        BakeModelQueue* createQueue(Texture* diffuse, Texture* lightmap);
+        ///移除队列
+        void removeQueue(Texture* diffuse, Texture* lightmap, BakeModelQueue* queue);
+        ///清理队列
+        void clearAllQueues();
+        ///获取队列
+        Vector&lt;SharedPtr&lt;BakeModelQueue&gt;&gt;* getQueueGroup(Texture* diffuse, Texture* lightmap);
+        ///获取或者创建队列
+        BakeModelQueue* getOrCreateQueue(Texture* diffuse, Texture* lightmap, unsigned vertexDataSize);
+        ///添加模型
+        void addBakeModel(BakeModel* bakeModel);
+        ///移除模型
+        void removeBakeModel(BakeModel* bakeModel);
+protected:
+        ///更新
+        void handleSchedulerBakeModelGroupUpdate(StringHash eventType, HashVariantMap&amp; eventData);
+protected:
+        typedef HashMap&lt;BakeModelQueueID, Vector&lt;SharedPtr&lt;BakeModelQueue&gt;&gt;&gt; BakeModelQueueGroups;
+        BakeModelQueueGroups mQueueGroups;
+        Vector&lt;SharedPtr&lt;BakeModelQueue&gt;&gt; mCachedQueues;
+        PODVector&lt;BakeModel*&gt; mInViewBakeModels;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLNoteLinkView" guid="0R5+r2k1dEyNWV700f37CQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1624,865;1130,864</XPD:ATTR>
+<XPD:REF name="Head">N/9KUx5N3kCaMtRbQBJ78QAA</XPD:REF>
+<XPD:REF name="Tail">GcKRnJPa7UOG+v8yIBdm7AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLNoteView" guid="JWZLACWb2U68Guqq7gRByAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2872</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">584</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">516</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">548</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">class LYSCENE_API BakeModelQueue :public Drawable
+{
+public:
+        ///更新批次
+        virtual void updateBatches(const FrameInfo&amp; frame);
+        ///更新
+        virtual void update();
+        ///更新几何数据类型
+        virtual UpdateGeometryType getUpdateGeometryType();
+        ///添加模型
+        void push(BakeModel* bakeModel, Geometry* geo,Texture* diffuse, Texture* lightmap, bool flip);
+        ///移除模型
+        bool pop(BakeModel* bakeModel);
+        ///更新批次
+        void updateBatches();
+        ///获取批次
+        void getBatches(const SourceBakeModelGeometry&amp; geo);
+        ///获取队列ID
+        BakeModelQueueID getQueueID() const {
+                return mQueueID;
+        }
+        ///构建ID
+        static BakeModelQueueID GenQueueID(Texture* diffuse, Texture* lightmap);
+protected:
+        typedef Vector&lt;SourceBakeModelGeometry&gt; SourceGeometries;
+        typedef Vector&lt;SharedPtr&lt;Geometry&gt;&gt; Geometries;
+
+        SourceGeometries mSourceGeometries;
+
+        Geometries mGeometries;
+        SharedPtr&lt;VertexBuffer&gt; mVertexBuffer;
+        SharedPtr&lt;IndexBuffer&gt; mIndexBuffer;
+        PODVector&lt;BakeModelBatch&gt; mBakeModelBatches;
+        PODVector&lt;float&gt; mBakeModelVertexData;
+        PODVector&lt;unsigned short&gt; mBakeModelIndexData;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLNoteLinkView" guid="vTwckc368kCZHEksjlt9eAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2872,859;2187,864</XPD:ATTR>
+<XPD:REF name="Head">GcKRnJPa7UOG+v8yIBdm7AAA</XPD:REF>
+<XPD:REF name="Tail">JWZLACWb2U68Guqq7gRByAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="yyzwDMVH80yYepqUELfvtQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3956</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">544</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">500</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">623</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///批次顶点信息
+struct BakeModelBatchVertex
+{
+        Vector3 position;
+        Vector3 normal;
+        Vector2 texcoord1;
+        Vector2 texcoord2;
+};
+///烘焙模型批次
+class LYSCENE_API BakeModelBatch
+{
+public:
+        virtual ~BakeModelBatch();
+        ///合并两个批次
+        bool merge(const BakeModelBatch&amp; batch);
+        bool canMerge(const BakeModelBatch&amp; batch);
+        ///赋值
+        BakeModelBatch&amp; operator =(const BakeModelBatch&amp; rhs);
+        ///是否可以合并
+        static bool canMerge(const BakeModelBatch&amp; batch, PODVector&lt;BakeModelBatch&gt;&amp; batches);
+        ///添加或者合并
+        static void merge(const BakeModelBatch&amp; batch, PODVector&lt;BakeModelBatch&gt;&amp; batches);
+        ///添加顶点
+        void addVertex(const BakeModelBatchVertex&amp; vertex);
+        //定义顶点缓冲区
+        void addIndex(unsigned short index);
+        void flushIndices(unsigned short* indices, unsigned indicesCount);
+public:
+        ///纹理
+        Texture* diffuse;
+        Texture* lightmap;
+        ///顶点数据
+        PODVector&lt;float&gt;* vertexData;
+        PODVector&lt;unsigned short&gt;* indexData;
+        ///绘制时的开始和结束
+        unsigned vertexDataStart;
+        unsigned vertexDataEnd;
+
+        unsigned indexDataStart;
+        unsigned indexDataEnd;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteLinkView" guid="oF3rkLAF1E6IQJzI3zoW/AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3956,855;3387,856</XPD:ATTR>
+<XPD:REF name="Head">JWZLACWb2U68Guqq7gRByAAA</XPD:REF>
+<XPD:REF name="Tail">yyzwDMVH80yYepqUELfvtQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="aTBP6fg0Yk27tYVmpCLlYgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">484</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1148</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">413</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void BakeModel::onSceneSet(Scene* scene)
+{
+        LodModel::onSceneSet(scene);
+        if (scene)
+        {
+                if (endlessScene)
+                {
+                        setGroup(endlessScene-&gt;getComponent&lt;BakeModelGroup&gt;());
+                }
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="DbskMgE0I0iDtrzQ+jrrdgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">745,1148;806,1054</XPD:ATTR>
+<XPD:REF name="Head">N/9KUx5N3kCaMtRbQBJ78QAA</XPD:REF>
+<XPD:REF name="Tail">aTBP6fg0Yk27tYVmpCLlYgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLNoteView" guid="MJq+cOvap0KkJfEDuoM9BwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">552</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1368</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">271</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void BakeModel::setGroup(BakeModelGroup* group)
+{
+        if (mGroup)
+        {
+                mGroup-&gt;removeBakeModel(this);
+        }
+
+        mGroup = group;
+
+        if (mGroup)
+        {
+                mGroup-&gt;addBakeModel(this);
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLNoteLinkView" guid="+zS9atm2bUqubJzaxfbDVAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">688,1368;689,1320</XPD:ATTR>
+<XPD:REF name="Head">aTBP6fg0Yk27tYVmpCLlYgAA</XPD:REF>
+<XPD:REF name="Tail">MJq+cOvap0KkJfEDuoM9BwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[11]" type="UMLNoteView" guid="vNrwfZR/kkyUwScfUuJFRAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1008</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1160</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">199</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///计算Lod层级
+void BakeModel::calculateLodLevels()
+{
+
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="BhtwKhkxS0GKNSplIwsSPAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1085,1160;1029,1054</XPD:ATTR>
+<XPD:REF name="Head">N/9KUx5N3kCaMtRbQBJ78QAA</XPD:REF>
+<XPD:REF name="Tail">vNrwfZR/kkyUwScfUuJFRAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[13]" type="UMLNoteView" guid="VeZekBp+S0mW3TFt0Ul7ygAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1884</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1184</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">627</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">323</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//添加模型
+void BakeModelGroup::addBakeModel(BakeModel* bakeModel)
+{
+        const Vector&lt;SourceBatch&gt;&amp; batches = bakeModel-&gt;getRawBatches();
+        const PODVector&lt;Texture*&gt; diffuses = bakeModel-&gt;getDiffuseTextures();
+        Texture* lightmap = bakeModel-&gt;getLightmapTexture();
+        if (batches.size() == diffuses.size())
+        {
+                for (unsigned index = 0; index &lt; batches.size(); ++index)
+                {
+                        const SourceBatch&amp; batch = batches[index];
+                        Texture* diffuse = diffuses[index];
+                        if (diffuse)
+                        {
+                                BakeModelQueue* queue = getOrCreateQueue(diffuse, lightmap, batch.mGeometry-&gt;getVertexCount());
+                                queue-&gt;push(bakeModel, batch.mGeometry,diffuse, lightmap, flip);
+                        }
+                }
+        }
+}
+//把 diffuses 和 lightmap 相同的 BakeModel 放到同一个BakeModelQueue 中
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[14]" type="UMLNoteLinkView" guid="iFy/CZtUCEGgpPSlq0P5hgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2099,1184;2026,1065</XPD:ATTR>
+<XPD:REF name="Head">GcKRnJPa7UOG+v8yIBdm7AAA</XPD:REF>
+<XPD:REF name="Tail">VeZekBp+S0mW3TFt0Ul7ygAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[15]" type="UMLNoteView" guid="g/wac62/S0GdpG7IYIICSAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1324</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1184</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">537</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">593</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///移除模型
+void BakeModelGroup::removeBakeModel(BakeModel* bakeModel)
+{
+        const Vector&lt;SourceBatch&gt;&amp; batches = bakeModel-&gt;getRawBatches();
+        const PODVector&lt;Texture*&gt; diffuses = bakeModel-&gt;getDiffuseTextures();
+        Texture* lightmap = bakeModel-&gt;getLightmapTexture();
+        if (batches.size() == diffuses.size())
+        {
+                for (unsigned index = 0; index &lt; batches.size(); ++index)
+                {
+                        const SourceBatch&amp; batch = batches[index];
+                        Texture* diffuse = diffuses[index];
+                        if (diffuse)
+                        {
+                                Vector&lt;SharedPtr&lt;BakeModelQueue&gt;&gt;* queues = getQueueGroup(diffuse, lightmap);
+                                if (!queues)
+                                        continue;
+                                Vector&lt;SharedPtr&lt;BakeModelQueue&gt;&gt;::Iterator i, iend = queues-&gt;end();
+                                for (i = queues-&gt;begin(); i != iend;)
+                                {
+                                        BakeModelQueue* queue = *i;
+                                        if (queue-&gt;pop(bakeModel))
+                                        {
+                                                if (queue-&gt;getNumSourceGeometries() == 0)
+                                                {
+                                                        mCachedQueues.push(SharedPtr&lt;BakeModelQueue&gt;(queue));
+                                                        getNode()-&gt;removeComponent(queue);
+                                                        queue-&gt;reset();
+                                                        i = queues-&gt;erase(i);
+                                                        iend = queues-&gt;end();
+                                                }
+                                                else ++i;
+                                        }
+                                        else ++i;
+                                }
+                        }
+                }
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[16]" type="UMLNoteLinkView" guid="2DJAZ6nsbUG9DoEClsa7YQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1743,1184;1804,1065</XPD:ATTR>
+<XPD:REF name="Head">GcKRnJPa7UOG+v8yIBdm7AAA</XPD:REF>
+<XPD:REF name="Tail">g/wac62/S0GdpG7IYIICSAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[17]" type="UMLNoteView" guid="h/IXQfZh9EqJCNsIe2yU9gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2656</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1220</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">434</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">353</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void BakeModelQueue::push(BakeModel* bakeModel, Geometry* geo,
+        Texture* diffuse, Texture* lightmap, bool flip)
+{
+        const Matrix3x4&amp; transform = bakeModel-&gt;getNode()-&gt;getWorldTransform();
+        const Boundingbox&amp; boundingbox = bakeModel-&gt;getWorldBoundingbox();
+        SourceBakeModelGeometry sourceGeo;
+        sourceGeo.bakeModel = bakeModel;
+        sourceGeo.geometry = geo;
+        sourceGeo.transform = transform;
+        sourceGeo.boundingbox = boundingbox;
+        sourceGeo.rotation = transform.rotationMatrix();
+        sourceGeo.diffuse = diffuse;
+        sourceGeo.lightmap = lightmap;
+        sourceGeo.uvoffset = bakeModel-&gt;getLightmapUVOffset();
+        sourceGeo.uvscale = bakeModel-&gt;getLightmapUVScale();
+        sourceGeo.needUpdate = true;
+        sourceGeo.flip = flip;
+        mSourceGeometries.push(sourceGeo);
+
+        mVertexCount += geo-&gt;getVertexCount();
+}
+//每个 BakeModel 的Batch对应一个BakeModelQueue中的SourceBakeModelGeometry
+//收集所有 BakeModel 的 Batch 到 mSourceGeometries 中
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[18]" type="UMLNoteLinkView" guid="V9llG+sx1UWKUM0RfaldOQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2656,1437;2510,1437</XPD:ATTR>
+<XPD:REF name="Head">VeZekBp+S0mW3TFt0Ul7ygAA</XPD:REF>
+<XPD:REF name="Tail">h/IXQfZh9EqJCNsIe2yU9gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[19]" type="UMLNoteLinkView" guid="dsUtigSbT0+NzW64XM+7WgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2956,1220;2998,1131</XPD:ATTR>
+<XPD:REF name="Head">JWZLACWb2U68Guqq7gRByAAA</XPD:REF>
+<XPD:REF name="Tail">h/IXQfZh9EqJCNsIe2yU9gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[20]" type="UMLNoteView" guid="jFPHTzwJSE6C+/yG456oDwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3204</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1216</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">562</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">938</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void BakeModelQueue::update()
+{
+       // 先调用updateBatches()，把数据放入  mBakeModelVertexData，mBakeModelIndexData
+        if (mBatchDirty)
+                updateBatches();   
+        
+        // mVertexBuffer mIndexBuffer检查并分配空间
+         mVertexBuffer = new VertexBuffer(mContext);
+         mIndexBuffer = new IndexBuffer(mContext);
+
+       // 把mBakeModelVertexData 中的数据放到mVertexBuffer中
+        unsigned vertexSize = sizeof(BakeModelBatchVertex) / sizeof(float);
+        if ((mGeometryDirty || mVertexBuffer-&gt;isDataLost()) &amp;&amp; mBakeModelVertexData.size())
+        {
+                unsigned vertexCount = mBakeModelVertexData.size() / vertexSize;
+                unsigned next_vertexCount = Math::Ceil(vertexCount / 1024.0f) * 1024;
+                if (mVertexBuffer-&gt;getVertexCount() &lt; next_vertexCount)
+                        mVertexBuffer-&gt;setSize(next_vertexCount,
+                                MASK_POSITION | MASK_NORMAL | MASK_TEXCOORD1 | MASK_TEXCOORD2, true);
+
+                float* dest = (float*)mVertexBuffer-&gt;lock(0, vertexCount, true);
+                if (dest)
+                {
+                        memcpy(dest, &amp;mBakeModelVertexData[0], vertexSize * vertexCount);
+                        mVertexBuffer-&gt;unlock();
+                }
+        }
+        // 把 mBakeModelIndexData中的数据放到mIndexBuffer中
+        if ((mGeometryDirty || mIndexBuffer-&gt;isDataLost()) &amp;&amp; mBakeModelIndexData.size())
+        {
+                unsigned indexCount = mBakeModelIndexData.size();
+                unsigned next_indexCount = Math::Ceil(indexCount / 1024.0f) * 1024;
+                if (mIndexBuffer-&gt;getIndexCount() &lt; next_indexCount)
+                        mIndexBuffer-&gt;setSize(next_indexCount, false, true);
+
+                uint16* pIndinces = static_cast&lt;uint16*&gt;(mIndexBuffer-&gt;lock(0, indexCount, true));
+                if (pIndinces)
+                {
+                        memcpy(pIndinces, &amp;mBakeModelIndexData[0], sizeof(unsigned short) * indexCount);
+                        mIndexBuffer-&gt;unlock();
+                }
+        }
+ 
+        //在一个 BakeModelQueuek中所有mGeometries中的数据都是指向同一个 mVertexBuffer和mIndexBuffer
+        //通过 setDrawRange 来标识每个batch所需数据在 mVertexBuffer和mIndexBuffer 中的起始点和结束点
+        if (mGeometryDirty)
+        {
+                for (unsigned i = 0; i &lt; mBatches.size() &amp;&amp; i &lt; mBakeModelBatches.size(); ++i)
+                {
+                        const BakeModelBatch&amp; batch = mBakeModelBatches[i];
+                        Geometry* geometry = mGeometries[i];
+                        geometry-&gt;setDrawRange(TRIANGLE_LIST,
+                                batch.indexDataStart,
+                                batch.indexDataEnd - batch.indexDataStart,
+                                batch.vertexDataStart / vertexSize,
+                                (batch.vertexDataEnd - batch.vertexDataStart) / vertexSize);
+                }
+        }
+
+        mGeometryDirty = false;
+        mUpdateAll = false;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[21]" type="UMLNoteLinkView" guid="EvVtyjc+dUKWDdSm6SnJfQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3283,1216;3247,1131</XPD:ATTR>
+<XPD:REF name="Head">JWZLACWb2U68Guqq7gRByAAA</XPD:REF>
+<XPD:REF name="Tail">jFPHTzwJSE6C+/yG456oDwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[22]" type="UMLNoteView" guid="qCBlDE5+Nkqx4sT4zxxkbAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2628</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2132</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">352</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">518</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void BakeModelQueue::updateBatches()
+{
+        //遍历 mSourceGeometries 中所有的项
+        // 收集 Batch中对应的顶点和索引数据
+        SourceGeometries::Iterator i, iend = mSourceGeometries.end();
+        for (i = mSourceGeometries.begin(); i != iend; ++i)
+        {
+                SourceBakeModelGeometry&amp; sourceGeo = *i;
+                if (sourceGeo.needUpdate)
+                        getBatches(*i);
+        }
+
+        mBatchDirty = false;
+        mGeometryDirty = true;
+
+        mBatches.resize(mBakeModelBatches.size());
+
+        if (mGeometries.size() &lt; mBakeModelBatches.size())
+                mGeometries.resize(mBakeModelBatches.size());
+
+        for (unsigned i = 0; i &lt; mBatches.size(); ++i)
+        {
+                Geometry* geometry = mGeometries[i];
+                if (!geometry)
+                {
+                        geometry = new Geometry(mContext);
+                        mGeometries[i] = geometry;
+                }
+                geometry-&gt;setVertexBuffer(0, mVertexBuffer);
+                geometry-&gt;setIndexBuffer(mIndexBuffer);
+                mBatches[i].mGeometry = geometry;
+                mBatches[i].mMaterial = mMaterial;
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[23]" type="UMLNoteLinkView" guid="oTOCYJx/FESlSKL/ZxY0QgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2979,2208;3204,1975</XPD:ATTR>
+<XPD:REF name="Head">jFPHTzwJSE6C+/yG456oDwAA</XPD:REF>
+<XPD:REF name="Tail">qCBlDE5+Nkqx4sT4zxxkbAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[24]" type="UMLNoteView" guid="Uwf9zIBpSUGhaliFLhxiUwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3164</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2284</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">653</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">1598</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//收集 SourceBakeModelGeometry中对应的顶点和索引数据
+void BakeModelQueue::getBatches(const SourceBakeModelGeometry&amp; geo)
+{
+       ///构建这个BakeModelQueue所需要的材质
+        if (mMaterial.isNull())
+        {
+                mMaterial = new Material(mContext);
+                bool alphaMask = geo.diffuse-&gt;hasAlphaChannel();;
+                EndlessLightmaps* lightmaps = geo.bakeModel-&gt;getArea()-&gt;getLightmaps();
+
+                if (mAlpha)
+                        mMaterial-&gt;setTechnique(0, lightmaps-&gt;getAlphaTechnique());
+                else
+                        mMaterial-&gt;setTechnique(0, lightmaps-&gt;getBaseTechnique());
+
+                if (alphaMask)
+                        mMaterial-&gt;appendPixelShaderDefines(&quot;ALPHAMASK&quot;);
+
+                mMaterial-&gt;setTexture(TU_DIFFUSE, geo.diffuse);
+                mMaterial-&gt;setTexture(TU_ENVIRONMENT, geo.lightmap);
+                mMaterial-&gt;setShaderParameter(&quot;MatDiffColor&quot;, Vector4::ONE);
+        }
+        //计算mBakeModelVertexData中的顶点个数
+        unsigned vertexStart = 0;
+        if (!mBakeModelVertexData.empty())
+        {
+                unsigned vertexSize = sizeof(BakeModelBatchVertex) / sizeof(float);
+                vertexStart = mBakeModelVertexData.size() / vertexSize;
+        }
+
+        //所有 batch 的数据都是指向  mBakeModelVertexData 和 mBakeModelIndexData
+        BakeModelBatch batch(geo.diffuse, geo.lightmap, &amp;mBakeModelVertexData, &amp;mBakeModelIndexData);
+
+        bool canMerge = BakeModelBatch::canMerge(batch, mBakeModelBatches);
+        
+        //把 SourceBakeModelGeometry 中的顶点数据拷贝到了mBakeModelVertexData 和 mBakeModelIndexData 中
+        BakeModelBatchVertex tempVertex;
+        if (geo.geometry)
+        {
+                const unsigned char* vertexData;
+                const unsigned char* indexData;
+                unsigned vertexSize;
+                unsigned indexSize;
+                const PODVector&lt;VertexElement&gt;* elements;
+
+                geo.geometry-&gt;getRawData(vertexData, vertexSize, indexData, indexSize, elements);
+
+                unsigned srcIndexStart = geo.geometry-&gt;getIndexStart();
+                unsigned srcIndexCount = geo.geometry-&gt;getIndexCount();
+                unsigned srcVertexStart = geo.geometry-&gt;getVertexStart();
+                unsigned srcVertexCount = geo.geometry-&gt;getVertexCount();
+
+                int posOffset = VertexBuffer::getElementOffset(*elements, TYPE_VECTOR3, SEM_POSITION);
+                int norOffset = VertexBuffer::getElementOffset(*elements, TYPE_VECTOR3, SEM_NORMAL);
+                int texOffset = VertexBuffer::getElementOffset(*elements, TYPE_VECTOR2, SEM_TEXCOORD);
+                int texOffset1 = VertexBuffer::getElementOffset(*elements, TYPE_VECTOR2, SEM_TEXCOORD, 1);
+                if (texOffset1 == M_MAX_UNSIGNED)
+                        texOffset1 = texOffset;
+
+
+                for (unsigned k = srcVertexStart; k &lt; srcVertexStart + srcVertexCount; ++k)
+                {
+                        Vector3 pos = geo.transform * *((const Vector3*)(&amp;vertexData[k * vertexSize + posOffset]));
+                        Vector3 nor = geo.rotation * *((const Vector3*)(&amp;vertexData[k * vertexSize + norOffset]));
+                        if (geo.flip)
+                                nor *= -1.0f;
+                        Vector2 texcoord1 = geo.uvscale * *((const Vector2*)(&amp;vertexData[k * vertexSize + texOffset1])) + geo.uvoffset;
+                        memcpy(tempVertex.position.ptr(), pos.ptr(), sizeof(Vector3));
+                        memcpy(tempVertex.normal.ptr(), nor.ptr(), sizeof(Vector3));
+                        memcpy(tempVertex.texcoord1.ptr(), &amp;vertexData[k * vertexSize + texOffset], sizeof(Vector2));
+                        memcpy(tempVertex.texcoord2.ptr(), texcoord1.ptr(), sizeof(Vector2));
+                        //顶点数据拷贝到mBakeModelVertexData
+                        batch.addVertex(tempVertex);
+                }
+
+                const unsigned short* indices = ((const unsigned short*)indexData) + srcIndexStart;
+                const unsigned short* indicesEnd = indices + srcIndexCount;
+
+                unsigned tri = srcIndexCount / 3;
+                for (unsigned p = 0; p &lt; tri; ++p)
+                {
+                        unsigned short i1 = *indices - srcVertexStart;
+                        i1 = i1 + vertexStart;
+                        ++indices;
+
+                        unsigned short i2 = *indices - srcVertexStart;
+                        i2 = i2 + vertexStart;
+                        ++indices;
+
+                        unsigned short i3 = *indices - srcVertexStart;
+                        i3 = i3 + vertexStart;
+                        ++indices;
+
+                         //索引数据拷贝到mBakeModelIndexData 
+                          batch.addIndex(i1);
+                          batch.addIndex(i2);
+                          batch.addIndex(i3);
+                }
+        }
+        if (canMerge)
+                BakeModelBatch::merge(batch, mBakeModelBatches);
+        else
+        {
+                mBakeModelBatches.push(batch);
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[25]" type="UMLNoteLinkView" guid="IX49yrj4K0qBbZm8KhvA5QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3164,2754;2979,2567</XPD:ATTR>
+<XPD:REF name="Head">qCBlDE5+Nkqx4sT4zxxkbAAA</XPD:REF>
+<XPD:REF name="Tail">Uwf9zIBpSUGhaliFLhxiUwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>
