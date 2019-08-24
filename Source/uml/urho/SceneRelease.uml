@@ -20,7 +20,7 @@
 <XPD:REF name="DiagramOwner">jorPb7H3vkyBhQ6NzlzwhQAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="7KSRHidd3ECUfZwhuzVHIQAA">
 <XPD:REF name="Diagram">ziyZDFHF5Uy2cCbFEcgUxgAA</XPD:REF>
-<XPD:ATTR name="#OwnedViews" type="integer">82</XPD:ATTR>
+<XPD:ATTR name="#OwnedViews" type="integer">83</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="GZipQM5+K0e9+Qu72hP6HQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
@@ -72,10 +72,10 @@ bool SceneRelease::exec(const HashVariantMap&amp; params,
 <XPD:OBJ name="OwnedViews[3]" type="UMLNoteView" guid="lXcMi/4EAE6YGxhXuiQTkAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2224</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2188</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">716</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">447</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">323</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">534</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">398</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool SceneRelease::releaseScene(const String&amp; sourceName, const String&amp; targetName)
 {
         gReleasedModels.clear();
@@ -87,30 +87,35 @@ bool SceneRelease::exec(const HashVariantMap&amp; params,
         Context* context = EditorUtil::getContext();
         FileSystem* fileSys = context-&gt;getSubsystem&lt;FileSystem&gt;();
     
-       ////首先清理目标文件夹
-       //发布场景文件
-       //动态调整摄像机元近距离
-       //调整地形纹理路径, 
-       // 保存场景
+       ////首先清理目标文件夹  trunk\assets\res\scene\ baseName
+       //新建一个Scene,加载当前操作的场景文件 public\assets_project\Scene\sourceName
+       //动态调整摄像机远近距离 写死为 近距200 远距 40000 
+       //主要是防止摄像机远近距离这个值策划填得太离谱，其他的数值也可以采用这种方法
+       // 保存场景，调用EndlessScene.writeToStream() 生成 .scene二进制文件
+       // 注意 .scene文件中保存的东西其实很少，相关的只有：基本属性，主光源，烘焙信息
+       // 地形组信息，无尽水域信息，区域描述，Avatar环境
+
        //发布分区
-       //lightmaps 目录创建和复制
-       //terrains 目录创建和复制
         ..............
+
+       //lightmaps 目录创建和复制
+       //terrains 目录创建和复制       
+       // lightmaps 和 terrains 目录都是直接创建和拷贝 public目录中的东西到trunk目录，没有其它操作
 }
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[4]" type="UMLNoteLinkView" guid="qWxybX4M4UOPQ7/p9EqO4wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2448,716;2449,615</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2452,716;2451,615</XPD:ATTR>
 <XPD:REF name="Head">2hQUeO3PK062u47lDJom+wAA</XPD:REF>
 <XPD:REF name="Tail">lXcMi/4EAE6YGxhXuiQTkAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="QoR53fvjxUu0Lu01527aQgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1852</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">600</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1836</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">696</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">290</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">38</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">//首先清理目标文件夹
@@ -120,8 +125,8 @@ fileSys-&gt;removeDir(targetPath + &quot;/&quot; + baseName);
 <XPD:OBJ name="OwnedViews[6]" type="UMLNoteView" guid="nbdTTVvWxU2FFGcaN9IRfQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1672</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">676</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1656</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">772</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">422</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">//发布场景文件
@@ -134,20 +139,20 @@ scene-&gt;getTerrainGroup()-&gt;loadDetailDefs(&quot;scene/terraintextures/dets.
 <XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="vBJUNuDzQEy7PodI/LeQmQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1824</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">784</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1808</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">880</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">253</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">53</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">//动态调整摄像机元近距离
 scene-&gt;setMainCameraNearClip(200.0f);
-scene-&gt;setMainCameraFarClip(100000.0f);
+scene-&gt;setMainCameraFarClip(40000.0f);
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[8]" type="UMLNoteView" guid="4/Egcx3x1EqypGA7RBOAXwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1700</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">856</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1684</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">952</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">361</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">53</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">//调整地形纹理路径, 
@@ -158,8 +163,8 @@ unsigned int terrainCount = terrainGroup-&gt;getNumTerrains();
 <XPD:OBJ name="OwnedViews[9]" type="UMLNoteView" guid="H2swmMjWoU2kzd4AgZdI3AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1780</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">936</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1764</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1032</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">357</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">38</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">// 保存场景
@@ -169,8 +174,8 @@ scene-&gt;saveToBinary(targetPath + &quot;/&quot; + baseName + &quot;.scene&quot
 <XPD:OBJ name="OwnedViews[10]" type="UMLNoteView" guid="qOYpF23w+EWYCUac4e/WmgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2780</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">560</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2828</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">696</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">388</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">//发布分区
@@ -187,8 +192,8 @@ for (unsigned index = 0; index &lt; scene-&gt;getNumAreaDesc(); ++index)
 <XPD:OBJ name="OwnedViews[11]" type="UMLNoteView" guid="uDHuqR64zECIL/MsqiGaZwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2784</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">748</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2832</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">884</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">390</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">//lightmaps 目录创建和复制
@@ -201,8 +206,8 @@ EditorUtil::copyFiles(bakeSourcePath, bakeTargetPath);
 <XPD:OBJ name="OwnedViews[12]" type="UMLNoteView" guid="l2qpTp+nv06iPW6qREeD+gAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2796</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">876</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2844</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1012</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">391</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">//terrains 目录创建和复制
@@ -215,66 +220,66 @@ EditorUtil::copyFiles(terrainSourcePath, terrainTargetPath);
 <XPD:OBJ name="OwnedViews[13]" type="UMLNoteLinkView" guid="QkSPSOJOBk2vS6dJqWzOkQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2224,749;2029,637</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2188,802;2025,733</XPD:ATTR>
 <XPD:REF name="Head">QoR53fvjxUu0Lu01527aQgAA</XPD:REF>
 <XPD:REF name="Tail">lXcMi/4EAE6YGxhXuiQTkAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[14]" type="UMLNoteLinkView" guid="7wS0Peq+v06cQVrkMmTY2QAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2224,814;2027,758</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2188,868;2077,849</XPD:ATTR>
 <XPD:REF name="Head">nbdTTVvWxU2FFGcaN9IRfQAA</XPD:REF>
 <XPD:REF name="Tail">lXcMi/4EAE6YGxhXuiQTkAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[15]" type="UMLNoteLinkView" guid="d4vokzvw5k2XARRLnDMn3QAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2224,847;2076,827</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2188,910;2060,908</XPD:ATTR>
 <XPD:REF name="Head">vBJUNuDzQEy7PodI/LeQmQAA</XPD:REF>
 <XPD:REF name="Tail">lXcMi/4EAE6YGxhXuiQTkAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[16]" type="UMLNoteLinkView" guid="En4ql1T/IUOSeb+zLdr45wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2224,879;2060,880</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2188,943;2044,959</XPD:ATTR>
 <XPD:REF name="Head">4/Egcx3x1EqypGA7RBOAXwAA</XPD:REF>
 <XPD:REF name="Tail">lXcMi/4EAE6YGxhXuiQTkAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[17]" type="UMLNoteLinkView" guid="HvTPQXMgnk2ThSZaBPX7TQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2224,912;2072,936</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2188,985;2010,1032</XPD:ATTR>
 <XPD:REF name="Head">H2swmMjWoU2kzd4AgZdI3AAA</XPD:REF>
 <XPD:REF name="Tail">lXcMi/4EAE6YGxhXuiQTkAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[18]" type="UMLNoteLinkView" guid="wMktevJO3UCv2ZvCZFZRgwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2821,702;2670,773</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2828,817;2721,845</XPD:ATTR>
 <XPD:REF name="Head">lXcMi/4EAE6YGxhXuiQTkAAA</XPD:REF>
 <XPD:REF name="Tail">qOYpF23w+EWYCUac4e/WmgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[19]" type="UMLNoteLinkView" guid="RhFNar9/pkCvqq2ABEeGqAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2784,821;2670,840</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2832,921;2721,919</XPD:ATTR>
 <XPD:REF name="Head">lXcMi/4EAE6YGxhXuiQTkAAA</XPD:REF>
 <XPD:REF name="Tail">uDHuqR64zECIL/MsqiGaZwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[20]" type="UMLNoteLinkView" guid="qAZ0CTvoGUe8Zfr/AaPrCQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2796,903;2670,894</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2866,1012;2721,978</XPD:ATTR>
 <XPD:REF name="Head">lXcMi/4EAE6YGxhXuiQTkAAA</XPD:REF>
 <XPD:REF name="Tail">l2qpTp+nv06iPW6qREeD+gAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[21]" type="UMLNoteView" guid="fXqHXOlnjUupHgBRB7jFGgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2068</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1468</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">795</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">308</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2036</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1348</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">844</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">1013</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool SceneRelease::releaseSceneArea(EndlessArea* area, const String&amp; sourceName, const String&amp; targetName)
 {
         EndlessScene* scene = area-&gt;getScene();
@@ -291,7 +296,54 @@ EditorUtil::copyFiles(terrainSourcePath, terrainTargetPath);
 
         String targetFileName = targetPath + &quot;/&quot; + targetBaseName + &quot;/areas/&quot; + String(area-&gt;getX()) + &quot;_&quot; + String(area-&gt;getZ()) + &quot;.area&quot;;
         
-        .....................
+        //草地最多有8层，所以每个地形中草地最多有8张密度图和8张缩放图
+        // EndlessTerrain-&gt;saveGrassDataMap()，可以将这8张密度和缩放图打包成一张 vegetat_x_x.gdm 图
+     
+        // 如果这个区域有地形
+        // 新建一个HeightMap 加载public下对应目录的高度图，再把这个高度图压缩保存到 trunk/assets/res/scene/xxx/area下面为heightmap_x_x.hdata格式
+        // 新建一个Image 加载public下对应目录的混合图，再把这个混合图保存到 trunk/assets/res/scene/xxx/area下面为 blendmap_x_x.png格式
+
+        // 如果这个区域有无尽水域
+        // 新建一个HeightMap 加载public下对应目录的高度图，再把这个高度图压缩保存到 trunk/assets/res/scene/xxx/area下面为heightmap_water_x_x.hdata格式
+       
+        // 收集所有点光源 ，放入 ignores 表中，发布的时候要全部删除掉，游戏中的场景不能存在太多的光源，否则渲染无法保证性能
+ 
+         // 对特效路径进行重新定位，特效在public目录和在 trunk目录中的结构不一致，所以多了这一步操作，还有现在场景上的特效都以sector的形式来触发
+         // 只有在可视范围内的 Effect 才地动态生成
+
+          // 查找Area中所有带有CollisionShape组件的 节点，调用每个 CollisionShape-&gt;setCollisionLayer(SHAPE_WALL_MASK) 设置碰撞层
+          // 查找Area中所有带有NavigationModel组件的 节点，调用每个 NavigationModel-&gt;setCollisionLayer(SHAPE_TERRAIN_MASK) 设置碰撞层
+
+
+          // 如果要发布场景资源
+          // 在 trunk\assets\res\scenemodels\sceneName\下创建 material 目录和 texture 目录
+          // 查找 Area 中所以带 LodModel 组件的节点 调用 releaseModelRes() 发布模型资源
+          //  ..................
+
+          // 发布地表纹理
+          // 在 trunk\assets\res\scene\下创建 terraintextures 目录和 grasstextures 目录
+          // 遍历 TerrainGroup下的所有地形 （这里这样写是有问题的，存在重复操作的问题， TerrainGroup包含所有区域的地形，而一个区域一般只有一个地形）
+          // 一个地形最多有四层纹理，每一层纹理包含漫反射图和法线图 ，这些信息包含在 DetailDef结构体中
+          // terrain-&gt;getDetailXID() 可以取到每一层纹理在 dets.xml 中的对应 ID,利用这个id,就可以知道每一层的纹理和法线图的具体资源路径
+          // 把对应的纹理资源在 public\assets_project\Resource\scene\terraintextures 中拷贝到 trunk\assets\res\scene\terraintextures  中
+      
+
+          // 准备工作做完，开始把Area的属性和Area中的所有组件导出成为 .area文件
+          // .area包括基本信息 position rotation scale，Area上所有节点及其组件，烘焙图信息，地形相关信息，地形和草的每个层的纹理信息，导航信息
+
+           // 地形网格相关信息
+           // 拷贝网络信息 从 public\assets_project\Scene\XXX\areas\X_X.area.grid 到  trunk\assets\res\scene\XXX\areas\X_X.area.grid
+           // 发布格子文件前，先过滤掉某些障碍物导致的不可行走区域。先通过 grid-&gt;load(gridSourceFileName)加载
+           // public\assets_project\Scene\XXX\areas\X_X.area.grid中的格子信息，再通过 NavigationMesh-&gt;isHit()检测Area中每个格子中央是否有物体
+           // 如果检测到有物体，则在加载到的grid中动态标识出这个数据，最后再发布生成这个grid的信息到trunk\assets\res\scene\XXX\areas\X_X.area.grid
+
+           // 拷贝导航网格
+           // 从 public\assets_project\Scene\XXX\areas\X_X.area.nav 到  trunk\assets\res\scene\XXX\areas\X_X.area.nav
+
+           // 发布烘焙信息
+           // 创建一个 EndlessLightmaps ，并加载  public\assets_project\Scene\XXX\areas\X_X.area.lightmaps
+           // lightmapsFile.loadFile()
+           // 从  lightmapsFile 中找出所有的
 
         return true;
 }
@@ -304,33 +356,33 @@ EditorUtil::copyFiles(terrainSourcePath, terrainTargetPath);
 <XPD:ATTR name="Top" type="integer">1104</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">317</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">        if (area-&gt;getTerrain())
-        {
-              ................
-    
-        }
+<XPD:ATTR name="Text" type="string">if (area-&gt;getTerrain())
+{
+      ................
+
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[23]" type="UMLNoteView" guid="67x2LV/2G02UrKsj3vyI0gAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1196</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1276</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">708</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1120</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1264</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">684</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">203</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">        if (area-&gt;getWater())
-        {
-                //发布高度图
-                String name = String(area-&gt;getX()) + &quot;_&quot; + String(area-&gt;getZ());
-                float tolerance = 0.05f;
+<XPD:ATTR name="Text" type="string">if (area-&gt;getWater())
+{
+        //发布高度图
+        String name = String(area-&gt;getX()) + &quot;_&quot; + String(area-&gt;getZ());
+        float tolerance = 0.05f;
 
-                HeightMap heightMap(EditorUtil::getContext());
-                heightMap.loadFile(sourcePath + &quot;/&quot; + baseName + &quot;/terrains/heightmap_water_&quot; + name + &quot;.hdata&quot;, Resource::EMTITY_PARAMS);
-                heightMap.saveCompressFile(targetPath + &quot;/&quot; + targetBaseName + &quot;/terrains/heightmap_water_&quot; + name + &quot;.hdata&quot;, tolerance);
+        HeightMap heightMap(EditorUtil::getContext());
+        heightMap.loadFile(sourcePath + &quot;/&quot; + baseName + &quot;/terrains/heightmap_water_&quot; + name + &quot;.hdata&quot;, Resource::EMTITY_PARAMS);
+        heightMap.saveCompressFile(targetPath + &quot;/&quot; + targetBaseName + &quot;/terrains/heightmap_water_&quot; + name + &quot;.hdata&quot;, tolerance);
 
-                //替换高度图
-                area-&gt;getWater()-&gt;setHeightMapName(&quot;scene/&quot; + targetBaseName + &quot;/terrains/heightmap_water_&quot; + name + &quot;.hdata&quot;);
-        }
+        //替换高度图
+        area-&gt;getWater()-&gt;setHeightMapName(&quot;scene/&quot; + targetBaseName + &quot;/terrains/heightmap_water_&quot; + name + &quot;.hdata&quot;);
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[24]" type="UMLNoteView" guid="kYlYI0gcVUiV00AWpVBUeAAA">
@@ -338,44 +390,44 @@ EditorUtil::copyFiles(terrainSourcePath, terrainTargetPath);
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">1368</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1528</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">420</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">396</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">        PODVector&lt;Component*&gt; ignores;
-        //屏蔽所有点光源
+<XPD:ATTR name="Text" type="string">PODVector&lt;Component*&gt; ignores;
+//屏蔽所有点光源
+{
+        PODVector&lt;Light*&gt; lights;
+        area-&gt;getComponents&lt;Light&gt;(lights, true);
+        for (unsigned index = 0; index &lt; lights.size(); ++index)
         {
-                PODVector&lt;Light*&gt; lights;
-                area-&gt;getComponents&lt;Light&gt;(lights, true);
-                for (unsigned index = 0; index &lt; lights.size(); ++index)
+                Light* l = lights[index];
+                if (!l-&gt;isTemporary() &amp;&amp; l-&gt;getLightType() != LIGHT_DIRECTIONAL)
                 {
-                        Light* l = lights[index];
-                        if (!l-&gt;isTemporary() &amp;&amp; l-&gt;getLightType() != LIGHT_DIRECTIONAL)
-                        {
-                                l-&gt;setTemporary(true);
-                                ignores.push(l);
-                        }
+                        l-&gt;setTemporary(true);
+                        ignores.push(l);
                 }
         }
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[25]" type="UMLNoteView" guid="TSrBDhqWR02wFWbasziD5AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1316</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1808</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">576</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1408</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1820</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">327</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">        ///对特效进行路径重新定位
-        ///将 EffectComponent 转成 Sector
+<XPD:ATTR name="Text" type="string">///对特效进行路径重新定位
+///将 EffectComponent 转成 Sector
+{
+        PODVector&lt;EffectComponent*&gt; effects;
+        area-&gt;getComponents&lt;EffectComponent&gt;(effects, true);
+        for (unsigned index = 0; index &lt; effects.size(); ++index)
         {
-                PODVector&lt;EffectComponent*&gt; effects;
-                area-&gt;getComponents&lt;EffectComponent&gt;(effects, true);
-                for (unsigned index = 0; index &lt; effects.size(); ++index)
-                {
-                        EffectComponent* l = effects[index];
-                      
-                        ........................
-                }
+                EffectComponent* l = effects[index];
+              
+                ........................
         }
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[26]" type="UMLNoteView" guid="Mv1QJu9fO0qdscoqQ5PqwwAA">
@@ -415,18 +467,18 @@ EditorUtil::copyFiles(terrainSourcePath, terrainTargetPath);
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">3020</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1160</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">364</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">340</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">158</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">        String path = FileUtil::getPath(targetFileName);
-        area-&gt;getSubsystem&lt;FileSystem&gt;()-&gt;createDir(path);
-        area-&gt;saveToBinary(targetFileName);
-        area-&gt;saveDependResourceMetadata(targetFileName + &quot;.meta&quot;);
+<XPD:ATTR name="Text" type="string">String path = FileUtil::getPath(targetFileName);
+area-&gt;getSubsystem&lt;FileSystem&gt;()-&gt;createDir(path);
+area-&gt;saveToBinary(targetFileName);
+area-&gt;saveDependResourceMetadata(targetFileName + &quot;.meta&quot;);
 
-        for (unsigned index = 0; index &lt; ignores.size(); ++index)
-        {
-                Component* l = ignores[index];
-                l-&gt;setTemporary(false);
-        }
+for (unsigned index = 0; index &lt; ignores.size(); ++index)
+{
+        Component* l = ignores[index];
+        l-&gt;setTemporary(false);
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[29]" type="UMLNoteView" guid="YuDQ4jNmb0KkEFkJFIzMkAAA">
@@ -434,21 +486,21 @@ EditorUtil::copyFiles(terrainSourcePath, terrainTargetPath);
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">3012</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1396</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">741</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">717</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">203</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">// copy area grid files
-        String gridSourceFileName = sourcePath + &quot;/&quot; + baseName + &quot;/areas/&quot; + String(area-&gt;getX()) + &quot;_&quot; + String(area-&gt;getZ()) + &quot;.area.grid&quot;;
-        String gridTargetFileName = targetPath + &quot;/&quot; + targetBaseName + &quot;/areas/&quot; + String(area-&gt;getX()) + &quot;_&quot; + String(area-&gt;getZ()) + &quot;.area.grid&quot;;
-        
-        if (fileSys-&gt;fileExists(gridSourceFileName))
-        {
-                ..................
-        }
+String gridSourceFileName = sourcePath + &quot;/&quot; + baseName + &quot;/areas/&quot; + String(area-&gt;getX()) + &quot;_&quot; + String(area-&gt;getZ()) + &quot;.area.grid&quot;;
+String gridTargetFileName = targetPath + &quot;/&quot; + targetBaseName + &quot;/areas/&quot; + String(area-&gt;getX()) + &quot;_&quot; + String(area-&gt;getZ()) + &quot;.area.grid&quot;;
 
-        //拷贝导航网格
-        String navSourceFileName = sourcePath + &quot;/&quot; + baseName + &quot;/areas/&quot; + String(area-&gt;getX()) + &quot;_&quot; + String(area-&gt;getZ()) + &quot;.area.nav&quot;;
-        String navTargetFileName = targetPath + &quot;/&quot; + targetBaseName + &quot;/areas/&quot; + String(area-&gt;getX()) + &quot;_&quot; + String(area-&gt;getZ()) + &quot;.area.nav&quot;;
-        fileSys-&gt;copy(navSourceFileName, navTargetFileName, true);
+if (fileSys-&gt;fileExists(gridSourceFileName))
+{
+        ..................
+}
+
+//拷贝导航网格
+String navSourceFileName = sourcePath + &quot;/&quot; + baseName + &quot;/areas/&quot; + String(area-&gt;getX()) + &quot;_&quot; + String(area-&gt;getZ()) + &quot;.area.nav&quot;;
+String navTargetFileName = targetPath + &quot;/&quot; + targetBaseName + &quot;/areas/&quot; + String(area-&gt;getX()) + &quot;_&quot; + String(area-&gt;getZ()) + &quot;.area.nav&quot;;
+fileSys-&gt;copy(navSourceFileName, navTargetFileName, true);
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[30]" type="UMLNoteView" guid="tTM7Qz5ciEa0xjtjthTS3wAA">
@@ -471,7 +523,7 @@ if (lightmapsFile.loadFile(lightmapsSourceFileName, Resource::EMTITY_PARAMS))
 <XPD:OBJ name="OwnedViews[31]" type="UMLNoteLinkView" guid="psUyA1hTEkyuQKnTKjZGRAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2461,1468;2451,1038</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2455,1348;2454,1113</XPD:ATTR>
 <XPD:REF name="Head">lXcMi/4EAE6YGxhXuiQTkAAA</XPD:REF>
 <XPD:REF name="Tail">fXqHXOlnjUupHgBRB7jFGgAA</XPD:REF>
 </XPD:OBJ>
@@ -480,12 +532,12 @@ if (lightmapsFile.loadFile(lightmapsSourceFileName, Resource::EMTITY_PARAMS))
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">336</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1000</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">646</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">598</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">                ///发布草地数据
-                String name = String(area-&gt;getX()) + &quot;_&quot; + String(area-&gt;getZ());
-                area-&gt;getTerrain()-&gt;setUseGrassDataMap(true);
-                area-&gt;getTerrain()-&gt;saveGrassDataMap(targetPath + &quot;/&quot; + targetBaseName + &quot;/terrains/vegetat_&quot; + name + &quot;.gdm&quot;);
+<XPD:ATTR name="Text" type="string">///发布草地数据
+String name = String(area-&gt;getX()) + &quot;_&quot; + String(area-&gt;getZ());
+area-&gt;getTerrain()-&gt;setUseGrassDataMap(true);
+area-&gt;getTerrain()-&gt;saveGrassDataMap(targetPath + &quot;/&quot; + targetBaseName + &quot;/terrains/vegetat_&quot; + name + &quot;.gdm&quot;);
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[33]" type="UMLNoteView" guid="EH5OWyT1+kKRSTw/LnkIwQAA">
@@ -493,13 +545,13 @@ if (lightmapsFile.loadFile(lightmapsSourceFileName, Resource::EMTITY_PARAMS))
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">316</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1084</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">674</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">626</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">// 发布高度图
-                float tolerance = 0.05f;
-                HeightMap heightMap(EditorUtil::getContext());
-                heightMap.loadFile(sourcePath + &quot;/&quot; + baseName + &quot;/terrains/heightmap_&quot; + name + &quot;.hdata&quot;, Resource::EMTITY_PARAMS);
-                heightMap.saveCompressFile(targetPath + &quot;/&quot; + targetBaseName + &quot;/terrains/heightmap_&quot; + name + &quot;.hdata&quot;, tolerance);
+float tolerance = 0.05f;
+HeightMap heightMap(EditorUtil::getContext());
+heightMap.loadFile(sourcePath + &quot;/&quot; + baseName + &quot;/terrains/heightmap_&quot; + name + &quot;.hdata&quot;, Resource::EMTITY_PARAMS);
+heightMap.saveCompressFile(targetPath + &quot;/&quot; + targetBaseName + &quot;/terrains/heightmap_&quot; + name + &quot;.hdata&quot;, tolerance);
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[34]" type="UMLNoteView" guid="FRuiTjOO3kyE+/AT/CvySQAA">
@@ -507,12 +559,12 @@ if (lightmapsFile.loadFile(lightmapsSourceFileName, Resource::EMTITY_PARAMS))
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">332</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1188</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">638</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">590</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">  //发布混合图
-                Image image(EditorUtil::getContext());
-                image.loadFile(sourcePath + &quot;/&quot; + baseName + &quot;/terrains/blendmap_&quot; + name + &quot;.png&quot;, Resource::EMTITY_PARAMS);
-                image.saveWEBP(targetPath + &quot;/&quot; + targetBaseName + &quot;/terrains/blendmap_&quot; + name + &quot;.png&quot;, false, 80.0f);
+<XPD:ATTR name="Text" type="string">//发布混合图
+Image image(EditorUtil::getContext());
+image.loadFile(sourcePath + &quot;/&quot; + baseName + &quot;/terrains/blendmap_&quot; + name + &quot;.png&quot;, Resource::EMTITY_PARAMS);
+image.saveWEBP(targetPath + &quot;/&quot; + targetBaseName + &quot;/terrains/blendmap_&quot; + name + &quot;.png&quot;, false, 80.0f);
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[35]" type="UMLNoteView" guid="fJtsvACRUUm5kWphfw739QAA">
@@ -520,11 +572,11 @@ if (lightmapsFile.loadFile(lightmapsSourceFileName, Resource::EMTITY_PARAMS))
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">384</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1276</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">628</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">580</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">53</XPD:ATTR>
-<XPD:ATTR name="Text" type="string"> //替换高度图、混合图的路径
-                area-&gt;getTerrain()-&gt;setHeightMapName(&quot;scene/&quot; + targetBaseName + &quot;/terrains/heightmap_&quot; + name + &quot;.hdata&quot;);
-                area-&gt;getTerrain()-&gt;setBlendMapName(&quot;scene/&quot; + targetBaseName + &quot;/terrains/blendmap_&quot; + name + &quot;.png&quot;);
+<XPD:ATTR name="Text" type="string">//替换高度图、混合图的路径
+area-&gt;getTerrain()-&gt;setHeightMapName(&quot;scene/&quot; + targetBaseName + &quot;/terrains/heightmap_&quot; + name + &quot;.hdata&quot;);
+area-&gt;getTerrain()-&gt;setBlendMapName(&quot;scene/&quot; + targetBaseName + &quot;/terrains/blendmap_&quot; + name + &quot;.png&quot;);
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[36]" type="UMLNoteView" guid="2csx7PXNqEOfYMNDvU4vVwAA">
@@ -532,78 +584,77 @@ if (lightmapsFile.loadFile(lightmapsSourceFileName, Resource::EMTITY_PARAMS))
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">624</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1688</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">576</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">504</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">  const String&amp; name = l-&gt;getEffectName();
-                        String pre = &quot;Effect\\&quot;;
-                        if (name.startsWith(pre))
-                        {
-                                String newName = &quot;effect\\bin\\&quot; + name.substring(pre.length(), name.length() - pre.length());
-                                l-&gt;setEffectName(newName);
-                        }
+<XPD:ATTR name="Text" type="string">const String&amp; name = l-&gt;getEffectName();
+String pre = &quot;Effect\\&quot;;
+if (name.startsWith(pre))
+{
+        String newName = &quot;effect\\bin\\&quot; + name.substring(pre.length(), name.length() - pre.length());
+        l-&gt;setEffectName(newName);
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[37]" type="UMLNoteView" guid="5yO9COnnhkyLnewyiLmPtgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">692</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1824</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">381</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">784</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1828</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">309</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">Node* node = l-&gt;getNode();
-                        if (node)
-                        {
-                                Sector* sector = node-&gt;createComponent&lt;Sector&gt;();
-                                sector-&gt;setEnabled(l-&gt;isEnabled());
-                                sector-&gt;setParam(&quot;EffectName&quot;, l-&gt;getEffectName());
-                                sector-&gt;setSectorType(EFFECTCOMPONENT_TYPE);
-                                sector-&gt;setExtents(100, 100, 50);
+if (node)
+{
+        Sector* sector = node-&gt;createComponent&lt;Sector&gt;();
+        sector-&gt;setEnabled(l-&gt;isEnabled());
+        sector-&gt;setParam(&quot;EffectName&quot;, l-&gt;getEffectName());
+        sector-&gt;setSectorType(EFFECTCOMPONENT_TYPE);
+        sector-&gt;setExtents(100, 100, 50);
 
-                                node-&gt;removeComponent(l);
-                        }
+        node-&gt;removeComponent(l);
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[38]" type="UMLNoteView" guid="PQobMGWPNUiiNS+AIDAMrwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">700</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">724</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">2044</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">372</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">        {
-                PODVector&lt;CollisionShape*&gt; shapes;
-                area-&gt;getDerivedComponents&lt;CollisionShape&gt;(shapes, true);
-                for (unsigned index = 0; index &lt; shapes.size(); ++index)
+<XPD:ATTR name="Text" type="string">{
+        PODVector&lt;CollisionShape*&gt; shapes;
+        area-&gt;getDerivedComponents&lt;CollisionShape&gt;(shapes, true);
+        for (unsigned index = 0; index &lt; shapes.size(); ++index)
+        {
+                CollisionShape* shape = shapes[index];
+                if (!shape-&gt;isTemporary())
                 {
-                        CollisionShape* shape = shapes[index];
-                        if (!shape-&gt;isTemporary())
-                        {
-                                shape-&gt;setCollisionLayer(SHAPE_WALL_MASK);
-                        }
+                        shape-&gt;setCollisionLayer(SHAPE_WALL_MASK);
                 }
         }
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[39]" type="UMLNoteView" guid="W4A5eGwTa0WVy0PTZndUrwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">700</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">724</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">2252</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">400</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">203</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">
+<XPD:ATTR name="Width" type="integer">376</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">{
+        PODVector&lt;NavigationModel*&gt; navModels;
+        area-&gt;getDerivedComponents&lt;NavigationModel&gt;(navModels, true);
+        for (unsigned index = 0; index &lt; navModels.size(); ++index)
         {
-                PODVector&lt;NavigationModel*&gt; navModels;
-                area-&gt;getDerivedComponents&lt;NavigationModel&gt;(navModels, true);
-                for (unsigned index = 0; index &lt; navModels.size(); ++index)
+                NavigationModel* navModel = navModels[index];
+                if (!navModel-&gt;isTemporary())
                 {
-                        NavigationModel* navModel = navModels[index];
-                        if (!navModel-&gt;isTemporary())
-                        {
-                                navModel-&gt;setCollisionLayer(SHAPE_TERRAIN_MASK);
-                        }
+                        navModel-&gt;setCollisionLayer(SHAPE_TERRAIN_MASK);
                 }
         }
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[40]" type="UMLNoteView" guid="qcBNfdLyzE+rIFnIYEKJcAAA">
@@ -611,22 +662,22 @@ if (lightmapsFile.loadFile(lightmapsSourceFileName, Resource::EMTITY_PARAMS))
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">544</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">2572</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">662</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">614</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">                //发布模型资源
-                {
-                        PODVector&lt;LodModel*&gt; models;
-                        area-&gt;getDerivedComponents&lt;LodModel&gt;(models, true);
-                        for (unsigned index = 0; index &lt; models.size(); ++index)
-                        {
-                                LodModel* l = models[index];
-                                releaseModelRes(l, sourceName, targetName);
-                        }
+<XPD:ATTR name="Text" type="string">//发布模型资源
+{
+        PODVector&lt;LodModel*&gt; models;
+        area-&gt;getDerivedComponents&lt;LodModel&gt;(models, true);
+        for (unsigned index = 0; index &lt; models.size(); ++index)
+        {
+                LodModel* l = models[index];
+                releaseModelRes(l, sourceName, targetName);
+        }
 
-                        // 压缩mdl文件们（32k之下不压缩）
-                        PluginUtil* pluginUtil = EditorUtil::getContext()-&gt;getSubsystem&lt;PluginUtil&gt;();
-                        pluginUtil-&gt;compressSpecificFiles(targetName + &quot;/scenemodels/&quot; + resourceGroup, PluginUtil::ModelCompressMinSize);
-                }
+        // 压缩mdl文件们（32k之下不压缩）
+        PluginUtil* pluginUtil = EditorUtil::getContext()-&gt;getSubsystem&lt;PluginUtil&gt;();
+        pluginUtil-&gt;compressSpecificFiles(targetName + &quot;/scenemodels/&quot; + resourceGroup, PluginUtil::ModelCompressMinSize);
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[41]" type="UMLNoteView" guid="qLxV5YGMQ0qu1ZRC+87TwAAA">
@@ -634,23 +685,22 @@ if (lightmapsFile.loadFile(lightmapsSourceFileName, Resource::EMTITY_PARAMS))
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">628</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">2852</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">529</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">
-                //发布碰撞模型
-                {
-                        PODVector&lt;NavigationModel*&gt; models;
-                        area-&gt;getDerivedComponents&lt;NavigationModel&gt;(models, true);
-                        for (unsigned index = 0; index &lt; models.size(); ++index)
-                        {
-                                NavigationModel* l = models[index];
-                                //拷贝模型
-                                String absoModelFileName = pf-&gt;getResourceAbsoPath() + &quot;/&quot; + l-&gt;getModelName();
-                                //直接拷贝
-                                fileSys-&gt;copy(absoModelFileName,
-                                        targetName + &quot;/&quot; + l-&gt;getModelName(), true);
-                        }
-                }
+<XPD:ATTR name="Width" type="integer">481</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//发布碰撞模型  暂时没有用到
+{
+        PODVector&lt;NavigationModel*&gt; models;
+        area-&gt;getDerivedComponents&lt;NavigationModel&gt;(models, true);
+        for (unsigned index = 0; index &lt; models.size(); ++index)
+        {
+                NavigationModel* l = models[index];
+                //拷贝模型
+                String absoModelFileName = pf-&gt;getResourceAbsoPath() + &quot;/&quot; + l-&gt;getModelName();
+                //直接拷贝
+                fileSys-&gt;copy(absoModelFileName,
+                        targetName + &quot;/&quot; + l-&gt;getModelName(), true);
+        }
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[42]" type="UMLNoteView" guid="xUE+Ufq5RkGY3/KHBfmnRgAA">
@@ -658,55 +708,55 @@ if (lightmapsFile.loadFile(lightmapsSourceFileName, Resource::EMTITY_PARAMS))
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">624</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">3152</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">528</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">480</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">                //发布地表纹理
-                {
-                        area-&gt;getSubsystem&lt;FileSystem&gt;()-&gt;createDir(targetName + &quot;/scene/terraintextures&quot;);
-                        area-&gt;getSubsystem&lt;FileSystem&gt;()-&gt;createDir(targetName + &quot;/scene/grasstextures&quot;);
-                        for (unsigned index = 0; index &lt; scene-&gt;getTerrainGroup()-&gt;getNumTerrains(); ++index)
-                        {
-                                EndlessTerrain* terrain = scene-&gt;getTerrainGroup()-&gt;getTerrainByIndex(index);
-                                DetailDef* def1 = scene-&gt;getTerrainGroup()-&gt;getDetailDef(terrain-&gt;getDetail1ID());
-                                DetailDef* def2 = scene-&gt;getTerrainGroup()-&gt;getDetailDef(terrain-&gt;getDetail2ID());
-                                DetailDef* def3 = scene-&gt;getTerrainGroup()-&gt;getDetailDef(terrain-&gt;getDetail3ID());
-                                DetailDef* def4 = scene-&gt;getTerrainGroup()-&gt;getDetailDef(terrain-&gt;getDetail4ID());
+<XPD:ATTR name="Text" type="string">//发布地表纹理
+{
+        area-&gt;getSubsystem&lt;FileSystem&gt;()-&gt;createDir(targetName + &quot;/scene/terraintextures&quot;);
+        area-&gt;getSubsystem&lt;FileSystem&gt;()-&gt;createDir(targetName + &quot;/scene/grasstextures&quot;);
+        for (unsigned index = 0; index &lt; scene-&gt;getTerrainGroup()-&gt;getNumTerrains(); ++index)
+        {
+                EndlessTerrain* terrain = scene-&gt;getTerrainGroup()-&gt;getTerrainByIndex(index);
+                DetailDef* def1 = scene-&gt;getTerrainGroup()-&gt;getDetailDef(terrain-&gt;getDetail1ID());
+                DetailDef* def2 = scene-&gt;getTerrainGroup()-&gt;getDetailDef(terrain-&gt;getDetail2ID());
+                DetailDef* def3 = scene-&gt;getTerrainGroup()-&gt;getDetailDef(terrain-&gt;getDetail3ID());
+                DetailDef* def4 = scene-&gt;getTerrainGroup()-&gt;getDetailDef(terrain-&gt;getDetail4ID());
 
-                                ..........................                               
-                        }
-                }
+                ..........................                               
+        }
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[43]" type="UMLNoteView" guid="WJLstLvPpkS9ysglAwDWJgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">24</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2924</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">458</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">20</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2908</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">362</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">                                if (def1)
-                                {
-                                        fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + def1-&gt;diffuse,
-                                                targetName + &quot;/&quot; + def1-&gt;diffuse, true);
-                                        fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + def1-&gt;normal,
-                                                targetName + &quot;/&quot; + def1-&gt;normal, true);
-                                }
+<XPD:ATTR name="Text" type="string">if (def1)
+{
+        fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + def1-&gt;diffuse,
+                targetName + &quot;/&quot; + def1-&gt;diffuse, true);
+        fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + def1-&gt;normal,
+                targetName + &quot;/&quot; + def1-&gt;normal, true);
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[44]" type="UMLNoteView" guid="djHqI5EaG0mIZnUK1FwNlgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">16</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">20</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">3056</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">458</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">                                if (def2)
-                                {
-                                        fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + def2-&gt;diffuse,
-                                                targetName + &quot;/&quot; + def2-&gt;diffuse, true);
-                                        fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + def2-&gt;normal,
-                                                targetName + &quot;/&quot; + def2-&gt;normal, true);
-                                }
+<XPD:ATTR name="Width" type="integer">362</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">if (def2)
+{
+        fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + def2-&gt;diffuse,
+                targetName + &quot;/&quot; + def2-&gt;diffuse, true);
+        fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + def2-&gt;normal,
+                targetName + &quot;/&quot; + def2-&gt;normal, true);
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[45]" type="UMLNoteView" guid="r81mv0Q4CEywjAAlXc5orQAA">
@@ -714,15 +764,15 @@ if (lightmapsFile.loadFile(lightmapsSourceFileName, Resource::EMTITY_PARAMS))
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">20</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">3204</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">458</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">362</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">                                if (def3)
-                                {
-                                        fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + def3-&gt;diffuse,
-                                                targetName + &quot;/&quot; + def3-&gt;diffuse, true);
-                                        fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + def3-&gt;normal,
-                                                targetName + &quot;/&quot; + def3-&gt;normal, true);
-                                }
+<XPD:ATTR name="Text" type="string">if (def3)
+{
+        fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + def3-&gt;diffuse,
+                targetName + &quot;/&quot; + def3-&gt;diffuse, true);
+        fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + def3-&gt;normal,
+                targetName + &quot;/&quot; + def3-&gt;normal, true);
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[46]" type="UMLNoteView" guid="/FMCnKWrt0GIJNXc2KaRkgAA">
@@ -730,117 +780,117 @@ if (lightmapsFile.loadFile(lightmapsSourceFileName, Resource::EMTITY_PARAMS))
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">20</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">3340</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">458</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">362</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">                                if (def4)
-                                {
-                                        fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + def4-&gt;diffuse,
-                                                targetName + &quot;/&quot; + def4-&gt;diffuse, true);
-                                        fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + def4-&gt;normal,
-                                                targetName + &quot;/&quot; + def4-&gt;normal, true);
-                                }
+<XPD:ATTR name="Text" type="string">if (def4)
+{
+        fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + def4-&gt;diffuse,
+                targetName + &quot;/&quot; + def4-&gt;diffuse, true);
+        fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + def4-&gt;normal,
+                targetName + &quot;/&quot; + def4-&gt;normal, true);
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[47]" type="UMLNoteView" guid="AcmiDY5gTUOdNC4RhBBE5QAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">3476</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">479</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">383</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
 <XPD:ATTR name="Text" type="string"> //发布植被纹理
-                                for (unsigned g = 0; g &lt; terrain-&gt;getNumGrasses(); ++g)
-                                {
-                                        Grass* grass = terrain-&gt;getGrass(g);
-                                        const String&amp; grassTexture = grass-&gt;getDiffuseTextureName();
-                                        if (!grassTexture.empty())
-                                        {
-                                                fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + grassTexture,
-                                                        targetName + &quot;/&quot; + grassTexture, true);
-                                        }
-                                }
+for (unsigned g = 0; g &lt; terrain-&gt;getNumGrasses(); ++g)
+{
+        Grass* grass = terrain-&gt;getGrass(g);
+        const String&amp; grassTexture = grass-&gt;getDiffuseTextureName();
+        if (!grassTexture.empty())
+        {
+                fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + grassTexture,
+                        targetName + &quot;/&quot; + grassTexture, true);
+        }
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[48]" type="UMLNoteLinkView" guid="BO0HbC19Vka3HeGGc2S6ngAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">631,3152;375,3036</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">624,3158;322,3020</XPD:ATTR>
 <XPD:REF name="Head">WJLstLvPpkS9ysglAwDWJgAA</XPD:REF>
 <XPD:REF name="Tail">xUE+Ufq5RkGY3/KHBfmnRgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[49]" type="UMLNoteLinkView" guid="QYMxFmPFUEye7FSh5v7gtwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">624,3207;473,3172</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">624,3212;381,3155</XPD:ATTR>
 <XPD:REF name="Head">djHqI5EaG0mIZnUK1FwNlgAA</XPD:REF>
 <XPD:REF name="Tail">xUE+Ufq5RkGY3/KHBfmnRgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[50]" type="UMLNoteLinkView" guid="67PKBtHySUy0bGhuQBQO1AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">624,3265;477,3263</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">624,3265;381,3262</XPD:ATTR>
 <XPD:REF name="Head">r81mv0Q4CEywjAAlXc5orQAA</XPD:REF>
 <XPD:REF name="Tail">xUE+Ufq5RkGY3/KHBfmnRgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[51]" type="UMLNoteLinkView" guid="C9E4odT1zkGXlTKp6eSZ3AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">624,3321;477,3350</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">624,3314;381,3361</XPD:ATTR>
 <XPD:REF name="Head">/FMCnKWrt0GIJNXc2KaRkgAA</XPD:REF>
 <XPD:REF name="Tail">xUE+Ufq5RkGY3/KHBfmnRgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[52]" type="UMLNoteLinkView" guid="s+KXd5lGnU2UnYVe3aIvSwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">631,3384;428,3476</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">624,3373;382,3479</XPD:ATTR>
 <XPD:REF name="Head">AcmiDY5gTUOdNC4RhBBE5QAA</XPD:REF>
 <XPD:REF name="Tail">xUE+Ufq5RkGY3/KHBfmnRgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[53]" type="UMLNoteLinkView" guid="dnHnEtEGBkOacVFZzed3OAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1296,2550;1205,2578</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1296,2547;1157,2588</XPD:ATTR>
 <XPD:REF name="Head">qcBNfdLyzE+rIFnIYEKJcAAA</XPD:REF>
 <XPD:REF name="Tail">3xe2O7WBPUimrEUKCXEOMQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[54]" type="UMLNoteLinkView" guid="KER+SbVbgEOZ4SrbcGHYvgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1472,2557;1056,2852</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1465,2557;1028,2852</XPD:ATTR>
 <XPD:REF name="Head">qLxV5YGMQ0qu1ZRC+87TwAAA</XPD:REF>
 <XPD:REF name="Tail">3xe2O7WBPUimrEUKCXEOMQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[55]" type="UMLNoteLinkView" guid="8SuQrZJLkEmROiwNNfBfBQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1528,2557;992,3152</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1525,2557;971,3152</XPD:ATTR>
 <XPD:REF name="Head">xUE+Ufq5RkGY3/KHBfmnRgAA</XPD:REF>
 <XPD:REF name="Tail">3xe2O7WBPUimrEUKCXEOMQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[56]" type="UMLNoteLinkView" guid="Af7Afqdzw0KZ06gFCAg6hgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1396,2172;1071,2150</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1396,2172;1095,2150</XPD:ATTR>
 <XPD:REF name="Head">PQobMGWPNUiiNS+AIDAMrwAA</XPD:REF>
 <XPD:REF name="Tail">Mv1QJu9fO0qdscoqQ5PqwwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[57]" type="UMLNoteLinkView" guid="M35ddLtMSk2m0L/pHSGoWgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1516,2205;1099,2305</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1513,2205;1099,2301</XPD:ATTR>
 <XPD:REF name="Head">W4A5eGwTa0WVy0PTZndUrwAA</XPD:REF>
 <XPD:REF name="Tail">Mv1QJu9fO0qdscoqQ5PqwwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[58]" type="UMLNoteLinkView" guid="x3DZ3lNI60ab6X3GgEnDHAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1316,1836;1158,1800</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1408,1873;1106,1800</XPD:ATTR>
 <XPD:REF name="Head">2csx7PXNqEOfYMNDvU4vVwAA</XPD:REF>
 <XPD:REF name="Tail">TSrBDhqWR02wFWbasziD5AAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[59]" type="UMLNoteLinkView" guid="nNy+5D3aWUCn+pDZhXyRxwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1316,1905;1072,1908</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1408,1913;1092,1914</XPD:ATTR>
 <XPD:REF name="Head">5yO9COnnhkyLnewyiLmPtgAA</XPD:REF>
 <XPD:REF name="Tail">TSrBDhqWR02wFWbasziD5AAA</XPD:REF>
 </XPD:OBJ>
@@ -887,14 +937,14 @@ if (grid-&gt;load(gridSourceFileName))
 <XPD:OBJ name="OwnedViews[61]" type="UMLNoteLinkView" guid="oJuSrzt0skq+644sxlxUUwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3012,1547;2862,1567</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3112,1598;2879,1689</XPD:ATTR>
 <XPD:REF name="Head">fXqHXOlnjUupHgBRB7jFGgAA</XPD:REF>
 <XPD:REF name="Tail">YuDQ4jNmb0KkEFkJFIzMkAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[62]" type="UMLNoteLinkView" guid="l/xfZlEJ5kOFDB2yS1ZIiwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3936,1384;3752,1422</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3936,1383;3728,1425</XPD:ATTR>
 <XPD:REF name="Head">YuDQ4jNmb0KkEFkJFIzMkAAA</XPD:REF>
 <XPD:REF name="Tail">7lsJpkL5hka3BHuwxeUenQAA</XPD:REF>
 </XPD:OBJ>
@@ -938,7 +988,7 @@ if (grid-&gt;load(gridSourceFileName))
 <XPD:OBJ name="OwnedViews[64]" type="UMLNoteLinkView" guid="Hb0qAKtm30Gvrtr37f2xzwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3152,1792;2862,1720</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3008,1855;2879,1855</XPD:ATTR>
 <XPD:REF name="Head">fXqHXOlnjUupHgBRB7jFGgAA</XPD:REF>
 <XPD:REF name="Tail">tTM7Qz5ciEa0xjtjthTS3wAA</XPD:REF>
 </XPD:OBJ>
@@ -952,78 +1002,78 @@ if (grid-&gt;load(gridSourceFileName))
 <XPD:OBJ name="OwnedViews[66]" type="UMLNoteLinkView" guid="GYt9NXY6U0GBaOeFVJzAYwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2195,1468;1698,1186</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2036,1495;1674,1186</XPD:ATTR>
 <XPD:REF name="Head">MTZ0HCBjTEmLXCW7Z1cGXgAA</XPD:REF>
 <XPD:REF name="Tail">fXqHXOlnjUupHgBRB7jFGgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[67]" type="UMLNoteLinkView" guid="+ud85lO64kGF+226dL9M5wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2068,1515;1903,1471</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2036,1647;1667,1466</XPD:ATTR>
 <XPD:REF name="Head">67x2LV/2G02UrKsj3vyI0gAA</XPD:REF>
 <XPD:REF name="Tail">fXqHXOlnjUupHgBRB7jFGgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[68]" type="UMLNoteLinkView" guid="KoacAyaGL0Ciunz1OXV9zgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2068,1631;1787,1638</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2036,1755;1763,1691</XPD:ATTR>
 <XPD:REF name="Head">kYlYI0gcVUiV00AWpVBUeAAA</XPD:REF>
 <XPD:REF name="Tail">fXqHXOlnjUupHgBRB7jFGgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[69]" type="UMLNoteLinkView" guid="jyGZcfj5rEW34qouPmIU2gAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2068,1750;1889,1808</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2036,1882;1734,1902</XPD:ATTR>
 <XPD:REF name="Head">TSrBDhqWR02wFWbasziD5AAA</XPD:REF>
 <XPD:REF name="Tail">fXqHXOlnjUupHgBRB7jFGgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[70]" type="UMLNoteLinkView" guid="H3fiP7QOgkOAJWBnu/5qBQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2228,1775;1623,2168</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2036,2016;1642,2168</XPD:ATTR>
 <XPD:REF name="Head">Mv1QJu9fO0qdscoqQ5PqwwAA</XPD:REF>
 <XPD:REF name="Tail">fXqHXOlnjUupHgBRB7jFGgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[71]" type="UMLNoteLinkView" guid="Ih1YE1XTi0+nElclNRpjIwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2309,1775;1736,2340</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2036,2155;1777,2340</XPD:ATTR>
 <XPD:REF name="Head">3xe2O7WBPUimrEUKCXEOMQAA</XPD:REF>
 <XPD:REF name="Tail">fXqHXOlnjUupHgBRB7jFGgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[72]" type="UMLNoteLinkView" guid="2x922/dGEkKH8BR2G2pLnwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1468,1127;951,1067</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1468,1127;933,1067</XPD:ATTR>
 <XPD:REF name="Head">E8Z+7f2x5U+bZHnxOCia2gAA</XPD:REF>
 <XPD:REF name="Tail">MTZ0HCBjTEmLXCW7Z1cGXgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[73]" type="UMLNoteLinkView" guid="D7CYfYhS4E+/qtaUqkVfEAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1468,1142;989,1132</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1468,1142;941,1131</XPD:ATTR>
 <XPD:REF name="Head">EH5OWyT1+kKRSTw/LnkIwQAA</XPD:REF>
 <XPD:REF name="Tail">MTZ0HCBjTEmLXCW7Z1cGXgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[74]" type="UMLNoteLinkView" guid="OReDMoear0GXYMMLZ8TnaQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1468,1157;969,1196</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1468,1157;921,1199</XPD:ATTR>
 <XPD:REF name="Head">FRuiTjOO3kyE+/AT/CvySQAA</XPD:REF>
 <XPD:REF name="Tail">MTZ0HCBjTEmLXCW7Z1cGXgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[75]" type="UMLNoteLinkView" guid="0r7WeGU0UEW9TOG/e0mJCQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1468,1172;851,1276</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1468,1171;831,1276</XPD:ATTR>
 <XPD:REF name="Head">fJtsvACRUUm5kWphfw739QAA</XPD:REF>
 <XPD:REF name="Tail">MTZ0HCBjTEmLXCW7Z1cGXgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[76]" type="UMLNoteView" guid="fJ638FfXlUG9u15DOricKQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2144</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2328</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2140</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2648</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">638</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">518</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">//发布模型
@@ -1065,131 +1115,138 @@ bool SceneRelease::releaseModelRes(LodModel* lodModel,const String&amp; sourceNa
 <XPD:OBJ name="OwnedViews[77]" type="UMLNoteLinkView" guid="ieWPCTg8Z0qTe2RIKtjdbgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2463,2328;2465,1775</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2458,2648;2458,2360</XPD:ATTR>
 <XPD:REF name="Head">fXqHXOlnjUupHgBRB7jFGgAA</XPD:REF>
 <XPD:REF name="Tail">fJ638FfXlUG9u15DOricKQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[78]" type="UMLNoteView" guid="vim4AIqU00C5W6JrfK/7YwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">3232</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2316</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3228</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2636</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">638</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">668</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">683</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">//添加材质
-        StringVector materials;
-        model-&gt;loadMetaFromSelf();
-        if (model-&gt;hasMetadata(&quot;materials&quot;))
+StringVector materials;
+model-&gt;loadMetaFromSelf();
+if (model-&gt;hasMetadata(&quot;materials&quot;))
+{
+        materials = model-&gt;getMetadata(&quot;materials&quot;).getStringVector();
+        for (int index = 0; index &lt; materials.size(); ++index)
         {
-                materials = model-&gt;getMetadata(&quot;materials&quot;).getStringVector();
-                for (int index = 0; index &lt; materials.size(); ++index)
+                SharedPtr&lt;Material&gt; material(cache-&gt;getResource&lt;Material&gt;(materials[index]));
+                if (material)
                 {
-                        SharedPtr&lt;Material&gt; material(cache-&gt;getResource&lt;Material&gt;(materials[index]));
-                        if (material)
+                        material-&gt;loadMetaFromSelf();
+                        //拷贝材质
+                        String targetMaterialFileName = targetName + &quot;/&quot; + materials[index];
+                        //if (!fileSys-&gt;fileExists(targetMaterialFileName))
                         {
-                                material-&gt;loadMetaFromSelf();
-                                //拷贝材质
-                                String targetMaterialFileName = targetName + &quot;/&quot; + materials[index];
-                                //if (!fileSys-&gt;fileExists(targetMaterialFileName))
-                                {
-                                        String sourceMaterialFileName = pf-&gt;getResourceAbsoPath() + &quot;/&quot; + materials[index];
-                                        fileSys-&gt;copy(sourceMaterialFileName, targetMaterialFileName, true);
-                                        fileSys-&gt;copy(sourceMaterialFileName + &quot;.meta&quot;, targetMaterialFileName + &quot;.meta&quot;, true);
-                                }
-                                //拷贝纹理
-                                const String&amp; textureName = material-&gt;getTextureName(TU_DIFFUSE);
-                                if (!textureName.empty())
-                                {
-                                        String targetTextureFileName = targetName + &quot;/&quot; + textureName;
-                                        //if (!fileSys-&gt;fileExists(targetTextureFileName))
-                                        PluginUtil* pluginUtil = material-&gt;getSubsystem&lt;PluginUtil&gt;();
-                                        pluginUtil-&gt;releaseTexture(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + textureName, targetTextureFileName);
-                                        //fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + textureName, targetTextureFileName, true);
-                                }
+                                String sourceMaterialFileName = pf-&gt;getResourceAbsoPath() + &quot;/&quot; + materials[index];
+                                fileSys-&gt;copy(sourceMaterialFileName, targetMaterialFileName, true);
+                                fileSys-&gt;copy(sourceMaterialFileName + &quot;.meta&quot;, targetMaterialFileName + &quot;.meta&quot;, true);
+                        }
+                        //拷贝纹理
+                        const String&amp; textureName = material-&gt;getTextureName(TU_DIFFUSE);
+                        if (!textureName.empty())
+                        {
+                                String targetTextureFileName = targetName + &quot;/&quot; + textureName;
+                                //if (!fileSys-&gt;fileExists(targetTextureFileName))
+                                PluginUtil* pluginUtil = material-&gt;getSubsystem&lt;PluginUtil&gt;();
+                                pluginUtil-&gt;releaseTexture(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + textureName, targetTextureFileName);
+                                //fileSys-&gt;copy(pf-&gt;getResourceAbsoPath() + &quot;/&quot; + textureName, targetTextureFileName, true);
+                        }
 
 
-                                //如果是天空盒，不需要构建Lod
-                                String techName = material-&gt;getMetadata(&quot;TechniqueName&quot;).getString();
-                                if (techName == &quot;Techniques/DiffSkydome.tech&quot; ||
-                                        techName == &quot;Techniques/BakeModel.tech&quot; ||
-                                        techName == &quot;Techniques/DiffUnlitAlpha.tech&quot; ||
-                                        lodModel-&gt;getWindIndex() != -1)
-                                {
-                                        doLodBuild = false;
-                                }
+                        //如果是天空盒，不需要构建Lod
+                        String techName = material-&gt;getMetadata(&quot;TechniqueName&quot;).getString();
+                        if (techName == &quot;Techniques/DiffSkydome.tech&quot; ||
+                                techName == &quot;Techniques/BakeModel.tech&quot; ||
+                                techName == &quot;Techniques/DiffUnlitAlpha.tech&quot; ||
+                                lodModel-&gt;getWindIndex() != -1)
+                        {
+                                doLodBuild = false;
                         }
                 }
         }
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[79]" type="UMLNoteView" guid="U4k2NzxMNEmzOh6G2wjg3wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">3248</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3068</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">435</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3244</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3388</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">411</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">698</XPD:ATTR>
 <XPD:ATTR name="Text" type="string"> //屏蔽lod构建
-        doLodBuild = false;
-        //拷贝模型
-        String absoModelFileName = pf-&gt;getResourceAbsoPath() + &quot;/&quot; + modelFileName;
-        //如果模型不存在资源包里面，不需要拷贝
-        if (absoModelFileName.find(&quot;scenemodels/&quot; + resourceGroup) != -1)
+doLodBuild = false;
+//拷贝模型
+String absoModelFileName = pf-&gt;getResourceAbsoPath() + &quot;/&quot; + modelFileName;
+//如果模型不存在资源包里面，不需要拷贝
+if (absoModelFileName.find(&quot;scenemodels/&quot; + resourceGroup) != -1)
+{
+        if (doLodBuild)
         {
-                if (doLodBuild)
+                unsigned numLods = 3;
+                unsigned p = 20;
+                PODVector&lt;float&gt; distances;
+                bool hide = true;
+                //主体结构不需要隐藏
+                if (lodModel-&gt;isMainBody())
                 {
-                        unsigned numLods = 3;
-                        unsigned p = 20;
-                        PODVector&lt;float&gt; distances;
-                        bool hide = true;
-                        //主体结构不需要隐藏
-                        if (lodModel-&gt;isMainBody())
-                        {
-                                hide = false;
-                                p = 10;
-                                distances.push(2.0f);
-                                distances.push(3.0f);
-                                distances.push(4.0f);
-                                distances.push(5.0f);
-                        }
-                        else
-                        {
-                                distances.push(2.0f);
-                                distances.push(3.0f);
-                                distances.push(4.0f);
-                                distances.push(5.0f);
-                        }
-                        if (!EditorUtil::BuildLodLevelsToModel(absoModelFileName,
-                                targetName + &quot;/&quot; + modelFileName,
-                                numLods, p, distances, hide))
-                        {
-                                //直接拷贝
-                                fileSys-&gt;copy(absoModelFileName,
-                                        targetName + &quot;/&quot; + modelFileName, true);
-                        }
+                        hide = false;
+                        p = 10;
+                        distances.push(2.0f);
+                        distances.push(3.0f);
+                        distances.push(4.0f);
+                        distances.push(5.0f);
                 }
                 else
+                {
+                        distances.push(2.0f);
+                        distances.push(3.0f);
+                        distances.push(4.0f);
+                        distances.push(5.0f);
+                }
+                if (!EditorUtil::BuildLodLevelsToModel(absoModelFileName,
+                        targetName + &quot;/&quot; + modelFileName,
+                        numLods, p, distances, hide))
                 {
                         //直接拷贝
                         fileSys-&gt;copy(absoModelFileName,
                                 targetName + &quot;/&quot; + modelFileName, true);
                 }
         }
+        else
+        {
+                //直接拷贝
+                fileSys-&gt;copy(absoModelFileName,
+                        targetName + &quot;/&quot; + modelFileName, true);
+        }
+}
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[80]" type="UMLNoteLinkView" guid="0W/sEbLlcEOW7kdeNF7RJAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3232,2631;2781,2605</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3228,2956;2777,2927</XPD:ATTR>
 <XPD:REF name="Head">fJ638FfXlUG9u15DOricKQAA</XPD:REF>
 <XPD:REF name="Tail">vim4AIqU00C5W6JrfK/7YwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[81]" type="UMLNoteLinkView" guid="kN+z0gUFtE2g4R3a0qv0cQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3248,3236;2775,2845</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3244,3564;2767,3165</XPD:ATTR>
 <XPD:REF name="Head">fJ638FfXlUG9u15DOricKQAA</XPD:REF>
 <XPD:REF name="Tail">U4k2NzxMNEmzOh6G2wjg3wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[82]" type="UMLNoteLinkView" guid="WyKQmj3hFEeTxFFIA36OxAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3095,1317;2879,1499</XPD:ATTR>
+<XPD:REF name="Head">fXqHXOlnjUupHgBRB7jFGgAA</XPD:REF>
+<XPD:REF name="Tail">0FE9hClyKkq5ILST7gtX6AAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
