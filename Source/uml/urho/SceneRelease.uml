@@ -1076,7 +1076,7 @@ if (grid-&gt;load(gridSourceFileName))
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">2216</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2660</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2656</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">738</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">623</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">//发布模型
@@ -1122,7 +1122,7 @@ bool SceneRelease::releaseModelRes(LodModel* lodModel,const String&amp; sourceNa
 <XPD:OBJ name="OwnedViews[77]" type="UMLNoteLinkView" guid="ieWPCTg8Z0qTe2RIKtjdbgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2584,2660;2584,2410</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2584,2656;2584,2410</XPD:ATTR>
 <XPD:REF name="Head">fXqHXOlnjUupHgBRB7jFGgAA</XPD:REF>
 <XPD:REF name="Tail">fJ638FfXlUG9u15DOricKQAA</XPD:REF>
 </XPD:OBJ>
@@ -1237,14 +1237,14 @@ if (absoModelFileName.find(&quot;scenemodels/&quot; + resourceGroup) != -1)
 <XPD:OBJ name="OwnedViews[80]" type="UMLNoteLinkView" guid="0W/sEbLlcEOW7kdeNF7RJAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3360,2989;2953,2980</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3360,2988;2953,2977</XPD:ATTR>
 <XPD:REF name="Head">fJ638FfXlUG9u15DOricKQAA</XPD:REF>
 <XPD:REF name="Tail">vim4AIqU00C5W6JrfK/7YwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[81]" type="UMLNoteLinkView" guid="kN+z0gUFtE2g4R3a0qv0cQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3376,3595;2953,3262</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3376,3594;2953,3259</XPD:ATTR>
 <XPD:REF name="Head">fJ638FfXlUG9u15DOricKQAA</XPD:REF>
 <XPD:REF name="Tail">U4k2NzxMNEmzOh6G2wjg3wAA</XPD:REF>
 </XPD:OBJ>

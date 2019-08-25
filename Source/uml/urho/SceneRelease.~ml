@@ -368,8 +368,8 @@ EditorUtil::copyFiles(terrainSourcePath, terrainTargetPath);
 <XPD:OBJ name="OwnedViews[23]" type="UMLNoteView" guid="67x2LV/2G02UrKsj3vyI0gAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1252</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1284</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1220</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1312</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">684</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">203</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">if (area-&gt;getWater())
@@ -390,7 +390,7 @@ EditorUtil::copyFiles(terrainSourcePath, terrainTargetPath);
 <XPD:OBJ name="OwnedViews[24]" type="UMLNoteView" guid="kYlYI0gcVUiV00AWpVBUeAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1500</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1420</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1548</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">396</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
@@ -486,8 +486,8 @@ for (unsigned index = 0; index &lt; ignores.size(); ++index)
 <XPD:OBJ name="OwnedViews[29]" type="UMLNoteView" guid="YuDQ4jNmb0KkEFkJFIzMkAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">3144</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1416</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3172</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1484</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">717</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">203</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">// copy area grid files
@@ -508,8 +508,8 @@ fileSys-&gt;copy(navSourceFileName, navTargetFileName, true);
 <XPD:OBJ name="OwnedViews[30]" type="UMLNoteView" guid="tTM7Qz5ciEa0xjtjthTS3wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">3140</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1812</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3128</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1944</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">795</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">String lightmapsSourceFileName = sourcePath + &quot;/&quot; + baseName + &quot;/areas/&quot; + String(area-&gt;getX()) + &quot;_&quot; + String(area-&gt;getZ()) + &quot;.area.lightmaps&quot;;
@@ -685,8 +685,8 @@ if (node)
 <XPD:OBJ name="OwnedViews[41]" type="UMLNoteView" guid="qLxV5YGMQ0qu1ZRC+87TwAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">760</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2872</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">768</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2956</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">481</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">//发布碰撞模型  暂时没有用到
@@ -708,8 +708,8 @@ if (node)
 <XPD:OBJ name="OwnedViews[42]" type="UMLNoteView" guid="xUE+Ufq5RkGY3/KHBfmnRgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">756</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3172</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">784</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3448</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">480</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">//发布地表纹理
@@ -733,7 +733,7 @@ if (node)
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">152</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2928</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3188</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">362</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">if (def1)
@@ -749,7 +749,7 @@ if (node)
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">152</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3076</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3336</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">362</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">if (def2)
@@ -765,7 +765,7 @@ if (node)
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">152</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3224</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3484</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">362</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">if (def3)
@@ -781,7 +781,7 @@ if (node)
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">152</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3360</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3620</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">362</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">if (def4)
@@ -797,7 +797,7 @@ if (node)
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">132</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3496</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3756</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">383</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
 <XPD:ATTR name="Text" type="string"> //发布植被纹理
@@ -816,35 +816,35 @@ for (unsigned g = 0; g &lt; terrain-&gt;getNumGrasses(); ++g)
 <XPD:OBJ name="OwnedViews[48]" type="UMLNoteLinkView" guid="BO0HbC19Vka3HeGGc2S6ngAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">756,3178;454,3040</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">784,3453;453,3300</XPD:ATTR>
 <XPD:REF name="Head">WJLstLvPpkS9ysglAwDWJgAA</XPD:REF>
 <XPD:REF name="Tail">xUE+Ufq5RkGY3/KHBfmnRgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[49]" type="UMLNoteLinkView" guid="QYMxFmPFUEye7FSh5v7gtwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">756,3232;513,3175</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">784,3505;513,3437</XPD:ATTR>
 <XPD:REF name="Head">djHqI5EaG0mIZnUK1FwNlgAA</XPD:REF>
 <XPD:REF name="Tail">xUE+Ufq5RkGY3/KHBfmnRgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[50]" type="UMLNoteLinkView" guid="67PKBtHySUy0bGhuQBQO1AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">756,3285;513,3282</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">784,3556;513,3546</XPD:ATTR>
 <XPD:REF name="Head">r81mv0Q4CEywjAAlXc5orQAA</XPD:REF>
 <XPD:REF name="Tail">xUE+Ufq5RkGY3/KHBfmnRgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[51]" type="UMLNoteLinkView" guid="C9E4odT1zkGXlTKp6eSZ3AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">756,3334;513,3381</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">784,3603;513,3647</XPD:ATTR>
 <XPD:REF name="Head">/FMCnKWrt0GIJNXc2KaRkgAA</XPD:REF>
 <XPD:REF name="Tail">xUE+Ufq5RkGY3/KHBfmnRgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[52]" type="UMLNoteLinkView" guid="s+KXd5lGnU2UnYVe3aIvSwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">756,3393;514,3499</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">784,3659;514,3766</XPD:ATTR>
 <XPD:REF name="Head">AcmiDY5gTUOdNC4RhBBE5QAA</XPD:REF>
 <XPD:REF name="Tail">xUE+Ufq5RkGY3/KHBfmnRgAA</XPD:REF>
 </XPD:OBJ>
@@ -858,14 +858,14 @@ for (unsigned g = 0; g &lt; terrain-&gt;getNumGrasses(); ++g)
 <XPD:OBJ name="OwnedViews[54]" type="UMLNoteLinkView" guid="KER+SbVbgEOZ4SrbcGHYvgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1597,2577;1160,2872</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1621,2577;1144,2956</XPD:ATTR>
 <XPD:REF name="Head">qLxV5YGMQ0qu1ZRC+87TwAAA</XPD:REF>
 <XPD:REF name="Tail">3xe2O7WBPUimrEUKCXEOMQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[55]" type="UMLNoteLinkView" guid="8SuQrZJLkEmROiwNNfBfBQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1657,2577;1103,3172</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1685,2577;1101,3448</XPD:ATTR>
 <XPD:REF name="Head">xUE+Ufq5RkGY3/KHBfmnRgAA</XPD:REF>
 <XPD:REF name="Tail">3xe2O7WBPUimrEUKCXEOMQAA</XPD:REF>
 </XPD:OBJ>
@@ -940,14 +940,14 @@ if (grid-&gt;load(gridSourceFileName))
 <XPD:OBJ name="OwnedViews[61]" type="UMLNoteLinkView" guid="oJuSrzt0skq+644sxlxUUwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3253,1618;3007,1718</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3216,1686;3007,1753</XPD:ATTR>
 <XPD:REF name="Head">fXqHXOlnjUupHgBRB7jFGgAA</XPD:REF>
 <XPD:REF name="Tail">YuDQ4jNmb0KkEFkJFIzMkAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[62]" type="UMLNoteLinkView" guid="l/xfZlEJ5kOFDB2yS1ZIiwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">4068,1403;3860,1445</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4068,1424;3868,1484</XPD:ATTR>
 <XPD:REF name="Head">YuDQ4jNmb0KkEFkJFIzMkAAA</XPD:REF>
 <XPD:REF name="Tail">7lsJpkL5hka3BHuwxeUenQAA</XPD:REF>
 </XPD:OBJ>
@@ -991,14 +991,14 @@ if (grid-&gt;load(gridSourceFileName))
 <XPD:OBJ name="OwnedViews[64]" type="UMLNoteLinkView" guid="Hb0qAKtm30Gvrtr37f2xzwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3140,1881;3007,1883</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3128,1957;3007,1942</XPD:ATTR>
 <XPD:REF name="Head">fXqHXOlnjUupHgBRB7jFGgAA</XPD:REF>
 <XPD:REF name="Tail">tTM7Qz5ciEa0xjtjthTS3wAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[65]" type="UMLNoteLinkView" guid="3zp+WHhQg0CClcr7LmS2tQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">4092,1952;3934,1930</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4092,2003;3922,2004</XPD:ATTR>
 <XPD:REF name="Head">tTM7Qz5ciEa0xjtjthTS3wAA</XPD:REF>
 <XPD:REF name="Tail">ebA60O8NJkWLDKFJ0cfL+QAA</XPD:REF>
 </XPD:OBJ>
@@ -1012,14 +1012,14 @@ if (grid-&gt;load(gridSourceFileName))
 <XPD:OBJ name="OwnedViews[67]" type="UMLNoteLinkView" guid="+ud85lO64kGF+226dL9M5wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2164,1675;1792,1486</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2164,1693;1779,1514</XPD:ATTR>
 <XPD:REF name="Head">67x2LV/2G02UrKsj3vyI0gAA</XPD:REF>
 <XPD:REF name="Tail">fXqHXOlnjUupHgBRB7jFGgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[68]" type="UMLNoteLinkView" guid="KoacAyaGL0Ciunz1OXV9zgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2164,1782;1895,1714</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2164,1791;1815,1710</XPD:ATTR>
 <XPD:REF name="Head">kYlYI0gcVUiV00AWpVBUeAAA</XPD:REF>
 <XPD:REF name="Tail">fXqHXOlnjUupHgBRB7jFGgAA</XPD:REF>
 </XPD:OBJ>
