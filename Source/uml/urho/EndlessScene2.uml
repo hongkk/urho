@@ -20,12 +20,12 @@
 <XPD:REF name="DiagramOwner">xuO0720HHUq882sgsVuGngAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="hIasAkvH+EWYEj1hKcTykAAA">
 <XPD:REF name="Diagram">bO+v9I3mJkCBkUrdP9bRtQAA</XPD:REF>
-<XPD:ATTR name="#OwnedViews" type="integer">54</XPD:ATTR>
+<XPD:ATTR name="#OwnedViews" type="integer">77</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="yvE39dErGkapOBK4I+RynAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">852</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">504</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">684</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">500</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">341</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">248</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool EndlessScene::load(const String&amp; fileName)
@@ -49,8 +49,8 @@
 <XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="fE9sFkk1JEKowDa4UV1KIAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">852</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">812</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">684</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">808</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">521</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">308</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">//创建分区
@@ -78,8 +78,8 @@ EndlessArea* EndlessScene::createArea(int x, int z,bool force)
 <XPD:OBJ name="OwnedViews[2]" type="UMLNoteView" guid="ARLhnfNBXkufWXtb5/W+NwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1528</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">504</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1360</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">500</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">377</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">248</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool EndlessScene::loadFromBinary(Deserializer&amp; source)
@@ -103,15 +103,15 @@ EndlessArea* EndlessScene::createArea(int x, int z,bool force)
 <XPD:OBJ name="OwnedViews[3]" type="UMLNoteLinkView" guid="hrPGhbIKB0mF5ECtODfU5wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1528,627;1192,627</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1360,623;1024,623</XPD:ATTR>
 <XPD:REF name="Head">yvE39dErGkapOBK4I+RynAAA</XPD:REF>
 <XPD:REF name="Tail">ARLhnfNBXkufWXtb5/W+NwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[4]" type="UMLNoteView" guid="jW3YfLBX9U+X81fan5L3/QAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2280</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">200</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1988</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">204</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">321</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">848</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void EndlessScene::readFromStream(const Stream&amp; stream)
@@ -175,15 +175,15 @@ EndlessArea* EndlessScene::createArea(int x, int z,bool force)
 <XPD:OBJ name="OwnedViews[5]" type="UMLNoteLinkView" guid="c9E2lPleBUmQyZYFhYwOIQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2280,624;1904,626</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1988,626;1736,624</XPD:ATTR>
 <XPD:REF name="Head">ARLhnfNBXkufWXtb5/W+NwAA</XPD:REF>
 <XPD:REF name="Tail">jW3YfLBX9U+X81fan5L3/QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[6]" type="UMLNoteView" guid="pNxNp5GWw0aTOADHnoXIhAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">332</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1476</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">164</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1472</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">338</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">///场景加载器
@@ -203,8 +203,8 @@ class LYSCENE_API EndlessSceneLoader :
 <XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="2hHXCbsYm0ebJEVVEYZhLQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">848</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1184</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">680</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1180</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">532</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">758</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">///注入位置
@@ -262,15 +262,15 @@ void EndlessSceneLoader::injectPosition(const Vector3&amp; pos)
 <XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="X9QwZlTLuUiHCNFNEaUjAgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">848,1565;669,1567</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">680,1561;501,1563</XPD:ATTR>
 <XPD:REF name="Head">pNxNp5GWw0aTOADHnoXIhAAA</XPD:REF>
 <XPD:REF name="Tail">2hHXCbsYm0ebJEVVEYZhLQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[9]" type="UMLNoteView" guid="dN5vMccvvkCEW41I64ckMAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1544</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1404</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1376</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1400</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">577</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">338</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool EndlessArea::loadAsync(unsigned loadFlags)
@@ -300,15 +300,15 @@ void EndlessSceneLoader::injectPosition(const Vector3&amp; pos)
 <XPD:OBJ name="OwnedViews[10]" type="UMLNoteLinkView" guid="bAyenWmlf0Cx9vRR93WucQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1544,1568;1379,1566</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1376,1564;1211,1562</XPD:ATTR>
 <XPD:REF name="Head">2hHXCbsYm0ebJEVVEYZhLQAA</XPD:REF>
 <XPD:REF name="Tail">dN5vMccvvkCEW41I64ckMAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[11]" type="UMLNoteView" guid="gK/8cHHNLEy+itKXvPY8TAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2264</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1476</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2096</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1472</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">500</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">203</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool EndlessArea::load(unsigned loadFlags)
@@ -329,15 +329,15 @@ void EndlessSceneLoader::injectPosition(const Vector3&amp; pos)
 <XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="KWYO3YhnOkW1kc2F2I0l5QAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2264,1575;2120,1574</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2096,1571;1952,1570</XPD:ATTR>
 <XPD:REF name="Head">dN5vMccvvkCEW41I64ckMAAA</XPD:REF>
 <XPD:REF name="Tail">gK/8cHHNLEy+itKXvPY8TAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[13]" type="UMLNoteView" guid="oP5BNdVNS0ypRsFBmvw3LQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2348</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1936</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2180</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1932</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">323</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">398</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool EndlessArea::loadImpl(EndlessAreaResource * resource)
@@ -371,15 +371,15 @@ void EndlessSceneLoader::injectPosition(const Vector3&amp; pos)
 <XPD:OBJ name="OwnedViews[14]" type="UMLNoteLinkView" guid="caSIdzhw00CMfPleboQ2cwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2510,1936;2512,1678</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2342,1932;2344,1674</XPD:ATTR>
 <XPD:REF name="Head">gK/8cHHNLEy+itKXvPY8TAAA</XPD:REF>
 <XPD:REF name="Tail">oP5BNdVNS0ypRsFBmvw3LQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[15]" type="UMLNoteView" guid="FDQW+SY6AE+IdSRojnKlOQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2048</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2490</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1880</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2486</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">318</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool EndlessArea::loadTerrain()
@@ -394,8 +394,8 @@ void EndlessSceneLoader::injectPosition(const Vector3&amp; pos)
 <XPD:OBJ name="OwnedViews[16]" type="UMLNoteView" guid="J4N5uLiLA0CU9ZNxSBeRNQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2648</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2494</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2480</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2490</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">306</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool EndlessArea::loadWater()
@@ -410,8 +410,8 @@ void EndlessSceneLoader::injectPosition(const Vector3&amp; pos)
 <XPD:OBJ name="OwnedViews[17]" type="UMLNoteView" guid="wj+sf2rGq0SbTzPemnQGeAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2004</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2828</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1836</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2824</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">404</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">428</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool EndlessTerrain::load()
@@ -447,8 +447,8 @@ void EndlessSceneLoader::injectPosition(const Vector3&amp; pos)
 <XPD:OBJ name="OwnedViews[18]" type="UMLNoteView" guid="cEQkbxiRrkqYtARV9PVf9gAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2076</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2644</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1908</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2640</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">260</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool EndlessTerrainGroup::loadTerrain(int x, int z)
@@ -464,22 +464,22 @@ void EndlessSceneLoader::injectPosition(const Vector3&amp; pos)
 <XPD:OBJ name="OwnedViews[19]" type="UMLNoteLinkView" guid="jC3OANHc/U65Cv9lEub9lAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2205,2644;2205,2602</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2037,2640;2037,2598</XPD:ATTR>
 <XPD:REF name="Head">FDQW+SY6AE+IdSRojnKlOQAA</XPD:REF>
 <XPD:REF name="Tail">cEQkbxiRrkqYtARV9PVf9gAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[20]" type="UMLNoteLinkView" guid="aMIPJMiLdU2mBABB5sucnQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2205,2828;2205,2771</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2037,2824;2037,2767</XPD:ATTR>
 <XPD:REF name="Head">cEQkbxiRrkqYtARV9PVf9gAA</XPD:REF>
 <XPD:REF name="Tail">wj+sf2rGq0SbTzPemnQGeAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[21]" type="UMLNoteView" guid="37DRn+lRQUKtvSchxdivCAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2676</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2658</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2508</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2654</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">252</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool EndlessWaterGroup::loadWater(int x, int z)
@@ -495,15 +495,15 @@ void EndlessSceneLoader::injectPosition(const Vector3&amp; pos)
 <XPD:OBJ name="OwnedViews[22]" type="UMLNoteLinkView" guid="4HIeS86MH02OQfeN9NB/tQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2801,2658;2801,2606</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2633,2654;2633,2602</XPD:ATTR>
 <XPD:REF name="Head">J4N5uLiLA0CU9ZNxSBeRNQAA</XPD:REF>
 <XPD:REF name="Tail">37DRn+lRQUKtvSchxdivCAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[23]" type="UMLNoteView" guid="yxhNoRXb2E63DoN7MPsdMwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2656</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2906</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2488</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2902</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">316</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool EndlessWater::load()
@@ -520,15 +520,15 @@ void EndlessSceneLoader::injectPosition(const Vector3&amp; pos)
 <XPD:OBJ name="OwnedViews[24]" type="UMLNoteLinkView" guid="aBhkAP09o0OVhqoDhnb9RAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2810,2906;2804,2785</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2642,2902;2636,2781</XPD:ATTR>
 <XPD:REF name="Head">37DRn+lRQUKtvSchxdivCAAA</XPD:REF>
 <XPD:REF name="Tail">yxhNoRXb2E63DoN7MPsdMwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[25]" type="UMLNoteView" guid="/xW6Em2n5U69F6Q3E5MuUwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2380</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3320</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2212</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3316</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">445</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">368</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void Terrain::createGeometry()
@@ -560,15 +560,15 @@ void EndlessSceneLoader::injectPosition(const Vector3&amp; pos)
 <XPD:OBJ name="OwnedViews[26]" type="UMLNoteLinkView" guid="tMyowKIddkCIBmobZdXPLwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2445,3320;2389,3255</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2277,3316;2221,3251</XPD:ATTR>
 <XPD:REF name="Head">wj+sf2rGq0SbTzPemnQGeAAA</XPD:REF>
 <XPD:REF name="Tail">/xW6Em2n5U69F6Q3E5MuUwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[27]" type="UMLNoteView" guid="ijq1/4ddJkGLvkUA8OALvAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2668</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3110</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2500</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3106</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">286</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">class LYSCENE_API Water : public Terrain
@@ -585,29 +585,29 @@ void EndlessSceneLoader::injectPosition(const Vector3&amp; pos)
 <XPD:OBJ name="OwnedViews[28]" type="UMLNoteLinkView" guid="F+tfbtKN0EGQOTfDc8bOOwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2811,3110;2812,3048</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2643,3106;2644,3044</XPD:ATTR>
 <XPD:REF name="Head">yxhNoRXb2E63DoN7MPsdMwAA</XPD:REF>
 <XPD:REF name="Tail">ijq1/4ddJkGLvkUA8OALvAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[29]" type="UMLNoteLinkView" guid="N1AwcousMUK7SxbsPBVz/QAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2761,2494;2648,2333</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2593,2490;2480,2329</XPD:ATTR>
 <XPD:REF name="Head">oP5BNdVNS0ypRsFBmvw3LQAA</XPD:REF>
 <XPD:REF name="Tail">J4N5uLiLA0CU9ZNxSBeRNQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[30]" type="UMLNoteLinkView" guid="bXPaywy1DEuVFdEDRZtpVwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2247,2490;2363,2333</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2079,2486;2195,2329</XPD:ATTR>
 <XPD:REF name="Head">oP5BNdVNS0ypRsFBmvw3LQAA</XPD:REF>
 <XPD:REF name="Tail">FDQW+SY6AE+IdSRojnKlOQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[31]" type="UMLNoteView" guid="WzQx1aQrZkG9IdDok2M5IgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">284</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">608</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">116</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">604</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">431</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">278</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">EndlessScene
@@ -633,29 +633,29 @@ EndlessScene::EndlessScene()
 <XPD:OBJ name="OwnedViews[32]" type="UMLNoteLinkView" guid="s2UhLleL10aBZ44mGStuzgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">852,666;714,697</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">684,662;546,693</XPD:ATTR>
 <XPD:REF name="Head">WzQx1aQrZkG9IdDok2M5IgAA</XPD:REF>
 <XPD:REF name="Tail">yvE39dErGkapOBK4I+RynAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[33]" type="UMLNoteLinkView" guid="buVCK/+VfUCl+e+Q2yUc0wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">852,872;714,823</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">684,868;546,819</XPD:ATTR>
 <XPD:REF name="Head">WzQx1aQrZkG9IdDok2M5IgAA</XPD:REF>
 <XPD:REF name="Tail">fE9sFkk1JEKowDa4UV1KIAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[34]" type="UMLNoteLinkView" guid="e3Ip6uEQ7E6gcaO7PRDJCAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">500,1476;499,885</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">332,1472;331,881</XPD:ATTR>
 <XPD:REF name="Head">WzQx1aQrZkG9IdDok2M5IgAA</XPD:REF>
 <XPD:REF name="Tail">pNxNp5GWw0aTOADHnoXIhAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[35]" type="UMLNoteView" guid="PXNSYlT4KEKIB4iQFf9UKQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2040</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3320</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1872</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3316</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">314</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool Grass::load()
@@ -678,15 +678,15 @@ EndlessScene::EndlessScene()
 <XPD:OBJ name="OwnedViews[36]" type="UMLNoteLinkView" guid="R8HeQp2PekypXtCt1/s+xQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2199,3320;2200,3255</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2031,3316;2032,3251</XPD:ATTR>
 <XPD:REF name="Head">wj+sf2rGq0SbTzPemnQGeAAA</XPD:REF>
 <XPD:REF name="Tail">PXNSYlT4KEKIB4iQFf9UKQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[37]" type="UMLNoteView" guid="GTvC02nz90KW4Vy/tG44MgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">3054</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">356</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2824</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">340</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">476</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">488</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">///更新回调
@@ -726,8 +726,8 @@ void Grass::handleScheduleGrassUpdate(StringHash eventType, HashVariantMap&amp; 
 <XPD:OBJ name="OwnedViews[38]" type="UMLNoteView" guid="LpAB03LzlECgPLYIuvY4dAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">3054</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">900</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2806</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">896</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">479</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">488</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void Grass::loadPatches(const Point&amp; eyePoint, uint radius)
@@ -767,15 +767,15 @@ void Grass::handleScheduleGrassUpdate(StringHash eventType, HashVariantMap&amp; 
 <XPD:OBJ name="OwnedViews[39]" type="UMLNoteLinkView" guid="U1TIgp2UBEKGMDsfVJbJgQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3292,900;3292,843</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3052,896;3054,827</XPD:ATTR>
 <XPD:REF name="Head">GTvC02nz90KW4Vy/tG44MgAA</XPD:REF>
 <XPD:REF name="Tail">LpAB03LzlECgPLYIuvY4dAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[40]" type="UMLNoteView" guid="6qtmhTfBjka6oI+wWkyLOAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">3086</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1584</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2838</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1580</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">416</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">308</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">SharedPtr&lt;GrassPatch&gt; Grass::loadPatch(int x, int z)
@@ -803,8 +803,8 @@ void Grass::handleScheduleGrassUpdate(StringHash eventType, HashVariantMap&amp; 
 <XPD:OBJ name="OwnedViews[41]" type="UMLNoteView" guid="hTmolfDN1kKwB108iOHNKQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">3158</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1424</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2910</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1420</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">272</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">///加载块
@@ -819,22 +819,22 @@ SharedPtr&lt;GrassPatch&gt; Grass::loadPatch(int index)
 <XPD:OBJ name="OwnedViews[42]" type="UMLNoteLinkView" guid="I5zDkYA1PE2bsSZSBVmBCwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3293,1424;3293,1387</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3045,1420;3045,1383</XPD:ATTR>
 <XPD:REF name="Head">LpAB03LzlECgPLYIuvY4dAAA</XPD:REF>
 <XPD:REF name="Tail">hTmolfDN1kKwB108iOHNKQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[43]" type="UMLNoteLinkView" guid="QEj/uIqW6k+sXZidomy88wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3293,1584;3293,1536</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3045,1580;3045,1532</XPD:ATTR>
 <XPD:REF name="Head">hTmolfDN1kKwB108iOHNKQAA</XPD:REF>
 <XPD:REF name="Tail">6qtmhTfBjka6oI+wWkyLOAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[44]" type="UMLNoteView" guid="soIzuKmHGke6rFNb04H/UwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">3126</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1948</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2878</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1944</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">338</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">293</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">///创建块
@@ -861,15 +861,15 @@ SharedPtr&lt;GrassPatch&gt; Grass::allocPatch()
 <XPD:OBJ name="OwnedViews[45]" type="UMLNoteLinkView" guid="36fLwCHLU0aJX3g4e0LF5gAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3294,1948;3294,1891</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3046,1944;3046,1887</XPD:ATTR>
 <XPD:REF name="Head">6qtmhTfBjka6oI+wWkyLOAAA</XPD:REF>
 <XPD:REF name="Tail">soIzuKmHGke6rFNb04H/UwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[46]" type="UMLNoteView" guid="GiUFKn2d50KRf5+fIL/VXQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1640</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2026</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1472</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2022</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">528</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool EndlessArea::loadLightmapsFromFile(const String&amp; filename)
@@ -883,8 +883,8 @@ SharedPtr&lt;GrassPatch&gt; Grass::allocPatch()
 <XPD:OBJ name="OwnedViews[47]" type="UMLNoteView" guid="LJXhOMt7Jk2Phm+Y8udhuQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1640</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2172</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1472</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2168</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">329</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool EndlessArea::loadNavMeshFromFile(const String&amp; filename)
@@ -896,22 +896,22 @@ SharedPtr&lt;GrassPatch&gt; Grass::allocPatch()
 <XPD:OBJ name="OwnedViews[48]" type="UMLNoteLinkView" guid="PCyEgvIEBkitaD6Q6YIgJgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2167,2100;2348,2118</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1999,2096;2180,2114</XPD:ATTR>
 <XPD:REF name="Head">oP5BNdVNS0ypRsFBmvw3LQAA</XPD:REF>
 <XPD:REF name="Tail">GiUFKn2d50KRf5+fIL/VXQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[49]" type="UMLNoteLinkView" guid="foIABH325kK8yq5Q8f5AEgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1968,2188;2348,2150</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1800,2184;2180,2146</XPD:ATTR>
 <XPD:REF name="Head">oP5BNdVNS0ypRsFBmvw3LQAA</XPD:REF>
 <XPD:REF name="Tail">LJXhOMt7Jk2Phm+Y8udhuQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[50]" type="UMLNoteView" guid="zlsgttaXYUegAG4NlbtW+QAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">3136</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">32</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2408</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">344</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">314</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool Grass::load()
@@ -931,18 +931,11 @@ SharedPtr&lt;GrassPatch&gt; Grass::allocPatch()
 }
 </XPD:ATTR>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[51]" type="UMLNoteLinkView" guid="mF+Co+ajbUOc25Fkzd50SgAA">
+<XPD:OBJ name="OwnedViews[51]" type="UMLNoteView" guid="9nUwIZqdt06c0blX4hsZJwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3292,356;3292,264</XPD:ATTR>
-<XPD:REF name="Head">zlsgttaXYUegAG4NlbtW+QAA</XPD:REF>
-<XPD:REF name="Tail">GTvC02nz90KW4Vy/tG44MgAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="OwnedViews[52]" type="UMLNoteView" guid="9nUwIZqdt06c0blX4hsZJwAA">
-<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1684</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3320</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1516</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3316</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">321</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">278</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void EndlessTerrain::readFromStream(const Stream&amp; stream)
@@ -965,12 +958,731 @@ SharedPtr&lt;GrassPatch&gt; Grass::allocPatch()
 }
 </XPD:ATTR>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[53]" type="UMLNoteLinkView" guid="dxt3q7+pEka7R55aCM8kwQAA">
+<XPD:OBJ name="OwnedViews[52]" type="UMLNoteLinkView" guid="dxt3q7+pEka7R55aCM8kwQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1963,3320;2019,3255</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1795,3316;1851,3251</XPD:ATTR>
 <XPD:REF name="Head">wj+sf2rGq0SbTzPemnQGeAAA</XPD:REF>
 <XPD:REF name="Tail">9nUwIZqdt06c0blX4hsZJwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[53]" type="UMLNoteView" guid="l0F2N0IKzUaxO1JZZ0W4cQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2988</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">76</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">149</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///草渲染器
+class LYSCENE_API Grass :
+        public Component
+{
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[54]" type="UMLNoteLinkView" guid="x4vMs5Rd/0Ssh8xUhsHGdgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2721,352;3003,158</XPD:ATTR>
+<XPD:REF name="Head">l0F2N0IKzUaxO1JZZ0W4cQAA</XPD:REF>
+<XPD:REF name="Tail">zlsgttaXYUegAG4NlbtW+QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[55]" type="UMLNoteLinkView" guid="hJVKVALcGUqiuOgKZRpncgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3062,340;3062,158</XPD:ATTR>
+<XPD:REF name="Head">l0F2N0IKzUaxO1JZZ0W4cQAA</XPD:REF>
+<XPD:REF name="Tail">GTvC02nz90KW4Vy/tG44MgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[56]" type="UMLNoteView" guid="1/23hl/sOkedZeFomp63+AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3436</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">344</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">476</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">368</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///更新回调
+// 把需要更新的块放到 mUpdateGrassPatches 
+void Grass::handleScheduleGrassUpdate(StringHash eventType, HashVariantMap&amp; eventData)
+{
+        mUpdateGrassPatches.clear();
+        //取出需要更新的草块
+        //PODVector&lt;GrassPatch*&gt; needUpdatePatches;
+        for (unsigned index = 0; index &lt; mLoadedPatches.size(); ++index)
+        {
+                const SharedPtr&lt;GrassPatch&gt;&amp; p = mLoadedPatches[index];
+                if (p &amp;&amp; p-&gt;isGeometryDirty())
+                        mUpdateGrassPatches.push(p);
+        }
+
+
+        EndlessScene* scene = dynamic_cast&lt;EndlessScene*&gt;(getScene());
+        if (scene &amp;&amp; scene-&gt;getGrassWindAgent())
+        {
+                GrassWindAgent* agent = scene-&gt;getGrassWindAgent();
+                setAgentPosition(agent-&gt;getNode()-&gt;getWorldPosition());
+                setAgentRadius(agent-&gt;getRadius());
+                setAgentFactor(agent-&gt;getCurrentFactor());
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[57]" type="UMLNoteLinkView" guid="4wd4JWG6okmFpIN3JuzRzQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3436,368;3123,158</XPD:ATTR>
+<XPD:REF name="Head">l0F2N0IKzUaxO1JZZ0W4cQAA</XPD:REF>
+<XPD:REF name="Tail">1/23hl/sOkedZeFomp63+AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[58]" type="UMLNoteView" guid="sMR1o8Tg+Umd3fIH66YBQAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3592</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">840</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">161</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///更新
+bool GrassPatch::update()
+{
+        if (mGeometryDirty)
+        {
+                updateGeometry();
+        }
+        return false;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[59]" type="UMLNoteLinkView" guid="xPKzxUo+pEGL/A4IcBI21QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3672,840;3672,711</XPD:ATTR>
+<XPD:REF name="Head">1/23hl/sOkedZeFomp63+AAA</XPD:REF>
+<XPD:REF name="Tail">sMR1o8Tg+Umd3fIH66YBQAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[60]" type="UMLNoteView" guid="arB76PIhBU2VfZyZm5TGgwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3340</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1132</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">690</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">638</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///更新全部几何信息
+void GrassPatch::updateGeometry()
+{
+        mRenderTechnique = mGrass-&gt;getRenderTechnique(mDensityLevel);
+        const Vector2&amp; patchWorldSize = mGrass-&gt;getPatchWorldSize();
+        float volume = (patchWorldSize.x / 100.0f) * (patchWorldSize.y / 100.0f);
+        unsigned int grassCount = (unsigned int)(mGrass-&gt;getDerivedGlobalDensity() * mGrass-&gt;getDensityFactor(mDensityLevel) * volume);
+
+        unsigned maxGrassCount = mGrass-&gt;getMaxGrassCount(mDensityLevel);
+        if (grassCount &gt; maxGrassCount)
+                grassCount = maxGrassCount;
+
+        QualityStrategy* qs = getSubsystem&lt;QualityStrategy&gt;();
+        if (qs)
+        {
+                EndlessQualityLevel* level = dynamic_cast&lt;EndlessQualityLevel*&gt;(qs-&gt;getCurrentQualityLevel());
+                if (level)
+                        grassCount *= level-&gt;mGrassCountScale;
+        }
+
+        mPointPtr.resize(grassCount);
+
+        grassCount = mGrass-&gt;_populateGrassList(this, &amp;mPointPtr[0], grassCount);
+
+        if (grassCount != 0 ) {
+                mBatches.resize(1);
+                mGeometry = new Geometry(mContext);
+                mBatches[0].mGeometry = mGeometry;
+
+                mGrassCount = grassCount;
+                switch (mRenderTechnique)
+                {
+                case GRASSTECH_QUAD:
+                        generateGrassQUAD(&amp;mPointPtr[0], grassCount);
+                        break;
+                case GRASSTECH_CROSSQUADS:
+                        generateGrassCROSSQUADS(&amp;mPointPtr[0], grassCount);
+                        break;
+                }
+                this-&gt;commit();
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[61]" type="UMLNoteLinkView" guid="m7bHX5e0KUKuThYc5Up0RAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3677,1132;3674,982</XPD:ATTR>
+<XPD:REF name="Head">sMR1o8Tg+Umd3fIH66YBQAAA</XPD:REF>
+<XPD:REF name="Tail">arB76PIhBU2VfZyZm5TGgwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[62]" type="UMLNoteView" guid="qgdQcFmg6UuHrKr5Rd22igAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4164</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">709</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">1718</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///生成网格信息
+void GrassPatch::generateGrassQUAD(const GrassPoint *grassPoints, unsigned int grassCount)
+{
+        unsigned int quadCount;
+        quadCount = grassCount;
+
+        unsigned int maxUInt16 = std::numeric_limits&lt;uint16&gt;::max();
+        if (grassCount &gt; maxUInt16)
+        {
+                C_LOG_WARN(&quot;grass count overflow: you tried to use more than %d (thats the maximum) grass meshes for one page&quot;, maxUInt16);
+                return;
+        }
+        if (quadCount &gt; maxUInt16)
+        {
+                C_LOG_WARN(&quot;quad count overflow: you tried to use more than %d (thats the maximum) grass meshes for one page&quot;, maxUInt16);
+                return;
+        }
+
+        mVertices.resize(grassCount * 4);
+        mIndices.resize(grassCount * 6);
+
+        Vertex* vertexPtr = &amp;mVertices[0];
+        unsigned short* indexPtr = &amp;mIndices[0];
+
+        float rndWidth = mGrass-&gt;getMaxWidth() - mGrass-&gt;getMinWidth();
+        float rndHeight = mGrass-&gt;getMaxHeight() - mGrass-&gt;getMinHeight();
+
+        float minY = Math::POS_INFINITY, maxY = Math::NEG_INFINITY;
+        const GrassPoint *posPtr = grassPoints;
+        for (uint16 i = 0; i &lt; grassCount; ++i)
+        {
+                float x = posPtr-&gt;x;
+                float z = posPtr-&gt;z;
+
+                uint32 color = 0x00FFFFFF;
+                /*if (mGrass-&gt;getColorTexture())
+                        color = mGrass-&gt;getColorTexture()-&gt;getColorAt(x, z);
+                else
+                        color = 0x00FFFFFF;*/
+
+                float rnd = posPtr-&gt;size;
+                float scale = posPtr-&gt;scale;
+                float halfScaleX = (mGrass-&gt;getMinWidth() + rndWidth * rnd) * 0.5f * scale;
+                float scaleY = (mGrass-&gt;getMinHeight() + rndHeight * rnd) * scale;
+
+                float angle = posPtr-&gt;angle;
+                float xTrans = Math::Cos(angle) * halfScaleX;
+                float zTrans = Math::Sin(angle) * halfScaleX;
+
+                float x1 = x - xTrans, z1 = z - zTrans;
+                float x2 = x + xTrans, z2 = z + zTrans;
+
+                float y1 = 0.f, y2 = 0.f;
+                y1 = mGrass-&gt;getHeight(x1, z1);
+                y2 = mGrass-&gt;getHeight(x2, z2);
+
+
+                if (mGrass-&gt;getMaxSlope() &lt; (Math::Abs(y1 - y2) / (halfScaleX * 2))) {
+                        x2 = x1;
+                        y2 = y1;
+                        z2 = z1;
+                }
+                // vertex 1
+                vertexPtr-&gt;mPosition = Vector3(x1, y1 + scaleY, z1);
+                vertexPtr-&gt;mTangent = Vector3(x1, y1 + scaleY, z1);
+                vertexPtr-&gt;mColor = color;
+                vertexPtr-&gt;mTexCoord = Vector2(0.0f, 0.0f);
+                mBoundingbox.merge(vertexPtr-&gt;mPosition);
+                ++vertexPtr;
+                // vertex 2
+                vertexPtr-&gt;mPosition = Vector3(x2, y2 + scaleY, z2);
+                vertexPtr-&gt;mTangent = Vector4(0.0f, y2, 0.0f, 0.0f);
+                vertexPtr-&gt;mColor = color;
+                vertexPtr-&gt;mTexCoord = Vector2(1.0f, 0.0f);
+                mBoundingbox.merge(vertexPtr-&gt;mPosition);
+                ++vertexPtr;
+                // vertex 3
+                vertexPtr-&gt;mPosition = Vector3(x1, y1, z1);
+                vertexPtr-&gt;mTangent = Vector4(0.0f, y1, 0.0f, 0.0f);
+                vertexPtr-&gt;mColor = color;
+                vertexPtr-&gt;mTexCoord = Vector2(0.0f, 1.0f);
+                mBoundingbox.merge(vertexPtr-&gt;mPosition);
+                ++vertexPtr;
+                // vertex 4
+                vertexPtr-&gt;mPosition = Vector3(x2, y2, z2);
+                vertexPtr-&gt;mTangent = Vector4(0.0f, y2, 0.0f, 0.0f);
+                vertexPtr-&gt;mColor = color;
+                vertexPtr-&gt;mTexCoord = Vector2(1.0f, 1.0f);
+                mBoundingbox.merge(vertexPtr-&gt;mPosition);
+                ++vertexPtr;
+
+                uint16 offset = i * 4;
+                *indexPtr++ = 0 + offset;
+                *indexPtr++ = 2 + offset;
+                *indexPtr++ = 1 + offset;
+
+                *indexPtr++ = 1 + offset;
+                *indexPtr++ = 2 + offset;
+                *indexPtr++ = 3 + offset;
+
+                if (y1 &lt; minY) minY = y1;
+                if (y2 &lt; minY) minY = y2;
+                if (y1 + scaleY &gt; maxY) maxY = y1 + scaleY;
+                if (y2 + scaleY &gt; maxY) maxY = y2 + scaleY;
+
+                ++posPtr;
+        }
+
+
+        mMinY = minY;
+        mMaxY = maxY;
+
+        mFaceCount = grassCount * 2;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[63]" type="UMLNoteLinkView" guid="p/sN5eMqV0S7lli3jwAUKQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4164,1476;4029,1476</XPD:ATTR>
+<XPD:REF name="Head">arB76PIhBU2VfZyZm5TGgwAA</XPD:REF>
+<XPD:REF name="Tail">qgdQcFmg6UuHrKr5Rd22igAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[64]" type="UMLNoteView" guid="d3bbU4JxnUOqHf5pOid9mwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3760</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2288</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">159</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///地形
+class LYSCENE_API Terrain : 
+        public Component
+{
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[65]" type="UMLNoteView" guid="XHLlp8DQ/Em1wnu1VyH9xgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2980</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2632</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">485</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">863</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Terrain::handleScheduleTerrain(StringHash eventType, HashVariantMap&amp; eventData)
+{
+        if (mGeometryDirty)
+        {
+                createGeometry();
+                mGeometryDirty = false;
+        }
+        if (mPagedEnabled &amp;&amp; mAutoUpdateCenterNode)
+        {
+                Vector3 eyeWorldPosition = mAutoUpdateCenterNode-&gt;getWorldPosition();
+                Point localEye = toPatchPosition(eyeWorldPosition);
+                setEyePosition(localEye, mViewRadius);
+        }
+
+        if (mPagedEnabled)
+        {
+                //更新排序前后关系
+                if(mAutoUpdateCenterNode &amp;&amp; mSortLoad)
+                {
+                        Vector3 eyeWorldPosition = mAutoUpdateCenterNode-&gt;getWorldPosition();
+                        PatchActions::Iterator i, iend = mPatchActions.end();
+                        for (i = mPatchActions.begin(); i != iend; ++i)
+                        {
+                                PatchAction&amp; pa = *i;
+                                pa.distance = eyeWorldPosition.distance(pa.worldPosition);
+                        }
+
+                        LY_NAME::sort(mPatchActions.begin(), mPatchActions.end(), sort_patch_action);
+                }
+                mFrameLimit.begin();
+                while (!mPatchActions.empty())
+                {
+                        PatchAction&amp; pa = mPatchActions.back();
+                        switch (pa.action)
+                        {
+                        case PAT_ACTIVE:
+                        {
+                                createPatchGeometry(pa.patch);
+                                calculateLodErrors(pa.patch);
+
+                                setPatchNeighbors(pa.patch);
+                                pa.patch-&gt;setActived(true);
+                        }
+                                break;
+                        case PAT_DEACTIVE:
+                        {
+                                pa.patch-&gt;setActived(false);
+                                pa.patch-&gt;reset();
+                        }
+                                break;
+                        }
+                        mPatchActions.resize(mPatchActions.size() - 1);
+                        if (mFrameLimit.limit())
+                                break;
+                }
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[66]" type="UMLNoteView" guid="+OHQsDabw0iNa4s0f4hubAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3620</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2624</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">449</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">818</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///加载某个半径内的块
+void Terrain::setEyePosition(const Point&amp; pos, unsigned radius)
+{
+        if (!mPagedEnabled || (mEyePosition == pos &amp;&amp; (!mViewRadiusDirty) ) )
+                return;
+        mViewRadiusDirty = false;
+        mEyePosition = pos;
+        Vector&lt;WeakPtr&lt;TerrainPatch&gt;&gt; inPatches;
+        int startH = pos.y - radius;
+        int endH = pos.y + radius;
+        int startW = pos.x - radius;
+        int endW = pos.x + radius;
+        for (int h = startH; h &lt;= endH; ++h)
+        {
+                for (int w = startW; w &lt;= endW; ++w)
+                {
+                        if (h &lt; 0 ||
+                                w &lt; 0 ||
+                                h &gt;= mNumPatches.height ||
+                                w &gt;= mNumPatches.width)
+                                continue;
+                        WeakPtr&lt;TerrainPatch&gt; patch = mPatches[h * mNumPatches.width + w];
+                        if (patch)
+                        {
+                                inPatches.push(patch);
+                        }
+                }
+        }
+        ///重置旧的
+        {
+                Vector&lt;WeakPtr&lt;TerrainPatch&gt;&gt;::Iterator i, iend = mActivedPatches.end();
+                for (i = mActivedPatches.begin();i!=iend;++i)
+                {
+                        WeakPtr&lt;TerrainPatch&gt;&amp; patch = *i;
+                        if (!inPatches.contains(patch))
+                        {
+                                pushPatchAction(patch, PAT_DEACTIVE);
+                        }
+                }
+        }
+        ///加载新的
+        {
+                Vector&lt;WeakPtr&lt;TerrainPatch&gt;&gt;::Iterator i, iend = inPatches.end();
+                for (i = inPatches.begin(); i != iend; ++i)
+                {
+                        WeakPtr&lt;TerrainPatch&gt;&amp; patch = *i;
+                        if (!mActivedPatches.contains(patch))
+                        {
+                                pushPatchAction(patch, PAT_ACTIVE);
+                        }
+                }
+        }
+        mActivedPatches = inPatches;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[67]" type="UMLNoteLinkView" guid="XhgRA3UPZU+lWSkFjFkR5AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3292,2632;3292,2497;3840,2497</XPD:ATTR>
+<XPD:REF name="Head">UdWkYZ+rZUaR9QNDV1FBIQAA</XPD:REF>
+<XPD:REF name="Tail">XHLlp8DQ/Em1wnu1VyH9xgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[68]" type="UMLNoteLinkView" guid="UdWkYZ+rZUaR9QNDV1FBIQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3841,2624;3839,2370</XPD:ATTR>
+<XPD:REF name="Head">d3bbU4JxnUOqHf5pOid9mwAA</XPD:REF>
+<XPD:REF name="Tail">+OHQsDabw0iNa4s0f4hubAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[69]" type="UMLNoteView" guid="OCyI069htEaltfo6LI4BowAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4228</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2628</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">633</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">1673</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Terrain::createPatchGeometry(TerrainPatch* patch)
+{
+    C_PROFILE(createPatchGeometry);
+
+        if (!patch-&gt;getVertexBuffer())
+                patch-&gt;initVertexBuffer();
+
+    unsigned row = (unsigned)(mPatchSize + 1);
+    VertexBuffer* vertexBuffer = patch-&gt;getVertexBuffer();
+    Geometry* geometry = patch-&gt;getGeometry();
+    Geometry* maxLodGeometry = patch-&gt;getMaxLodGeometry();
+    Geometry* occlusionGeometry = patch-&gt;getOcclusionGeometry();
+
+    if (vertexBuffer-&gt;getVertexCount() != row * row)
+        vertexBuffer-&gt;setSize(row * row, MASK_POSITION | MASK_NORMAL | MASK_TEXCOORD1 | MASK_TANGENT);
+
+    SharedArrayPtr&lt;unsigned char&gt; cpuVertexData(new unsigned char[row * row * sizeof(Vector3)]);
+    SharedArrayPtr&lt;unsigned char&gt; occlusionCpuVertexData(new unsigned char[row * row * sizeof(Vector3)]);
+
+    float* vertexData = (float*)vertexBuffer-&gt;lock(0, vertexBuffer-&gt;getVertexCount());
+    float* positionData = (float*)cpuVertexData.get();
+    float* occlusionData = (float*)occlusionCpuVertexData.get();
+    Boundingbox box;
+
+    unsigned occlusionLevel = mOcclusionLodLevel;
+    if (occlusionLevel &gt; mNumLodLevels - 1)
+        occlusionLevel = mNumLodLevels - 1;
+
+
+        Vector3 derivedSpacing = getDerivedSpacing();
+
+    if (vertexData)
+    {
+        const Point&amp; coords = patch-&gt;getCoordinates();
+        int lodExpand = (1 &lt;&lt; (occlusionLevel)) - 1;
+        int halfLodExpand = (1 &lt;&lt; (occlusionLevel)) / 2;
+
+        for (int z = 0; z &lt;= mPatchSize; ++z)
+        {
+            for (int x = 0; x &lt;= mPatchSize; ++x)
+            {
+                int xPos = coords.x * mPatchSize + x;
+                int zPos = coords.y * mPatchSize + z;
+
+                Vector3 position((float)x * derivedSpacing.x, getRawHeight(xPos, zPos), (float)z * derivedSpacing.z);
+                *vertexData++ = position.x;
+                *vertexData++ = position.y;
+                *vertexData++ = position.z;
+                *positionData++ = position.x;
+                *positionData++ = position.y;
+                *positionData++ = position.z;
+
+                box.merge(position);
+
+                float minHeight = position.y;
+                if (halfLodExpand &gt; 0 &amp;&amp; (x &amp; lodExpand) == 0 &amp;&amp; (z &amp; lodExpand) == 0)
+                {
+                    int minX = Max(xPos - halfLodExpand, 0);
+                    int maxX = Min(xPos + halfLodExpand, mNumVertices.width - 1);
+                    int minZ = Max(zPos - halfLodExpand, 0);
+                    int maxZ = Min(zPos + halfLodExpand, mNumVertices.height - 1);
+                    for (int nZ = minZ; nZ &lt;= maxZ; ++nZ)
+                    {
+                        for (int nX = minX; nX &lt;= maxX; ++nX)
+                            minHeight = Min(minHeight, getRawHeight(nX, nZ));
+                    }
+                }
+                *occlusionData++ = position.x;
+                *occlusionData++ = minHeight;
+                *occlusionData++ = position.z;
+
+                Vector3 normal = getRawNormal(xPos, zPos);
+                *vertexData++ = normal.x;
+                *vertexData++ = normal.y;
+                *vertexData++ = normal.z;
+
+                Vector2 texCoord((float)xPos / (float)(mNumVertices.width - 1), 1.0f - (float)zPos / (float)(mNumVertices.height - 1));
+                *vertexData++ = texCoord.x;
+                *vertexData++ = texCoord.y;
+
+                Vector3 xyz = (Vector3::RIGHT - normal * normal.dotProduct(Vector3::RIGHT)).normalisedCopy();
+                *vertexData++ = xyz.x;
+                *vertexData++ = xyz.y;
+                *vertexData++ = xyz.z;
+                *vertexData++ = 1.0f;
+            }
+        }
+
+        vertexBuffer-&gt;unlock();
+        vertexBuffer-&gt;clearDataLost();
+    }
+    patch-&gt;setBoundingbox(box);
+
+    if (mDrawRanges.size())
+    {
+        unsigned occlusionDrawRange = occlusionLevel &lt;&lt; 4;
+
+        geometry-&gt;setIndexBuffer(mIndexBuffer);
+        geometry-&gt;setDrawRange(TRIANGLE_LIST, mDrawRanges[0].first, mDrawRanges[0].second, false);
+        geometry-&gt;setRawVertexData(cpuVertexData, MASK_POSITION);
+        maxLodGeometry-&gt;setIndexBuffer(mIndexBuffer);
+        maxLodGeometry-&gt;setDrawRange(TRIANGLE_LIST, mDrawRanges[0].first, mDrawRanges[0].second, false);
+        maxLodGeometry-&gt;setRawVertexData(cpuVertexData, MASK_POSITION);
+        occlusionGeometry-&gt;setIndexBuffer(mIndexBuffer);
+        occlusionGeometry-&gt;setDrawRange(TRIANGLE_LIST, mDrawRanges[occlusionDrawRange].first,
+                      mDrawRanges[occlusionDrawRange].second, false);
+        occlusionGeometry-&gt;setRawVertexData(occlusionCpuVertexData, MASK_POSITION);
+    }
+
+    patch-&gt;resetLod();
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[70]" type="UMLNoteLinkView" guid="h62uyc1SpkW19fSrctqHZwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4420,2628;4420,2496;3840,2496;3840,2370</XPD:ATTR>
+<XPD:REF name="Head">d3bbU4JxnUOqHf5pOid9mwAA</XPD:REF>
+<XPD:REF name="Tail">OCyI069htEaltfo6LI4BowAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[71]" type="UMLNoteView" guid="N0yUEpdG20yL3zgZjLxcUQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2972</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3640</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">515</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">848</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Terrain::createGeometry()
+{
+    mPatches.clear();
+
+    if (mHeightMap)
+    {
+        for (int z = 0; z &lt; mNumPatches.height; ++z)
+        {
+            for (int x = 0; x &lt; mNumPatches.width; ++x)
+            {
+                if (isPatchHide(x, z))
+                {
+                        mPatches.push(WeakPtr&lt;TerrainPatch&gt;());
+                        continue;
+                }
+                String nodeName = &quot;Patch_&quot; + String(x) + &quot;_&quot; + String(z);
+                Node* patchNode = mNode-&gt;getChild(nodeName);
+
+                if (!patchNode)
+                {
+                    patchNode = mNode-&gt;createTemporaryChild(nodeName);
+                }
+                patchNode-&gt;setFlags(mFlags);
+                patchNode-&gt;setPosition(Vector3(mPatchWorldOrigin.x + (float)x * mPatchWorldSize.x, 0.0f,
+                    mPatchWorldOrigin.y + (float)z * mPatchWorldSize.y));
+
+                TerrainPatch* patch = patchNode-&gt;getComponent&lt;TerrainPatch&gt;();
+                if (!patch)
+                {
+                    patch = patchNode-&gt;createComponent&lt;TerrainPatch&gt;();
+                    patch-&gt;setOwner(this);
+                    patch-&gt;setCoordinates(Point(x, z));
+
+                    patch-&gt;setEnabled(enabled);
+                    patch-&gt;setMaterial(mMaterial);
+                    patch-&gt;setDrawDistance(mDrawDistance);
+                    patch-&gt;setShadowDistance(mShadowDistance);
+                    patch-&gt;setLodBias(mLodBias);
+                    patch-&gt;setViewMask(mViewMask);
+                    patch-&gt;setLightMask(mLightMask);
+                    patch-&gt;setShadowMask(mShadowMask);
+                    patch-&gt;setZoneMask(mZoneMask);
+                    patch-&gt;setMaxLights(mMaxLights);
+                    patch-&gt;setCastShadows(mCastShadows);
+                    patch-&gt;setOccluder(mOccluder);
+                    patch-&gt;setOccludee(mOccludee);
+                    patch-&gt;setLodConstant(mLodConstant);
+                }
+
+                mPatches.push(WeakPtr&lt;TerrainPatch&gt;(patch));
+            }
+        }
+        if (updateAll)
+            createIndexData();
+    }    
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[72]" type="UMLNoteLinkView" guid="gwUE0rsQzE6hkQ8j7zZQAgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3226,3640;3225,3494</XPD:ATTR>
+<XPD:REF name="Head">XHLlp8DQ/Em1wnu1VyH9xgAA</XPD:REF>
+<XPD:REF name="Tail">N0yUEpdG20yL3zgZjLxcUQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[73]" type="UMLNoteView" guid="sKQrAmmj9UakfjtHz+yqegAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3064</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">4616</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">334</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">338</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Terrain::createIndexData()
+{
+    C_PROFILE(createIndexData);
+
+    PODVector&lt;unsigned short&gt; indices;
+    mDrawRanges.clear();
+    unsigned row = (unsigned)(mPatchSize + 1);
+
+    /* Build index data for each LOD level. Each LOD level except 
+       the lowest can stitch to the next lower LOD from the edges:
+       north, south, west, east, or any combination of them, 
+       requiring 16 different versions of each LOD level's index data
+
+       Normal edge:     Stitched edge:
+      +--+--+      +------+
+       |\   |\   |      |\       /|
+       | \  | \  |      | \     / |
+       |  \ |  \ |      |  \   /  |
+       |   \|   \|      |   \ /   |
+      +--+--+      +--+--+
+    */
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[74]" type="UMLNoteLinkView" guid="0EQwNxdLVEa12IYzi4RGGgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3230,4616;3230,4487</XPD:ATTR>
+<XPD:REF name="Head">N0yUEpdG20yL3zgZjLxcUQAA</XPD:REF>
+<XPD:REF name="Tail">sKQrAmmj9UakfjtHz+yqegAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[75]" type="UMLNoteView" guid="UWc2D83y+UOmLHxuOROUSAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3648</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3564</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">398</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">383</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///更新全部几何信息
+void GrassPatch::updateGeometry()
+{
+  mPointPtr.resize(grassCount);
+
+  grassCount = mGrass-&gt;_populateGrassList(this, &amp;mPointPtr[0], grassCount);
+
+  if (grassCount != 0 ) {
+    mBatches.resize(1);
+    mGeometry = new Geometry(mContext);
+    mBatches[0].mGeometry = mGeometry;
+
+    mGrassCount = grassCount;
+    switch (mRenderTechnique)
+    {
+    case GRASSTECH_QUAD:
+      generateGrassQUAD(&amp;mPointPtr[0], grassCount);
+      break;
+    case GRASSTECH_CROSSQUADS:
+      generateGrassCROSSQUADS(&amp;mPointPtr[0], grassCount);
+      break;
+    }
+    this-&gt;commit();
+  }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[76]" type="UMLNoteLinkView" guid="0CHnS8TL9UCOaujwMDKvHQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3845,3564;3845,3441</XPD:ATTR>
+<XPD:REF name="Head">+OHQsDabw0iNa4s0f4hubAAA</XPD:REF>
+<XPD:REF name="Tail">UWc2D83y+UOmLHxuOROUSAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
