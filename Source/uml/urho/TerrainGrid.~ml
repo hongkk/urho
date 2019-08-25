@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="gaY5JfVxpkSW5H+/0BXr1gAA">
+<XPD:ATTR name="Title" type="string">TerrainGrid</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="txpFhshy1EGdNivklyIgHAAA">
+<XPD:ATTR name="Name" type="string">TerrainGrid</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">TerrainGrid</XPD:ATTR>
+<XPD:REF name="Namespace">gaY5JfVxpkSW5H+/0BXr1gAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="8mQkO+CX1kWTgP0udWpdrwAA">
+<XPD:ATTR name="Name" type="string">TerrainGrid</XPD:ATTR>
+<XPD:REF name="DiagramOwner">txpFhshy1EGdNivklyIgHAAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="WAVDWPcLgUKKF72wy+T2vwAA">
+<XPD:REF name="Diagram">8mQkO+CX1kWTgP0udWpdrwAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">31</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="fSWasWEIEECVokBwqOK98wAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2032</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">220</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">367</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//场景根节点
+EndlessScene::EndlessScene(Context* context) 
+{
+        ///创建地形格子组
+        mTerrainGridGroup = new TerrainGridGroup(mContext);
+        mTerrainGridGroup-&gt;init();
+        this-&gt;addChild(mTerrainGridGroup);
+        mTerrainGridGroup-&gt;setFlags(ENF_Terrain);
+        //创建导航世界对象
+        mNavigationWorld = this-&gt;createComponent&lt;NavigationWorld&gt;();
+        mNavigationWorld-&gt;setTemporary(true);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="qm0O8blbDESaJ3NhfUq9GAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2004</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">544</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">425</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">563</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">class LYSCENE_API TerrainGridGroup :
+  public Node
+{
+public:
+  ///计算格子ID
+  TerrainGridID calculateTerrainGridID(int x, int z) const;
+  // 格子管理                                                              
+  ///创建一个地形格子
+  TerrainGrid* createTerrainGrid(int x, int z);
+  ///移除一个地形格子
+  void removeTerrainGrid(int x, int z);
+  ///加载一个地形格子
+  TerrainGrid* loadTerrainGrid(int x, int z, const String&amp; fileName);
+  ///卸载一个地形格子
+  void unloadTerrainGrid(int x, int z);
+
+  ///获取一个地形格子
+  TerrainGrid* getTerrainGrid(int x, int z) const;
+
+  ///获取某个层的值
+  GridEntry getTerrainGridValue(int layer, int x, int y, int subX, int subY) const;
+
+  ///查找最近的通行点
+  Point findNearPassPoint(const Point&amp; point);
+  ///查找路径
+  bool findPath(const Point&amp; start, Point end, Vector&lt;Point&gt;&amp; outPointList);
+  
+  class TerrainGridGraph : 
+    public micropather::Graph,
+    public Object
+  {
+           ///查找路径
+           bool findPath(const Point&amp; start, Point end, Vector&lt;Point&gt;&amp; outPointList);
+  };
+protected:
+  TerrainGrids  mTerrainGrids;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLNoteLinkView" guid="vfq2BcVDxk2kFt21PSkv0AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2215,544;2215,407</XPD:ATTR>
+<XPD:REF name="Head">fSWasWEIEECVokBwqOK98wAA</XPD:REF>
+<XPD:REF name="Tail">qm0O8blbDESaJ3NhfUq9GAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLNoteView" guid="m6JqHRm+cUWeCMiAGUkYQwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1476</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">568</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">387</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">203</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///创建一个地形格子
+TerrainGrid* TerrainGridGroup::createTerrainGrid(int x, int z)
+{
+        SharedPtr&lt;TerrainGrid&gt;grid(new TerrainGrid(x, z, this, mContext));
+        grid-&gt;setTemporary(true);
+        String gridName;
+        gridName.appendWithFormat(&quot;TerrainGrid_%d_%d&quot;, x, z);
+        grid-&gt;setName(gridName);
+        grid-&gt;setPosition(x * getGridWorldSize(), 0.0f, z * getGridWorldSize());
+        this-&gt;addChild(grid);
+        mTerrainGrids.insert(makePair(grid-&gt;getID(), grid));
+        return grid;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLNoteLinkView" guid="Gf0NNiWppUyQwSJqjVDgQgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2004,765;1862,724</XPD:ATTR>
+<XPD:REF name="Head">m6JqHRm+cUWeCMiAGUkYQwAA</XPD:REF>
+<XPD:REF name="Tail">qm0O8blbDESaJ3NhfUq9GAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="gpNGrinMlUCrDn39KY5h6QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1540</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">804</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">279</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///移除一个地形格子
+void TerrainGridGroup::removeTerrainGrid(int x, int z)
+{
+        TerrainGridID id = calculateTerrainGridID(x, z);
+        TerrainGrids::Iterator it = mTerrainGrids.find(id);
+        if (it != mTerrainGrids.end())
+        {
+                this-&gt;removeChild(it-&gt;second);
+                mTerrainGrids.erase(it);
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteLinkView" guid="Vsa2Fhian0+r6R95hyPIXgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2004,851;1818,873</XPD:ATTR>
+<XPD:REF name="Head">gpNGrinMlUCrDn39KY5h6QAA</XPD:REF>
+<XPD:REF name="Tail">qm0O8blbDESaJ3NhfUq9GAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="4cMNWxYS5EWFlGoqAmtJFQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2608</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">424</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">444</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool TerrainGridGroup::findPath(int layer, int obstacleValue, const Point&amp; start,
+                                                                             Point end, Vector&lt;Point&gt;&amp; outPointList)
+{
+        mTerrainGridGraph-&gt;setLayer(layer);
+        mTerrainGridGraph-&gt;setObstacleValue(obstacleValue);
+        return mTerrainGridGraph-&gt;findPath(start, end, outPointList);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="w/eIZshPDU2crLqGuvcMhgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2729,536;2428,706</XPD:ATTR>
+<XPD:REF name="Head">qm0O8blbDESaJ3NhfUq9GAAA</XPD:REF>
+<XPD:REF name="Tail">4cMNWxYS5EWFlGoqAmtJFQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLNoteView" guid="jqoovWRTXEyKYsrf/qu2bwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2608</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">612</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">558</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">578</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//查找路径
+bool TerrainGridGroup::TerrainGridGraph::findPath(const Point&amp; start, Point end, Vector&lt;Point&gt;&amp; outPointList)
+{
+        int result = 0;
+        if (Passable(end.x, end.y) == 1)
+        {
+                float totalCost;
+                result = mPather-&gt;Solve(XYToNode(start.x, start.y), XYToNode(end.x, end.y), &amp;mPath, &amp;totalCost);
+                if (result == micropather::MicroPather::SOLVED)
+                {
+                        Vector2Vector temp;
+                        for (unsigned index = 0;index&lt;mPath.size();++index)
+                        {
+                                void* node = mPath[index];
+                                int x, y;
+                                NodeToXY(node, &amp;x, &amp;y);
+                                temp.push(Vector2(x, y));
+                        }
+                        int tSize = temp.size();
+                        for (int index = 0; index &lt; tSize; index++)
+                        {
+                                Vector2 p = temp[index];
+                                outPointList.push(Point(p.x, p.y));
+                                if (index &lt; tSize - 3)
+                                {
+                                        Vector2 np = temp[index + 1];
+                                        Vector2 tp = temp[index + 2];
+                                        if ((p.distance(np) + np.distance(tp)) &gt;= p.distance(tp))
+                                        {
+                                                index += 1;
+                                        }
+                                }
+                        }
+                        return true;
+                }
+        }
+        return false;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLNoteLinkView" guid="XaZGOYigkUebrbf1jFNWPwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2608,869;2428,849</XPD:ATTR>
+<XPD:REF name="Head">qm0O8blbDESaJ3NhfUq9GAAA</XPD:REF>
+<XPD:REF name="Tail">jqoovWRTXEyKYsrf/qu2bwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[11]" type="UMLNoteView" guid="kpO0vWz8kUOhmLY2v67McgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2016</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1280</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">403</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">323</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 区域的格子数据组件，包含在区域节点上
+class LYSCENE_API TerrainGrid :public Node, public GenericGrid
+{
+public:
+  // 构造函数
+  TerrainGrid(int x, int z, TerrainGridGroup* group, Context * context);
+
+  /// 加载区域格子数据
+  bool load(const String&amp; fileName);
+
+  // 新创建
+  void allocLayer(int layerCount);
+
+  // 获取在网格中的位置
+  // 注：位置可能返回超过网格内容的值，外部需要判断
+  Point toGridPos(const Vector3&amp; worldPos) const;
+
+  ///转换成纹理
+  SharedPtr&lt;Texture2D&gt; toTexture(int layer, int texWidth, int texHeight,
+    const Color&amp; normalColor, const Color&amp; emptyColor, bool flipY = false) const;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="iU+1Bcr/x02b0LZufETqIAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2217,1280;2217,1106</XPD:ATTR>
+<XPD:REF name="Head">qm0O8blbDESaJ3NhfUq9GAAA</XPD:REF>
+<XPD:REF name="Tail">kpO0vWz8kUOhmLY2v67McgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[13]" type="UMLNoteView" guid="grliV0EfVEOoHkKYfScgpAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2020</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1680</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">392</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">353</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 通用格子数据
+// 层 * 宽 * 高
+class LYSCENE_API GenericGrid : public EventSet
+{
+public :
+        // 构造函数
+        GenericGrid();
+
+        // 初始化
+        void init(int layerCount, int width, int height);
+
+        // 获取内容
+        GridEntry get(int layer, int x, int y) const;
+
+        // 设置内容
+        void set(int layer, int x, int y, GridEntry value);
+
+        // 设置区域内容
+        void setRect(int layer, int x, int y, int width, int height, GridEntry value);
+
+        // 增加layer
+        int addLayer(int addedCount, GridEntry defaultValue = 0);
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[14]" type="UMLNoteLinkView" guid="GdqtKgosjEKjAT/OAnx0kgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2216,1680;2216,1602</XPD:ATTR>
+<XPD:REF name="Head">kpO0vWz8kUOhmLY2v67McgAA</XPD:REF>
+<XPD:REF name="Tail">grliV0EfVEOoHkKYfScgpAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[15]" type="UMLNoteView" guid="xzQ1MLREzkmB+1x0MZFMgAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1624</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1852</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">279</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">GridEntry GenericGrid::get(int layer, int x, int y) const
+{
+        return mData[layer][y * mWidth + x];
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[16]" type="UMLNoteView" guid="9p9D4eRFF0io796zrEd9nwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1608</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1676</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">296</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GenericGrid::init(int layerCount, int width, int height)
+{
+        mData.resize(layerCount);
+        for (int i = 0; i &lt; layerCount; i++)
+        {
+                GridDataLayer &amp; layer = mData[i];
+                layer.resize(width * height, 0);
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[17]" type="UMLNoteLinkView" guid="xE8THrTnEk2LWaGGi6iFugAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2020,1810;1903,1782</XPD:ATTR>
+<XPD:REF name="Head">9p9D4eRFF0io796zrEd9nwAA</XPD:REF>
+<XPD:REF name="Tail">grliV0EfVEOoHkKYfScgpAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[18]" type="UMLNoteLinkView" guid="wfc3xavdikeLKeQxRVCNYQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2020,1869;1902,1876</XPD:ATTR>
+<XPD:REF name="Head">xzQ1MLREzkmB+1x0MZFMgAAA</XPD:REF>
+<XPD:REF name="Tail">grliV0EfVEOoHkKYfScgpAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[19]" type="UMLNoteView" guid="7uF4wQEBmkmYPlIZkygBBQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1600</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1960</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">315</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GenericGrid::set(int layer, int x, int y, GridEntry value)
+{
+        GridEntry originalValue = mData[layer][y * mWidth + x];
+        mData[layer][y * mWidth + x] = value;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[20]" type="UMLNoteLinkView" guid="U9ICJsROV0u723BZWkI1yAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2020,1918;1887,1960</XPD:ATTR>
+<XPD:REF name="Head">7uF4wQEBmkmYPlIZkygBBQAA</XPD:REF>
+<XPD:REF name="Tail">grliV0EfVEOoHkKYfScgpAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[21]" type="UMLNoteView" guid="WZE+iyWsUUmq1i8qPlKcHQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2536</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1616</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">427</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void GenericGrid::setRect(int layer, int x, int y, int width, int height, GridEntry value)
+{
+  bool changed = false;
+  for (int iy = y; iy &lt; y + height; iy ++)
+  {
+    for (int ix = x; ix &lt; x + width; ix ++)
+    {
+      GridEntry originalValue = mData[layer][iy * mWidth + ix];
+      mData[layer][iy * mWidth + ix] = value;
+      if (originalValue != value)
+        changed = true;
+    }
+  }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[22]" type="UMLNoteLinkView" guid="ZYXpY1HnMEKzAZFlU4KocAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2536,1777;2411,1808</XPD:ATTR>
+<XPD:REF name="Head">grliV0EfVEOoHkKYfScgpAAA</XPD:REF>
+<XPD:REF name="Tail">WZE+iyWsUUmq1i8qPlKcHQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[23]" type="UMLNoteView" guid="g4FUOxSu2UOiRIYX4kdPIAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2536</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1888</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">419</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">int GenericGrid::addLayer(int addedCount, GridEntry defaultValue)
+{
+  int originalLayerCount = mLayerCount;
+  mLayerCount += addedCount;
+
+  mData.resize(mLayerCount);
+  for (int newLayer = originalLayerCount; newLayer &lt; mLayerCount; newLayer++)
+  {
+    GridDataLayer &amp; layer = mData[newLayer];
+    layer.resize(mWidth * mHeight, defaultValue);
+  }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[24]" type="UMLNoteLinkView" guid="WOIJIjQL1Uq7pmfOucrifAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2536,1932;2411,1902</XPD:ATTR>
+<XPD:REF name="Head">grliV0EfVEOoHkKYfScgpAAA</XPD:REF>
+<XPD:REF name="Tail">g4FUOxSu2UOiRIYX4kdPIAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[25]" type="UMLNoteView" guid="lh3Do5dyQk+/LBbQKrM//QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1352</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1076</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">487</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">548</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///转换成纹理
+SharedPtr&lt;Texture2D&gt; TerrainGrid::toTexture(int layer, int texWidth, int texHeight,
+        const Color&amp; normalColor, const Color&amp; emptyColor, bool flipY) const
+{
+        SharedPtr&lt;Texture2D&gt; texture(new Texture2D(mContext));
+        texture-&gt;setNumLevels(1);
+        texture-&gt;setSize(texWidth, texHeight, Graphics::getRGBAFormat(), TEXTURE_DYNAMIC);
+        texture-&gt;setFilterMode(FILTER_NEAREST);
+
+        float wRate = texWidth / (float)mWidth;
+        float hRate = texHeight / (float)mHeight;
+
+        unsigned nc = normalColor.getAsABGR();
+        unsigned ec = emptyColor.getAsABGR();
+
+        unsigned char * tempBuffer = new unsigned char[texWidth * texHeight * sizeof(unsigned)];
+        unsigned* colorPtr = (unsigned*)tempBuffer;
+        for (int y = 0; y &lt; texHeight; y++)
+        {
+                for (int x = 0; x &lt; texWidth; x++)
+                {
+                        int yy = y;
+                        if (flipY)
+                                yy = texHeight - 1 - yy;
+                        unsigned char value = get(layer, x / wRate, yy / hRate);
+                        if (value == 0)
+                                *colorPtr++ = ec;
+                        else
+                                *colorPtr++ = nc;
+                }
+        }
+
+        texture-&gt;setData(0, 0, 0, texWidth, texHeight, tempBuffer);
+        delete[] tempBuffer;
+        return texture;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[26]" type="UMLNoteLinkView" guid="MjvBLz1t0EysqsbX0Ml9qwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2016,1411;1838,1385</XPD:ATTR>
+<XPD:REF name="Head">lh3Do5dyQk+/LBbQKrM//QAA</XPD:REF>
+<XPD:REF name="Tail">kpO0vWz8kUOhmLY2v67McgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[27]" type="UMLNoteView" guid="5fQe15k1Z0So4ANjEJeAmgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3616</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1204</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">278</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 场景网格检测器
+class LYSCENE_API TerrainGridDetector :
+        public LogicComponent,
+        public EventSet
+{
+        // 更新后
+        virtual void postUpdate(float timeStep) override;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[28]" type="UMLNoteView" guid="vVLWJb6Yo0uDTOJHzfc5JAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3528</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1416</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">455</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">893</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void TerrainGridDetector::postUpdate(float timeStep)
+{
+        TerrainGrid* grid = mTerrainGridGroup-&gt;getTerrainGrid(mNode-&gt;getWorldPosition());
+        bool insideGrid = (grid != 0);
+        if (mIsInGrid != insideGrid)
+        {
+                fireEvent(insideGrid ? EventGridEntered : EventGridLeaved);
+                mIsInGrid = insideGrid;
+        }
+
+        if (mIsInGrid)
+        {
+                Point gridPos = grid-&gt;toGridPos(mNode-&gt;getWorldPosition());
+                if (grid != mPrevGrid)
+                {
+                        for (unsigned index = 0;index&lt;mPrevGridValues.size();++index)
+                        {
+                                GridValueLeavedEventArgs leaveArgs;
+                                leaveArgs.layer = index;
+                                leaveArgs.oldValue = mPrevGridValues[index];
+                                fireEvent(EventGridValueLeaved, leaveArgs);
+                        }
+
+                        mPrevGrid = grid;
+                        mPrevGridValues.clear();
+                }
+                int layerCount = grid-&gt;getLayerCount();
+                bool gridValueInit = false;
+                if (mPrevGridValues.size() == 0)
+                {
+                        mPrevGridValues.resize(layerCount, 0);
+                        gridValueInit = true;
+                }
+                for (int i = 0; i &lt; layerCount; i++)
+                {
+                        GridEntry value = grid-&gt;get(i, gridPos.x, gridPos.y);
+                        GridEntry oldValue = 0;
+                        if (i &lt; mPrevGridValues.size())
+                                oldValue = mPrevGridValues[i];
+                        if (oldValue != value || gridValueInit)
+                        {
+                                if (!gridValueInit)
+                                {
+                                        GridValueLeavedEventArgs leaveArgs;
+                                        leaveArgs.layer = i;
+                                        leaveArgs.oldValue = oldValue;
+                                        fireEvent(EventGridValueLeaved, leaveArgs);
+                                }
+
+                                GridValueEnteredEventArgs enterArgs;
+                                enterArgs.layer = i;
+                                enterArgs.newValue = value;
+                                fireEvent(EventGridValueEntered, enterArgs);
+
+                                mPrevGridValues[i] = value;
+                        }
+                }
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[29]" type="UMLNoteLinkView" guid="PozClYNalUiqakVBmn4wLAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3754,1416;3754,1331</XPD:ATTR>
+<XPD:REF name="Head">5fQe15k1Z0So4ANjEJeAmgAA</XPD:REF>
+<XPD:REF name="Tail">vVLWJb6Yo0uDTOJHzfc5JAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[30]" type="UMLNoteLinkView" guid="azN5S5yZW0G5lGT0AiZxDQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3528,1861;2411,1857</XPD:ATTR>
+<XPD:REF name="Head">grliV0EfVEOoHkKYfScgpAAA</XPD:REF>
+<XPD:REF name="Tail">vVLWJb6Yo0uDTOJHzfc5JAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>
