@@ -20,7 +20,7 @@
 <XPD:REF name="DiagramOwner">txpFhshy1EGdNivklyIgHAAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="WAVDWPcLgUKKF72wy+T2vwAA">
 <XPD:REF name="Diagram">8mQkO+CX1kWTgP0udWpdrwAA</XPD:REF>
-<XPD:ATTR name="#OwnedViews" type="integer">31</XPD:ATTR>
+<XPD:ATTR name="#OwnedViews" type="integer">41</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="fSWasWEIEECVokBwqOK98wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
@@ -483,11 +483,14 @@ SharedPtr&lt;Texture2D&gt; TerrainGrid::toTexture(int layer, int texWidth, int t
 <XPD:OBJ name="OwnedViews[27]" type="UMLNoteView" guid="5fQe15k1Z0So4ANjEJeAmgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">3616</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1204</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3532</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1116</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">278</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">// 场景网格检测器
+// 这是一个 LogicComponent 创建后，会自动监听
+// E_SCENEPOSTUPDATE 这个消息，并每帧调用
+// postUpdate()函数
 class LYSCENE_API TerrainGridDetector :
         public LogicComponent,
         public EventSet
@@ -500,11 +503,14 @@ class LYSCENE_API TerrainGridDetector :
 <XPD:OBJ name="OwnedViews[28]" type="UMLNoteView" guid="vVLWJb6Yo0uDTOJHzfc5JAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">3528</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1416</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3448</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1420</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">455</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">893</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">void TerrainGridDetector::postUpdate(float timeStep)
+<XPD:ATTR name="Height" type="integer">938</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 这个组件在主角创建完成后就会挂到主角身上，
+// postUpdate函数每帧更新，检查是否进入和离开一个TerrainGrid
+// 同时检查当前 TerrainGrid 对应的格子的值是否有变化
+void TerrainGridDetector::postUpdate(float timeStep)
 {
         TerrainGrid* grid = mTerrainGridGroup-&gt;getTerrainGrid(mNode-&gt;getWorldPosition());
         bool insideGrid = (grid != 0);
@@ -568,16 +574,174 @@ class LYSCENE_API TerrainGridDetector :
 <XPD:OBJ name="OwnedViews[29]" type="UMLNoteLinkView" guid="PozClYNalUiqakVBmn4wLAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3754,1416;3754,1331</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3672,1420;3671,1288</XPD:ATTR>
 <XPD:REF name="Head">5fQe15k1Z0So4ANjEJeAmgAA</XPD:REF>
 <XPD:REF name="Tail">vVLWJb6Yo0uDTOJHzfc5JAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[30]" type="UMLNoteLinkView" guid="azN5S5yZW0G5lGT0AiZxDQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3528,1861;2411,1857</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3448,1612;3200,1612;3200,1860;2411,1860</XPD:ATTR>
 <XPD:REF name="Head">grliV0EfVEOoHkKYfScgpAAA</XPD:REF>
 <XPD:REF name="Tail">vVLWJb6Yo0uDTOJHzfc5JAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[31]" type="UMLNoteView" guid="7LXwGKHXHU+tfU+h0Q8CGgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1040</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1720</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">309</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">398</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 区域网格显示器组件，包含在区域节点上
+class LYSCENE_API TerrainGridRenderer :
+        public Component
+{
+public :
+        // 获得渲染用的中心节点
+        Node * getRenderNode();
+
+protected:
+
+        // 节点设置时(外部通知)
+        virtual void onNodeSet(Node* node) override;
+
+private :
+        // 区域的引用
+        TerrainGrid * mTerrainGrid;
+
+        // 渲染用的中心节点
+        WeakPtr&lt;Node&gt; mRenderNode;
+
+        // 渲染线用的节点
+        WeakPtr&lt;Node&gt; mRefLineNode;
+
+        // 每一层数据用的渲染节点
+        Vector&lt;WeakPtr&lt;Node&gt;&gt; mLayerRenderNodes;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[32]" type="UMLNoteView" guid="Q1p+mXVIFUGCJTeHf/AFsQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">684</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1724</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">236</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 参考线渲染器
+// 不依赖格子，可用于做场景上参考标准
+// 格子参考线渲染器
+class LYSCENE_API ReferenceLineRenderer :
+        public CustomGeometry
+{
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[33]" type="UMLNoteView" guid="4QM7bJZ0QkSHyJ/Ua2j5KwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">664</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1884</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">255</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 格子参考线渲染器
+class LYSCENE_API GridReferenceLineRenderer :
+        public ReferenceLineRenderer
+{
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[34]" type="UMLNoteView" guid="WcNIwxW5LEqwG/Y4JZQ3kgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">708</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2004</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">208</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 格子填充矩形渲染器
+class LYSCENE_API GridRectRenderer :
+        public CustomGeometry
+{
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[35]" type="UMLNoteView" guid="aSFeZJPPfEejCMS1gAyfygAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">896</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2228</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">598</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">503</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void TerrainGridRenderer::onNodeSet(Node* node)
+{
+        TerrainGrid * terrainGrid = dynamic_cast&lt;TerrainGrid *&gt; (node);
+        mTerrainGrid = terrainGrid;
+
+        // create cental node 
+        Node * renderNode = mTerrainGrid-&gt;createChild(&quot;GridRenderer&quot;);
+        mRenderNode = renderNode;
+
+        // create ref line node
+        Node * refLineNode = renderNode-&gt;createChild(&quot;refLine&quot;);
+        mRefLineNode = refLineNode;
+
+        GridReferenceLineRenderer * refLineRenderer = refLineNode-&gt;createComponent&lt;GridReferenceLineRenderer&gt;();
+        refLineRenderer-&gt;setGrid(mTerrainGrid, Vector2(mTerrainGrid-&gt;getGridEntrySize(), 
+                                                                mTerrainGrid-&gt;getGridEntrySize()), Color::White);
+
+        // according to layers, create layer node
+        int layerCount = mTerrainGrid-&gt;getLayerCount();
+        for (int i = 0; i &lt; layerCount; i++)
+        {
+                Node * layerNode = renderNode-&gt;createChild(String(i));
+                layerNode-&gt;setPosition(Vector3(0, layerNodeYOffset * (i + 1), 0));
+
+                GridRectRenderer * layerRenderer = layerNode-&gt;createComponent&lt;GridRectRenderer&gt;();
+                layerRenderer-&gt;setFixedAlpha(120);
+                layerRenderer-&gt;setGrid(mTerrainGrid, i, Vector2(mTerrainGrid-&gt;getGridEntrySize(), 
+                                         mTerrainGrid-&gt;getGridEntrySize()), layerDefaultColors[i % layerDefaultColorCount]);
+
+                WeakPtr&lt;Node&gt; wlayerNode(layerNode);
+                mLayerRenderNodes.push(wlayerNode);
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[36]" type="UMLNoteLinkView" guid="aWIWdpakGUeZywQ1BMmAXgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1194,2228;1194,2117</XPD:ATTR>
+<XPD:REF name="Head">7LXwGKHXHU+tfU+h0Q8CGgAA</XPD:REF>
+<XPD:REF name="Tail">aSFeZJPPfEejCMS1gAyfygAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[37]" type="UMLNoteLinkView" guid="YYLKy/zfv0aJyevOS2smKwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1040,1864;919,1821</XPD:ATTR>
+<XPD:REF name="Head">Q1p+mXVIFUGCJTeHf/AFsQAA</XPD:REF>
+<XPD:REF name="Tail">7LXwGKHXHU+tfU+h0Q8CGgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[38]" type="UMLNoteLinkView" guid="hDOtkxXPYEaNPyo/sAQWKwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1040,1921;918,1923</XPD:ATTR>
+<XPD:REF name="Head">4QM7bJZ0QkSHyJ/Ua2j5KwAA</XPD:REF>
+<XPD:REF name="Tail">7LXwGKHXHU+tfU+h0Q8CGgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[39]" type="UMLNoteLinkView" guid="KICKGxOL9kqHGqvLh4pFegAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1040,1969;915,2010</XPD:ATTR>
+<XPD:REF name="Head">WcNIwxW5LEqwG/Y4JZQ3kgAA</XPD:REF>
+<XPD:REF name="Tail">7LXwGKHXHU+tfU+h0Q8CGgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[40]" type="UMLNoteLinkView" guid="3A4o9qbP1kSJFsw+o/24DQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2020,1836;1348,1836</XPD:ATTR>
+<XPD:REF name="Head">7LXwGKHXHU+tfU+h0Q8CGgAA</XPD:REF>
+<XPD:REF name="Tail">grliV0EfVEOoHkKYfScgpAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
