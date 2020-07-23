@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="7JRmD5WMGUSGtettQJh+gwAA">
+<XPD:ATTR name="Title" type="string">UISystem</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="EBLH0Zrz3kyYP0qt/5s6qQAA">
+<XPD:ATTR name="Name" type="string">UISystem</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">UISystem</XPD:ATTR>
+<XPD:REF name="Namespace">7JRmD5WMGUSGtettQJh+gwAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="h3Y8cPyJIkeL/c6y8N2yCwAA">
+<XPD:ATTR name="Name" type="string">UISystem</XPD:ATTR>
+<XPD:REF name="DiagramOwner">EBLH0Zrz3kyYP0qt/5s6qQAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="yuk5rz/ODUq/h38fzQloQAAA">
+<XPD:REF name="Diagram">h3Y8cPyJIkeL/c6y8N2yCwAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">13</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="/PWycURVdEu6t8676qNLdwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">104</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">372</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">513</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">758</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///UI系统
+class LYGUI_API UISystem : 
+        public Object,
+        public GeneralAlloc
+{
+        // 图集
+        Imagedef*        getImagedef(const String&amp; name, const String&amp; imagesetName = String::EMPTY);
+        SharedPtr&lt;Imageset&gt; addImageset(const String&amp; imagesetName);
+        SharedPtr&lt;Imageset&gt; preloadImageset(const String&amp; imagesetName);
+        
+        // 各类shader
+        ShaderVariation* getUIShader(Texture* texture, unsigned id);
+        Material* getUIMaterial(unsigned char vsID, unsigned char psID, bool depthTest);
+
+        // 三维触摸区域                                                            
+        void registerTouchArea3D(TouchArea3D* touchArea3D);
+        void unregisterTouchArea3D(TouchArea3D* touchArea3D);
+        TouchArea3D* getTouchArea3DAt(const Vector2&amp; position, Vector2&amp; hitPos);
+        
+
+        ///更新渲染
+    void update(float timeStep, Widget* widget);
+    void setVertexData(VertexBuffer* dest, const PODVector&lt;float&gt;&amp; vertexData);
+    void render(bool resetRenderTargets, VertexBuffer* buffer, 
+                            const PODVector&lt;UIBatch&gt;&amp; batches, unsigned batchStart, unsigned batchEnd);
+    void getBatches(Widget* widget, Rect currentScissor);
+        void getDebugDrawBatches(Widget* widget, int flag, Rect currentScissor);
+        
+    ///输入事件处理
+    void handleTouchBegin(StringHash eventType, HashVariantMap&amp; eventData);
+    void handleTouchEnd(StringHash eventType, HashVariantMap&amp; eventData);
+    void handleTouchMove(StringHash eventType, HashVariantMap&amp; eventData);
+    
+        ///渲染器
+        void initShaders();
+        void initShader(unsigned id, ShaderType type, const char* name, const char* defines);
+        void initMaterial(unsigned char vsID, unsigned char psID, bool depthTest);
+
+protected:
+    WeakPtr&lt;Graphics&gt; mGraphics;
+    SharedPtr&lt;Widget&gt; mRootWidget;
+    PODVector&lt;UIBatch&gt; mBatches;
+        unsigned mNumBatches;
+    PODVector&lt;float&gt; mVertexData;
+    SharedPtr&lt;VertexBuffer&gt; mVertexBuffer;
+        
+        WeakPtr&lt;Scene&gt;                        mScene;
+        WeakPtr&lt;Camera&gt;                        mCamera;
+        WeakPtr&lt;Viewport&gt;                mViewport;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="xkdABdRT1EykJGUAJQssFwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">968</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">32</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">502</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">383</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 初始化
+UISystem::UISystem(Context* context) :
+    Object(context),
+    mRootWidget(new Widget(context))
+{
+        mRootWidget-&gt;setTraversalMode(TM_DEPTH_FIRST);
+        mRootWidget-&gt;setID(getFreeWidgetID());
+        onWidgetAdded(mRootWidget);
+
+        ApplicationBase* app = getSubsystem&lt;ApplicationBase&gt;();
+        app-&gt;registerRenderFunc(this, (RenderFunc)&amp;UISystem::render, RENDER_QUEUE_OVERLAY);
+
+        subscribeToEvent(E_TOUCHBEGIN, C_HANDLER(UISystem, handleTouchBegin));
+        subscribeToEvent(E_TOUCHEND, C_HANDLER(UISystem, handleTouchEnd));
+        subscribeToEvent(E_TOUCHMOVE, C_HANDLER(UISystem, handleTouchMove));
+        subscribeToEvent(E_KEYDOWN, C_HANDLER(UISystem, handleKeyDown));
+        subscribeToEvent(E_TEXTINPUT, C_HANDLER(UISystem, handleTextInput));
+
+        mVertexBuffer = new VertexBuffer(mContext);
+        mDebugVertexBuffer = new VertexBuffer(mContext);
+
+        subscribeToEvent(E_BEGINFRAME, C_HANDLER(UISystem, handleBeginFrame));
+        subscribeToEvent(E_POSTUPDATE, C_HANDLER(UISystem, handlePostUpdate));
+        subscribeToEvent(E_BEGINVIEWRENDER, C_HANDLER(UISystem, handleBeginViewUpdate));
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLNoteView" guid="FngVzY1Kw0mjtHkVglgn8wAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">968</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">448</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">341</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">338</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 帧更新 逻辑
+void UISystem::update(float timeStep)
+{
+    update(timeStep, mRootWidget);
+}
+
+void UISystem::update(float timeStep, Widget* widget)
+{
+    WeakPtr&lt;Widget&gt; widgetWeak(widget);
+
+    widget-&gt;update(timeStep);
+    if (widgetWeak.expired())
+        return;
+
+    const Nodes&amp; children = widget-&gt;getChildren();
+        for (unsigned i = 0; i &lt; children.size(); ++i)
+        {
+                Widget* child = static_cast&lt;Widget*&gt;(children[i].get());
+                if(child)
+                        update(timeStep, child);
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLNoteView" guid="J1/I2n7CH0Sd2FBFfO272QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1536</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">64</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">555</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">1733</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void UISystem::handleBeginViewUpdate(StringHash eventType, HashVariantMap&amp; eventData)
+{
+        //触发事件
+        {
+                using namespace BeginUIRendering;
+                HashVariantMap&amp; eventData = getEventDataMap();
+                sendEvent(E_BEGINUIRENDERING, eventData);
+        }
+        renderUpdate();
+        //触发事件
+        {
+                using namespace EndUIRendering;
+                HashVariantMap&amp; eventData = getEventDataMap();
+                sendEvent(E_ENDUIRENDERING, eventData);
+        }
+}
+
+void UISystem::renderUpdate()
+{
+    mBatches.clear();
+    mVertexData.clear();
+    const Vector2&amp; rootSize = mRootWidget-&gt;getSize();
+    Vector2 rootPos = mRootWidget-&gt;getPosition();
+
+    Rect currentScissor = Rect(rootPos.x, rootPos.y, rootPos.x + rootSize.x, rootPos.y + rootSize.y);
+    if (mRootWidget-&gt;isVisible())
+        getBatches(mRootWidget, currentScissor);
+
+        ///获取置顶批次
+        PODVector&lt;WeakPtr&lt;Widget&gt;&gt;::Iterator i, iend = mTopWidgets.end();
+        for (i = mTopWidgets.begin(); i != iend;)
+        {
+                WeakPtr&lt;Widget&gt; topWidget = *i;
+                getBatches(topWidget, currentScissor);
+                ++i;
+        }
+}
+
+void UISystem::getBatches(Widget* widget, Rect currentScissor)
+{
+    widget-&gt;adjustScissor(currentScissor);
+
+        widget-&gt;sortChildren();
+        const Nodes&amp; children = widget-&gt;getChildren();
+        Nodes::ConstIterator i = children.begin();
+        Nodes::ConstIterator iend = children.begin() + children.size();
+
+    while (i != iend)
+        {
+                Widget* child = static_cast&lt;Widget*&gt;((*i).get());
+        if ((*i) != mCursor &amp;&amp; !child-&gt;hasFlag(WT_Top))
+                {
+            if (child-&gt;isWithinScissor(currentScissor))
+                                child-&gt;getBatches(mBatches, mVertexData, currentScissor);
+            if (child-&gt;isVisible())
+                getBatches(child, currentScissor);
+        }
+        ++i;
+    }
+}
+
+void UISystem::render(bool resetRenderTargets, VertexBuffer* buffer,
+         const PODVector&lt;UIBatch&gt;&amp; batches, unsigned batchStart,unsigned batchEnd)
+{
+    Size viewSize = mGraphics-&gt;getViewport().getSize();
+    Vector2 invScreenSize(1.0f / (float)viewSize.width, 1.0f / (float)viewSize.height);
+    Vector2 scale(2.0f * invScreenSize.x, -2.0f * invScreenSize.y);
+    Vector2 offset(-1.0f, 1.0f);
+
+        mProjection = Matrix4::IDENTITY;
+        mProjection[0][0] = scale.x * mUIScale;
+        mProjection[0][3] = offset.x;
+        mProjection[1][1] = scale.y * mUIScale;
+        mProjection[1][3] = offset.y;
+        mProjection[2][2] = 1.0f;
+        mProjection[2][3] = 0.0f;
+        mProjection[3][3] = 1.0f;
+
+        mGraphics-&gt;clear(CLEAR_STENCIL);
+    mGraphics-&gt;clearParameterSources();
+    mGraphics-&gt;setColorWrite(true);
+    mGraphics-&gt;setCullMode(CULL_CCW);
+    mGraphics-&gt;setDepthTest(CMP_ALWAYS);
+    mGraphics-&gt;setDepthWrite(false);
+    mGraphics-&gt;setFillMode(FILL_SOLID);
+    mGraphics-&gt;setStencilTest(false);
+    mGraphics-&gt;setVertexBuffer(buffer);
+
+    for (unsigned i = batchStart; i &lt; batchEnd; ++i)
+    {
+                ShaderVariation* diffTexturePS = getUIShader(batch.texture, PS_DiffTexture);
+                ShaderVariation* diffAlphaMaskTexturePS = getUIShader(batch.texture, PS_DiffAlphaMaskTexture);
+                ShaderVariation* alphaTexturePS = getUIShader(batch.texture, PS_AlphaTexture);
+
+                ShaderVariation* ps = getUIShader(batch.texture, batch.psShaderID);
+        ShaderVariation* vs = getUIShader(batch.texture, batch.vsShaderID);
+
+
+        mGraphics-&gt;setShaders(vs, ps);
+        mGraphics-&gt;setShaderParameter(VSP_MODEL, Matrix3x4::IDENTITY);
+        mGraphics-&gt;setShaderParameter(VSP_VIEWPROJ, mProjection);
+        mGraphics-&gt;setShaderParameter(PSP_MATDIFFCOLOR, Color(1.0f, 1.0f, 1.0f, 1.0f));
+                mGraphics-&gt;setBlendMode(batch.blendMode);
+        mGraphics-&gt;setScissorTest(true, scissor);
+                mGraphics-&gt;setTexture(TU_DIFFUSE, batch.texture);
+
+                mGraphics-&gt;setTexture(TU_NORMAL, batch.normalTexture);
+                mGraphics-&gt;setTexture(TU_SPECULAR, batch.specularTexture);
+                mGraphics-&gt;setTexture(TU_EMISSIVE, batch.emissiveTexture);
+
+                //执行渲染函数
+                        mGraphics-&gt;draw(TRIANGLE_LIST, batch.vertexDataStart / UI_VERTEX_SIZE,
+                                (batch.vertexDataEnd - batch.vertexDataStart) / UI_VERTEX_SIZE);
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLNoteLinkView" guid="0tL8mAvPx0mgVrtsd+PRQQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">968,377;616,593</XPD:ATTR>
+<XPD:REF name="Head">/PWycURVdEu6t8676qNLdwAA</XPD:REF>
+<XPD:REF name="Tail">xkdABdRT1EykJGUAJQssFwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteLinkView" guid="OOvm/UvhJUSL1C+KsmBa0AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">968,645;616,706</XPD:ATTR>
+<XPD:REF name="Head">/PWycURVdEu6t8676qNLdwAA</XPD:REF>
+<XPD:REF name="Tail">FngVzY1Kw0mjtHkVglgn8wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteLinkView" guid="BPZidJN/D0iQIAIuBN2/rQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1536,896;616,782</XPD:ATTR>
+<XPD:REF name="Head">/PWycURVdEu6t8676qNLdwAA</XPD:REF>
+<XPD:REF name="Tail">J1/I2n7CH0Sd2FBFfO272QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="+i6LJYVZIE2APpCCj189ogAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">952</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">916</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">537</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">1553</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void UISystem::handleTouchBegin(StringHash eventType, HashVariantMap&amp; eventData)
+{
+        Vector2 pos(eventData[P_X].getInt(), eventData[P_Y].getInt());
+        pos.x = int(pos.x / mUIScale);
+        pos.y = int(pos.y / mUIScale);
+        mUsingTouchInput = true;
+        mUITouchStates[touchId].touchBeginPoint = pos;
+        mUITouchStates[touchId].touchTimer.reset();
+
+        PODVector&lt;Widget*&gt;&amp; touchedWidgets = mUITouchStates[touchId].touchedWidgets;
+
+        getWidgetAt(touchedWidgets, pos, true, ~WT_Top);
+
+        for (unsigned index = 0; index &lt; touchedWidgets.size(); ++index)
+        {
+                widget-&gt;processTouchBegan(touchId, pos);
+        }
+        if (checkArea3D)
+        {
+                setFocusWidget(0);
+                Vector2 hitPos;
+                mCurrentTouchArea3D = getTouchArea3DAt(mUITouchStates[touchId].touchBeginPoint, hitPos);
+                if (mCurrentTouchArea3D)
+                        mCurrentTouchArea3D-&gt;handleTouchBegin(touchId, hitPos);
+        }
+}
+
+void UISystem::handleTouchEnd(StringHash eventType, HashVariantMap&amp; eventData)
+{
+        PODVector&lt;Widget*&gt;&amp; touchedWidgets = mUITouchStates[touchId].touchedWidgets;
+        for (unsigned index = 0; index &lt; touchedWidgets.size(); ++index)
+        {
+                if (widget-&gt;isHit(pos.x, pos.y))
+                {
+                        widget-&gt;processTouchEnded(touchId, pos);
+                }
+                if (widget-&gt;getSwallowTouches())
+                        break;
+        }
+
+        if (mCurrentTouchArea3D)
+        {
+                Vector2 hitPos;
+                TouchArea3D* cur = getTouchArea3DAt(mUITouchStates[touchId].touchEndPoint, hitPos);
+                mCurrentTouchArea3D-&gt;handleTouchEnded(touchId, hitPos);
+                mCurrentTouchArea3D = 0;
+        }
+}
+
+void UISystem::handleTouchMove(StringHash eventType, HashVariantMap&amp; eventData)
+{
+        PODVector&lt;Widget*&gt;&amp; touchedWidgets = mUITouchStates[touchId].touchedWidgets;
+
+        for (unsigned index = 0; index &lt; touchedWidgets.size(); ++index)
+        {
+                widget-&gt;processTouchMoved(touchId, pos, deltaPos);
+
+                if (widget-&gt;getSwallowTouches())
+                        break;
+        }
+        Vector2 hitPos;
+        TouchArea3D* cur = getTouchArea3DAt(pos, hitPos);
+        if (mCurrentTouchArea3D)
+                mCurrentTouchArea3D-&gt;handleTouchMoved(touchId, hitPos);
+}
+
+
+
+void UISystem::getWidgetAt(PODVector&lt;Widget*&gt;&amp; result, Widget* current, 
+                        const Vector2&amp; position, bool touchEnabledOnly, unsigned flags)
+{
+        current-&gt;sortChildren();
+        const Nodes&amp; children = current-&gt;getChildren();
+        unsigned size = children.size();
+
+        for (unsigned i = size; i &gt; 0; --i)
+        {
+                Widget* widget = static_cast&lt;Widget*&gt;(children[i - 1].get());
+
+                bool hasChildren = widget-&gt;getNumChildren() &gt; 0;
+
+                if (widget != mCursor.get() &amp;&amp; widget-&gt;isVisible() &amp;&amp;
+                        (flags == 0 || (widget-&gt;getFlags() &amp; flags) != 0))
+               {
+                        if (widget-&gt;isHit(position.x,position.y))
+                        {
+                                if (hasChildren)
+                                        getWidgetAt(result, widget, position, touchEnabledOnly, flags);
+
+                                 if (widget-&gt;isTouchEnabled() || !touchEnabledOnly)
+                                        result.push(widget);
+                         }
+                          else
+                         {
+                                  if (hasChildren)
+                                  {
+                                         if (widget-&gt;isHitCombined(position.x, position.y))
+                                                getWidgetAt(result, widget, position, touchEnabledOnly, flags);
+                                  }
+                          }
+                 }
+          }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="M1jC3x53GUyocMgoR7I0fAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">952,1398;616,1030</XPD:ATTR>
+<XPD:REF name="Head">/PWycURVdEu6t8676qNLdwAA</XPD:REF>
+<XPD:REF name="Tail">+i6LJYVZIE2APpCCj189ogAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLNoteView" guid="Alg9rfQW6Ea9gEYSKBzxsAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">352</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1404</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">565</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">593</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void UISystem::registerTouchArea3D(TouchArea3D* touchArea3D)
+{
+        mTouchArea3Ds.push(WeakPtr&lt;TouchArea3D&gt;(touchArea3D));
+}
+
+void UISystem::unregisterTouchArea3D(TouchArea3D* touchArea3D)
+{
+        mTouchArea3Ds.remove(WeakPtr&lt;TouchArea3D&gt;(touchArea3D));
+}
+
+void UISystem::clearAllTouchArea3Ds()
+{
+        mTouchArea3Ds.clear();
+}
+
+TouchArea3D* UISystem::getTouchArea3DAt(const Vector2&amp; position, Vector2&amp; hitPos)
+{
+        Graphics* graphics = getSubsystem&lt;Graphics&gt;();
+        Ray ray = mCamera-&gt;getScreenRay(position.x / graphics-&gt;getWidth(), position.y / graphics-&gt;getHeight());
+        float lastDistance = M_INFINITY;
+        float distance = 0.0f;
+        TouchArea3D* ret = 0;
+        Vector&lt;WeakPtr&lt;TouchArea3D&gt;&gt;::Iterator i, iend = mTouchArea3Ds.end();
+        for (i = mTouchArea3Ds.begin();i!=iend;)
+        {
+                WeakPtr&lt;TouchArea3D&gt; touch = *i;
+                Vector2 hPos;
+                if (touch-&gt;intersect(ray, distance, hPos))
+                {
+                        if (distance &lt; lastDistance)
+                        {
+                                ret = touch;
+                                hitPos = hPos;
+                                lastDistance = distance;
+                        }
+                }
+                ++i;
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLNoteLinkView" guid="Y7ED24TKmUCtOGQSa/1TYAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">549,1404;470,1129</XPD:ATTR>
+<XPD:REF name="Head">/PWycURVdEu6t8676qNLdwAA</XPD:REF>
+<XPD:REF name="Tail">Alg9rfQW6Ea9gEYSKBzxsAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[11]" type="UMLNoteView" guid="I7mbd80ZjUKNajNvvMClXQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">8</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2088</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">513</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">578</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Imagedef* UISystem::getImagedef(const String&amp; name, const String&amp; imagesetName)
+{
+        //对名字进行小写转换
+        String nameCopy = name.toLower();
+        String imagesetNameCopy = imagesetName.toLower();
+        if (!imagesetNameCopy.empty())
+        {
+                Imagesets::Iterator it = mImagesets.find(imagesetNameCopy);
+                if (it != mImagesets.end())
+                {
+                        SharedPtr&lt;Imageset&gt; imageset = it-&gt;second;
+                        if (imageset-&gt;isImageDefined(nameCopy))
+                                return imageset-&gt;getImagedef(nameCopy);
+                }
+        }
+}
+//添加图集
+SharedPtr&lt;Imageset&gt; UISystem::addImageset(const String&amp; imagesetName)
+{
+        String imagesetNameCopy = imagesetName.toLower();
+        if (mImagesets.find(imagesetNameCopy) != mImagesets.end())
+                return SharedPtr&lt;Imageset&gt;();
+        ResourceCache* cache = getSubsystem&lt;ResourceCache&gt;();
+        Imageset* imageset = cache-&gt;getResource&lt;Imageset&gt;(mImagesetPath + imagesetNameCopy);
+        if (imageset)
+                mImagesets[imagesetNameCopy] = imageset;
+
+        return SharedPtr&lt;Imageset&gt;(imageset);
+}
+///加载图集
+SharedPtr&lt;Imageset&gt; UISystem::preloadImageset(const String&amp; imagesetName)
+{
+        SharedPtr&lt;Imageset&gt; imageset = addImageset(imagesetName);
+        if (imageset)
+                imageset-&gt;checkTextureLoaded();
+        mPerloadImagesets.push(imageset);
+        return imageset;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="NYU5BKPe70CM/qgn7iT46wAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">281,2088;338,1129</XPD:ATTR>
+<XPD:REF name="Head">/PWycURVdEu6t8676qNLdwAA</XPD:REF>
+<XPD:REF name="Tail">I7mbd80ZjUKNajNvvMClXQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>

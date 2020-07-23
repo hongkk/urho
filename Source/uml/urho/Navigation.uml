@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="6XelCmfd10Gd6Add3KFW0AAA">
+<XPD:ATTR name="Title" type="string">Navigation</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="Y8tLFvjFaEKB471577fulAAA">
+<XPD:ATTR name="Name" type="string">Navigation</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Navigation</XPD:ATTR>
+<XPD:REF name="Namespace">6XelCmfd10Gd6Add3KFW0AAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="Kjp8rloirU+OCBXEAafIYQAA">
+<XPD:ATTR name="Name" type="string">ClassDiagram1</XPD:ATTR>
+<XPD:REF name="DiagramOwner">Y8tLFvjFaEKB471577fulAAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="C/T+ir5vi0Kpyf98vWWEFAAA">
+<XPD:REF name="Diagram">Kjp8rloirU+OCBXEAafIYQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>
