@@ -839,7 +839,8 @@ void Renderer::QueueRenderSurface(RenderSurface* renderTarget)
             QueueViewport(renderTarget, renderTarget->GetViewport(i));
     }
 }
-
+// 把rendertarget 和对应的 viewport 组成一对，放到 queuedViewports中
+// queuedViewports_ 只是个中间容器，通过它来初始化所有viewport的view,并调用 view.define() 和 view.update()，
 void Renderer::QueueViewport(RenderSurface* renderTarget, Viewport* viewport)
 {
     if (viewport)

@@ -1846,6 +1846,7 @@ void Graphics::SetBlendMode(BlendMode mode, bool alphaToCoverage)
     }
 }
 
+//glColorMask 指定是否可以将红色，绿色，蓝色和alpha写入帧缓冲区。 初始值均为GL_TRUE，表示可以写入颜色分量
 void Graphics::SetColorWrite(bool enable)
 {
     if (enable != colorWrite_)
@@ -3380,6 +3381,8 @@ void Graphics::DeleteFramebuffer(unsigned fbo)
         glDeleteFramebuffers(1, &fbo);
 }
 
+//绑定 帧缓冲区对象 
+//如果 fbo为0，表示默认的帧缓冲区，就是”窗口系统提供的“帧缓冲区。
 void Graphics::BindFramebuffer(unsigned fbo)
 {
 #ifndef GL_ES_VERSION_2_0
@@ -3390,6 +3393,8 @@ void Graphics::BindFramebuffer(unsigned fbo)
         glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 }
 
+//注意： glFramebufferTexture2D 和 glFramebufferRenderbuffer都可以把镜像绑定到 GL_COLOR_ATTACHMENT GL_DEPTH_ATTACHMENT GL_STENCIL_ATTACHMENT
+//不同的是 glFramebufferTexture2D 只可以绑定纹理对象，而glFramebufferRenderbuffer只可以绑定渲染缓冲区对象
 void Graphics::BindColorAttachment(unsigned index, unsigned target, unsigned object, bool isRenderBuffer)
 {
     if (!object)

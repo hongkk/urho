@@ -855,6 +855,18 @@ void UI::Render(bool resetRenderTargets, VertexBuffer* buffer, const PODVector<U
     Vector2 scale(2.0f * invScreenSize.x_, -2.0f * invScreenSize.y_);
     Vector2 offset(-1.0f, 1.0f);
 
+	/*
+	正交投影
+	左下近点（l,b,n)   右上远点(r,t,f)
+	2/(r-l)    0       0      -(r+l)/(r-l)
+	
+	0       2/(t-b)    0      -(t+b)/(t-b)
+	
+	0          0    1/(f-n)    -n/(f-n)
+	
+	0          0       0           1
+	*/
+
     Matrix4 projection(Matrix4::IDENTITY);
     projection.m00_ = scale.x_ * uiScale_;
     projection.m03_ = offset.x_;

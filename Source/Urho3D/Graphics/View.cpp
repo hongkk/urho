@@ -618,7 +618,7 @@ void View::Update(const FrameInfo& frame)
     if (cullCamera_ && cullCamera_->GetAutoAspectRatio())
         cullCamera_->SetAspectRatioInternal((float)frame_.viewSize_.x_ / (float)frame_.viewSize_.y_);
 
-	// 收集几何何和光源
+	// 收集几何体和光源
     GetDrawables();
 	// 收集渲染批次
     GetBatches();
@@ -1892,6 +1892,8 @@ void View::SetRenderTargets(RenderPathCommand& command)
         {
             Texture* texture = FindNamedTexture(command.outputs_[index].first_, true, false);
 
+			// 检查一下是否渲染目标只有一个，并且是输出为深度纹理（如果输出到自定义的帧缓冲区，不能没有颜色附加点）
+			// 如果是的话，把这个纹理设置深度模板，之后会绑定到帧缓冲区的深度附加点，并且生成一个临时的纹理，作为rendertarget,之后绑定到帧缓冲区的颜色附加点
             // Check for depth only rendering (by specifying a depth texture as the sole output)
             if (!index && command.outputs_.Size() == 1 && texture && (texture->GetFormat() == Graphics::GetReadableDepthFormat() ||
                                                                       texture->GetFormat() == Graphics::GetDepthStencilFormat()))
@@ -1923,6 +1925,7 @@ void View::SetRenderTargets(RenderPathCommand& command)
         ++index;
     }
 
+	// 如果当前commond中有指定depthStencilName，并且这个纹理已经生成过了，则用他作为深度附加点的绑定纹理
     if (command.depthStencilName_.Length())
     {
         Texture* depthTexture = FindNamedTexture(command.depthStencilName_, true, false);
@@ -2146,7 +2149,7 @@ void View::AllocateScreenBuffers()
         {
             for (unsigned j = 0; j < command.outputs_.Size(); ++j)
             {
-                if (command.outputs_[j].first_.Compare("viewport", false))
+                if (command.outputs_[j].first_.Compare("viewport", false))  // 注意这里的判断是output不为"viewport"
                 {
                     hasScenePassToRTs = true;
                     break;
