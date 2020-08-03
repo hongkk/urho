@@ -2242,6 +2242,12 @@ void View::AllocateScreenBuffers()
     bool sRGB = renderTarget_ ? renderTarget_->GetParentTexture()->GetSRGB() : graphics_->GetSRGB();
     int multiSample = renderTarget_ ? renderTarget_->GetMultiSample() : graphics_->GetMultiSample();
     bool autoResolve = renderTarget_ ? renderTarget_->GetAutoResolve() : true;
+
+	// ============================================================================================================================================================
+	//  如果使用pingpong且不需要Substitute，则会创建两个viewportTextures_，viewportTextures_[0] 和 viewportTextures_[1]是不同的RTT,
+	//  之后在 ExecuteRenderPathCommands()中，viewportTextures_ 一个作为输入，一个作为输出，交替使用 注意 currentRenderTarget_ = GetRenderSurfaceFromTexture(viewportTextures_[1]);
+	//  如果使用pingpong且需要Substitute, 则会创建 viewportTextures_[0] RTT作为 输入，而 viewportTextures_[1] 指向 substituteRenderTarget_这个RTT
+	// ============================================================================================================================================================
 	//根据上面得到的各个参数,生成 RenderTarget 和 Texture
     substituteRenderTarget_ = needSubstitute ? GetRenderSurfaceFromTexture(renderer_->GetScreenBuffer(viewSize_.x_, viewSize_.y_,
         format, multiSample, autoResolve, false, true, sRGB)) : (RenderSurface*)0;
@@ -2254,6 +2260,8 @@ void View::AllocateScreenBuffers()
     // If using a substitute render target and pingponging, the substitute can act as the second viewport texture
     if (numViewportTextures == 1 && substituteRenderTarget_)
         viewportTextures_[1] = substituteRenderTarget_->GetParentTexture();
+	// ============================================================================================================================================================
+	// ============================================================================================================================================================
 
 	// 构建其他在renderpath中定义的渲染目标
     // Allocate extra render targets defined by the render path

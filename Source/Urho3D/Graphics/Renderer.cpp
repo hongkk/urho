@@ -1043,7 +1043,8 @@ Texture2D* Renderer::GetShadowMap(Light* light, Camera* camera, unsigned viewWid
     return newShadowMap;
 }
 
-//获取屏幕缓冲区
+// 获取屏幕缓冲区
+// 注意：这里创建的缓冲区虽然会存到 screenBuffers_ 中，但相同的参数进来，不会返回同一个buff，而会创建不同的buff，除非他是一个深度模版
 Texture* Renderer::GetScreenBuffer(int width, int height, unsigned format, int multiSample, bool autoResolve, bool cubemap, bool filtered, bool srgb,
     unsigned persistentKey)
 {
