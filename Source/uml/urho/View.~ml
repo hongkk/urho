@@ -20,7 +20,7 @@
 <XPD:REF name="DiagramOwner">r64MlZtLZkedhLnHuSzN1QAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="eE7mTTubA0uBimka2n2B0QAA">
 <XPD:REF name="Diagram">CS7FTBjoS0SSvqwPDQ8zOgAA</XPD:REF>
-<XPD:ATTR name="#OwnedViews" type="integer">81</XPD:ATTR>
+<XPD:ATTR name="#OwnedViews" type="integer">74</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="1/bKgAGn70q9oBGMyfuTTAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
@@ -109,7 +109,7 @@
                     BatchQueue&amp; queue = actualView-&gt;batchQueues_[command.passIndex_];
 
                     SetRenderTargets(command);
-            SetTextures(command);
+                    SetTextures(command);
                     queue.Draw(this, camera_, command.markToStencil_, false, allowDepthWrite);
                 }
 </XPD:ATTR>
@@ -1156,157 +1156,6 @@ void Graphics::PrepareDraw()
 <XPD:ATTR name="Points" type="Points">1995,3672;1995,3618</XPD:ATTR>
 <XPD:REF name="Head">zr//xSglI0mBlkUpd0XbkwAA</XPD:REF>
 <XPD:REF name="Tail">3BBqFs/EfEe+Z3Oi4YvNcAAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="OwnedViews[74]" type="UMLNoteView" guid="9HMI5KvORkmJufk+PWGcqQAA">
-<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">3308</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2736</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">470</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">593</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Renderer::setBatchShaders
-{
-       if (!vertexShaders.size() || !pixelShaders.size())
-             loadPassShaders(pass, vertexShaders, pixelShaders, queue);
-
-       if (pass-&gt;getLightingMode() == LIGHTING_PERPIXEL)
-        {
-            LightBatchQueue* lightQueue = batch.mLightQueue;
-
-            Light* light = lightQueue-&gt;mLight;
-            unsigned vsi = 0;
-            unsigned psi = 0;
-            vsi = batch.mGeometryType * MAX_LIGHT_VS_VARIATIONS;
-
-            bool materialHasSpecular = batch.mMaterial ? batch.mMaterial-&gt;getSpecular() : true;
-            if (mSpecularLighting &amp;&amp; light-&gt;getSpecularIntensity() &gt; 0.0f &amp;&amp; materialHasSpecular)
-                psi += LPS_SPEC;
-            if (allowShadows &amp;&amp; lightQueue-&gt;mShadowMap)
-            {
-                if (light-&gt;getShadowBias().mNormalOffset &gt; 0.0f)
-                    vsi += LVS_SHADOWNORMALOFFSET;
-                else
-                    vsi += LVS_SHADOW;
-                psi += LPS_SHADOW;
-            }
-
-            switch (light-&gt;getLightType())
-            {
-            case LIGHT_DIRECTIONAL:
-                vsi += LVS_DIR;
-            }
-
-            if (heightFog)
-                psi += MAX_LIGHT_PS_VARIATIONS;
-
-            batch.mVertexShader = vertexShaders[vsi];
-            batch.mPixelShader = pixelShaders[psi];
-        }
-}
-</XPD:ATTR>
-</XPD:OBJ>
-<XPD:OBJ name="OwnedViews[75]" type="UMLNoteView" guid="yeXF24iVl0KORTtHumoN9QAA">
-<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">3900</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2800</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">453</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">488</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Renderer::loadPassShaders
-{
-       if (pass-&gt;getLightingMode() == LIGHTING_PERPIXEL)
-    {
-        vertexShaders.resize(MAX_GEOMETRYTYPES * MAX_LIGHT_VS_VARIATIONS);
-        pixelShaders.resize(MAX_LIGHT_PS_VARIATIONS * 2);
-
-        for (unsigned j = 0; j &lt; MAX_GEOMETRYTYPES * MAX_LIGHT_VS_VARIATIONS; ++j)
-        {
-            unsigned g = j / MAX_LIGHT_VS_VARIATIONS;
-            unsigned l = j % MAX_LIGHT_VS_VARIATIONS;
-
-            vertexShaders[j] = mGraphics-&gt;getShader(VS, pass-&gt;getVertexShader(),
-                vsDefines + lightVSVariations[l] + geometryVSVariations[g]);
-        }
-        for (unsigned j = 0; j &lt; MAX_LIGHT_PS_VARIATIONS * 2; ++j)
-        {
-            unsigned l = j % MAX_LIGHT_PS_VARIATIONS;
-            unsigned h = j / MAX_LIGHT_PS_VARIATIONS;
-
-            if (l &amp; LPS_SHADOW)
-            {
-                pixelShaders[j] = mGraphics-&gt;getShader(PS, pass-&gt;getPixelShader(),
-                    psDefines + lightPSVariations[l] + getShadowVariations() +
-                    heightFogVariations[h]);
-            }
-            else
-                pixelShaders[j] = mGraphics-&gt;getShader(PS, pass-&gt;getPixelShader(),
-                    psDefines + lightPSVariations[l] + heightFogVariations[h]);
-        }
-    }
-}
-</XPD:ATTR>
-</XPD:OBJ>
-<XPD:OBJ name="OwnedViews[76]" type="UMLNoteLinkView" guid="Ltl4peY+ckyklB0tKiyGlgAA">
-<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3900,3039;3777,3037</XPD:ATTR>
-<XPD:REF name="Head">9HMI5KvORkmJufk+PWGcqQAA</XPD:REF>
-<XPD:REF name="Tail">yeXF24iVl0KORTtHumoN9QAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="OwnedViews[77]" type="UMLNoteView" guid="5P1AhVOYnk2PQrWvZFf90QAA">
-<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">4504</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2936</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">467</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Graphics::getShader
-{
-        ResourceCache* cache = getSubsystem&lt;ResourceCache&gt;();
-
-        String fullShaderName = mShaderPath + name + mShaderExtension;
-        if (mLastShaderName == name &amp;&amp; !cache-&gt;exists(fullShaderName))
-            return 0;
-
-        mLastShader = cache-&gt;getResource&lt;Shader&gt;(fullShaderName);
-        mLastShaderName = name;
-
-         return mLastShader ? mLastShader-&gt;getVariation(type, defines) : (ShaderVariation*)0;
-}
-</XPD:ATTR>
-</XPD:OBJ>
-<XPD:OBJ name="OwnedViews[78]" type="UMLNoteLinkView" guid="BwuLKNModkaNUvZ5vQaw3wAA">
-<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">4504,3044;4352,3044</XPD:ATTR>
-<XPD:REF name="Head">yeXF24iVl0KORTtHumoN9QAA</XPD:REF>
-<XPD:REF name="Tail">5P1AhVOYnk2PQrWvZFf90QAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="OwnedViews[79]" type="UMLNoteView" guid="2ei1frByR0WCzxEyex6hkAAA">
-<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">4384</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3372</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">596</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Shader::getVariation
-{
-            i = variations.insert(makePair(normalizedHash, SharedPtr&lt;ShaderVariation&gt;(new ShaderVariation(this, type))));
-            if (definesHash != normalizedHash)
-                variations.insert(makePair(definesHash, i-&gt;second));
-
-            i-&gt;second-&gt;setName(FileSystem::getFileName(getName()));
-            i-&gt;second-&gt;setDefines(normalizedDefines);
-}
-</XPD:ATTR>
-</XPD:OBJ>
-<XPD:OBJ name="OwnedViews[80]" type="UMLNoteLinkView" guid="6lGVhR1EtE+tSELLrtaDxAAA">
-<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">4722,3372;4722,3153</XPD:ATTR>
-<XPD:REF name="Head">5P1AhVOYnk2PQrWvZFf90QAA</XPD:REF>
-<XPD:REF name="Tail">2ei1frByR0WCzxEyex6hkAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
