@@ -109,7 +109,7 @@
                     BatchQueue&amp; queue = actualView-&gt;batchQueues_[command.passIndex_];
 
                     SetRenderTargets(command);
-            SetTextures(command);
+                    SetTextures(command);
                     queue.Draw(this, camera_, command.markToStencil_, false, allowDepthWrite);
                 }
 </XPD:ATTR>
@@ -301,8 +301,8 @@ void Graphics::SetRenderTarget(unsigned index, RenderSurface* renderTarget)
 <XPD:OBJ name="OwnedViews[17]" type="UMLNoteView" guid="oHHJznPhKUKobOiuG9/BIQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2676</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">888</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2672</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">884</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">497</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">158</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">// 设置视口  // 要先调用PrepareDraw
@@ -321,7 +321,7 @@ void Graphics::SetViewport(const IntRect&amp; rect)
 <XPD:ATTR name="LineColor" type="string">clBlue</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2676,964;2528,964;2528,472;1854,472</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2672,964;2528,964;2528,472;1854,472</XPD:ATTR>
 <XPD:REF name="Head">XSkBBW5pjUOsScmNwQabEwAA</XPD:REF>
 <XPD:REF name="Tail">oHHJznPhKUKobOiuG9/BIQAA</XPD:REF>
 </XPD:OBJ>
@@ -772,7 +772,7 @@ bool View::SetTextures(RenderPathCommand&amp; command)
 <XPD:ATTR name="LineColor" type="string">clLime</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2676,996;2384,996</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2672,996;2384,996</XPD:ATTR>
 <XPD:REF name="Head">B/3Afi43tE6HBpVzQWtCAQAA</XPD:REF>
 <XPD:REF name="Tail">oHHJznPhKUKobOiuG9/BIQAA</XPD:REF>
 </XPD:OBJ>

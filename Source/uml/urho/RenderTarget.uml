@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="U7/uSX5PA06sJF1Gi1wfZgAA">
+<XPD:ATTR name="Title" type="string">RenderTarget</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="r+vnWbPZnUSfdjOelTXnFAAA">
+<XPD:ATTR name="Name" type="string">RenderTarget</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">RenderTarget</XPD:ATTR>
+<XPD:REF name="Namespace">U7/uSX5PA06sJF1Gi1wfZgAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="/yyHZThdPk+20b8ws2L7mQAA">
+<XPD:ATTR name="Name" type="string">RenderTarget</XPD:ATTR>
+<XPD:REF name="DiagramOwner">r+vnWbPZnUSfdjOelTXnFAAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="ehKDOH0h5EKrxaY9OTxcdAAA">
+<XPD:REF name="Diagram">/yyHZThdPk+20b8ws2L7mQAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">28</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="En1tCpsBuka63ayxtIj4OAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">36</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">268</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">369</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">        self.mScene = ly.EndlessScene:new(Context)
+        self.mMainCamera = self.mScene:getMainCamera()
+        self.mViewport = ly.Viewport:new(Context)
+        self.mViewport:setScene(self.mScene)
+        self.mViewport:setCamera(self.mMainCamera)
+
+        Context:getSubsystem(&quot;Renderer&quot;):setViewport(0, self.mViewport)
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="+O54byhyO0O/T4D+O3RLvAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">528</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">264</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">360</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">113</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Renderer::setViewport(unsigned index, Viewport* viewport)
+{
+    if (index &gt;= mViewports.size())
+        mViewports.resize(index + 1);
+
+    mViewports[index] = viewport;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLNoteView" guid="XKgJMJ0fRE62QQX5x6r81wAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1076</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">76</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">682</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">158</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Texture2D::handleRenderSurfaceUpdate(StringHash eventType, HashVariantMap&amp; eventData)
+{
+    if (mRenderSurface &amp;&amp; (mRenderSurface-&gt;getUpdateMode() == SURFACE_UPDATEALWAYS || mRenderSurface-&gt;isUpdateQueued()))
+    {
+        Renderer* renderer = getSubsystem&lt;Renderer&gt;();
+        if (renderer)
+            renderer-&gt;queueRenderSurface(mRenderSurface);
+        mRenderSurface-&gt;resetUpdateQueued();
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLNoteView" guid="d4NnjoWPbEyarlOxJq4NHgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1184</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">280</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">468</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">383</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Renderer::queueRenderSurface(RenderSurface* renderTarget)
+{
+    if (renderTarget)
+    {
+        unsigned numViewports = renderTarget-&gt;getNumViewports();
+
+        for (unsigned i = 0; i &lt; numViewports; ++i)
+            queueViewport(renderTarget, renderTarget-&gt;getViewport(i));
+    }
+}
+
+void Renderer::queueViewport(RenderSurface* renderTarget, Viewport* viewport)
+{
+    if (viewport)
+    {
+        Pair&lt;WeakPtr&lt;RenderSurface&gt;, WeakPtr&lt;Viewport&gt; &gt; newView = 
+            makePair(WeakPtr&lt;RenderSurface&gt;(renderTarget), WeakPtr&lt;Viewport&gt;(viewport));
+
+        if (!mQueuedViewports.contains(newView))
+            mQueuedViewports.push(newView);
+    }
+}
+
+// RTT 离屏渲染
+// 一般用在UI上显示的场景，反射面之类的
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLNoteView" guid="jNmlqoyRCkupc0ElvPbWiQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">556</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1032</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">384</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">278</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 先更新每个view,做渲染前的准备 收集批次
+void Renderer::update(float timeStep)
+{
+    mViews.clear();
+    mPreparedViews.clear();
+
+    for (unsigned i = mViewports.size() - 1; i &lt; mViewports.size(); --i)
+        queueViewport(0, mViewports[i]);
+
+    unsigned numMainViewports = mQueuedViewports.size();
+    for (unsigned i = 0; i &lt; numMainViewports; ++i)
+        updateQueuedViewport(i);
+
+    sendEvent(E_RENDERSURFACEUPDATE);
+
+    for (unsigned i = numMainViewports; i &lt; mQueuedViewports.size(); ++i)
+        updateQueuedViewport(i);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="YfMCtpNO00uvFKt5Zm4p/gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1076</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">876</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">487</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">209</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Renderer::queueViewport(RenderSurface* renderTarget, Viewport* viewport)
+{
+    if (viewport)
+    {
+        Pair&lt;WeakPtr&lt;RenderSurface&gt;, WeakPtr&lt;Viewport&gt; &gt; newView = 
+            makePair(WeakPtr&lt;RenderSurface&gt;(renderTarget), WeakPtr&lt;Viewport&gt;(viewport));
+
+        if (!mQueuedViewports.contains(newView))
+            mQueuedViewports.push(newView);
+    }
+}
+
+//所有从mViewports调用过来的，rendertarget都为0，也就是说这些都是输出到屏幕后缓冲
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteView" guid="0SC70zkVaUipsXoPzh7IKwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1096</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1272</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">448</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">278</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Renderer::updateQueuedViewport(unsigned index)
+{
+        WeakPtr&lt;RenderSurface&gt;&amp; renderTarget = mQueuedViewports[index].first;
+        WeakPtr&lt;Viewport&gt;&amp; viewport = mQueuedViewports[index].second;
+
+    if (!viewport-&gt;getView() || mResetViews)
+        viewport-&gt;allocateView();
+
+    View* view = viewport-&gt;getView();
+    view-&gt;define(renderTarget, viewport)
+    mViews.push(WeakPtr&lt;View&gt;(view));
+
+    resetShadowMapAllocations();
+    view-&gt;update(mFrame);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="Sj/q3VX3nUCquFo5qBFWQQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">352</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">500</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">140</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">30</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">默认视口，即后缓冲区
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="WBt643tq10it2N9HAD7K/gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">406,500;279,380</XPD:ATTR>
+<XPD:REF name="Head">En1tCpsBuka63ayxtIj4OAAA</XPD:REF>
+<XPD:REF name="Tail">Sj/q3VX3nUCquFo5qBFWQQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLNoteLinkView" guid="V6LOaGvI9UGt8juVjXYTegAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">442,500;625,376</XPD:ATTR>
+<XPD:REF name="Head">+O54byhyO0O/T4D+O3RLvAAA</XPD:REF>
+<XPD:REF name="Tail">Sj/q3VX3nUCquFo5qBFWQQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLNoteLinkView" guid="7uoje7TsiUG9A8TQgM1rsgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">556,1164;429,1164;429,529</XPD:ATTR>
+<XPD:REF name="Head">Sj/q3VX3nUCquFo5qBFWQQAA</XPD:REF>
+<XPD:REF name="Tail">jNmlqoyRCkupc0ElvPbWiQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[11]" type="UMLNoteLinkView" guid="8Fu0/+nsME6h99mxdfiBZgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1076,1061;939,1106</XPD:ATTR>
+<XPD:REF name="Head">jNmlqoyRCkupc0ElvPbWiQAA</XPD:REF>
+<XPD:REF name="Tail">YfMCtpNO00uvFKt5Zm4p/gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="ZAXnTsJSOkigSHD2DaqdgQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1096,1316;939,1250</XPD:ATTR>
+<XPD:REF name="Head">jNmlqoyRCkupc0ElvPbWiQAA</XPD:REF>
+<XPD:REF name="Tail">0SC70zkVaUipsXoPzh7IKwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[13]" type="UMLNoteView" guid="RsMeSo0zkkCQmk6XNfAk/gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">624</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2116</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">305</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 渲染部分，对每个相关的view,分别调用view.render()
+void Renderer::render()
+{
+    for (unsigned i = mViews.size() - 1; i &lt; mViews.size(); --i)
+    {
+        const WeakPtr&lt;View&gt;&amp; view = mViews[i];
+        prepareViewRender();
+        view-&gt;render();
+    }
+    removeUnusedBuffers();
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[14]" type="UMLNoteView" guid="3sLCGIKtakCY//ux35DQCAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1108</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2080</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">535</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">248</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void View::render()
+{
+        sendViewEvent(E_BEGINVIEWRENDER);
+
+        updateGeometries();
+
+        allocateScreenBuffers();
+        sendViewEvent(E_VIEWBUFFERSREADY);
+
+        executeRenderPathCommands();
+
+        if (mCurrentRenderTarget != mRenderTarget)
+                blitFramebuffer(mCurrentRenderTarget-&gt;getParentTexture(), mRenderTarget, !mUsedResolve);
+
+        sendViewEvent(E_ENDVIEWRENDER);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[15]" type="UMLNoteLinkView" guid="Ozty1U8ZlE2B6HEmiiv8AwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1108,2203;928,2202</XPD:ATTR>
+<XPD:REF name="Head">RsMeSo0zkkCQmk6XNfAk/gAA</XPD:REF>
+<XPD:REF name="Tail">3sLCGIKtakCY//ux35DQCAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[16]" type="UMLNoteView" guid="1LkGFFTVUku8bf8Zpwd9wwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1852</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1616</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">711</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">518</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void View::allocateScreenBuffers()
+{
+        View* actualView = mSourceView ? mSourceView : this;
+
+        mSubstituteRenderTarget = needSubstitute ? getRenderSurfaceFromTexture(mRenderer-&gt;getScreenBuffer(mViewSize.x, mViewSize.y,
+                format, multiSample, autoResolve, false, true, sRGB)) : (RenderSurface*)0;
+        for (unsigned i = 0; i &lt; MAX_VIEWPORT_TEXTURES; ++i)
+        {
+                mViewportTextures[i] = i &lt; numViewportTextures ? mRenderer-&gt;getScreenBuffer(mViewSize.x, mViewSize.y, format, multiSample,
+                        autoResolve, false, true, sRGB) : (Texture*)0;
+        }
+        if (numViewportTextures == 1 &amp;&amp; mSubstituteRenderTarget)
+                mViewportTextures[1] = mSubstituteRenderTarget-&gt;getParentTexture();
+
+        for (unsigned i = 0; i &lt; mRenderPath-&gt;mRenderTargets.size(); ++i)
+        {
+                const RenderTargetInfo&amp; rtInfo = mRenderPath-&gt;mRenderTargets[i];
+
+                mRenderTargets[rtInfo.mName] =
+                        mRenderer-&gt;getScreenBuffer(intWidth, intHeight, rtInfo.mFormat, rtInfo.mMultiSample, rtInfo.mAutoResolve,
+                                rtInfo.mCubemap, rtInfo.mFiltered, rtInfo.mSRGB, rtInfo.mPersistent ? StringHash(rtInfo.mName).value()
+                                + (unsigned)(size_t)this : 0);
+        }
+}
+
+// 这里遍历当前view的 RenderPath Commands,确定是否需要一个SubstituteRenderTarget,也就是临时的替代渲染目标，如果某个
+// command中有自定义的DepthStencil,或者需要把整个屏幕作为输入，或者使用的pingpong技术，或者是后处理，
+// 则需要一个SubstituteRenderTarget。一旦出现了SubstituteRenderTarget，则在本次 View::render() 中都不会再直接输出到屏幕后缓冲
+// 只有再最后的时候再把SubstituteRenderTarget对应的纹理拷贝到屏幕后缓冲区
+
+
+// 最后，这里还要先初始化当前view的 RenderPath Commands中的所有&lt;target&gt;标签，每个&lt;target&gt;标签对应的是一个RTT纹理，这里
+// 都称为屏幕缓冲（意思是一个跟屏幕大小相关的RENDERTARGET），这些RTT纹理在 executeRenderPathCommands() 中或充当输入，
+// 或充当输出
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[17]" type="UMLNoteLinkView" guid="WwtfZ3jlGEiaLO72n/mw0AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1852,2014;1642,2097</XPD:ATTR>
+<XPD:REF name="Head">3sLCGIKtakCY//ux35DQCAAA</XPD:REF>
+<XPD:REF name="Tail">1LkGFFTVUku8bf8Zpwd9wwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[18]" type="UMLNoteView" guid="b1maXGzIR0+FO6C0kjSbZAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1900</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2280</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">739</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">1523</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void View::executeRenderPathCommands()
+{
+        mCurrentRenderTarget = mSubstituteRenderTarget ? mSubstituteRenderTarget : mRenderTarget;
+
+        //查找最后一条需要作实际渲染的command 索引 lastCommandIndex 
+       
+        for (unsigned i = 0; i &lt; mRenderPath-&gt;mCommands.size(); ++i)
+        {
+                RenderPathCommand&amp; command = mRenderPath-&gt;mCommands[i];
+
+               // 每条command的开始要处理三种情况，
+               // 一种是以屏幕缓冲作为输入  一种是以屏幕缓冲作为输出   一种是同一个命令中，屏幕缓冲即作输入又作输出
+                bool viewportRead = actualView-&gt;checkViewportRead(command);
+                bool viewportWrite = actualView-&gt;checkViewportWrite(command);
+                bool beginPingpong = actualView-&gt;checkPingpong(i);
+
+                // 如果屏幕内容作为输入，并且屏幕内容已经被修改过
+                // 这个时候目标是要把 屏幕内容作为下一次渲染的输入，所以需要把当前屏幕的内容
+                // 赋值到 CurrentViewportTexture，当前屏幕内容可能存在于 CurrentRenderTarget对应的纹理
+                // 也有可能 CurrentRenderTarget = 0 ，这时候需要直接从后缓冲区将像素拷贝到CurrentViewportTexture
+                if (viewportRead &amp;&amp; viewportModified)
+                {
+                        if (mCurrentRenderTarget &amp;&amp; mCurrentRenderTarget == mSubstituteRenderTarget &amp;&amp; beginPingpong)
+                                isPingponging = true;
+
+                       // 不使用pingpong技术的情况下  
+                       // mCurrentRenderTarget  = 0 即是输出到屏幕后缓冲 
+                       // 或mCurrentRenderTarget ！= mSubstituteRenderTarget 即当前输出到RTT 而且不使用 mSubstituteRenderTarget
+                        if (!isPingponging)
+                        {
+                                // mCurrentRenderTarget = 0 说明是直接输出到屏幕后缓冲
+                                if (!mCurrentRenderTarget) 
+                                {
+                                        // 这时想要把屏幕内容作为输入则直接从屏幕后缓冲区拷贝到 mViewportTextures[0]
+                                        // 再把 mCurrentViewportTexture 指向  mViewportTextures[0]
+                                        mGraphics-&gt;resolveToTexture(dynamic_cast&lt;Texture2D*&gt;(mViewportTextures[0]), mViewRect);
+                                        mCurrentViewportTexture = mViewportTextures[0];
+                                        viewportModified = false;
+                                        mUsedResolve = true;
+                                }
+                                else  // mCurrentRenderTarget ！= 0  则表示当前输出到 RTT  并且此时 mCurrentRenderTarget ！= mSubstituteRenderTarget
+                                {
+                                        // 如果当前command输出目标是屏幕
+                                        if (viewportWrite)
+                                        {
+                                                // 这时把mCurrentRenderTarget 对应的纹理拷贝到 mViewportTextures[0]，以它作为屏幕内容输入
+                                                blitFramebuffer(mCurrentRenderTarget-&gt;getParentTexture(),
+                                                        getRenderSurfaceFromTexture(mViewportTextures[0]), false);
+                                                mCurrentViewportTexture = mViewportTextures[0];
+                                                viewportModified = false;
+                                        }
+                                        else
+                                        {
+                                                // 如果当前输出目标不是屏幕，说明当前command输出是一个&lt;target&gt;对应的纹理，
+                                                // 之后在setRenderTargets()时，不会以mCurrentRenderTarget 作为目标，输出和输入不会是同一个
+                                                // 此时直接以 mCurrentRenderTarget 对应的纹理作为屏幕输入
+                                                mCurrentViewportTexture = mCurrentRenderTarget-&gt;getParentTexture();
+                                        }
+                                }
+                        }
+                        else
+                        {
+                                // 如果屏幕后缓冲作为输入，又作为输出，则把mCurrentRenderTarget对应的纹理赋给
+                                // mCurrentViewportTexture，mCurrentViewportTexture 会在之后SetTexture中初绑定为当前纹理
+                                // 注意：屏幕后缓冲区不能同时作为输入又作为输出，如果有这种需求，一般使用pingpong技术
+                                // 以 SubstituteRenderTarget 来临时作为输出
+
+                                mViewportTextures[1] = mViewportTextures[0];
+                                mViewportTextures[0] = mCurrentRenderTarget-&gt;getParentTexture();
+                                mCurrentViewportTexture = mViewportTextures[0];
+                                viewportModified = false;
+                        }
+                }
+
+                if (beginPingpong)
+                        isPingponging = true;
+
+                // 如果当前command是以屏幕作为输出
+                if (viewportWrite)
+                {
+                        if (isPingponging)   // 如果屏幕同时作为输入和输出 使用pingpong技术
+                        {
+                                mCurrentRenderTarget = getRenderSurfaceFromTexture(mViewportTextures[1]);
+                                if (i == lastCommandIndex &amp;&amp; command.mType == CMD_QUAD &amp;&amp; mRenderTarget)
+                                        mCurrentRenderTarget = mRenderTarget;
+                        }
+                        else
+                                mCurrentRenderTarget = mSubstituteRenderTarget ? mSubstituteRenderTarget : mRenderTarget;
+                }
+
+                switch (command.mType)
+                {
+
+                }
+
+                if (viewportWrite)
+                        viewportModified = true;
+
+        }
+        
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[19]" type="UMLNoteLinkView" guid="uYXdOc4NCkemV6ylQ/Jf+gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1900,2695;1507,2327</XPD:ATTR>
+<XPD:REF name="Head">3sLCGIKtakCY//ux35DQCAAA</XPD:REF>
+<XPD:REF name="Tail">b1maXGzIR0+FO6C0kjSbZAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[20]" type="UMLNoteView" guid="/qpLbHj8P06qKfa/2jCl+gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2812</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1668</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">741</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">593</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Texture* Renderer::getScreenBuffer(int width, int height, unsigned format, int multiSample, bool autoResolve, bool cubemap, bool filtered, bool srgb,
+    unsigned persistentKey)
+{
+    bool depthStencil = (format == Graphics::getDepthStencilFormat()) || (format == Graphics::getReadableDepthFormat());
+
+    if (mScreenBuffers.find(searchKey) == mScreenBuffers.end())
+        mScreenBufferAllocations[searchKey] = 0;
+
+    unsigned allocations = mScreenBufferAllocations[searchKey];
+    if (!depthStencil)
+        ++mScreenBufferAllocations[searchKey];
+
+    if (allocations &gt;= mScreenBuffers[searchKey].size())
+    {
+        SharedPtr&lt;Texture&gt; newBuffer;
+
+        if (!cubemap)
+        {
+            SharedPtr&lt;Texture2D&gt; newTex2D(new Texture2D(mContext));
+            newTex2D-&gt;setNumLevels(1);
+            newTex2D-&gt;setSize(width, height, format, depthStencil ? TEXTURE_DEPTHSTENCIL : TEXTURE_RENDERTARGET, multiSample, autoResolve);
+            newBuffer = newTex2D;
+        }
+        else
+        {
+            SharedPtr&lt;TextureCube&gt; newTexCube(new TextureCube(mContext));
+            newTexCube-&gt;setNumLevels(1);
+            newTexCube-&gt;setSize(width, format, TEXTURE_RENDERTARGET, multiSample);
+
+            newBuffer = newTexCube;
+        }
+    }
+    else
+    {
+        Texture* buffer = mScreenBuffers[searchKey][allocations];
+        buffer-&gt;resetUseTimer();
+        return buffer;
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[21]" type="UMLNoteLinkView" guid="9EgktCoKgke8zqmdUWkwkwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2812,1930;2562,1907</XPD:ATTR>
+<XPD:REF name="Head">1LkGFFTVUku8bf8Zpwd9wwAA</XPD:REF>
+<XPD:REF name="Tail">/qpLbHj8P06qKfa/2jCl+gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[22]" type="UMLNoteLinkView" guid="9p3Rdeju3kKBBENyPsBn6gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1416,280;1416,233</XPD:ATTR>
+<XPD:REF name="Head">XKgJMJ0fRE62QQX5x6r81wAA</XPD:REF>
+<XPD:REF name="Tail">d4NnjoWPbEyarlOxJq4NHgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[23]" type="UMLNoteLinkView" guid="ZeXtdf30nUuheyiVi5o38QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">879,1032;1234,662</XPD:ATTR>
+<XPD:REF name="Head">d4NnjoWPbEyarlOxJq4NHgAA</XPD:REF>
+<XPD:REF name="Tail">jNmlqoyRCkupc0ElvPbWiQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[24]" type="UMLNoteView" guid="sscD0aCL8kmCivB9Sp1hbQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1072</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1132</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">530</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">mViewports 调用完queueViewport之后，所以有屏幕后缓冲相关的view都会放到mQueuedViewports
+中，这时再调用 updateQueuedViewport 先把屏幕相关的view放到 mViews再调用每个view.update()
+先更新主屏幕的内容。
+接着再通过  sendEvent(E_RENDERSURFACEUPDATE) 把所以RTT相关的view放进来，再调用这些剩余
+view.update()
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[25]" type="UMLNoteLinkView" guid="oT8t8rVSFUW57M9Ti/PTggAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1072,1172;939,1171</XPD:ATTR>
+<XPD:REF name="Head">jNmlqoyRCkupc0ElvPbWiQAA</XPD:REF>
+<XPD:REF name="Tail">sscD0aCL8kmCivB9Sp1hbQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[26]" type="UMLNoteView" guid="fVMkenF/p0SxeuSlVaKybQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1704</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1340</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">298</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 收集批次
+void View::update(const FrameInfo&amp; frame)
+{
+        getDrawables();
+        getBatches();
+        mRenderer-&gt;storePreparedView(this, mCullCamera);
+
+        sendViewEvent(E_ENDVIEWUPDATE);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[27]" type="UMLNoteLinkView" guid="89VtJs50+EqyQpxw3+LDLgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1704,1411;1543,1411</XPD:ATTR>
+<XPD:REF name="Head">0SC70zkVaUipsXoPzh7IKwAA</XPD:REF>
+<XPD:REF name="Tail">fVMkenF/p0SxeuSlVaKybQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>
