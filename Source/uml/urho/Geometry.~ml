@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="idecTQ8qmEKK95BYJJEpeQAA">
+<XPD:ATTR name="Title" type="string">Geometry</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="yQAyCKicSkaXnnPiy5qwHgAA">
+<XPD:ATTR name="Name" type="string">Geometry</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Geometry</XPD:ATTR>
+<XPD:REF name="Namespace">idecTQ8qmEKK95BYJJEpeQAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="hD3DquO1KE2iiKu3BSF3kgAA">
+<XPD:ATTR name="Name" type="string">Geometry</XPD:ATTR>
+<XPD:REF name="DiagramOwner">yQAyCKicSkaXnnPiy5qwHgAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="HYJGh0eCH02TAuHo6jyGCAAA">
+<XPD:REF name="Diagram">hD3DquO1KE2iiKu3BSF3kgAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">11</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="avIU43XoekqUeVb3ATTDVwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1824</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">268</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">404</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">533</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///几何数据
+class LYCORE_API Geometry 
+{
+public:
+    Geometry(Context* context);
+    virtual ~Geometry();
+        ///设置顶点缓冲区数量
+    bool setNumVertexBuffers(unsigned num);
+        ///设置顶点缓冲区
+    bool setVertexBuffer(unsigned index, VertexBuffer* buffer);
+        ///设置索引缓冲区
+    void setIndexBuffer(IndexBuffer* buffer);
+
+        ///绘制
+    void draw(Graphics* graphics);
+
+        ///获取原始数据
+    void getRawData(const unsigned char*&amp; vertexData, unsigned&amp; vertexSize, 
+    const unsigned char*&amp; indexData, unsigned&amp; indexSize, const 
+
+private:
+    Vector&lt;SharedPtr&lt;VertexBuffer&gt; &gt; mVertexBuffers;
+    SharedPtr&lt;IndexBuffer&gt; mIndexBuffer;
+    PrimitiveType mPrimitiveType;
+    unsigned mIndexStart;
+    unsigned mIndexCount;
+    unsigned mVertexStart;
+    unsigned mVertexCount;
+    float mLodDistance;
+    PODVector&lt;VertexElement&gt; mRawElements;
+    SharedArrayPtr&lt;unsigned char&gt; mRawVertexData;
+    SharedArrayPtr&lt;unsigned char&gt; mRawIndexData;
+    unsigned mRawVertexSize;
+    unsigned mRawIndexSize;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="RlQVg/P85k2/l2lZIl/56AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">760</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">80</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">345</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">203</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///GPU相关对象的基类
+class LYCORE_API GPUObject
+{
+public:
+    void* getGPUObject() const { return mObject.mPtr; }
+    unsigned getGPUObjectName() const { return mObject.mName; }
+
+protected:
+    WeakPtr&lt;Graphics&gt; mGraphics;
+    GPUObjectHandle mObject;
+    bool mDataLost;
+    bool mDataPending;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLNoteView" guid="BrR2e5A2ek6AKp7zfUt/jQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">696</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">336</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">473</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">398</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///顶点缓冲区
+class LYCORE_API VertexBuffer : public Object, public GPUObject,
+{
+public:
+    ///社会资数据
+    bool setData(const void* data);
+    ///设置数据范围
+    bool setDataRange(const void* data, unsigned start, unsigned count, bool discard = false);
+    ///锁定缓冲区
+    void* lock(unsigned start, unsigned count, bool discard = false);
+    void unlock();
+private:
+    SharedArrayPtr&lt;unsigned char&gt; mShadowData;
+    unsigned mVertexCount;
+    unsigned mVertexSize;
+    PODVector&lt;VertexElement&gt; mElements;
+    unsigned long long mElementHash;
+    unsigned mElementMask;
+    LockState mLockState;
+    unsigned mLockStart;
+    unsigned mLockCount;
+    void* mLockScratchData;
+    bool mDynamic;
+    bool mShadowed;
+    bool mDiscardLock;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLNoteLinkView" guid="NoGvYDrKrk+3gW2hXA1bEAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">932,336;932,282</XPD:ATTR>
+<XPD:REF name="Head">RlQVg/P85k2/l2lZIl/56AAA</XPD:REF>
+<XPD:REF name="Tail">BrR2e5A2ek6AKp7zfUt/jQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLNoteView" guid="D2jR3sqIREWg37uFIsXIPQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1296</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">220</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">410</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool VertexBuffer::create()
+{
+    if (mGraphics)
+    {
+        if (!mObject.mName)
+            C_CHECK_GL_ERROR(glGenBuffers(1, &amp;mObject.mName));
+
+        mGraphics-&gt;setVBO(mObject.mName);
+        glBufferData(GL_ARRAY_BUFFER, mVertexCount * mVertexSize, 
+                                    0, mDynamic ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW);
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="9obSFzKXY0Cbv9Dmx4sRhAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1300</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">452</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">390</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool VertexBuffer::setData(const void* data)
+{
+    if (mShadowData &amp;&amp; data != mShadowData.get())
+        memcpy(mShadowData.get(), data, mVertexCount * mVertexSize);
+
+    if (mObject.mName)
+    {
+        mGraphics-&gt;setVBO(mObject.mName);
+        glBufferData(GL_ARRAY_BUFFER, mVertexCount * mVertexSize, 
+                        data, mDynamic ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW);
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteView" guid="vW1iqSI+e0CVDQHm+3GBpQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1288</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">664</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">420</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">308</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void* VertexBuffer::lock(unsigned start, unsigned count, bool discard)
+{
+    mLockStart = start;
+    mLockCount = count;
+    mDiscardLock = discard;
+
+    if (mShadowData)
+    {
+        mLockState = LOCK_SHADOW;
+        return mShadowData.get() + start * mVertexSize;
+    }
+    else if (mGraphics)
+    {
+        mLockState = LOCK_SCRATCH;
+        mLockScratchData = mGraphics-&gt;reserveScratchBuffer(count * mVertexSize);
+        return mLockScratchData;
+    }
+    else
+        return 0;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteLinkView" guid="7jKbwzz9/Eeu4CTHJSay/wAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1296,392;1168,442</XPD:ATTR>
+<XPD:REF name="Head">BrR2e5A2ek6AKp7zfUt/jQAA</XPD:REF>
+<XPD:REF name="Tail">D2jR3sqIREWg37uFIsXIPQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="AAjBZCzUCEi9megEr0RxawAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1300,541;1168,538</XPD:ATTR>
+<XPD:REF name="Head">BrR2e5A2ek6AKp7zfUt/jQAA</XPD:REF>
+<XPD:REF name="Tail">9obSFzKXY0Cbv9Dmx4sRhAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLNoteLinkView" guid="0ju36GxmUEyng1yLwGveaQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1288,712;1168,652</XPD:ATTR>
+<XPD:REF name="Head">BrR2e5A2ek6AKp7zfUt/jQAA</XPD:REF>
+<XPD:REF name="Tail">vW1iqSI+e0CVDQHm+3GBpQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLNoteView" guid="e4bwH+mnSkaU4ehFOVNH1gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1292</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1028</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">409</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">293</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void VertexBuffer::unlock()
+{
+    switch (mLockState)
+    {
+    case LOCK_SHADOW:
+        setDataRange(mShadowData.get() + mLockStart * mVertexSize, 
+                                                             mLockStart, mLockCount, mDiscardLock);
+        mLockState = LOCK_NONE;
+        break;
+
+    case LOCK_SCRATCH:
+        setDataRange(mLockScratchData, mLockStart, mLockCount, mDiscardLock);
+        if (mGraphics)
+            mGraphics-&gt;freeScratchBuffer(mLockScratchData);
+        mLockScratchData = 0;
+        mLockState = LOCK_NONE;
+        break;
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>
