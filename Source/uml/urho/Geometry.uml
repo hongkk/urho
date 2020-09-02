@@ -20,12 +20,12 @@
 <XPD:REF name="DiagramOwner">yQAyCKicSkaXnnPiy5qwHgAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="HYJGh0eCH02TAuHo6jyGCAAA">
 <XPD:REF name="Diagram">hD3DquO1KE2iiKu3BSF3kgAA</XPD:REF>
-<XPD:ATTR name="#OwnedViews" type="integer">15</XPD:ATTR>
+<XPD:ATTR name="#OwnedViews" type="integer">29</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="avIU43XoekqUeVb3ATTDVwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2120</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">736</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2116</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1420</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">404</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">533</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">///几何数据
@@ -68,8 +68,8 @@ private:
 <XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="RlQVg/P85k2/l2lZIl/56AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1236</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">548</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1252</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">500</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">345</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">203</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">///GPU相关对象的基类
@@ -90,20 +90,19 @@ protected:
 <XPD:OBJ name="OwnedViews[2]" type="UMLNoteView" guid="BrR2e5A2ek6AKp7zfUt/jQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1172</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">804</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1188</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">800</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">473</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">398</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">383</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">///顶点缓冲区
-class LYCORE_API VertexBuffer : public Object, public GPUObject,
+class LYCORE_API VertexBuffer : public Object, public GPUObject
 {
 public:
-    ///社会资数据
-    bool setData(const void* data);
     ///设置数据范围
     bool setDataRange(const void* data, unsigned start, unsigned count, bool discard = false);
-    ///锁定缓冲区
+    ///将数据拷贝到内存缓冲区
     void* lock(unsigned start, unsigned count, bool discard = false);
+    ///将数据从内存拷贝到显存
     void unlock();
 private:
     SharedArrayPtr&lt;unsigned char&gt; mShadowData;
@@ -125,15 +124,15 @@ private:
 <XPD:OBJ name="OwnedViews[3]" type="UMLNoteLinkView" guid="NoGvYDrKrk+3gW2hXA1bEAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1408,804;1408,750</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1424,800;1424,702</XPD:ATTR>
 <XPD:REF name="Head">RlQVg/P85k2/l2lZIl/56AAA</XPD:REF>
 <XPD:REF name="Tail">BrR2e5A2ek6AKp7zfUt/jQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[4]" type="UMLNoteView" guid="D2jR3sqIREWg37uFIsXIPQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">380</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">124</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">524</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">256</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">410</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool VertexBuffer::create()
@@ -150,32 +149,11 @@ private:
 }
 </XPD:ATTR>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="9obSFzKXY0Cbv9Dmx4sRhAAA">
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="vW1iqSI+e0CVDQHm+3GBpQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">336</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">364</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">390</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">bool VertexBuffer::setData(const void* data)
-{
-    if (mShadowData &amp;&amp; data != mShadowData.get())
-        memcpy(mShadowData.get(), data, mVertexCount * mVertexSize);
-
-    if (mObject.mName)
-    {
-        mGraphics-&gt;setVBO(mObject.mName);
-        glBufferData(GL_ARRAY_BUFFER, mVertexCount * mVertexSize, 
-                        data, mDynamic ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW);
-    }
-}
-</XPD:ATTR>
-</XPD:OBJ>
-<XPD:OBJ name="OwnedViews[6]" type="UMLNoteView" guid="vW1iqSI+e0CVDQHm+3GBpQAA">
-<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">248</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">824</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">272</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">772</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">500</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">338</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void* VertexBuffer::lock(unsigned start, unsigned count, bool discard)
@@ -202,32 +180,25 @@ private:
 // lock的时候不是直接返回显卡内存的指针，而是返回指向一般内存的mLockScratchData 指针
 </XPD:ATTR>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[7]" type="UMLNoteLinkView" guid="7jKbwzz9/Eeu4CTHJSay/wAA">
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteLinkView" guid="7jKbwzz9/Eeu4CTHJSay/wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">683,311;1200,804</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">830,443;1217,800</XPD:ATTR>
 <XPD:REF name="Head">BrR2e5A2ek6AKp7zfUt/jQAA</XPD:REF>
 <XPD:REF name="Tail">D2jR3sqIREWg37uFIsXIPQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="AAjBZCzUCEi9megEr0RxawAA">
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteLinkView" guid="0ju36GxmUEyng1yLwGveaQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">681,551;1172,856</XPD:ATTR>
-<XPD:REF name="Head">BrR2e5A2ek6AKp7zfUt/jQAA</XPD:REF>
-<XPD:REF name="Tail">9obSFzKXY0Cbv9Dmx4sRhAAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="OwnedViews[9]" type="UMLNoteLinkView" guid="0ju36GxmUEyng1yLwGveaQAA">
-<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">747,995;1172,1000</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">771,954;1188,978</XPD:ATTR>
 <XPD:REF name="Head">BrR2e5A2ek6AKp7zfUt/jQAA</XPD:REF>
 <XPD:REF name="Tail">vW1iqSI+e0CVDQHm+3GBpQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[10]" type="UMLNoteView" guid="e4bwH+mnSkaU4ehFOVNH1gAA">
+<XPD:OBJ name="OwnedViews[8]" type="UMLNoteView" guid="e4bwH+mnSkaU4ehFOVNH1gAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">332</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1192</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">356</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1144</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">409</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">323</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void VertexBuffer::unlock()
@@ -253,20 +224,20 @@ private:
 // unlock的时候把mLockScratchData 指针指向的内存数据再拷贝到 显示中
 </XPD:ATTR>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[11]" type="UMLNoteLinkView" guid="ZqfcoHnc5U6DEJh5D33SkAAA">
+<XPD:OBJ name="OwnedViews[9]" type="UMLNoteLinkView" guid="ZqfcoHnc5U6DEJh5D33SkAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">740,1271;1172,1097</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">764,1231;1188,1077</XPD:ATTR>
 <XPD:REF name="Head">BrR2e5A2ek6AKp7zfUt/jQAA</XPD:REF>
 <XPD:REF name="Tail">e4bwH+mnSkaU4ehFOVNH1gAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[12]" type="UMLNoteView" guid="tJ21uEQjy0WvLtbNOyVm3QAA">
+<XPD:OBJ name="OwnedViews[10]" type="UMLNoteView" guid="tJ21uEQjy0WvLtbNOyVm3QAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">256</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">592</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">490</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">203</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">212</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">476</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">627</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">263</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">bool VertexBuffer::setDataRange(const void* data, unsigned start, unsigned count, bool discard)
 {
     if (start == 0 &amp;&amp; count == mVertexCount)
@@ -277,24 +248,276 @@ private:
 
     if (mObject.mName)
     {
-                glBufferSubData(GL_ARRAY_BUFFER, start * mVertexSize, count * mVertexSize, data)
+        mGraphics-&gt;setVBO(mObject.mName);
+        if (!discard || start != 0)
+            glBufferSubData(GL_ARRAY_BUFFER, start * mVertexSize, count * mVertexSize, data))
+        else
+            glBufferData(GL_ARRAY_BUFFER, count * mVertexSize, data, mDynamic ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW);
     }
 }
 </XPD:ATTR>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[13]" type="UMLNoteLinkView" guid="aQL15NukAESCLWZmdY+ZLQAA">
+<XPD:OBJ name="OwnedViews[11]" type="UMLNoteLinkView" guid="aQL15NukAESCLWZmdY+ZLQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">745,776;1172,922</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">832,738;1188,890</XPD:ATTR>
 <XPD:REF name="Head">BrR2e5A2ek6AKp7zfUt/jQAA</XPD:REF>
 <XPD:REF name="Tail">tJ21uEQjy0WvLtbNOyVm3QAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[14]" type="UMLNoteLinkView" guid="TFs5OewfckmH38gxqERHhgAA">
+<XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="TFs5OewfckmH38gxqERHhgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1644,1002;2120,1002</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1660,1175;2116,1530</XPD:ATTR>
 <XPD:REF name="Head">avIU43XoekqUeVb3ATTDVwAA</XPD:REF>
 <XPD:REF name="Tail">BrR2e5A2ek6AKp7zfUt/jQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[13]" type="UMLNoteView" guid="TJ2FrS10sUOG6GkbOrrgewAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">560</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1500</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">203</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///顶点元素
+struct LYCORE_API VertexElement
+{
+    ///元素类型
+    VertexElementType mType;
+    ///元素定义
+    VertexElementSemantic mSemantic;
+    ///索引
+    unsigned char mIndex;
+    ///是否预先实例化
+    bool mPerInstance;
+    ///偏移量
+    unsigned mOffset;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[14]" type="UMLNoteView" guid="IM8kVuNJZk+q+LbbHPZrDwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">300</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1500</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">209</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///顶点元素定义
+enum VertexElementSemantic
+{
+    SEM_POSITION = 0,
+    SEM_NORMAL,
+    SEM_BINORMAL,
+    SEM_TANGENT,
+    SEM_TEXCOORD,
+    SEM_COLOR,
+    SEM_BLENDWEIGHTS,
+    SEM_BLENDINDICES,
+    SEM_OBJECTINDEX,
+    MAX_VERTEX_ELEMENT_SEMANTICS
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[15]" type="UMLNoteLinkView" guid="9qX8baYZ9EGpCeEejFxSVQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">560,1608;508,1608</XPD:ATTR>
+<XPD:REF name="Head">IM8kVuNJZk+q+LbbHPZrDwAA</XPD:REF>
+<XPD:REF name="Tail">TJ2FrS10sUOG6GkbOrrgewAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[16]" type="UMLNoteLinkView" guid="VokQtbAZS02AWzWVxUXR/QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1188,1182;762,1526</XPD:ATTR>
+<XPD:REF name="Head">TJ2FrS10sUOG6GkbOrrgewAA</XPD:REF>
+<XPD:REF name="Tail">BrR2e5A2ek6AKp7zfUt/jQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[17]" type="UMLNoteView" guid="XFfcSwtO2UGJ0tAeJ5y/lgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1188</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2256</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">473</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">308</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///索引缓冲区
+class LYCORE_API IndexBuffer :  public Object, public GPUObject
+{
+    bool setData(const void* data);
+    bool setDataRange(const void* data, unsigned start, unsigned count, bool discard = false);
+    void* lock(unsigned start, unsigned count, bool discard = false);
+    void unlock();
+    bool create();
+
+    SharedArrayPtr&lt;unsigned char&gt; mShadowData;
+    unsigned mIndexCount;
+    unsigned mIndexSize;
+    LockState mLockState;
+    unsigned mLockStart;
+    unsigned mLockCount;
+    void* mLockScratchData;
+    bool mDynamic;
+    bool mShadowed;
+    bool mDiscardLock;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[18]" type="UMLNoteView" guid="kZuIIKXLi0WaJGRHvDiUtwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1260</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1988</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">345</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">203</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///GPU相关对象的基类
+class LYCORE_API GPUObject
+{
+public:
+    void* getGPUObject() const { return mObject.mPtr; }
+    unsigned getGPUObjectName() const { return mObject.mName; }
+
+protected:
+    WeakPtr&lt;Graphics&gt; mGraphics;
+    GPUObjectHandle mObject;
+    bool mDataLost;
+    bool mDataPending;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[19]" type="UMLNoteLinkView" guid="U/Hzc2yoIUmKRKT/OOdtngAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1428,2256;1430,2190</XPD:ATTR>
+<XPD:REF name="Head">kZuIIKXLi0WaJGRHvDiUtwAA</XPD:REF>
+<XPD:REF name="Tail">XFfcSwtO2UGJ0tAeJ5y/lgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[20]" type="UMLNoteView" guid="XPRnwAJX+E+FenVlBTAxdwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">528</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1872</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">389</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool IndexBuffer::create()
+{
+    if (!mObject.mName)
+       glGenBuffers(1, &amp;mObject.mName)
+
+    mGraphics-&gt;setIndexBuffer(this);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, mIndexCount * mIndexSize, 
+                      0, mDynamic ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[21]" type="UMLNoteView" guid="8srFHvQFTkqf+ECuuSywoAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">164</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2048</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">681</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">bool IndexBuffer::setDataRange(const void* data, unsigned start, unsigned count, bool discard)
+{
+    if (mShadowData &amp;&amp; mShadowData.get() + start * mIndexSize != data)
+        memcpy(mShadowData.get() + start * mIndexSize, data, count * mIndexSize);
+
+    if (mObject.mName)
+    {
+            mGraphics-&gt;setIndexBuffer(this);
+            if (!discard || start != 0)
+                glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, start * mIndexSize, count * mIndexSize, data)
+            else
+                glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * mIndexSize, data, mDynamic ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW)
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[22]" type="UMLNoteView" guid="TuFAm2ix50iCSvTgqJ3B4gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">428</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2296</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">416</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">278</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void* IndexBuffer::lock(unsigned start, unsigned count, bool discard)
+{
+    mLockStart = start;
+    mLockCount = count;
+    mDiscardLock = discard;
+
+    if (mShadowData)
+    {
+        mLockState = LOCK_SHADOW;
+        return mShadowData.get() + start * mIndexSize;
+    }
+    else if (mGraphics)
+    {
+        mLockState = LOCK_SCRATCH;
+        mLockScratchData = mGraphics-&gt;reserveScratchBuffer(count * mIndexSize);
+        return mLockScratchData;
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[23]" type="UMLNoteView" guid="1bBF4C5GxU2jRXVhmdU91QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">292</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2608</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">552</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">323</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void IndexBuffer::unlock()
+{
+    switch (mLockState)
+    {
+    case LOCK_SHADOW:
+        setDataRange(mShadowData.get() + mLockStart * mIndexSize, mLockStart, mLockCount, mDiscardLock);
+        mLockState = LOCK_NONE;
+        break;
+
+    case LOCK_SCRATCH:
+        setDataRange(mLockScratchData, mLockStart, mLockCount, mDiscardLock);
+        if (mGraphics)
+            mGraphics-&gt;freeScratchBuffer(mLockScratchData);
+        mLockScratchData = 0;
+        mLockState = LOCK_NONE;
+        break;
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[24]" type="UMLNoteLinkView" guid="qgY+ZtxGUE+2WFQayfBJfQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1194,2256;829,2014</XPD:ATTR>
+<XPD:REF name="Head">XPRnwAJX+E+FenVlBTAxdwAA</XPD:REF>
+<XPD:REF name="Tail">XFfcSwtO2UGJ0tAeJ5y/lgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[25]" type="UMLNoteLinkView" guid="8g4LLGYUuEO8IKRASLUcfAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1188,2344;844,2249</XPD:ATTR>
+<XPD:REF name="Head">8srFHvQFTkqf+ECuuSywoAAA</XPD:REF>
+<XPD:REF name="Tail">XFfcSwtO2UGJ0tAeJ5y/lgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[26]" type="UMLNoteLinkView" guid="Vh3zDl+AOUCxVMm9vE3B/AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1188,2416;843,2427</XPD:ATTR>
+<XPD:REF name="Head">TuFAm2ix50iCSvTgqJ3B4gAA</XPD:REF>
+<XPD:REF name="Tail">XFfcSwtO2UGJ0tAeJ5y/lgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[27]" type="UMLNoteLinkView" guid="mhtDf0ymF02NUwogYQzbOgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1188,2508;843,2653</XPD:ATTR>
+<XPD:REF name="Head">1bBF4C5GxU2jRXVhmdU91QAA</XPD:REF>
+<XPD:REF name="Tail">XFfcSwtO2UGJ0tAeJ5y/lgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[28]" type="UMLNoteLinkView" guid="TIRdeBV140O6HfwmxD3WBQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2116,1849;1613,2256</XPD:ATTR>
+<XPD:REF name="Head">XFfcSwtO2UGJ0tAeJ5y/lgAA</XPD:REF>
+<XPD:REF name="Tail">avIU43XoekqUeVb3ATTDVwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
