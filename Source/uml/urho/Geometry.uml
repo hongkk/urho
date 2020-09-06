@@ -20,7 +20,7 @@
 <XPD:REF name="DiagramOwner">yQAyCKicSkaXnnPiy5qwHgAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="HYJGh0eCH02TAuHo6jyGCAAA">
 <XPD:REF name="Diagram">hD3DquO1KE2iiKu3BSF3kgAA</XPD:REF>
-<XPD:ATTR name="#OwnedViews" type="integer">29</XPD:ATTR>
+<XPD:ATTR name="#OwnedViews" type="integer">41</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="avIU43XoekqUeVb3ATTDVwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
@@ -518,6 +518,182 @@ protected:
 <XPD:ATTR name="Points" type="Points">2116,1849;1613,2256</XPD:ATTR>
 <XPD:REF name="Head">XFfcSwtO2UGJ0tAeJ5y/lgAA</XPD:REF>
 <XPD:REF name="Tail">avIU43XoekqUeVb3ATTDVwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[29]" type="UMLNoteView" guid="HfMPYwg/lUm58S6cUbSBVQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2684</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1508</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">506</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">353</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">struct Batch
+{
+    void prepare(View* view, Camera* camera, bool setModelTransform, bool allowDepthWrite) const;
+    void draw(View* view, Camera* camera, bool allowDepthWrite) const;
+
+    unsigned long long mSortKey;
+    float mDistance;
+    unsigned char mRenderOrder;
+    unsigned char mLightMask;
+    bool mIsBase;
+    Drawable* mDrawable;
+    Geometry* mGeometry;
+    Material* mMaterial;
+    const Matrix3x4* mWorldTransform;
+    unsigned mNumWorldTransforms;
+    void* mInstancingData;
+    Zone* mZone;
+    LightBatchQueue* mLightQueue;
+    Pass* mPass;
+    ShaderVariation* mVertexShader;
+    ShaderVariation* mPixelShader;
+    GeometryType mGeometryType;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[30]" type="UMLNoteLinkView" guid="Lz99NNbUBUKgi3XF+nvkEQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2684,1685;2519,1685</XPD:ATTR>
+<XPD:REF name="Head">avIU43XoekqUeVb3ATTDVwAA</XPD:REF>
+<XPD:REF name="Tail">HfMPYwg/lUm58S6cUbSBVQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[31]" type="UMLNoteView" guid="NIjznFFxwU6QWvf+zrGVdgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2680</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2016</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">515</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">338</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void StaticModel::setModel(Model* model, bool loadMaterialFromMate)
+{
+    mModel = model;
+
+    setNumGeometries(model-&gt;getNumGeometries());
+    const Vector&lt;Vector&lt;SharedPtr&lt;Geometry&gt; &gt; &gt;&amp; geometries = model-&gt;getGeometries();
+    const PODVector3Vector&amp; geometryCenters = model-&gt;getGeometryCenters();
+    const Matrix3x4* worldTransform = mNode ? &amp;mNode-&gt;getWorldTransform() : (const Matrix3x4*)0;
+    for (unsigned i = 0; i &lt; geometries.size(); ++i)
+    {
+        mBatches[i].mWorldTransform = worldTransform;
+        mGeometries[i] = geometries[i];
+        mGeometryData[i].mCenter = geometryCenters[i];
+    }
+
+    setBoundingbox(model-&gt;getBoundingbox());
+    resetLodLevels();
+    if (loadMaterialFromMate)
+    {
+        loadMaterials(model);
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[32]" type="UMLNoteLinkView" guid="v2cNB0h7K0+5ZmGy5R1YcwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2937,2016;2937,1860</XPD:ATTR>
+<XPD:REF name="Head">HfMPYwg/lUm58S6cUbSBVQAA</XPD:REF>
+<XPD:REF name="Tail">NIjznFFxwU6QWvf+zrGVdgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[33]" type="UMLNoteView" guid="xtaqpO3dokC2hzPT2yqa6AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3368</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1456</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">279</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Batch::prepare() const
+{
+    //准备渲染 主要是填充shader参数
+    //包括以下内容：
+    //设置vs ps脚本
+    //设置混合模式 和 剔除模式
+    //设置填充模式 
+    //设置全局shader参数  &quot;DeltaTime&quot;  &quot;ElapsedTime&quot;
+    //设置摄像机和视口的shader参数
+    //设置模型矩阵
+    //设置zone相关的shader参数
+    //设置光相关的shader参数
+    //设置阴影图shader参数
+    //设置材质相关shader参数和纹理
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[34]" type="UMLNoteLinkView" guid="qG5YmYunlkS3csmeK/BtrQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3368,1599;3189,1634</XPD:ATTR>
+<XPD:REF name="Head">HfMPYwg/lUm58S6cUbSBVQAA</XPD:REF>
+<XPD:REF name="Tail">xtaqpO3dokC2hzPT2yqa6AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[35]" type="UMLNoteView" guid="ENAPJqhXEUO8175dOWkJQQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3368</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1752</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">390</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Batch::Draw(View* view, Camera* camera, bool allowDepthWrite) const
+{
+    if (!geometry_-&gt;IsEmpty())
+    {
+        Prepare(view, camera, true, allowDepthWrite);
+        geometry_-&gt;Draw(view-&gt;GetGraphics());
+    }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[36]" type="UMLNoteLinkView" guid="jCqnChagIUmgFq61lTu8OQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3368,1774;3189,1737</XPD:ATTR>
+<XPD:REF name="Head">HfMPYwg/lUm58S6cUbSBVQAA</XPD:REF>
+<XPD:REF name="Tail">ENAPJqhXEUO8175dOWkJQQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[37]" type="UMLNoteView" guid="ugyDgdPSk0+oMa+AxZeR7AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3816</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1768</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">478</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Geometry::draw(Graphics* graphics)
+{
+    graphics-&gt;setIndexBuffer(mIndexBuffer);
+    graphics-&gt;setVertexBuffers(mVertexBuffers);
+    graphics-&gt;draw(mPrimitiveType, mIndexStart, mIndexCount, mVertexStart, mVertexCount);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[38]" type="UMLNoteLinkView" guid="3VKddUFMv0SNJAKeyd3j6gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3816,1816;3757,1816</XPD:ATTR>
+<XPD:REF name="Head">ENAPJqhXEUO8175dOWkJQQAA</XPD:REF>
+<XPD:REF name="Tail">ugyDgdPSk0+oMa+AxZeR7AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[39]" type="UMLNoteView" guid="7d/ra7WqtEiiHl+5vz/3JwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4356</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1768</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">639</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">98</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void Graphics::draw(PrimitiveType type, unsigned indexStart, unsigned indexCount, unsigned minVertex, unsigned vertexCount)
+{
+    prepareDraw();
+    glDrawElements(glPrimitiveType, indexCount, indexType, reinterpret_cast&lt;const GLvoid*&gt;(indexStart * indexSize)));
+    onAfterDraw();
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[40]" type="UMLNoteLinkView" guid="v6CNsG8xkk2qDCt/MhQDAQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4356,1816;4293,1816</XPD:ATTR>
+<XPD:REF name="Head">ugyDgdPSk0+oMa+AxZeR7AAA</XPD:REF>
+<XPD:REF name="Tail">7d/ra7WqtEiiHl+5vz/3JwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
