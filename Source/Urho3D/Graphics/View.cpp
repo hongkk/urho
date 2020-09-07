@@ -1598,7 +1598,12 @@ void View::ExecuteRenderPathCommands()
         currentRenderTarget_ = substituteRenderTarget_ ? substituteRenderTarget_ : renderTarget_;
         currentViewportTexture_ = 0;
         passCommand_ = 0;
+		
+		// 注意：viewportRead 一定要在 viewportModified = true之后才会起作用，而 viewportModified 只有在 viewportwrite 被设为true之后才会改变
+		// 所以 viewportRead 一定是在viewportwrite之后才能起作用。
 
+		// 注意：isPingponging 是在commands_ 循环之外，所以只要 isPingponging 某一次被赋值为ture之后就一直保持为true了
+		// 如此一来，之后都每次 viewportread 都会改变 viewportTextures_ ，每次 viewportwrite 都会改变 currentRenderTarget_
         bool viewportModified = false;
         bool isPingponging = false;
         usedResolve_ = false;
@@ -1616,7 +1621,7 @@ void View::ExecuteRenderPathCommands()
             RenderPathCommand& command = renderPath_->commands_[i];
             if (!actualView->IsNecessary(command))
                 continue;
-
+			
             bool viewportRead = actualView->CheckViewportRead(command);
             bool viewportWrite = actualView->CheckViewportWrite(command);
             bool beginPingpong = actualView->CheckPingpong(i);
@@ -1902,6 +1907,7 @@ void View::SetRenderTargets(RenderPathCommand& command)
                 useCustomDepth = true;
 #if !defined(URHO3D_OPENGL) && !defined(URHO3D_D3D11)
 				// 在 D3D9 上，不能只有渲染深度（即只绑定了fbo的深度附加点，而没有任何颜色附加点），所以这里需要申请一张临时的纹理来绑定到颜色附加点
+				// 在 dx11和opengl上，没有这个问题，一个fbo可以没有任何镜像绑定到颜色附加点，只有深度附加点有绑定
                 // On D3D9 actual depth-only rendering is illegal, we need a color rendertarget
                 if (!depthOnlyDummyTexture_)
                 {
@@ -2087,8 +2093,8 @@ bool View::CheckViewportWrite(const RenderPathCommand& command)
 //index对应的command,如果类型不为CMD_QUAD 或 没有"texture"标签的"name"为"viewport" 或 "output"值不为 "viewport" 返回false
 //否则，检查接下去的command,如果 类型不为 CMD_QUAD 且 "output"值不为 "viewport"返回false
 //Ping pong is a technique to alternately use the output of a given rendering pass as input in the next one
-//ping pong是指一种（交替地将指定渲染pass的输出作为下一个渲染pas的输入）的技术。听起来有点像ogre的Compositor
-// 检查index对应的command,如果类型不为CMD_QUAD 或 对应的 
+//ping pong是指一种（交替地将指定渲染pass的输出作为下一个渲染pas的输入）的技术。
+// 使用pingpong技术可以在用到屏幕作为输入和输出的情况下不需要进行屏幕像素的整体拷贝
 bool View::CheckPingpong(unsigned index)
 {
     // Current command must be a viewport-reading & writing quad to begin the pingpong chain
@@ -2098,8 +2104,8 @@ bool View::CheckPingpong(unsigned index)
     if (current.type_ != CMD_QUAD || !CheckViewportRead(current) || !CheckViewportWrite(current))
         return false;
 	// 如果renderpath中某些非"quad"的command，其rendertarget也是视口时
-	// 我们必须保持渲染到最终目标并且在必要时解析为视口纹理而不是直接传递纹理
-	// 因为场景传递不能保证填充整个视口
+	// 我们必须保持渲染到最终目标并且在必要时解析为视口纹理而不是直接使用pingpong
+	// 因为scene pass不能保证填充整个视口  ===============================================================>>>>>>>>>>>>>>这里怎么理解呢？
     // If there are commands other than quads that target the viewport, we must keep rendering to the final target and resolving
     // to a viewport texture when necessary instead of pingponging, as a scene pass is not guaranteed to fill the entire viewport
     for (unsigned i = index + 1; i < renderPath_->commands_.Size(); ++i)
