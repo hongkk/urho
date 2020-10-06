@@ -541,7 +541,7 @@ struct LYEFFECT_API TextureAnimation
         }
 }
 
-// 根据type类型和已有的TextureAnimation属性，计算ParticleVisual 的 textureCoordsCurrent
+// 根据type类型，计算textureCoordsCurrent
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="fit1z6OwgEaqZw4BebJRhAAA">
@@ -589,7 +589,7 @@ void ParticleRenderer::updateTextureAnimation(Particle* particle)
                 }
         }
 }
-// 如果 mTextureAnimation.nextIndex 为 true 。计算 ParticleVisual.textureCoordsCurrent
+// 如果 mTextureAnimation.nextIndex 为 true 。计算 mTextureAnimation.textureCoordsCurrent
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 //准备处理粒子
@@ -636,7 +636,7 @@ void ParticleRenderer::_initParticleForEmission(Particle* particle)
                 }
         }
 }
-//  初始化   visualParticle-&gt;textureCoordsCurrent 注意，是 ParticleVisual的 textureCoordsCurrent
+//  初始化   visualParticle-&gt;textureCoordsCurrent
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[14]" type="UMLNoteLinkView" guid="F9BEo7Qvj0CW51MDT1SU2wAA">
