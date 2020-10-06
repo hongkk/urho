@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="pPjpAS5Gy0GFkchglsAA6wAA">
+<XPD:ATTR name="Title" type="string">ParticleRenderer</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="fz9G1JBPSUSkW7llxgnQRQAA">
+<XPD:ATTR name="Name" type="string">ParticleRenderer</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">ParticleRenderer</XPD:ATTR>
+<XPD:REF name="Namespace">pPjpAS5Gy0GFkchglsAA6wAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="Q+AhfzwKP0KuhUYatGRclgAA">
+<XPD:ATTR name="Name" type="string">ParticleRenderer</XPD:ATTR>
+<XPD:REF name="DiagramOwner">fz9G1JBPSUSkW7llxgnQRQAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="0+9K+aLOskqI42ILpjooAgAA">
+<XPD:REF name="Diagram">Q+AhfzwKP0KuhUYatGRclgAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="fb4HPs+raESsESyvSE2PPQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">224</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">84</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">487</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">758</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">class LYEFFECT_API ParticleTechnique :public Particle
+{
+        ///更新
+        virtual void        update(float timeElapsed);
+
+        void _notifyParticleResized(void);
+        void _notifyStart (void);
+        void _notifyStop (void);
+        void _notifyPause (void);
+        void _notifyResume (void);
+        void _notifyRescaled(const Vector3&amp; scale);
+        void _notifyVelocityRescaled(const float&amp; scaleVelocity);
+        void _notifyScaleTimeChanged(float scale);
+        void _prepare(void);
+        void _prepareSystem(void);
+        void _unprepareSystem(void);
+        void _prepareTechnique(void);
+        void _unprepareTechnique(void);
+        void _prepareParticleVisuals(void);
+        void _unprepareParticleVisuals(void);
+        void _prepareRenderer(void);
+        void _unprepareRenderer(void);
+        void _prepareEmitters(void);
+        void _unprepareEmitters(void);
+        void _prepareAffectors(void);
+        void _unprepareAffectors(void);
+
+        ///发射时初始化粒子
+        void _initParticleForEmission(Particle* particle);
+        ///粒子过期处理
+        void _initParticleForExpiration(Particle* particle, float timeElapsed);
+        ///发射时初始化
+        virtual void _initForEmission(void);
+
+        ///强行发射
+        void forceEmission(ParticleEmitter* emitter, unsigned requested);
+        void forceEmission(const Particle::ParticleType particleType, unsigned requested);
+protected:
+        void _emitParticles(float timeElapsed);
+        void _processParticleSelf(Particle* particle, float timeElapsed, bool firstParticle);
+        void _preProcessParticles(float timeElapsed);
+        void _processParticles(float timeElapsed);
+        void _postProcessParticles(float timeElapsed);
+        void _processAffectors(Particle* particle, float timeElapsed, bool firstParticle);
+        void _processRenderer(Particle* particle, float timeElapsed, bool firstParticle);
+        void _processObservers(Particle* particle, float timeElapsed, bool firstParticle);
+        inline void _processMotion(Particle* particle, float timeElapsed, bool firstParticle);
+        void _executeEmitParticles(ParticleEmitter* emitter, unsigned requested, float timeElapsed);
+        void _sortParticleVisuals(Camera* camera);
+};
+</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>
