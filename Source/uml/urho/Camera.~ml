@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="ajsmRVIpxE2XGv60qyN9BwAA">
+<XPD:ATTR name="Title" type="string">Camera</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="6plNMCsAXkmh6xk5RfPEPQAA">
+<XPD:ATTR name="Name" type="string">Camera</XPD:ATTR>
+<XPD:ATTR name="InnerName" type="string">Camera</XPD:ATTR>
+<XPD:REF name="Namespace">ajsmRVIpxE2XGv60qyN9BwAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="lrzXr0IE10OVJjGlCFkiKgAA">
+<XPD:ATTR name="Name" type="string">Camera</XPD:ATTR>
+<XPD:REF name="DiagramOwner">6plNMCsAXkmh6xk5RfPEPQAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="WoATQmiK90yW1ktBv8tE/AAA">
+<XPD:REF name="Diagram">lrzXr0IE10OVJjGlCFkiKgAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="XTRAhqwZ6UGu4Rq3XSBitAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">392</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">64</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">700</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">893</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///摄像机组件
+class LYCORE_API Camera : 
+        public Component
+{
+    Matrix4 getProjection() const;
+    Matrix4 getGPUProjection() const;
+    const Matrix3x4&amp; getView() const;
+
+    Ray getScreenRay(float x, float y) const;
+        Frustum getScreenFrustum(float xMin, float yMin,float xMax,float yMax) const;
+        ///世界坐标到屏幕坐标
+    Vector2 worldToScreenPoint(float x, float y, float z) const;
+        ///屏幕坐标到世界坐标
+    Vector3 screenToWorldPoint(float x, float y, float z) const;
+
+        ///计算世界位置的距离
+    float getDistance(const Vector3&amp; worldPos) const;
+
+        ///计算lod距离
+    float getLodDistance(float distance, float scale, float bias, bool forceScale = false) const;
+    Quaternion getFaceCameraRotation(const Vector3&amp; position, const Quaternion&amp; rotation, FaceCameraMode mode, float minAngle = 0.0f);
+        ///获取最终的世界变换
+    Matrix3x4 getEffectiveWorldTransform() const;
+
+private:
+        ///更新投影
+    void updateProjection() const;
+
+    mutable Matrix3x4 mView;
+    mutable Matrix4 mProjection;
+    mutable Frustum mFrustum;
+    mutable bool mViewDirty;
+    mutable bool mProjectionDirty;
+    mutable bool mFrustumDirty;
+    bool mOrthographic;
+    mutable float mProjNearClip;
+    mutable float mProjFarClip;
+    float mNearClip;
+    float mFarClip;
+    float mFov;
+    float mOrthoSize;
+    float mAspectRatio;
+    float mZoom;
+    float mLodBias;
+    unsigned mViewMask;
+    unsigned mViewOverrideFlags;
+    FillMode mFillMode;
+    Vector2 mProjectionOffset;
+    Plane mReflectionPlane;
+    Plane mClipPlane;
+    Matrix3x4 mReflectionMatrix;
+    bool mAutoAspectRatio;
+    bool mFlipVertical;
+    bool mUseReflection;
+    bool mUseClipping;
+    mutable bool mCustomProjection;
+    LodMode mLodMode;
+    float mLodFixedScale;
+};
+</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>
