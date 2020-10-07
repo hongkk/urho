@@ -20,12 +20,12 @@
 <XPD:REF name="DiagramOwner">fz9G1JBPSUSkW7llxgnQRQAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="0+9K+aLOskqI42ILpjooAgAA">
 <XPD:REF name="Diagram">Q+AhfzwKP0KuhUYatGRclgAA</XPD:REF>
-<XPD:ATTR name="#OwnedViews" type="integer">15</XPD:ATTR>
+<XPD:ATTR name="#OwnedViews" type="integer">21</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="MfpCy7v4AkCLSD6uhbHy4QAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1448</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">400</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">164</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">860</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">1058</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">608</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleRenderer::UVInfo::setMaterialUVTransform(const Vector2&amp; offset, float rotation, const Vector2&amp; repeat, Material* material, const String&amp; uName /*= &quot;UOffset&quot;*/, const String&amp; vName /*= &quot;VOffset&quot;*/)
@@ -73,8 +73,8 @@ void ParticleRenderer::UVInfo::setGraphicsUVTransformWithAnim(Graphics* graphics
 <XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="Yw3AByvCjEqfVY/phqHwvwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2888</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">232</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">392</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1552</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">586</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">938</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">***************************************************
@@ -144,8 +144,8 @@ void ParticleRenderer::postUpdate(float timeElapsed)
 <XPD:OBJ name="OwnedViews[2]" type="UMLNoteView" guid="g8mCwxnbsUC6G1kpZ3NTAgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">340</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">428</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">276</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">152</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">834</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">548</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">struct UVInfo
@@ -180,22 +180,22 @@ void ParticleRenderer::postUpdate(float timeElapsed)
 <XPD:OBJ name="OwnedViews[3]" type="UMLNoteLinkView" guid="v92E0qgnL0mr8Ydkhl8P2gAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1448,702;1173,702</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">692,860;692,699</XPD:ATTR>
 <XPD:REF name="Head">g8mCwxnbsUC6G1kpZ3NTAgAA</XPD:REF>
 <XPD:REF name="Tail">MfpCy7v4AkCLSD6uhbHy4QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[4]" type="UMLNoteLinkView" guid="kiqFrS/9qUODcQse1MM3zAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2888,701;2505,702</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">688,1552;689,1467</XPD:ATTR>
 <XPD:REF name="Head">MfpCy7v4AkCLSD6uhbHy4QAA</XPD:REF>
 <XPD:REF name="Tail">Yw3AByvCjEqfVY/phqHwvwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="Jb4qIv1y3Ui/ZAP1pD7jjQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2876</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1316</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1772</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1648</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">658</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">1733</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">*************************************************
@@ -318,8 +318,8 @@ void ParticleRenderer::bindAllDissolveTexture(Material* mat)
 <XPD:OBJ name="OwnedViews[6]" type="UMLNoteView" guid="094zBomoJ0Wlk+btXAEHOwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">372</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1852</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1676</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">44</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">839</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">653</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">struct UVInfo
@@ -370,8 +370,8 @@ struct DissolveInfo
 <XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="I/tRW6oXO0aIK/GAAzbDYQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1476</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1880</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1568</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">884</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">1058</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">608</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleRenderer::UVInfo::setMaterialUVTransform(const Vector2&amp; offset, float rotation, const Vector2&amp; repeat, Material* material, const String&amp; uName /*= &quot;UOffset&quot;*/, const String&amp; vName /*= &quot;VOffset&quot;*/)
@@ -419,22 +419,22 @@ void ParticleRenderer::UVInfo::setGraphicsUVTransformWithAnim(Graphics* graphics
 <XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="Y7pMoyyjSEOKfoJfaYIUVQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1476,2181;1210,2180</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2096,884;2096,696</XPD:ATTR>
 <XPD:REF name="Head">094zBomoJ0Wlk+btXAEHOwAA</XPD:REF>
 <XPD:REF name="Tail">I/tRW6oXO0aIK/GAAzbDYQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[9]" type="UMLNoteLinkView" guid="CmPTIMnZS0icKsOpXayuoAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2876,2182;2533,2182</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2097,1648;2097,1491</XPD:ATTR>
 <XPD:REF name="Head">I/tRW6oXO0aIK/GAAzbDYQAA</XPD:REF>
 <XPD:REF name="Tail">Jb4qIv1y3Ui/ZAP1pD7jjQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[10]" type="UMLNoteView" guid="G1SJiuDXmEqCF9xSzj6MJwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">440</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3848</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3224</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">108</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">822</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">548</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">///纹理动画类型
@@ -478,8 +478,8 @@ struct LYEFFECT_API TextureAnimation
 <XPD:OBJ name="OwnedViews[11]" type="UMLNoteView" guid="wQzLuSWXu0qCa1rgrzGY4wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1656</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3664</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3212</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">808</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">841</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">908</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleRenderer::TextureAnimation::_determineNextTextureCoords(ParticleRenderer* renderer, uint16&amp; textureCoordsCurrent, bool&amp; textureAnimationDirectionUp)
@@ -547,15 +547,15 @@ struct LYEFFECT_API TextureAnimation
 <XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="fit1z6OwgEaqZw4BebJRhAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1656,4118;1261,4119</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3633,808;3633,655</XPD:ATTR>
 <XPD:REF name="Head">G1SJiuDXmEqCF9xSzj6MJwAA</XPD:REF>
 <XPD:REF name="Tail">wQzLuSWXu0qCa1rgrzGY4wAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[13]" type="UMLNoteView" guid="KMTF/z2CpUye8nHCuTwv5wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2724</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3520</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3256</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1904</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">756</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">1193</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">******************************************************
@@ -642,9 +642,307 @@ void ParticleRenderer::_initParticleForEmission(Particle* particle)
 <XPD:OBJ name="OwnedViews[14]" type="UMLNoteLinkView" guid="F9BEo7Qvj0CW51MDT1SU2wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2724,4116;2496,4116</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3633,1904;3633,1715</XPD:ATTR>
 <XPD:REF name="Head">wQzLuSWXu0qCa1rgrzGY4wAA</XPD:REF>
 <XPD:REF name="Tail">KMTF/z2CpUye8nHCuTwv5wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[15]" type="UMLNoteView" guid="rGFOesKg90GeD4YJrkfOmAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">224</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">4036</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">473</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">413</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//处理一个粒子
+void ParticleStaticModelRenderer::_processParticle(ParticleTechnique* particleTechnique,
+        Particle* particle,
+        float timeElapsed,
+        bool firstParticle)
+{
+        ParticleRenderer::_processParticle(particleTechnique, particle, timeElapsed, firstParticle);
+        if (mNode &amp;&amp; particle-&gt;particleType == Particle::PT_VISUAL)
+        {
+                ParticleVisual* visual = static_cast&lt;ParticleVisual*&gt;(particle);
+                if (particle-&gt;visualData)
+                {
+                        //设置位置
+                        StaticModelRendererVisualData* visualData = particle-&gt;visualData;
+                        visualData-&gt;node-&gt;setWorldPosition(visual-&gt;position);
+
+                        //设置缩放
+                        updateVisualScale(visual);
+
+                        //设置旋转
+                        visualData-&gt;node-&gt;setRotation(visual-&gt;emitterOrientation);
+                        
+                        //更新材质动画
+                        updateMaterialAnimation(timeElapsed, visual, visualData);
+                }
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[16]" type="UMLNoteView" guid="rw52MDerIUOxG25VDvXvIwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">964</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3984</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">607</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">518</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//设置漫反射纹理 和 溶解纹理
+void ParticleStaticModelRenderer::_notifyStart(void)
+{
+        ParticleRenderer::_notifyStart();
+
+        Vector&lt;StaticModelRendererVisualData*&gt;::Iterator i, iend = mActiveVisualDatas.end();
+        for (i = mActiveVisualDatas.begin(); i != iend; ++i)
+        {
+                StaticModelRendererVisualData* data = *i;
+                if (mUseRendererResource)
+                {
+                        //设置漫反射纹理
+                        data-&gt;setMaterialTexture(TU_DIFFUSE, getTexture());
+                }
+                else
+                {
+                        //设置漫反射纹理
+                        data-&gt;setMaterialTexture(TU_DIFFUSE, mOldTextures);
+                        for (unsigned index = 0; index &lt; mOldTextures.size(); ++index)
+                        {
+                                Texture* texture = mOldTextures[index];
+                                if (texture)
+                                {
+                                        texture-&gt;setAddressMode(COORD_U, (TextureAddressMode)mDiffuseUVInfo.mUAddressMode);
+                                        texture-&gt;setAddressMode(COORD_V, (TextureAddressMode)mDiffuseUVInfo.mVAddressMode);
+                                }
+                        }
+                }
+                //设置溶解纹理
+                bindAllDissolveTexture(data);
+                setDissolveUAddressMode(mDissolveUVInfo.mUAddressMode);
+                setDissolveVAddressMode(mDissolveUVInfo.mVAddressMode);
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[17]" type="UMLNoteView" guid="nbJ31WdqHkqgEAj64vudpAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1772</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">4184</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">489</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">158</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">// 设置初始scale
+void ParticleStaticModelRenderer::_notifyDefaultDimensions(float width, float height, float depth)
+{
+        Vector&lt;StaticModelRendererVisualData*&gt;::Iterator i, iend = mActiveVisualDatas.end();
+        for (i = mActiveVisualDatas.begin(); i != iend; ++i)
+        {
+                StaticModelRendererVisualData* data = *i;
+                data-&gt;node-&gt;setScale(width / mBoxWidth, height / mBoxHeight, depth / mBoxDepth);
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[18]" type="UMLNoteView" guid="IwtHcDpsb0G4bERIEQwzNgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2520</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3748</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">607</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">1058</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//更新材质
+//设置漫反射纹理 和 漫反射纹理的寻址方式
+//设置溶解纹理和溶解纹理的寻址方式
+//设置渲染顺序
+//设置颜色矩阵 &quot;ColorMatrix&quot;
+//设置扰动强度 &quot;NoiseStrength&quot;
+//设置辉光 &quot;GlowThreshold&quot;
+//设置辉光颜色 &quot;GlowColor&quot;
+//设置深度偏移
+void ParticleStaticModelRenderer::updateMaterialProperties(StaticModelRendererVisualData* data)
+{
+        for (unsigned index = 0; index &lt; data-&gt;materials.size(); ++index)
+        {
+                Material* material = data-&gt;materials[index];
+                //设置每个material的技术
+                setMaterialTechnique(material);
+
+                if (mUseRendererResource)
+                {
+                        //设置漫反射纹理
+                        material-&gt;setTexture(TU_DIFFUSE, getTexture());
+                }
+                else
+                {
+                        for (unsigned p = 0; p &lt; mOldTextures.size(); ++p)
+                        {
+                                Texture* texture = mOldTextures[p];
+                                material-&gt;setTexture(TU_DIFFUSE, texture);
+                                if (texture)
+                                {
+                                        //设置漫反射纹理的寻址方式
+                                        texture-&gt;setAddressMode(COORD_U, (TextureAddressMode)mDiffuseUVInfo.mUAddressMode);
+                                        texture-&gt;setAddressMode(COORD_V, (TextureAddressMode)mDiffuseUVInfo.mVAddressMode);
+                                }
+                        }
+                }
+                //设置溶解纹理和溶解纹理的寻址方式
+                ParticleRenderer::bindAllDissolveTexture(material);
+                setDissolveUAddressMode(mDissolveUVInfo.mUAddressMode);
+                setDissolveVAddressMode(mDissolveUVInfo.mVAddressMode);
+                //设置渲染顺序
+                material-&gt;setRenderOrder(getDerivedRenderOrder());
+                material-&gt;setCullMode((CullMode)mCullMode);
+
+                float timeFraction = getTimeFraction();
+
+                if (isColorMatrixSet())
+                {
+                        //设置颜色矩阵
+                        material-&gt;setShaderParameter(&quot;ColorMatrix&quot;, mColorMatrix.getMatrix());
+                }
+                if (isNoiseSet())
+                {
+                        mNoise = mDynamicAttributeHelper.calculate(mDynNoise, timeFraction).getFloat();
+                        if (mNoise != 0.0f)
+                        {
+                                //设置扰动强度
+                                material-&gt;setShaderParameter(&quot;NoiseStrength&quot;, mNoise);
+                        }
+                }
+                if (isGlowSet())
+                {
+                        //设置辉光 和 辉光颜色
+                        material-&gt;setShaderParameter(&quot;GlowThreshold&quot;, 1.0f - mGlow);
+                        material-&gt;setShaderParameter(&quot;GlowColor&quot;, mGlowColor);
+                }
+                //设置深度偏移
+                material-&gt;setDepthBias(BiasParameters(DEPTH_BIAS_VALUE[getDerivedDepthBiasLevel()], 0.0f));
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[19]" type="UMLNoteView" guid="phbKoOAAtU21eROgwWNFkwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3380</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3724</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">728</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">1073</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//更新纹理动画
+//设置漫反射颜色 &quot;MatDiffColor&quot;
+//根据 particle-&gt;textureCoordsCurrent 确定分割纹理
+//更新material &quot;UOffset&quot; &quot;VOffset&quot;属性
+//更新materail &quot;DissolveUOffset&quot;  &quot;DissolveVOffset&quot;属性
+//确定下一个 particle-&gt;textureCoordsCurrent
+void ParticleStaticModelRenderer::updateMaterialAnimation(float timeElapsed, ParticleVisual* particle, StaticModelRendererVisualData* data)
+{
+        for (unsigned index = 0; index &lt; data-&gt;materials.size(); ++index)
+        {
+                Material* material = data-&gt;materials[index];
+                //控制材质颜色
+                Effect* effect = getEffect();
+                if (effect)
+                        material-&gt;setShaderParameter(&quot;MatDiffColor&quot;, (mColor * particle-&gt;color * effect-&gt;getColor()).toVector4());
+                else
+                        material-&gt;setShaderParameter(&quot;MatDiffColor&quot;, (mColor * particle-&gt;color).toVector4());
+
+                if (mUseRendererResource)
+                {
+                        const Imagedef* def = getImagedef(particle-&gt;textureCoordsCurrent);
+                        if (def)
+                        {
+                                data-&gt;setVisible(mNode-&gt;isEnabled());
+                                //设置纹理变换
+                                const Vector4&amp; uv = def-&gt;getUV();
+                                Vector2 offset(uv.x, uv.y);
+                                Vector2 repeat = Vector2(uv.z - uv.x, uv.w - uv.y) * mDiffuseUVInfo.mUVRepeat;
+                                if (isUVAnimEnabled())
+                                {
+                                        Vector2 re = repeat * mDiffuseUVInfo.mUVAnimOffset;
+                                        offset += re;
+                                }
+
+                                mDiffuseUVInfo.setMaterialUVTransform(offset + mDiffuseUVInfo.mUVOffset, mDiffuseUVInfo.mUVRotation, repeat, material);
+                        }
+                        else
+                        {
+                                data-&gt;setVisible(false);
+                        }
+                }
+                else
+                {
+                        if (isUVAnimEnabled())
+                                mDiffuseUVInfo.setMaterialUVTransformWithAnim(material);
+                        else
+                                mDiffuseUVInfo.setMaterialUVTransform(material);
+                }
+                if (isDissolveUVAnimEnabled())
+                        mDissolveUVInfo.setMaterialUVTransformWithAnim(material, DISSOLVE_UNAME, DISSOLVE_VNAME);
+                else
+                        mDissolveUVInfo.setMaterialUVTransform(material, DISSOLVE_UNAME, DISSOLVE_VNAME);
+        }
+        //更新序列动画 确定下一个particle-&gt;textureCoordsCurrent
+        if (mTextureAnimation.enabled)
+        {
+                data-&gt;textureAnimation.nextIndex = false;
+                data-&gt;textureAnimation.animationTimeStepCount += timeElapsed;
+                if (data-&gt;textureAnimation.animationTimeStepCount &gt; data-&gt;textureAnimation.animationTimeStep)
+                {
+                        data-&gt;textureAnimation.animationTimeStepCount -= data-&gt;textureAnimation.animationTimeStep;
+                        data-&gt;textureAnimation.nextIndex = true;
+                }
+
+                if (data-&gt;textureAnimation.nextIndex)
+                {
+                        data-&gt;textureAnimation._determineNextTextureCoords(this, particle-&gt;textureCoordsCurrent,
+                                particle-&gt;textureAnimationDirectionUp);
+                }
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[20]" type="UMLNoteView" guid="45mtfhGrTUmSRx5W0WmITgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4304</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">4008</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">589</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">488</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//更新material 溶解相关shader参数 &quot;DissolveFactor0&quot; &quot;DissolveFactor1&quot; &quot;DissolveColor&quot; &quot;DissolveColorSize&quot;
+void ParticleStaticModelRenderer::postUpdate(float timeElapsed)
+{
+        ParticleRenderer::postUpdate(timeElapsed);
+        if (isDissolveEnabled(0))
+        {
+                Vector&lt;StaticModelRendererVisualData*&gt;::Iterator i, iend = mActiveVisualDatas.end();
+                for (i = mActiveVisualDatas.begin(); i != iend; ++i)
+                {
+                        StaticModelRendererVisualData* data = *i;
+                        //更新shader参数
+                        float timeFraction = data-&gt;particle-&gt;timeFraction;
+                        Color DissolveColor = mDissolveColor._calculate(timeFraction);
+                        for (unsigned m = 0; m &lt; data-&gt;materials.size(); ++m)
+                        {
+                                Material* material = data-&gt;materials[m];
+
+                                for (unsigned index = 0; index &lt; mDissolveInfos.size(); ++index)
+                                {
+                                        DissolveInfo&amp; info = mDissolveInfos[index];
+                                        float DissolveFactor = mDynamicAttributeHelper.calculate(info.time, timeFraction).getFloat();
+                                        String factorName = &quot;DissolveFactor&quot;;
+                                        factorName.appendWithFormat(&quot;%d&quot;, index);
+                                        material-&gt;setShaderParameter(factorName, DissolveFactor);
+                                }
+
+                                material-&gt;setShaderParameter(&quot;DissolveColor&quot;, DissolveColor);
+                                material-&gt;setShaderParameter(&quot;DissolveColorSize&quot;, mDissolveColorSize);
+                        }
+                }
+        }
+}
+</XPD:ATTR>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
