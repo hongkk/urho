@@ -24,8 +24,8 @@
 <XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="/PWycURVdEu6t8676qNLdwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">104</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">372</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">164</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">384</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">513</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">758</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">///UI系统
@@ -83,8 +83,8 @@ protected:
 <XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="xkdABdRT1EykJGUAJQssFwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">968</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">32</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1028</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">44</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">502</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">383</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">// 初始化
@@ -117,8 +117,8 @@ UISystem::UISystem(Context* context) :
 <XPD:OBJ name="OwnedViews[2]" type="UMLNoteView" guid="FngVzY1Kw0mjtHkVglgn8wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1000</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">480</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1060</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">492</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">341</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">338</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">// 帧更新 逻辑
@@ -148,7 +148,8 @@ void UISystem::update(float timeStep, Widget* widget)
 <XPD:OBJ name="OwnedViews[3]" type="UMLNoteView" guid="J1/I2n7CH0Sd2FBFfO272QAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1544</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1604</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">12</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">555</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">1898</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void UISystem::handleBeginViewUpdate(StringHash eventType, HashVariantMap&amp; eventData)
@@ -230,8 +231,8 @@ void UISystem::render(bool resetRenderTargets, VertexBuffer* buffer,
     Vector2 scale(2.0f * invScreenSize.x, -2.0f * invScreenSize.y);
     Vector2 offset(-1.0f, 1.0f);
 
-        mProjection = Matrix4::IDENTITY;
-        mProjection[0][0] = scale.x * mUIScale;
+    mProjection = Matrix4::IDENTITY;
+    mProjection[0][0] = scale.x * mUIScale;
     mProjection[0][3] = offset.x;
     mProjection[1][1] = scale.y * mUIScale;
     mProjection[1][3] = offset.y;
@@ -282,29 +283,29 @@ void UISystem::render(bool resetRenderTargets, VertexBuffer* buffer,
 <XPD:OBJ name="OwnedViews[4]" type="UMLNoteLinkView" guid="0tL8mAvPx0mgVrtsd+PRQQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">968,377;616,593</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1028,389;676,605</XPD:ATTR>
 <XPD:REF name="Head">/PWycURVdEu6t8676qNLdwAA</XPD:REF>
 <XPD:REF name="Tail">xkdABdRT1EykJGUAJQssFwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[5]" type="UMLNoteLinkView" guid="OOvm/UvhJUSL1C+KsmBa0AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1000,669;616,718</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1060,681;676,730</XPD:ATTR>
 <XPD:REF name="Head">/PWycURVdEu6t8676qNLdwAA</XPD:REF>
 <XPD:REF name="Tail">FngVzY1Kw0mjtHkVglgn8wAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[6]" type="UMLNoteLinkView" guid="BPZidJN/D0iQIAIuBN2/rQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1544,910;616,785</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1604,922;676,797</XPD:ATTR>
 <XPD:REF name="Head">/PWycURVdEu6t8676qNLdwAA</XPD:REF>
 <XPD:REF name="Tail">J1/I2n7CH0Sd2FBFfO272QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="+i6LJYVZIE2APpCCj189ogAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">952</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">916</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1008</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">924</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">537</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">1553</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void UISystem::handleTouchBegin(StringHash eventType, HashVariantMap&amp; eventData)
@@ -415,15 +416,15 @@ void UISystem::getWidgetAt(PODVector&lt;Widget*&gt;&amp; result, Widget* current
 <XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="M1jC3x53GUyocMgoR7I0fAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">952,1398;616,1030</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1008,1406;676,1042</XPD:ATTR>
 <XPD:REF name="Head">/PWycURVdEu6t8676qNLdwAA</XPD:REF>
 <XPD:REF name="Tail">+i6LJYVZIE2APpCCj189ogAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[9]" type="UMLNoteView" guid="Alg9rfQW6Ea9gEYSKBzxsAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">352</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1404</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">412</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1416</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">565</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">593</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void UISystem::registerTouchArea3D(TouchArea3D* touchArea3D)
@@ -470,15 +471,15 @@ TouchArea3D* UISystem::getTouchArea3DAt(const Vector2&amp; position, Vector2&amp
 <XPD:OBJ name="OwnedViews[10]" type="UMLNoteLinkView" guid="Y7ED24TKmUCtOGQSa/1TYAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">549,1404;470,1129</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">609,1416;530,1141</XPD:ATTR>
 <XPD:REF name="Head">/PWycURVdEu6t8676qNLdwAA</XPD:REF>
 <XPD:REF name="Tail">Alg9rfQW6Ea9gEYSKBzxsAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[11]" type="UMLNoteView" guid="I7mbd80ZjUKNajNvvMClXQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">8</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2088</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2100</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">513</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">578</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">Imagedef* UISystem::getImagedef(const String&amp; name, const String&amp; imagesetName)
@@ -524,15 +525,15 @@ SharedPtr&lt;Imageset&gt; UISystem::preloadImageset(const String&amp; imagesetNa
 <XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="NYU5BKPe70CM/qgn7iT46wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">281,2088;338,1129</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">341,2100;398,1141</XPD:ATTR>
 <XPD:REF name="Head">/PWycURVdEu6t8676qNLdwAA</XPD:REF>
 <XPD:REF name="Tail">I7mbd80ZjUKNajNvvMClXQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[13]" type="UMLNoteView" guid="BfDD1iVVgECM4h12XJ55MAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">320</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3612</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2528</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1308</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">391</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">///控件基类
@@ -555,8 +556,8 @@ protected:
 <XPD:OBJ name="OwnedViews[14]" type="UMLNoteView" guid="zIUI1EgvG0KX15iLhfLOhgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">904</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3576</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3112</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1272</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">599</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">308</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">//获取当前批次
@@ -584,15 +585,15 @@ void Widget::getBatches(PODVector&lt;UIBatch&gt;&amp; batches, PODVector&lt;floa
 <XPD:OBJ name="OwnedViews[15]" type="UMLNoteLinkView" guid="20QroOTh3kC9fhrZ+EJgcAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">904,3729;710,3729</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3112,1425;2918,1425</XPD:ATTR>
 <XPD:REF name="Head">BfDD1iVVgECM4h12XJ55MAAA</XPD:REF>
 <XPD:REF name="Tail">zIUI1EgvG0KX15iLhfLOhgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[16]" type="UMLNoteView" guid="dmyaXC92qEqYlanAvkfaYQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1008</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2924</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3216</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">620</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">391</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">563</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">///ui渲染批次
@@ -637,15 +638,15 @@ public:
 <XPD:OBJ name="OwnedViews[17]" type="UMLNoteLinkView" guid="dfgz5iSLPUW8EC2c64otZwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1203,3576;1203,3486</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3411,1272;3411,1182</XPD:ATTR>
 <XPD:REF name="Head">dmyaXC92qEqYlanAvkfaYQAA</XPD:REF>
 <XPD:REF name="Tail">zIUI1EgvG0KX15iLhfLOhgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[18]" type="UMLNoteView" guid="qSfWHpMxjkq9fUKfWoXofgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1676</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3576</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3884</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1272</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">749</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">308</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ImageRenderer::getBatches(PODVector&lt;UIBatch&gt;&amp; batches, PODVector&lt;float&gt;&amp; vertexData, const Rect&amp; currentScissor,const Vector2&amp; offset)
@@ -673,15 +674,15 @@ public:
 <XPD:OBJ name="OwnedViews[19]" type="UMLNoteLinkView" guid="R4S/4Y8/GEqfa6CNutO51QAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1676,3729;1502,3729</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3884,1425;3710,1425</XPD:ATTR>
 <XPD:REF name="Head">zIUI1EgvG0KX15iLhfLOhgAA</XPD:REF>
 <XPD:REF name="Tail">qSfWHpMxjkq9fUKfWoXofgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[20]" type="UMLNoteView" guid="Rqc71p3/h0OT4SAeLAa1kAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1772</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2456</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3980</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">152</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">575</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">1028</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void UIBatch::addQuad(int x, int y, int width, int height, int texOffsetX, int texOffsetY, int texWidth, int texHeight)
@@ -757,7 +758,7 @@ public:
 <XPD:OBJ name="OwnedViews[21]" type="UMLNoteLinkView" guid="CmH2O0UwTkqh/W377aUfFAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1772,3048;1398,3151</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3980,744;3606,847</XPD:ATTR>
 <XPD:REF name="Head">dmyaXC92qEqYlanAvkfaYQAA</XPD:REF>
 <XPD:REF name="Tail">Rqc71p3/h0OT4SAeLAa1kAAA</XPD:REF>
 </XPD:OBJ>
