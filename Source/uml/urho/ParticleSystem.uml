@@ -20,12 +20,12 @@
 <XPD:REF name="DiagramOwner">k5MNki0oF0G/0oxvufsSJwAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="a17cR1h2y0GFuLfPEuMDNQAA">
 <XPD:REF name="Diagram">tfIky/nQFE2EECTc080fdQAA</XPD:REF>
-<XPD:ATTR name="#OwnedViews" type="integer">39</XPD:ATTR>
+<XPD:ATTR name="#OwnedViews" type="integer">91</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLNoteView" guid="pX4fhPqfJE6Hsc5ZXw84fgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">176</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1660</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">148</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1488</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">341</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">788</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">
@@ -82,8 +82,8 @@ protected:
 <XPD:OBJ name="OwnedViews[1]" type="UMLNoteView" guid="WuG84QdmRkqNfsfZStiVtAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1228</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">796</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">908</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">792</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">156</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleSystem::start()
@@ -96,8 +96,8 @@ protected:
 <XPD:OBJ name="OwnedViews[2]" type="UMLNoteView" guid="7VCL+qaLGEmVkq2mj7I3UwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1220</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1032</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">972</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1020</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">400</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleSystem::firing(void)
@@ -120,8 +120,8 @@ protected:
 <XPD:OBJ name="OwnedViews[3]" type="UMLNoteView" guid="7DZfccOl7U+97rLgU5q/kQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1220</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1348</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">972</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1336</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">424</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">263</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleSystem::stop(void)
@@ -146,8 +146,8 @@ protected:
 <XPD:OBJ name="OwnedViews[4]" type="UMLNoteView" guid="fLuZWZLT1023J0r1hQgnWgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1220</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1664</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">972</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1652</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">424</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleSystem::pause(void)
@@ -170,8 +170,8 @@ protected:
 <XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="FcdPgqIqcUmDZBrqUjdSqAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1220</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1944</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">972</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1932</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">424</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleSystem::resume(void)
@@ -194,8 +194,8 @@ protected:
 <XPD:OBJ name="OwnedViews[6]" type="UMLNoteView" guid="HdU/RM+Xz0+A2yD/9i1xzQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1224</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">2232</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">952</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2868</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">424</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">1043</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleSystem::update(float timeElapsed)
@@ -272,8 +272,8 @@ protected:
 <XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="m6YS2tb3eEyZcZGWxWS8WQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1248</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">3512</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">872</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">4148</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">251</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleSystem::addTime(float timeElapsed)
@@ -285,123 +285,103 @@ protected:
 <XPD:OBJ name="OwnedViews[8]" type="UMLNoteLinkView" guid="y5KxeATlo06jTTmLpYEpFwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1273,878;516,1838</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">959,874;488,1614</XPD:ATTR>
 <XPD:REF name="Head">pX4fhPqfJE6Hsc5ZXw84fgAA</XPD:REF>
 <XPD:REF name="Tail">WuG84QdmRkqNfsfZStiVtAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[9]" type="UMLNoteLinkView" guid="N1iJOZ3Fa0md/kXUzpCejwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1281,1264;516,1910</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1038,1252;488,1732</XPD:ATTR>
 <XPD:REF name="Head">pX4fhPqfJE6Hsc5ZXw84fgAA</XPD:REF>
 <XPD:REF name="Tail">7VCL+qaLGEmVkq2mj7I3UwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[10]" type="UMLNoteLinkView" guid="wkP4SlAgb0iCsa3f0AZHVQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1220,1591;516,1963</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">972,1568;488,1800</XPD:ATTR>
 <XPD:REF name="Head">pX4fhPqfJE6Hsc5ZXw84fgAA</XPD:REF>
 <XPD:REF name="Tail">7DZfccOl7U+97rLgU5q/kQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[11]" type="UMLNoteLinkView" guid="CgS70qlU9UaZgk93ZPe4pwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1220,1833;516,2010</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">972,1796;488,1859</XPD:ATTR>
 <XPD:REF name="Head">pX4fhPqfJE6Hsc5ZXw84fgAA</XPD:REF>
 <XPD:REF name="Tail">fLuZWZLT1023J0r1hQgnWgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="HjIvHe5xwk+uTC4AslbvmAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1220,2059;516,2054</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">972,2007;488,1914</XPD:ATTR>
 <XPD:REF name="Head">pX4fhPqfJE6Hsc5ZXw84fgAA</XPD:REF>
 <XPD:REF name="Tail">FcdPgqIqcUmDZBrqUjdSqAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[13]" type="UMLNoteLinkView" guid="Os/VisFhgUmQpPLuXO9J/gAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1224,2617;516,2162</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">952,3012;488,2184</XPD:ATTR>
 <XPD:REF name="Head">pX4fhPqfJE6Hsc5ZXw84fgAA</XPD:REF>
 <XPD:REF name="Tail">HdU/RM+Xz0+A2yD/9i1xzQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[14]" type="UMLNoteLinkView" guid="ZAWVtGWXdkKlamva81x2yQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1350,3512;516,2300</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">987,4148;434,2275</XPD:ATTR>
 <XPD:REF name="Head">pX4fhPqfJE6Hsc5ZXw84fgAA</XPD:REF>
 <XPD:REF name="Tail">m6YS2tb3eEyZcZGWxWS8WQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[15]" type="UMLNoteView" guid="/XTRqYytP0CuPHckoYTdrAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1832</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">196</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1608</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">504</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">398</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">728</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">428</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleTechnique::_notifyStart (void)
 {
-        latestPosition = getWorldPosition();
-
         //通知渲染器
-        if(mRenderer)
-                mRenderer-&gt;_notifyStart();
+        mRenderer-&gt;_notifyStart();
+
         //通知观察者
-        if (!mObservers.empty())
+        Observers::Iterator i, iend = mObservers.end();
+        for (i = mObservers.begin(); i != iend; ++i)
         {
-                Observers::Iterator i, iend = mObservers.end();
-                for (i = mObservers.begin(); i != iend; ++i)
-                {
-                        ParticleObserver* observer = *i;
-                        observer-&gt;_notifyStart();
-                }
+                ParticleObserver* observer = *i;
+                observer-&gt;_notifyStart();
         }
+        
         //通知影响器
-        if (!mAffectors.empty())
+        Affectors::Iterator i, iend = mAffectors.end();
+        for (i = mAffectors.begin(); i != iend; ++i)
         {
-                Affectors::Iterator i, iend = mAffectors.end();
-                for (i = mAffectors.begin(); i != iend; ++i)
-                {
-                        ParticleAffector* affector = static_cast&lt;ParticleAffector*&gt;(*i);
-                        if (!affector-&gt;markedForEmission)
-                        {
-                                affector-&gt;_notifyStart();
-                        }
-                }
+                ParticleAffector* affector = static_cast&lt;ParticleAffector*&gt;(*i);
+                affector-&gt;_notifyStart();
         }
         //通知发射器
-        if (!mEmitters.empty())
+        Emitters::Iterator i, iend = mEmitters.end();
+        for (i = mEmitters.begin(); i != iend; ++i)
         {
-                Emitters::Iterator i, iend = mEmitters.end();
-                for (i = mEmitters.begin(); i != iend; ++i)
-                {
-                        ParticleEmitter* emitter = static_cast&lt;ParticleEmitter*&gt;(*i);
-                        if (!emitter-&gt;markedForEmission)
-                        {
-                                emitter-&gt;_notifyStart();
-                        }
-                }
+                ParticleEmitter* emitter = static_cast&lt;ParticleEmitter*&gt;(*i);
+                emitter-&gt;_notifyStart();
         }
-
-        //_notifyStartPooledComponents();
-
-        setEnabled(originalEnabled);
 }
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[16]" type="UMLNoteLinkView" guid="AriYNZA5y0+xUMK6FhaEyQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1832,750;1539,1032</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1608,848;1347,1020</XPD:ATTR>
 <XPD:REF name="Head">7VCL+qaLGEmVkq2mj7I3UwAA</XPD:REF>
 <XPD:REF name="Tail">/XTRqYytP0CuPHckoYTdrAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[17]" type="UMLNoteView" guid="fza9BCA/fUymmdslUJW9ugAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2424</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">100</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">658</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">548</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2180</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">316</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">382</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">293</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleRenderer::_notifyStart(void)
 {
         mDiffuseUVInfo.mUVAnimOffset = Vector2::ZERO;
@@ -410,24 +390,7 @@ protected:
         {
                 updateTexture();
         }
-        Vector&lt;DissolveInfo&gt;::Iterator i, iend = mDissolveInfos.end();
-        for (i = mDissolveInfos.begin(); i != iend; ++i)
-        {
-                DissolveInfo&amp; info = *i;
-                if (info.textureDirty &amp;&amp; info.enabled)
-                {
-                        ResourceCache* cache = mContext-&gt;getSubsystem&lt;ResourceCache&gt;();
-                        if (!info.textureName.empty())
-                                info.texture = cache-&gt;getResource&lt;Texture2D&gt;(info.textureName, true, Texture::CLOSE_MINMAP_PARAMS);
-                        if (info.texture)
-                        {
-                                info.texture-&gt;setBorderColor(Color(0.0f, 0.0f, 0.0f, 0.0f));
-                                info.texture-&gt;setAddressMode(COORD_U, (TextureAddressMode)mDissolveUVInfo.mUAddressMode);
-                                info.texture-&gt;setAddressMode(COORD_V, (TextureAddressMode)mDissolveUVInfo.mVAddressMode);
-                        }
-                        info.textureDirty = false;
-                }
-        }
+       .................................
         mStoped = false;
         mFirstTotalTimeToLiveSet = false;
 
@@ -443,14 +406,15 @@ protected:
 <XPD:OBJ name="OwnedViews[18]" type="UMLNoteLinkView" guid="DNjfyQmUwkKTXhZSXoZbzQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2424,457;2229,507</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2180,548;2005,627</XPD:ATTR>
 <XPD:REF name="Head">/XTRqYytP0CuPHckoYTdrAAA</XPD:REF>
 <XPD:REF name="Tail">fza9BCA/fUymmdslUJW9ugAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[19]" type="UMLNoteView" guid="42gPLh1ULkCQUot2bmCXdwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">3328</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3660</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">44</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">607</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">593</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleStaticModelRenderer::_notifyStart(void)
@@ -494,18 +458,11 @@ protected:
 }
 </XPD:ATTR>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[20]" type="UMLNoteLinkView" guid="W7c8gzFcl0qQ0qZ1zEunBAAA">
+<XPD:OBJ name="OwnedViews[20]" type="UMLNoteView" guid="780cxEWklEqof07QYWHYigAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3328,323;3081,344</XPD:ATTR>
-<XPD:REF name="Head">fza9BCA/fUymmdslUJW9ugAA</XPD:REF>
-<XPD:REF name="Tail">42gPLh1ULkCQUot2bmCXdwAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="OwnedViews[21]" type="UMLNoteView" guid="780cxEWklEqof07QYWHYigAA">
-<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2428</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">672</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2180</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">660</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">220</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleObserver::_notifyStart (void)
@@ -515,11 +472,11 @@ protected:
 }
 </XPD:ATTR>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[22]" type="UMLNoteView" guid="K7v0xycH7kOhdwH8h7pNBgAA">
+<XPD:OBJ name="OwnedViews[21]" type="UMLNoteView" guid="K7v0xycH7kOhdwH8h7pNBgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2432</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">788</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2184</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">776</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">215</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleAffector::_notifyStart (void)
@@ -528,11 +485,11 @@ protected:
 }
 </XPD:ATTR>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[23]" type="UMLNoteView" guid="jnuLleIlCESXqjLg55hWMwAA">
+<XPD:OBJ name="OwnedViews[22]" type="UMLNoteView" guid="jnuLleIlCESXqjLg55hWMwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2432</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">900</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2184</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">888</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">324</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleEmitter::_notifyStart (void)
@@ -548,94 +505,80 @@ protected:
 }
 </XPD:ATTR>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[24]" type="UMLNoteLinkView" guid="AakyhUWPe0GDJL5dpXGauQAA">
+<XPD:OBJ name="OwnedViews[23]" type="UMLNoteLinkView" guid="AakyhUWPe0GDJL5dpXGauQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2428,680;2229,619</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2180,705;2005,711</XPD:ATTR>
 <XPD:REF name="Head">/XTRqYytP0CuPHckoYTdrAAA</XPD:REF>
 <XPD:REF name="Tail">780cxEWklEqof07QYWHYigAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[25]" type="UMLNoteLinkView" guid="PSKloqZwnUOOxzJZfSaJvAAA">
+<XPD:OBJ name="OwnedViews[24]" type="UMLNoteLinkView" guid="PSKloqZwnUOOxzJZfSaJvAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2475,788;2229,661</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2184,789;2005,755</XPD:ATTR>
 <XPD:REF name="Head">/XTRqYytP0CuPHckoYTdrAAA</XPD:REF>
 <XPD:REF name="Tail">K7v0xycH7kOhdwH8h7pNBgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[26]" type="UMLNoteLinkView" guid="MdSk+7jhdU2i4+IIlXZCUQAA">
+<XPD:OBJ name="OwnedViews[25]" type="UMLNoteLinkView" guid="MdSk+7jhdU2i4+IIlXZCUQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2480,900;2229,710</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2184,897;2005,812</XPD:ATTR>
 <XPD:REF name="Head">/XTRqYytP0CuPHckoYTdrAAA</XPD:REF>
 <XPD:REF name="Tail">jnuLleIlCESXqjLg55hWMwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[27]" type="UMLNoteView" guid="AiStDbWs1E2M8z5YoUv5wQAA">
+<XPD:OBJ name="OwnedViews[26]" type="UMLNoteView" guid="AiStDbWs1E2M8z5YoUv5wQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1840</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1100</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1604</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1116</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">398</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">698</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">488</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleTechnique::_notifyStop (void)
 {
         //通知渲染器
-        if(mRenderer)
-                mRenderer-&gt;_notifyStop();
+        mRenderer-&gt;_notifyStop();
+
         //通知观察者
-        if (!mObservers.empty())
+        Observers::Iterator i, iend = mObservers.end();
+        for (i = mObservers.begin(); i != iend; ++i)
         {
-                Observers::Iterator i, iend = mObservers.end();
-                for (i = mObservers.begin(); i != iend; ++i)
-                {
-                        ParticleObserver* observer = *i;
-                        observer-&gt;_notifyStop();
-                }
+                ParticleObserver* observer = *i;
+                observer-&gt;_notifyStop();
         }
+        
         //通知影响器
-        if (!mAffectors.empty())
+        Affectors::Iterator i, iend = mAffectors.end();
+        for (i = mAffectors.begin(); i != iend; ++i)
         {
-                Affectors::Iterator i, iend = mAffectors.end();
-                for (i = mAffectors.begin(); i != iend; ++i)
-                {
-                        ParticleAffector* affector = static_cast&lt;ParticleAffector*&gt;(*i);
-                        if (!affector-&gt;markedForEmission)
-                        {
-                                affector-&gt;_notifyStop();
-                        }
-                }
-        }
-        //通知发射器
-        if (!mEmitters.empty())
-        {
-                Emitters::Iterator i, iend = mEmitters.end();
-                for (i = mEmitters.begin(); i != iend; ++i)
-                {
-                        ParticleEmitter* emitter = static_cast&lt;ParticleEmitter*&gt;(*i);
-                        if (!emitter-&gt;markedForEmission)
-                        {
-                                emitter-&gt;_notifyStop();
-                        }
-                }
+                ParticleAffector* affector = static_cast&lt;ParticleAffector*&gt;(*i);
+                affector-&gt;_notifyStop();
+                
         }
 
-        //_notifyStopPooledComponents();
+        //通知发射器
+        Emitters::Iterator i, iend = mEmitters.end();
+        for (i = mEmitters.begin(); i != iend; ++i)
+        {
+                ParticleEmitter* emitter = static_cast&lt;ParticleEmitter*&gt;(*i);
+                emitter-&gt;_notifyStop();   
+        }
 
         _initAllParticlesForExpiration();
 }
 </XPD:ATTR>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[28]" type="UMLNoteLinkView" guid="NA537dk4S0mt8EW+pVfpGgAA">
+<XPD:OBJ name="OwnedViews[27]" type="UMLNoteLinkView" guid="NA537dk4S0mt8EW+pVfpGgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1840,1458;1643,1468</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1604,1394;1395,1430</XPD:ATTR>
 <XPD:REF name="Head">7DZfccOl7U+97rLgU5q/kQAA</XPD:REF>
 <XPD:REF name="Tail">AiStDbWs1E2M8z5YoUv5wQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[29]" type="UMLNoteView" guid="WXX8KpU9MEWfl4Bzyu0HLgAA">
+<XPD:OBJ name="OwnedViews[28]" type="UMLNoteView" guid="WXX8KpU9MEWfl4Bzyu0HLgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2464</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1128</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2184</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1116</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">215</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleRenderer::_notifyStop(void)
@@ -645,18 +588,18 @@ protected:
 }
 </XPD:ATTR>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[30]" type="UMLNoteLinkView" guid="1fru8Q3fVUq6QvL3k/oA+QAA">
+<XPD:OBJ name="OwnedViews[29]" type="UMLNoteLinkView" guid="1fru8Q3fVUq6QvL3k/oA+QAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2493,1210;2237,1344</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2192,1198;2001,1277</XPD:ATTR>
 <XPD:REF name="Head">AiStDbWs1E2M8z5YoUv5wQAA</XPD:REF>
 <XPD:REF name="Tail">WXX8KpU9MEWfl4Bzyu0HLgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[31]" type="UMLNoteView" guid="+EvMA8xnrUWKFEMOfGvnjAAA">
+<XPD:OBJ name="OwnedViews[30]" type="UMLNoteView" guid="+EvMA8xnrUWKFEMOfGvnjAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2832</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1132</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2584</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1120</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">270</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleStaticModelRenderer::_notifyStop(void)
@@ -666,18 +609,18 @@ protected:
 }
 </XPD:ATTR>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[32]" type="UMLNoteLinkView" guid="8ysne9mIBE6Z+WBhRbHHnAAA">
+<XPD:OBJ name="OwnedViews[31]" type="UMLNoteLinkView" guid="8ysne9mIBE6Z+WBhRbHHnAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2832,1172;2678,1170</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2584,1160;2398,1158</XPD:ATTR>
 <XPD:REF name="Head">WXX8KpU9MEWfl4Bzyu0HLgAA</XPD:REF>
 <XPD:REF name="Tail">+EvMA8xnrUWKFEMOfGvnjAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[33]" type="UMLNoteView" guid="YG2ZYB9wSEe1X0ZdcRND3QAA">
+<XPD:OBJ name="OwnedViews[32]" type="UMLNoteView" guid="YG2ZYB9wSEe1X0ZdcRND3QAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2476</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1324</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2184</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1308</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">359</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">278</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleTechnique::_initAllParticlesForExpiration(void)
@@ -700,18 +643,18 @@ protected:
 }
 </XPD:ATTR>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[34]" type="UMLNoteLinkView" guid="HpwLA7Q9pkmuaznqIrbAvAAA">
+<XPD:OBJ name="OwnedViews[33]" type="UMLNoteLinkView" guid="HpwLA7Q9pkmuaznqIrbAvAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2476,1458;2237,1453</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2184,1418;2001,1390</XPD:ATTR>
 <XPD:REF name="Head">AiStDbWs1E2M8z5YoUv5wQAA</XPD:REF>
 <XPD:REF name="Tail">YG2ZYB9wSEe1X0ZdcRND3QAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[35]" type="UMLNoteView" guid="rtv6Xfxp3EOhrXwFWpb/vQAA">
+<XPD:OBJ name="OwnedViews[34]" type="UMLNoteView" guid="rtv6Xfxp3EOhrXwFWpb/vQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2956</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1340</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2644</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1324</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">430</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">248</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void ParticleTechnique::_initParticleForExpiration(Particle* particle, float timeElapsed)
@@ -732,18 +675,18 @@ protected:
 }
 </XPD:ATTR>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[36]" type="UMLNoteLinkView" guid="qXwvJUv2qESS7aycCpuMHgAA">
+<XPD:OBJ name="OwnedViews[35]" type="UMLNoteLinkView" guid="qXwvJUv2qESS7aycCpuMHgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2956,1463;2834,1463</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2644,1447;2542,1447</XPD:ATTR>
 <XPD:REF name="Head">YG2ZYB9wSEe1X0ZdcRND3QAA</XPD:REF>
 <XPD:REF name="Tail">rtv6Xfxp3EOhrXwFWpb/vQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[37]" type="UMLNoteView" guid="XQDjDQXDXU+1XV+J/mqvFwAA">
+<XPD:OBJ name="OwnedViews[36]" type="UMLNoteView" guid="XQDjDQXDXU+1XV+J/mqvFwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">3456</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">1388</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3144</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1376</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">624</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">///粒子过期后
@@ -757,12 +700,1067 @@ void ParticleStaticModelRenderer::particleExpired(ParticleTechnique* particleTec
 }
 </XPD:ATTR>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedViews[38]" type="UMLNoteLinkView" guid="jd6MEz+nbUuhPL1a7IjoBAAA">
+<XPD:OBJ name="OwnedViews[37]" type="UMLNoteLinkView" guid="jd6MEz+nbUuhPL1a7IjoBAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">3456,1461;3385,1461</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3144,1447;3073,1447</XPD:ATTR>
 <XPD:REF name="Head">rtv6Xfxp3EOhrXwFWpb/vQAA</XPD:REF>
 <XPD:REF name="Tail">XQDjDQXDXU+1XV+J/mqvFwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[38]" type="UMLNoteView" guid="/d4L04udLkCISIfNIatllwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1620</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1648</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">374</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">308</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ParticleTechnique::_notifyPause (void)
+{
+        mRenderer-&gt;_notifyPause();
+
+        //通知影响器
+        Affectors::Iterator i, iend = mAffectors.end();
+        for (i = mAffectors.begin(); i != iend; ++i)
+        {
+                ParticleAffector* affector = static_cast&lt;ParticleAffector*&gt;(*i);
+                affector-&gt;_notifyPause();
+        }
+        
+        //通知发射器
+        Emitters::Iterator i, iend = mEmitters.end();
+        for (i = mEmitters.begin(); i != iend; ++i)
+        {
+                ParticleEmitter* emitter = static_cast&lt;ParticleEmitter*&gt;(*i);
+                emitter-&gt;_notifyPause();
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[39]" type="UMLNoteLinkView" guid="ELQKnSCXgkOxw7uJu27QlAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1620,1791;1395,1779</XPD:ATTR>
+<XPD:REF name="Head">fLuZWZLT1023J0r1hQgnWgAA</XPD:REF>
+<XPD:REF name="Tail">/d4L04udLkCISIfNIatllwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[40]" type="UMLNoteView" guid="McR9TmsnCE+koIcEwUFvswAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1544</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2948</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">460</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">878</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//更新所有技术
+unsigned ParticleSystem::_updateTechniques( float timeElapsed )
+{
+        unsigned particlesLeft = 0;
+        bool mAABBUpdate = (mBoundsAutoUpdate || mBoundsUpdateTime &gt; 0.0f);
+        bool merge = mAABBUpdate;
+        Boundingbox worldAABB;
+
+        Techniques::Iterator i, iend = mTechniques.end();
+        for (i = mTechniques.begin(); i != iend; ++i)
+        {
+                ParticleTechnique* technique = static_cast&lt;ParticleTechnique*&gt;(*i);
+                if (!technique-&gt;markedForEmission)
+                {
+                        //通知更新包围盒
+                        if (merge)
+                        {
+                                technique-&gt;_notifyUpdateBounds();
+                        }
+                        ////////////////////////////////////////////////////////////////////////////////////////////
+                        //更新技术
+                        technique-&gt;update(timeElapsed);
+                        //合并包围盒
+                        if (merge)
+                        {
+                                worldAABB.merge(technique-&gt;getWorldBoundingbox());
+
+                                if (worldAABB.isInfinite())
+                                {
+                                        merge = false;
+                                }
+                        }
+
+                        particlesLeft += technique-&gt;getNumberOfEmittedParticles();
+                }
+        }
+        if (mState == P_STOPPED)
+        {
+                _resetBounds();
+        }
+        else if (mAABBUpdate)
+        {
+                if (!worldAABB.isNull() &amp;&amp; getNode())
+                {
+                        mBoundingbox = worldAABB;
+                        mBoundingbox.transform(getNode()-&gt;getWorldTransform().inverse());
+
+                        float sqDist = std::max(mBoundingbox.getMinimum().squaredLength(),
+                                                                  mBoundingbox.getMaximum().squaredLength());
+                        mBoundingRadius = Math::Sqrt(sqDist);
+                }
+                else
+                {
+                        _resetBounds();
+                }
+        }
+        return particlesLeft;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[41]" type="UMLNoteLinkView" guid="XEuxVofKLkGKxN3LQPj0MwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1544,3387;1375,3388</XPD:ATTR>
+<XPD:REF name="Head">HdU/RM+Xz0+A2yD/9i1xzQAA</XPD:REF>
+<XPD:REF name="Tail">McR9TmsnCE+koIcEwUFvswAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[42]" type="UMLNoteView" guid="fxMpYzPFyEKICIsCIhnM2QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2124</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3128</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">354</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">533</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//更新
+void ParticleTechnique::update( float timeElapsed )
+{
+        if (!mListenerList.empty())
+        {
+                TechniqueListenerList::Iterator it;
+                TechniqueListenerList::Iterator itEnd = mListenerList.end();
+                for (it = mListenerList.begin(); it != itEnd; ++it)
+                {
+                        (*it)-&gt;preUpdate(timeElapsed);
+                }
+        }
+        //首次准备
+        _prepare();
+        //发射粒子
+        _emitParticles(timeElapsed);
+        //准备处理粒子
+        _preProcessParticles(timeElapsed);
+        //处理粒子
+        _processParticles(timeElapsed);
+        //粒子处理完毕
+        _postProcessParticles(timeElapsed);
+
+        latestPosition = getWorldPosition();
+
+        if (!mListenerList.empty())
+        {
+                TechniqueListenerList::Iterator it;
+                TechniqueListenerList::Iterator itEnd = mListenerList.end();
+                for (it = mListenerList.begin(); it != itEnd; ++it)
+                {
+                        (*it)-&gt;postUpdate(timeElapsed);
+                }
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[43]" type="UMLNoteLinkView" guid="WUuQCLtvIkOgyw4ukzeopwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2124,3391;2003,3389</XPD:ATTR>
+<XPD:REF name="Head">McR9TmsnCE+koIcEwUFvswAA</XPD:REF>
+<XPD:REF name="Tail">fxMpYzPFyEKICIsCIhnM2QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[44]" type="UMLNoteView" guid="S9EShNcXlUKKijrv8ynzQQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2752</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2264</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">310</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ParticleTechnique::_prepare(void)
+{
+        C_PROFILE(ParticleTechniquePrepare);
+        _prepareRenderer();
+        _prepareEmitters();
+        _prepareAffectors();
+        _prepareTechnique();
+        _prepareSystem();
+        _prepareParticleVisuals();
+        _notifyRescaled(mParticleSystemScale);
+        _notifyVelocityRescaled(mParticleSystemScaleVelocity);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[45]" type="UMLNoteView" guid="331H0cHWaUGikZrFEDpR+gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2856</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1652</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">420</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ParticleStaticModelRenderer::_prepare(ParticleTechnique* technique)
+{
+        ParticleRenderer::_prepare(technique);
+
+        uint num = technique-&gt;getParticleVisualQuota();
+        //分配池大小
+        _notifyParticleQuota(num);
+
+        _notifyDefaultDimensions(mRendererScale.x * technique-&gt;getDefaultWidth(),
+                mRendererScale.y * technique-&gt;getDefaultHeight(),
+                mRendererScale.z * technique-&gt;getDefaultDepth());
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[46]" type="UMLNoteView" guid="QfaxbQ2qjEinjHVaZgWFTAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3308</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1720</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">399</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">128</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ParticleTechnique::_prepareParticleVisuals(void)
+{
+        if (!mParticleVisualPoolIncreased)
+        {
+                mPool.increasePool(Particle::PT_VISUAL, mParticleVisualQuota, this);
+                mParticleVisualPoolIncreased = true;
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[47]" type="UMLNoteView" guid="vMZwurQ4EEaDzafqsZAUWQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3452</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">1896</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">564</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">578</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ParticleTechnique::_notifyRescaled(const Vector3&amp; scale)
+{
+        mParticleSystemScale = scale;
+
+        //通知发射器
+        Emitters::Iterator i, iend = mEmitters.end();
+        for (i = mEmitters.begin(); i != iend; ++i)
+        {
+                ParticleEmitter* emitter = static_cast&lt;ParticleEmitter*&gt;(*i);
+                emitter-&gt;_notifyRescaled(scale);
+        }
+        
+        //通知影响器
+        Affectors::Iterator i, iend = mAffectors.end();
+        for (i = mAffectors.begin(); i != iend; ++i)
+        {
+                ParticleAffector* affector = static_cast&lt;ParticleAffector*&gt;(*i);
+                affector-&gt;_notifyRescaled(scale);
+        }
+        
+        mRenderer-&gt;_notifyRescaled(scale);
+        
+        //通知观察者
+        Observers::Iterator i, iend = mObservers.end();
+        for (i = mObservers.begin(); i != iend; ++i)
+        {
+                ParticleObserver* observer = *i;
+                observer-&gt;_notifyRescaled(scale);
+        }
+        
+        ParticleTechnique* technique = static_cast&lt;ParticleTechnique*&gt;(mPool.getFirst(Particle::PT_TECHNIQUE));
+        while (!mPool.isEnd(Particle::PT_TECHNIQUE))
+        {
+                if (technique)
+                        technique-&gt;_notifyRescaled(scale);
+                technique = static_cast&lt;ParticleTechnique*&gt;(mPool.getNext(Particle::PT_TECHNIQUE));
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[48]" type="UMLNoteView" guid="LIMskKePeUyx/Se+wxmrcgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2784</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2620</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">445</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ParticleTechnique::_emitParticles(float timeElapsed)
+{
+        Emitters::Iterator i, iend = mEmitters.end();
+        for (i = mEmitters.begin();i!=iend;++i)
+        {
+                ParticleEmitter* emitter = static_cast&lt;ParticleEmitter*&gt;(*i);
+                if(!emitter-&gt;markedForEmission)
+                {
+                        _executeEmitParticles(emitter, 
+                          emitter-&gt;_calculateRequestedParticles(this, timeElapsed), timeElapsed);
+                }
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[49]" type="UMLNoteLinkView" guid="D6ZZgAdiYkyqgN//VA9G+AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2930,2264;3041,1839</XPD:ATTR>
+<XPD:REF name="Head">331H0cHWaUGikZrFEDpR+gAA</XPD:REF>
+<XPD:REF name="Tail">S9EShNcXlUKKijrv8ynzQQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[50]" type="UMLNoteLinkView" guid="UaSiegNkmk6lxb0qOdxP9AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3003,2264;3440,1847</XPD:ATTR>
+<XPD:REF name="Head">QfaxbQ2qjEinjHVaZgWFTAAA</XPD:REF>
+<XPD:REF name="Tail">S9EShNcXlUKKijrv8ynzQQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[51]" type="UMLNoteLinkView" guid="DvluGel0eUmr3FWwqnSTywAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3452,2243;3061,2325</XPD:ATTR>
+<XPD:REF name="Head">S9EShNcXlUKKijrv8ynzQQAA</XPD:REF>
+<XPD:REF name="Tail">vMZwurQ4EEaDzafqsZAUWQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[52]" type="UMLNoteLinkView" guid="/QuTnQh6jk+U2hIHQhYnTwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2851,2451;2455,3128</XPD:ATTR>
+<XPD:REF name="Head">fxMpYzPFyEKICIsCIhnM2QAA</XPD:REF>
+<XPD:REF name="Tail">S9EShNcXlUKKijrv8ynzQQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[53]" type="UMLNoteLinkView" guid="a+c1rXOivESpBhidRFljTQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2890,2837;2477,3227</XPD:ATTR>
+<XPD:REF name="Head">fxMpYzPFyEKICIsCIhnM2QAA</XPD:REF>
+<XPD:REF name="Tail">LIMskKePeUyx/Se+wxmrcgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[54]" type="UMLNoteView" guid="vTDT1OLoB0uTg9JW9elVewAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3380</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2516</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">572</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">608</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//执行粒子发射
+void ParticleTechnique::_executeEmitParticles( ParticleEmitter* emitter, unsigned requested, float timeElapsed )
+{
+        unsigned maxRenderSuport = mRenderer-&gt;getMaxRenderSuport();
+
+        float timePoint = 0.0f;
+        float timeInc = timeElapsed / requested;
+        for (unsigned int j = 0; j &lt; requested; ++j)
+        {
+                //释放出粒子
+                Particle* particle = mPool.releaseParticle(emitter-&gt;getEmitsType(), emitter-&gt;getName());
+
+                if (!particle)
+                        return;
+                particle-&gt;virgin = true;
+                particle-&gt;_initForEmission();
+                //初始化粒子属性
+                emitter-&gt;_initParticleForEmission(particle);
+
+                particle-&gt;direction = (getWorldRotation() * particle-&gt;direction);
+                particle-&gt;originalDirection = (getWorldRotation() * particle-&gt;originalDirection);
+                //应用影响器
+                if (!mAffectors.empty())
+                {
+                        Affectors::Iterator i, iend = mAffectors.end();
+                        for (i = mAffectors.begin(); i != iend; ++i)
+                        {
+                                ParticleAffector* affector = static_cast&lt;ParticleAffector*&gt;(*i);
+                                if(affector-&gt;isEnabled())
+                                        affector-&gt;_initParticleForEmission(particle);
+                        }
+                }
+
+                _initParticleForEmission(particle);
+
+                particle-&gt;position = (particle-&gt;direction * mParticleSystemScaleVelocity * timePoint) + particle-&gt;position;
+
+                timePoint += timeInc;
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[55]" type="UMLNoteLinkView" guid="w4wYquyV5k25LJpFDJOhFgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3380,2780;3228,2759</XPD:ATTR>
+<XPD:REF name="Head">LIMskKePeUyx/Se+wxmrcgAA</XPD:REF>
+<XPD:REF name="Tail">vTDT1OLoB0uTg9JW9elVewAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[56]" type="UMLNoteView" guid="cP9Q4EV5DkWnsPwyoCRQLQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4020</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2648</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">354</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ParticleTechnique::_initParticleForEmission(Particle* particle)
+{
+        if (!mListenerList.empty())
+        {
+                TechniqueListenerList::Iterator it;
+                TechniqueListenerList::Iterator itEnd = mListenerList.end();
+                for (it = mListenerList.begin(); it != itEnd; ++it)
+                {
+                        (*it)-&gt;particleEmitted(this, particle);
+                }
+        }
+        if (mRenderer)
+                mRenderer-&gt;_initParticleForEmission(particle);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[57]" type="UMLNoteView" guid="gG5aMfg/0EmuzVlQ1z0LvAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4408</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2480</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">528</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">263</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///粒子发射后
+void ParticleStaticModelRenderer::particleEmitted(ParticleTechnique* particleTechnique, Particle* particle)
+{
+        if (mMaterialDirty)
+        {
+                updateMaterial();
+                mMaterialDirty = false;
+        }
+        if (mNode &amp;&amp; particle-&gt;particleType == Particle::PT_VISUAL)
+        {
+                ParticleVisual* visual = static_cast&lt;ParticleVisual*&gt;(particle);
+                if (!particle-&gt;visualData)
+                {
+                        allocVisualData(visual);
+                }
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[58]" type="UMLNoteLinkView" guid="yliQXUVp6Ui0ZhrwrBfjcQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4020,2777;3951,2785</XPD:ATTR>
+<XPD:REF name="Head">vTDT1OLoB0uTg9JW9elVewAA</XPD:REF>
+<XPD:REF name="Tail">cP9Q4EV5DkWnsPwyoCRQLQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[59]" type="UMLNoteLinkView" guid="AVOEY+be1E6baRz+djh5tAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4408,2691;4373,2702</XPD:ATTR>
+<XPD:REF name="Head">cP9Q4EV5DkWnsPwyoCRQLQAA</XPD:REF>
+<XPD:REF name="Tail">gG5aMfg/0EmuzVlQ1z0LvAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[60]" type="UMLNoteView" guid="GdRst93DD0iRY8JbCKw1JQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4056</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2236</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">318</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">323</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ParticleEmitter::_initParticleForEmission(Particle* particle)
+{
+        particle-&gt;parentEmitter = this;
+        _initParticlePosition(particle);
+        _initParticleDirection(particle);
+        _initParticleVelocity(particle);
+        _initParticleOrientation(particle);
+        _initParticleZRotation(particle);
+        _initParticleMass(particle);
+        _initParticleColor(particle);
+        _initParticleScale(particle);
+        _initParticleTextureCoords(particle);
+        particle-&gt;totalTimeToLive = _initParticleTimeToLive();
+        particle-&gt;timeToLive = particle-&gt;totalTimeToLive;
+        if (particle-&gt;timeToLive == 0.0f)
+                particle-&gt;timeToLive = M_INFINITY;
+                
+        _initParticleDimensions(particle);
+
+        particle-&gt;setInitialState();
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[61]" type="UMLNoteLinkView" guid="zpNc2wTOAUaM4Az0oTgj8gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4056,2518;3951,2599</XPD:ATTR>
+<XPD:REF name="Head">vTDT1OLoB0uTg9JW9elVewAA</XPD:REF>
+<XPD:REF name="Tail">GdRst93DD0iRY8JbCKw1JQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[62]" type="UMLNoteView" guid="+gDT//1nbkeaFZfnIyxxWQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2804</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3188</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">374</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">398</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//准备处理粒子
+void ParticleTechnique::_preProcessParticles( float timeElapsed )
+{
+        mRenderer-&gt;_preProcessParticles(this,timeElapsed);
+
+        Emitters::Iterator i, iend = mEmitters.end();
+        for (i = mEmitters.begin(); i != iend; ++i)
+        {
+                ParticleEmitter* emitter = static_cast&lt;ParticleEmitter*&gt;(*i);
+                emitter-&gt;_preProcessParticles(this,timeElapsed);
+        }
+
+        Affectors::Iterator i, iend = mAffectors.end();
+        for (i = mAffectors.begin(); i != iend; ++i)
+        {
+                ParticleAffector* affector = static_cast&lt;ParticleAffector*&gt;(*i);
+                affector-&gt;_preProcessParticles(this,timeElapsed);
+        }
+
+        Observers::Iterator i, iend = mObservers.end();
+        for (i = mObservers.begin(); i != iend; ++i)
+        {
+                ParticleObserver* observer = *i;
+                observer-&gt;_preProcessParticles(this, timeElapsed);
+        }   
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[63]" type="UMLNoteLinkView" guid="BUQfzjg+K0ieUaTWkffibwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2804,3388;2477,3392</XPD:ATTR>
+<XPD:REF name="Head">fxMpYzPFyEKICIsCIhnM2QAA</XPD:REF>
+<XPD:REF name="Tail">+gDT//1nbkeaFZfnIyxxWQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[64]" type="UMLNoteView" guid="OSiXq/wXtUqxE8+Z1jW6ugAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3424</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3256</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">517</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">293</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//准备处理粒子
+void ParticleRenderer::_preProcessParticles(ParticleTechnique* particleTechnique, float timeElapsed)
+{
+        if (mMaterialDirty)
+        {
+                updateMaterial();
+                mMaterialDirty = false;
+        }
+        if (mTextureAnimation.enabled)
+        {
+                mTextureAnimation.nextIndex = false;
+                mTextureAnimation.animationTimeStepCount += timeElapsed;
+                if (mTextureAnimation.animationTimeStepCount &gt; mTextureAnimation.animationTimeStep)
+                {
+                        mTextureAnimation.animationTimeStepCount -= mTextureAnimation.animationTimeStep;
+                        mTextureAnimation.nextIndex = true;
+                }
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[65]" type="UMLNoteLinkView" guid="qY1oCOwzSkqwfCEY3YvWJgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3424,3396;3177,3390</XPD:ATTR>
+<XPD:REF name="Head">+gDT//1nbkeaFZfnIyxxWQAA</XPD:REF>
+<XPD:REF name="Tail">OSiXq/wXtUqxE8+Z1jW6ugAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[66]" type="UMLNoteView" guid="EEn9LgFt1kuP6QF9RWthggAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4072</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3200</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">526</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">458</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//更新材质
+void ParticleRenderer::updateMaterial()
+{
+        setMaterialTechnique(mMaterial);
+
+        //setMaterialDefines(mMaterial);
+
+        if (isColorMatrixSet())
+        {
+                mMaterial-&gt;setShaderParameter(&quot;ColorMatrix&quot;, mColorMatrix.getMatrix());
+        }
+
+        mDiffuseUVInfo.setMaterialUVTransform(mMaterial);
+
+        if (isDissolveEnabled(0))
+        {
+                mDissolveUVInfo.setMaterialUVTransform(mMaterial, DISSOLVE_UNAME, DISSOLVE_VNAME);
+        }
+
+        mMaterial-&gt;setRenderOrder(getDerivedRenderOrder());
+
+        
+        if (isGlowSet())
+        {
+                mMaterial-&gt;setShaderParameter(&quot;GlowThreshold&quot;, 1.0f - mGlow);
+                mMaterial-&gt;setShaderParameter(&quot;GlowColor&quot;, mGlowColor);
+        }
+
+        mMaterial-&gt;setDepthBias(BiasParameters(DEPTH_BIAS_VALUE[getDerivedDepthBiasLevel()], 0.0f));
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[67]" type="UMLNoteLinkView" guid="HyBshV5a2023vBTtdlqmmwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4072,3418;3940,3413</XPD:ATTR>
+<XPD:REF name="Head">OSiXq/wXtUqxE8+Z1jW6ugAA</XPD:REF>
+<XPD:REF name="Tail">EEn9LgFt1kuP6QF9RWthggAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[68]" type="UMLNoteView" guid="Njr4ibBQGkWdIQ6/PgTrIgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4676</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3388</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">306</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">83</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///设置材质技术
+void ParticleRenderer::setMaterialTechnique(Material* mat)
+{
+        mat-&gt;setTechnique(0, getParticleTechnique());
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[69]" type="UMLNoteLinkView" guid="J++rqQpgiEK7TevE/UhD3QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4676,3429;4597,3429</XPD:ATTR>
+<XPD:REF name="Head">EEn9LgFt1kuP6QF9RWthggAA</XPD:REF>
+<XPD:REF name="Tail">Njr4ibBQGkWdIQ6/PgTrIgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[70]" type="UMLNoteView" guid="oRypH5dcy0KQf1m86Duo8wAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2768</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3684</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">514</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">518</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ParticleTechnique::_processParticles(float timeElapsed)
+{
+        Particle* particle = mPool.getFirst();
+        ParticleEmitter* emitter = 0;
+        ParticleTechnique* technique = 0;
+        bool firstParticle = true;
+        bool firstActiveParticle = true;
+        while (!mPool.isEnd())
+        {
+                if (particle)
+                {
+                        if (!_isExpired(particle, timeElapsed))
+                        {
+                                _processMotion(particle, timeElapsed, firstActiveParticle);
+
+                                _processParticleSelf(particle, timeElapsed, firstActiveParticle);
+                                _processAffectors(particle, timeElapsed, firstActiveParticle);
+                                _processRenderer(particle, timeElapsed, firstActiveParticle);
+                                particle-&gt;latestPosition = particle-&gt;position;
+                        }
+                        else
+                        {
+                                _initParticleForExpiration(particle, timeElapsed);
+                                mPool.lockLatestParticle();
+                        }
+                        _processObservers(particle, timeElapsed, firstParticle);
+                        particle-&gt;stepTime(timeElapsed);
+                        particle-&gt;virgin = false;
+                }
+
+                firstParticle = false;
+                particle = mPool.getNext();
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[71]" type="UMLNoteLinkView" guid="Y0BWRKnYEUq2BoLWJ1+mxAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2768,3748;2477,3528</XPD:ATTR>
+<XPD:REF name="Head">fxMpYzPFyEKICIsCIhnM2QAA</XPD:REF>
+<XPD:REF name="Tail">oRypH5dcy0KQf1m86Duo8wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[72]" type="UMLNoteView" guid="x/49dVPz2EaZnz+L6+RrzAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3366</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3724</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">483</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">143</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ParticleTechnique::_processAffectors(Particle* particle, float timeElapsed, bool firstParticle)
+{
+        Affectors::Iterator i, iend = mAffectors.end();
+        for (i = mAffectors.begin(); i != iend; ++i)
+        {
+                ParticleAffector* affector = static_cast&lt;ParticleAffector*&gt;(*i);
+                affector-&gt;_processParticle(this, particle, timeElapsed, firstParticle);
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[73]" type="UMLNoteView" guid="uOjOj8kdnU6JZ+AaDnTNrwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3368</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3908</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">483</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ParticleTechnique::_processRenderer(Particle* particle, float timeElapsed, bool firstParticle)
+{
+        mRenderer-&gt;_processParticle(this, particle, timeElapsed, firstParticle);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[74]" type="UMLNoteView" guid="0+cEpHdlHkK9fre+/wbi7gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3948</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3804</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">397</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">278</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ParticleRenderer::_processParticle(ParticleTechnique* particleTechnique, 
+        Particle* particle, 
+        float timeElapsed, 
+        bool firstParticle)
+{
+        if (firstParticle)
+        {
+                if (!mFirstTotalTimeToLiveSet)
+                {
+                        mFirstTotalTimeToLive = particle-&gt;totalTimeToLive;
+                        mFirstTimeToLive = mFirstTotalTimeToLive;
+                        mFirstTotalTimeToLiveSet = true;
+                }
+        }
+
+        //更新序列动画
+        updateTextureAnimation(particle);
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[75]" type="UMLNoteLinkView" guid="+l9GiiQz0UuFeRWS8ltThwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3948,3942;3850,3942</XPD:ATTR>
+<XPD:REF name="Head">uOjOj8kdnU6JZ+AaDnTNrwAA</XPD:REF>
+<XPD:REF name="Tail">0+cEpHdlHkK9fre+/wbi7gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[76]" type="UMLNoteView" guid="8K7V1hxN40eDeE+IbI5OpgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">3366</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">4014</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">488</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">173</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ParticleTechnique::_processObservers(Particle* particle, float timeElapsed, bool firstParticle)
+{
+        if (mObservers.empty())
+                return;
+        Observers::Iterator i, iend = mObservers.end();
+        for (i = mObservers.begin(); i != iend; ++i)
+        {
+                ParticleObserver* observer = *i;
+                observer-&gt;_processParticle(this, particle, timeElapsed, firstParticle);
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[77]" type="UMLNoteView" guid="3XBwFHbX7UG2iHdzorqPvAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4424</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">3836</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">551</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">218</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ParticleRenderer::updateTextureAnimation(Particle* particle)
+{
+        //更新序列动画
+        if (mTextureAnimation.enabled &amp;&amp; particle-&gt;particleType == Particle::PT_VISUAL)
+        {
+                ParticleVisual* visualParticle = static_cast&lt;ParticleVisual*&gt;(particle);
+
+                if (mTextureAnimation.nextIndex)
+                {
+                        mTextureAnimation._determineNextTextureCoords(this, visualParticle-&gt;textureCoordsCurrent,
+                                visualParticle-&gt;textureAnimationDirectionUp);
+                }
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[78]" type="UMLNoteLinkView" guid="kxuA3GjUkUyX7DveXkdf0QAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4424,3943;4344,3943</XPD:ATTR>
+<XPD:REF name="Head">0+cEpHdlHkK9fre+/wbi7gAA</XPD:REF>
+<XPD:REF name="Tail">3XBwFHbX7UG2iHdzorqPvAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[79]" type="UMLNoteLinkView" guid="N9KDzDkVokenvhmWTl4CiAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3366,3856;3281,3877</XPD:ATTR>
+<XPD:REF name="Head">oRypH5dcy0KQf1m86Duo8wAA</XPD:REF>
+<XPD:REF name="Tail">x/49dVPz2EaZnz+L6+RrzAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[80]" type="UMLNoteLinkView" guid="iIIzarFiqEykFJqR+yC0+AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3368,3941;3281,3941</XPD:ATTR>
+<XPD:REF name="Head">oRypH5dcy0KQf1m86Duo8wAA</XPD:REF>
+<XPD:REF name="Tail">uOjOj8kdnU6JZ+AaDnTNrwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[81]" type="UMLNoteLinkView" guid="raOK9bXZ/0+poV3QNuqeRwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3366,4034;3281,4011</XPD:ATTR>
+<XPD:REF name="Head">oRypH5dcy0KQf1m86Duo8wAA</XPD:REF>
+<XPD:REF name="Tail">8K7V1hxN40eDeE+IbI5OpgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[82]" type="UMLNoteView" guid="z2CcQgCyD0Ksfw0EhJ2ZsQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2824</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">4480</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">393</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">443</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//粒子处理完毕
+void ParticleTechnique::_postProcessParticles( float timeElapsed )
+{
+        mUpdateWorldBoundingbox = false;
+        mWorldBoundingbox.setExtents(mMinWorldExtend, mMaxWorldExtend);
+        
+        mRenderer-&gt;_postProcessParticles(this,timeElapsed);
+
+        Emitters::Iterator i, iend = mEmitters.end();
+        for (i = mEmitters.begin(); i != iend; ++i)
+        {
+                ParticleEmitter* emitter = static_cast&lt;ParticleEmitter*&gt;(*i);
+                emitter-&gt;_postProcessParticles(this,timeElapsed);
+        }
+        
+        Affectors::Iterator i, iend = mAffectors.end();
+        for (i = mAffectors.begin(); i != iend; ++i)
+        {
+                ParticleAffector* affector = static_cast&lt;ParticleAffector*&gt;(*i);
+                affector-&gt;_postProcessParticles(this,timeElapsed);
+        }
+
+        Observers::Iterator i, iend = mObservers.end();
+        for (i = mObservers.begin(); i != iend; ++i)
+        {
+                ParticleObserver* observer = *i;
+                observer-&gt;_postProcessParticles(this, timeElapsed);
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[83]" type="UMLNoteLinkView" guid="/vIQrHvf8UirCEzcf4n09wAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2898,4480;2446,3660</XPD:ATTR>
+<XPD:REF name="Head">fxMpYzPFyEKICIsCIhnM2QAA</XPD:REF>
+<XPD:REF name="Tail">z2CcQgCyD0Ksfw0EhJ2ZsQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[84]" type="UMLNoteView" guid="sAv8J1PG3UOuxFz9UyfefQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4264</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">836</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">602</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">1208</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">//分配显示对象
+StaticModelRendererVisualData* ParticleStaticModelRenderer::allocVisualData(ParticleVisual* particle)
+{
+        //直接创建一个
+        data = new StaticModelRendererVisualData();
+        //创建节点
+        data-&gt;node = new Node(mContext);
+        data-&gt;node-&gt;init();
+        mNode-&gt;addChild(data-&gt;node);
+        syncNodeFlag(data-&gt;node);
+        data-&gt;node-&gt;setTemporary(true);
+        //创建模型
+        data-&gt;model = data-&gt;node-&gt;createComponent&lt;StaticModel&gt;();
+        mActiveVisualDatas.push(data);
+        
+        data-&gt;model-&gt;setOccludee(!isUseIdentityViewProj());
+        data-&gt;model-&gt;setModelName(mModelName,false);
+        data-&gt;model-&gt;setViewMask(mViewMask);
+        data-&gt;model-&gt;setZoneMask(mZoneMask);
+        //data-&gt;originalOrientation = data-&gt;node-&gt;getWorldRotation();
+        //获取第一个材质的纹理
+        if (mOldTextures.empty())
+        {
+                for (unsigned index = 0; index &lt; data-&gt;model-&gt;getNumMaterials(); ++index)
+                {
+                        Material* material = data-&gt;model-&gt;getMaterial(index);
+                        if (material)
+                        {
+                                Texture* texture = material-&gt;getTexture(TU_DIFFUSE);
+                                if (texture)
+                                        texture-&gt;setBorderColor(Color(0.0f, 0.0f, 0.0f, 0.0f));
+                                mOldTextures.push(SharedPtr&lt;Texture&gt;(texture));
+                        }
+                }
+        }
+        //创建材质
+        data-&gt;materials.clear();
+        for (unsigned index = 0; index &lt; data-&gt;model-&gt;getNumMaterials(); ++index)
+        {
+                SharedPtr&lt;Material&gt; newMaterial(C_NEW Material(mContext));
+                data-&gt;model-&gt;setMaterial(index, newMaterial);
+                data-&gt;materials.push(newMaterial);
+        }
+        //初始化序列帧动画值
+        if (mTextureAnimation.enabled)
+        {
+                data-&gt;textureAnimation.type = mTextureAnimation.type;
+                data-&gt;textureAnimation.startRandom = mTextureAnimation.startRandom;
+                data-&gt;textureAnimation.animationTimeStep = mTextureAnimation.animationTimeStep;
+                data-&gt;textureAnimation.animationTimeStepCount = mTextureAnimation.animationTimeStepCount;
+                data-&gt;textureAnimation.nextIndex = false;
+                data-&gt;textureAnimation.textureCoordsStart = 0;
+                data-&gt;textureAnimation.textureCoordsEnd = getNumImagesets() - 1;
+
+                if (data-&gt;textureAnimation.startRandom)
+                {
+                        particle-&gt;textureCoordsCurrent = 
+                                (uint16)getParticleSystem()-&gt;getRangeRandom((float)data-&gt;textureAnimation.textureCoordsStart, 
+                                (float)data-&gt;textureAnimation.textureCoordsEnd + 0.999f);
+                }
+                else
+                {
+                        particle-&gt;textureCoordsCurrent = data-&gt;textureAnimation.textureCoordsStart;
+                }
+
+        }
+        data-&gt;setVisible(mNode-&gt;isEnabled());
+        data-&gt;particle = particle;
+        particle-&gt;visualData = data;
+        updateMaterialProperties(data);
+
+        if (!getParticleSystem()-&gt;isKeepLocal() || !getParentTechnique()-&gt;isKeepLocal())
+        {
+                Quaternion rot = data-&gt;node-&gt;getWorldRotation();
+                //data-&gt;node-&gt;setInheritRotation(false);
+                data-&gt;originalOrientation = rot;
+                data-&gt;node-&gt;setWorldRotation(rot);
+        }
+        return data;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[85]" type="UMLNoteLinkView" guid="/k2SfS0AtUulDVpE/j8jAwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4865,1952;4968,1952;4968,2655;4935,2655</XPD:ATTR>
+<XPD:REF name="Head">gG5aMfg/0EmuzVlQ1z0LvAAA</XPD:REF>
+<XPD:REF name="Tail">sAv8J1PG3UOuxFz9UyfefQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[86]" type="UMLNoteView" guid="cOA2ZS20rEepl6VPqrkpbwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2836</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">64</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">586</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">563</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">///更新纹理
+void ParticleRenderer::updateTexture()
+{
+        mImagedefs.clear();
+        ResourceCache* cache = mContext-&gt;getSubsystem&lt;ResourceCache&gt;();
+        if (!mTextureName.empty())
+                mTexture = cache-&gt;getResource&lt;Texture2D&gt;(mTextureName, true, Texture::CLOSE_MINMAP_PARAMS);
+
+        mImageset = SharedPtr&lt;Imageset&gt;(C_NEW Imageset(mContext));
+        mImageset-&gt;setExternalTexture(mTexture);
+        //进行图片分割
+        if (mTexture)
+        {
+                unsigned column = mTextureSplitColumn;
+                unsigned row = mTextureSplitRow;
+                if (!isTextureAnimationEnabled())
+                {
+                        column = 1;
+                        row = 1;
+                }
+                unsigned width = mTexture-&gt;getWidth() / column;
+                unsigned height = mTexture-&gt;getHeight() / row;
+                for (unsigned h = 0; h &lt; row; ++h)
+                {
+                        for (unsigned w = 0; w &lt; column; ++w)
+                        {
+                                Imagedef def(mImageset, String::EMPTY, Rect(Point(w * width, h * height), Size(width, height)),
+                                        Point(0, 0));
+                                mImagedefs.push(def);
+                        }
+                }
+                mTexture-&gt;setBorderColor(Color(0.0f, 0.0f, 0.0f, 0.0f));
+                mTexture-&gt;setAddressMode(COORD_U, (TextureAddressMode)mDiffuseUVInfo.mUAddressMode);
+                mTexture-&gt;setAddressMode(COORD_V, (TextureAddressMode)mDiffuseUVInfo.mVAddressMode);
+        }
+        mTextureDirty = false;
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[87]" type="UMLNoteLinkView" guid="HmbxPjyb6k6hmGGIsKKUyQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2836,390;2561,432</XPD:ATTR>
+<XPD:REF name="Head">fza9BCA/fUymmdslUJW9ugAA</XPD:REF>
+<XPD:REF name="Tail">cOA2ZS20rEepl6VPqrkpbwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[88]" type="UMLNoteLinkView" guid="ZwjOX4fAJky1Z2jZmFxhSAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">3660,342;3421,343</XPD:ATTR>
+<XPD:REF name="Head">cOA2ZS20rEepl6VPqrkpbwAA</XPD:REF>
+<XPD:REF name="Tail">42gPLh1ULkCQUot2bmCXdwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[89]" type="UMLNoteView" guid="BIBr2Xp/ZEy4Slpghk4nIwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4408</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">2764</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">535</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">413</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">void ParticleRenderer::_initParticleForEmission(Particle* particle)
+{
+        if (particle-&gt;particleType == Particle::PT_VISUAL &amp;&amp; mTextureAnimation.enabled)
+        {
+                ParticleVisual* visualParticle = static_cast&lt;ParticleVisual*&gt;(particle);
+
+                if (mTextureAnimation.startRandom)
+                {
+                        uint16 randomStart = mTextureAnimation.randomStart;
+                        uint16 randomEnd = mTextureAnimation.randomEnd;
+
+                        if (randomStart &lt; mTextureAnimation.textureCoordsStart)
+                                randomStart = mTextureAnimation.textureCoordsStart;
+                        if (randomEnd == 0 || randomEnd &gt; mTextureAnimation.textureCoordsEnd)
+                                randomEnd = mTextureAnimation.textureCoordsEnd;
+                        if (randomEnd &lt; randomStart)
+                                randomEnd = randomStart;
+
+                        visualParticle-&gt;textureCoordsCurrent = 
+                            getParticleSystem()-&gt;getRangeRandom((float)randomStart, (float)randomEnd + 0.999f);
+                }
+                else
+                {
+                        visualParticle-&gt;textureCoordsCurrent = mTextureAnimation.textureCoordsStart;
+                }
+        }
+}
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[90]" type="UMLNoteLinkView" guid="jqC0PdXMoUSB/InpV4OUDQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">4408,2851;4373,2835</XPD:ATTR>
+<XPD:REF name="Head">cP9Q4EV5DkWnsPwyoCRQLQAA</XPD:REF>
+<XPD:REF name="Tail">BIBr2Xp/ZEy4Slpghk4nIwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
